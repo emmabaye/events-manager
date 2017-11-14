@@ -3,7 +3,7 @@ body{
 }
 
 .navbar{
-	background-color: transparent !important;
+	background-color: grey !important;
 	box-shadow: 10px 10px 2px !important black;
 	border-bottom-style: solid;
 	border-bottom-width: 1px !important;
@@ -80,10 +80,42 @@ body{
 
 /* Footer */
 footer {
-	height: 25px !important;
+	max-height: 25px !important;
 	color: black;
 }
 
 footer p {
 	margin-top: 25px;
+}
+
+/* Sign In */
+.signup {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+	background-image: url('../img/samuel-zeller-103111.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fix;
+
+}
+
+.signup input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.signup form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 0.8;
+	font-weight: bold;
+	max-width:600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 3px;
 }
