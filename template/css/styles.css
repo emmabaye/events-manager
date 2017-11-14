@@ -1,0 +1,89 @@
+body{
+	background-color: grey;
+}
+
+.navbar{
+	background-color: transparent !important;
+	box-shadow: 10px 10px 2px !important black;
+	border-bottom-style: solid;
+	border-bottom-width: 1px !important;
+	border-bottom-color: black !important;
+}
+
+.navbar-brand {
+	color: black !important;
+}
+
+.navbar a{
+	font-weight: bold;
+	color: black !important;
+
+}
+
+.navbar a.navbar-brand{
+
+}
+
+
+.navbar a.active{
+
+}
+
+
+
+/* Carousel */
+.carousel {
+	background-color: black;
+	height: 500px !important;
+	overflow: hidden;
+	text-shadow: black 2px 2px;
+}
+
+.carousel img {
+	height: 500px;
+	width: inherit;
+}
+
+
+/* Features */
+.features {
+	min-height: 300px;
+	background-color: black;
+	opacity: 0.7;
+}
+
+.features > p {
+	padding-top: 20px;
+	color: white;
+}
+
+.feature {
+	color: white;
+}
+
+/* Capacity */
+.capacity {
+	height: 500px;
+	background-image: url('../img/deklerk-basson-44610.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.capacity p {
+	padding-top: 50px;
+	color: black;
+	text-shadow: white 2px 2px;
+	font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+	height: 25px !important;
+	color: black;
+}
+
+footer p {
+	margin-top: 25px;
+}
