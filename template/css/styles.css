@@ -21,7 +21,7 @@ body{
 }
 
 .navbar a.navbar-brand{
-
+	font-size: 150%;
 }
 
 
@@ -118,4 +118,143 @@ footer p {
 	margin-right: auto !important;
 	margin-bottom: 3%;
 	border-radius: 3px;
+}
+
+
+/* Events */
+.events{
+	margin-top: 50px;
+}
+
+.event-row {
+	margin-bottom: 2%;
+}
+
+.event {
+	margin-bottom: 20px;
+
+}
+
+.event .card {
+	box-shadow: 3px 3px 5px black;
+}
+
+
+/* Add Events */
+.add-event {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+	background-image: url('../img/chaz-mcgregor-51043.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+}
+
+.add-event textarea {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-event input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-event select {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-event form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 0.9;
+	font-weight: bold;
+	max-width:600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 10px;
+	border-color: grey;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 3px 3px 5px black;
+}
+
+/* Modify Event */
+.modify-event {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+}
+
+.modify-event textarea {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.modify-event input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.modify-event select {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.modify-event form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 1;
+	font-weight: bold;
+	max-width:600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 10px;
+	border-color: grey;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 3px 3px 5px black;
+}
+
+
+/* Event */
+.event-details {
+	margin-top: 50px;
+	
+}
+
+.venue-date .card {
+	margin-bottom: 20px;
+	width: 100%;
+	box-shadow: 3px 3px 5px black;
+}
+
+.event-details .card-header {
+	background-color: grey;
+
 }
