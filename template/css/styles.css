@@ -75,6 +75,11 @@ body {
 footer {
 	max-height: 25px !important;
 	color: black;
+	border-top-style: solid;
+	border-top-color: black;
+	border-top-width: 1px;
+	margin-left: 40px !important;
+	margin-right: 40px !important;
 }
 
 footer p {
