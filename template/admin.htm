@@ -32,7 +32,7 @@
 						<a class="nav-link" href="./myevents.htm">My Events</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="./mycenters.htm">My Centres</a>
+						<a class="nav-link" href="./admin.htm">Admin</a>
 					</li>
 				</ul>
 			</div>
@@ -41,9 +41,9 @@
 			<div class="row">
 				<div class="col-sm-2 side">
 					<div class="list-group sidebar">
-						<a href="#" class="list-group-item list-group-item-action active">Centers</a>
-						<a  class="list-group-item list-group-item-action" onclick="show('add-center')">Add Center</a>
-						<a href="#" class="list-group-item list-group-item-action " >Events</a>
+						<a href="#" class="list-group-item list-group-item-action " onclick="show('centers')">Centers</a>
+						<a  href="#" class="list-group-item list-group-item-action" onclick="show('add-center')">Add Center</a>
+						<a href="./myevents.htm" class="list-group-item list-group-item-action" >Events</a>
 						<a href="#" class="list-group-item list-group-item-action">Users</a>
 					</div>
 					
@@ -190,7 +190,7 @@
 											<p class="card-text h6"><b>Location</b>: Ojota, Lagos</p>
 											<p class="card-text h6"><b>Capacity</b>: 500 seats</p>
 											<p class="card-text h6"><b>Price</b>: 150 000</p>
-											<p class="text-center"><a href="#" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Center</a>
+											<p class="text-center"><a href="#" class="btn btn-sm btn-primary" onclick="show('center-details')"><i class="fa fa-info-circle fa-lg"></i> View Center</a>
 											<a href="#" class="btn btn-sm btn-success" onclick="show('modify-center')"><i class="fa fa-edit fa-lg" ></i> Modify</a>
 											<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o fa-lg"></i> Delete</a></p>
 										</div>
@@ -244,10 +244,120 @@
 										</form>
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
+										<button type="button" class="btn btn-sm btn-secondary" >Cancel</button>
 										<button type="button" class="btn btn-sm btn-danger">Delete Center</button>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<div id="center-details" class=" panel center-details">
+						
+						<div class="container event-details">
+							<div class="row">
+								<div class=" event">
+									<div class="card mb-3">
+										<img class="card-img-top" src="./img/matthew-cramblett-429664.jpg" height="300px" alt="Card image cap">
+										<div class="card-block">
+											<h5 class="card-title"><b>City Halls</b></h5>
+											<p class="card-text">Suitable center for all kinds of events. We offer affordable prices.</p>
+											<p>Lorem ipsum dolor sit amet, consectetur uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatadipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatsint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+									
+									<div class="row venue-date" >
+										<div class="container">
+											
+											
+											
+											<div class="card" style="min-height: 350px !important">
+												<h6 class="card-header"><b>LOCATION</b></h6>
+												<div class="card-block">
+													<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=Ojota, lagos&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{overflow:hidden;height:100%;width:100%;}.gmap_canvas {background:none!important;height:100%;width:100%;}</style></div>
+												</div>
+											</div>
+											<div class="card">
+												<h6 class="card-header"><b>EVENTS</b></h6>
+												<div class="card-block">
+													<div class="container events">
+														<div class="row event-row">
+															<div class="col-md-4 event">
+																<div class="card">
+																	<div class="card-block">
+																		<h5 class="card-title"><b>Empowerment Seminar</b></h5>
+																		<p class="card-text h6">Lorem ipsum dolor sit amet, consectetur uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatadipiscing</p>
+																		<p class="card-text h6"><b>Venue</b>: City Halls, Lagos</p>
+																		<p class="card-text h6"><b>Date</b>: Saturday, 23 December, 2017</p>
+																		<p class="card-text h6"><b>Time</b>: 4:30pm</p>
+																		<p class="card-text h6"><b>Status</b>: Canceled</p>
+																		<p class="text-center"><a href="./event.htm" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Event</a>
+																		<a href="#" class="btn btn-sm btn-danger" ><i class="fa fa-times fa-lg"></i> Cancel</a></p>
+																	</div>
+																</div>
+															</div>
+															
+															<div class="col-md-4 event">
+																<div class="card">
+																	<div class="card-block">
+																		<h5 class="card-title"><b>Wedding Party</b></h5>
+																		<p class="card-text h6">With supporting text below as a natural lead-in to additional content.</p>
+																		<p class="card-text h6"><b>Venue</b>: City , Lagos</p>
+																		<p class="card-text h6"><b>Date</b>: Saturday, 23 December, 2017</p>
+																		<p class="card-text h6"><b>Time</b>: 4:30pm</p>
+																		<p class="card-text h6"><b>Status</b>: Holding</p>
+																		<p class="text-center"><a href="./event.htm" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Event</a>
+																		<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times fa-lg"></i> Cancel</a></p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 event">
+																<div class="card">
+																	<div class="card-block">
+																		<h5 class="card-title"><b>Wedding Party</b></h5>
+																		<p class="card-text h6">With supporting text below as a natural lead-in to additional content.</p>
+																		<p class="card-text h6"><b>Venue</b>: City , Lagos</p>
+																		<p class="card-text h6"><b>Date</b>: Saturday, 30 December, 2017</p>
+																		<p class="card-text h6"><b>Time</b>: 4:30pm</p>
+																		<p class="card-text h6"><b>Status</b>: Holding</p>
+																		<p class="text-center"><a href="./event.htm" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Event</a>
+																		<a href="#" class="btn btn-sm btn-danger" ><i class="fa fa-times fa-lg"></i> Cancel</a></p>
+																	</div>
+																</div>
+															</div>
+															
+															
+														</div> <nav aria-label="Page navigation example" >
+														<ul class="pagination">
+															<li class="page-item">
+																<a class="page-link" href="#" aria-label="Previous">
+																	<span aria-hidden="true">&laquo;</span>
+																	<span class="sr-only">Previous</span>
+																</a>
+															</li>
+															<li class="page-item"><a class="page-link" href="#">1</a></li>
+															<li class="page-item"><a class="page-link" href="#">2</a></li>
+															<li class="page-item"><a class="page-link" href="#">3</a></li>
+															<li class="page-item">
+																<a class="page-link" href="#" aria-label="Next">
+																	<span aria-hidden="true">&raquo;</span>
+																	<span class="sr-only">Next</span>
+																</a>
+															</li>
+														</ul>
+													</nav>
+													
+													
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>                      </div>
+								
+							</div>
+							<div class="row">
+								
 							</div>
 						</div>
 					</div>
@@ -267,8 +377,13 @@
 				let show = function(elemId) {
 					document.getElementById("add-center").style.display = "none";
 					document.getElementById("modify-center").style.display = "none";
+					document.getElementById("centers").style.display = "none";
+					document.getElementById("center-details").style.display = "none";
 					document.getElementById(elemId).style.display = "flex";
-					console.log("Banana")
+					
+				}
+				window.onload = function() {
+					show("centers");
 				}
 			</script>
 		</div>
