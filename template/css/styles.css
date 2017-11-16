@@ -1,8 +1,8 @@
-body{
+body {
 	background-color: grey;
 }
 
-.navbar{
+.navbar {
 	background-color: grey !important;
 	box-shadow: 10px 10px 2px !important black;
 	border-bottom-style: solid;
@@ -14,22 +14,17 @@ body{
 	color: black !important;
 }
 
-.navbar a{
+.navbar a {
 	font-weight: bold;
 	color: black !important;
-
 }
 
-.navbar a.navbar-brand{
+.navbar a.navbar-brand {
 	font-size: 150%;
 }
 
-
-.navbar a.active{
-
+.navbar a.active {
 }
-
-
 
 /* Carousel */
 .carousel {
@@ -43,7 +38,6 @@ body{
 	height: 500px;
 	width: inherit;
 }
-
 
 /* Features */
 .features {
@@ -77,7 +71,6 @@ body{
 	font-weight: bold;
 }
 
-
 /* Footer */
 footer {
 	max-height: 25px !important;
@@ -97,7 +90,6 @@ footer p {
 	background-size: cover;
 	background-position: center;
 	background-attachment: fix;
-
 }
 
 .signup input {
@@ -113,16 +105,15 @@ footer p {
 	background-color: white;
 	opacity: 0.8;
 	font-weight: bold;
-	max-width:600px;
+	max-width: 600px;
 	margin-left: auto !important;
 	margin-right: auto !important;
 	margin-bottom: 3%;
 	border-radius: 3px;
 }
 
-
 /* Events */
-.events{
+.events {
 	margin-top: 50px;
 }
 
@@ -132,13 +123,11 @@ footer p {
 
 .event {
 	margin-bottom: 20px;
-
 }
 
 .event .card {
 	box-shadow: 3px 3px 5px black;
 }
-
 
 /* Add Events */
 .add-event {
@@ -149,7 +138,6 @@ footer p {
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
-
 }
 
 .add-event textarea {
@@ -182,7 +170,7 @@ footer p {
 	background-color: white;
 	opacity: 0.9;
 	font-weight: bold;
-	max-width:600px;
+	max-width: 600px;
 	margin-left: auto !important;
 	margin-right: auto !important;
 	margin-bottom: 3%;
@@ -230,7 +218,7 @@ footer p {
 	background-color: white;
 	opacity: 1;
 	font-weight: bold;
-	max-width:600px;
+	max-width: 600px;
 	margin-left: auto !important;
 	margin-right: auto !important;
 	margin-bottom: 3%;
@@ -241,11 +229,9 @@ footer p {
 	box-shadow: 3px 3px 5px black;
 }
 
-
 /* Event */
 .event-details {
 	margin-top: 50px;
-	
 }
 
 .venue-date .card {
@@ -256,5 +242,86 @@ footer p {
 
 .event-details .card-header {
 	background-color: grey;
+}
 
+/* Sidebar */
+.admin .side {
+	background-color: grey;
+	padding: 0;
+	border-right-width: 2px;
+	border-right-style: solid;
+	border-right-color: black;
+	overflow: visible;
+	min-height: 1920px;
+}
+
+.admin .sidebar {
+	margin-top: 30%;
+	margin-bottom: 10%;
+}
+
+.side a {
+	background-color: grey;
+	color: black;
+	font-weight: bold;
+}
+
+.admin .panel {
+	background-color: white;
+	height: 100%;
+}
+
+.admin .panel-container {
+	padding: 0;
+}
+
+.add-center {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	display: none;
+}
+
+.add-center textarea {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-center input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-center select {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-center form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 0.9;
+	font-weight: bold;
+	max-width: 600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 10px;
+	border-color: grey;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 3px 3px 5px black;
 }
