@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Add Event | Events Manager</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/styles.css">
+		<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="./index.htm">EVENTS MANAGER</a>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="./index.htm">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./myevents.htm">My Events</a>
+
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./admin.htm">Admin</a>
+
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container add-event ">
+			<div class= "row">
+				<div class="container">
+
+					<form>
+						<p class="text-center h5"><b>ADD EVENT</b></p>
+						<div class="form-group row">
+							<label for="title" class="col-sm-3 col-form-label">Title</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="" placeholder="Title">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="Description" class="col-sm-3 col-form-label">Description</label>
+							<div class="col-sm-9">
+								<textarea type="text" class="form-control" id="" placeholder="Description">
+								</textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="venue" class="col-sm-3 col-form-label">Venue</label>
+							<div class="col-sm-9">
+							<select class="form-control" id="venue">
+								<option>City Halls</option>
+								<option>Ipsum Gardens</option>
+								<option>Fred Smith Park</option>
+								<option>Lorem Auditorium</option>
+								<option>EM Event Center</option>
+							</select>
+							<small id="fileHelp" class="form-text text-muted"><a href="./centers.htm" target="_blank">View Centers</a></small>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="title" class="col-sm-3 col-form-label">Date</label>
+							<div class="col-sm-9">
+								<input type="date" class="form-control" id="">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="title" class="col-sm-3 col-form-label">Time</label>
+							<div class="col-sm-9">
+								<input type="time" class="form-control" id="">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="exampleInputFile"  class="col-sm-3 col-form-label">Image</label>
+							<div class="col-sm-9">
+								<input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp">
+								<small id="fileHelp" class="form-text text-muted">( Optional )</small>
+							</div>
+						</div>
+
+						
+						
+						<div class="form-group row">
+							<div class="offset-sm-3 col-sm-9">
+								<button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus fa-lg"></i> Add Event</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="container-fluid fixed-bottom">
+			<p class="h6 text-center"><i class="fa fa-copyright"></i> 2015 EVENTS MANAGER</p>
+			
+		</footer>
+		
+		<script src="./js/jquery-3.1.1.slim.min.js"></script>
+		<script src="./js/tether.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+	</body>
+</html>
