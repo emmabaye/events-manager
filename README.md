@@ -4,7 +4,7 @@ Application for managing event centers. this app will help you accept applicatio
 is already taken, or suggest an available day
 
 
-Live at 
+Live at https://emmabaye.github.io/events-manager/template/index.htm
 
 
 ## Features
