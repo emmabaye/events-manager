@@ -1,10 +1,10 @@
-# events-manager
+# Events-Manager
 Application for managing event centers. this app will help you accept applications
  to use your center/facilities, and will either decline events when the proposed day
 is already taken, or suggest an available day
 
 
-Live at https://emmabaye.github.io/events-manager/template/index.htm
+Live at  https://emmabaye.github.io/events-manager/template/index.htm
 
 
 ## Features
