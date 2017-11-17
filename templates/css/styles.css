@@ -1,0 +1,331 @@
+body {
+	background-color: #262626;
+}
+
+.navbar {
+	background-color: #262626 !important;
+	box-shadow: 10px 10px 2px !important black;
+	border-bottom-style: solid;
+	border-bottom-width: 1px !important;
+	border-bottom-color: black !important;
+}
+
+.navbar-brand {
+	color: black !important;
+}
+
+.navbar a {
+	font-weight: bold;
+	color: #BEBEBE !important;
+}
+
+.navbar a.navbar-brand {
+	font-size: 150%;
+}
+
+
+/* Carousel */
+.carousel {
+	background-color: black;
+	height: 500px !important;
+	overflow: hidden;
+	text-shadow: black 2px 2px;
+}
+
+.carousel img {
+	height: 500px;
+	width: inherit;
+}
+
+/* Features */
+.features {
+	min-height: 300px;
+	background-color: black;
+	opacity: 0.7;
+}
+
+.features > p {
+	padding-top: 20px;
+	color: white;
+}
+
+.feature {
+	color: white;
+}
+
+/* Capacity */
+.capacity {
+	height: 500px;
+	background-image: url('../img/deklerk-basson-44610.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.capacity p {
+	padding-top: 50px;
+	color: black;
+	text-shadow: white 2px 2px;
+	font-weight: bold;
+}
+
+/* Footer */
+footer {
+	max-height: 25px !important;
+	color: black;
+	border-top-style: solid;
+	border-top-color: black;
+	border-top-width: 1px;
+	margin-left: 40px !important;
+	margin-right: 40px !important;
+}
+
+footer p {
+	margin-top: 25px;
+}
+
+/* Sign In */
+.signup {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+	background-image: url('../img/samuel-zeller-103111.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fix;
+}
+
+.signup input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.signup form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 0.8;
+	font-weight: bold;
+	max-width: 600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 3px;
+}
+
+/* Events */
+.events {
+	margin-top: 50px;
+}
+
+.event-row {
+	margin-bottom: 2%;
+}
+
+.event {
+	margin-bottom: 20px;
+}
+
+.event .card {
+	box-shadow: 3px 3px 5px black;
+}
+
+/* Add Events */
+.add-event {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+	background-image: url('../img/chaz-mcgregor-51043.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.add-event textarea {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-event input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-event select {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-event form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 0.9;
+	font-weight: bold;
+	max-width: 600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 10px;
+	border-color: grey;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 3px 3px 5px black;
+}
+
+/* Modify Event */
+.modify-event {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+}
+
+.modify-event textarea {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.modify-event input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.modify-event select {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.modify-event form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 1;
+	font-weight: bold;
+	max-width: 600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 10px;
+	border-color: grey;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 3px 3px 5px black;
+}
+
+/* Event */
+.event-details {
+	margin-top: 50px;
+}
+
+.venue-date .card {
+	margin-bottom: 20px;
+	width: 100%;
+	box-shadow: 3px 3px 5px black;
+}
+
+.event-details .card-header {
+	background-color: #262626;
+	color: #BEBEBE;
+}
+
+/* Sidebar */
+.admin .side {
+	background-color: #262626;
+	padding: 0;
+	border-right-width: 2px;
+	border-right-style: solid;
+	border-right-color: black;
+	overflow: visible;
+	min-height: 1920px;
+}
+
+.admin .sidebar {
+	margin-top: 30%;
+	margin-bottom: 10%;
+}
+
+.side a {
+	background-color: #262626;
+	color: #BEBEBE;
+	font-weight: bold;
+}
+
+.admin .panel {
+	background-color: white;
+	height: 100%;
+}
+
+.admin .panel-container {
+	padding: 0;
+}
+
+.add-center {
+	padding-top: 5%;
+	width: 100%;
+	min-height: 600px;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	display: none;
+}
+
+.add-center textarea {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-center input {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-center select {
+	max-width: 300px;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.add-center form {
+	padding: 5%;
+	padding-bottom: 2%;
+	background-color: white;
+	opacity: 0.9;
+	font-weight: bold;
+	max-width: 600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 3%;
+	border-radius: 10px;
+	border-color: grey;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 3px 3px 5px black;
+}

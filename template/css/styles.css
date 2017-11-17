@@ -1,9 +1,9 @@
 body {
-	background-color: grey;
+	background-color: #262626;
 }
 
 .navbar {
-	background-color: grey !important;
+	background-color: #262626 !important;
 	box-shadow: 10px 10px 2px !important black;
 	border-bottom-style: solid;
 	border-bottom-width: 1px !important;
@@ -16,15 +16,13 @@ body {
 
 .navbar a {
 	font-weight: bold;
-	color: black !important;
+	color: #BEBEBE !important;
 }
 
 .navbar a.navbar-brand {
 	font-size: 150%;
 }
 
-.navbar a.active {
-}
 
 /* Carousel */
 .carousel {
@@ -246,12 +244,13 @@ footer p {
 }
 
 .event-details .card-header {
-	background-color: grey;
+	background-color: #262626;
+	color: #BEBEBE;
 }
 
 /* Sidebar */
 .admin .side {
-	background-color: grey;
+	background-color: #262626;
 	padding: 0;
 	border-right-width: 2px;
 	border-right-style: solid;
@@ -266,8 +265,8 @@ footer p {
 }
 
 .side a {
-	background-color: grey;
-	color: black;
+	background-color: #262626;
+	color: #BEBEBE;
 	font-weight: bold;
 }
 

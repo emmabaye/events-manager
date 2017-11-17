@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Admin | Events Manager</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/styles.css">
+		<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+		<style>
+			body {
+				
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="./index.htm">EVENTS MANAGER</a>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="./index.htm">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./addevent.htm">Add Event</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./myevents.htm">My Events</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./admin.htm">Admin</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid admin">
+			<div class="row">
+				<div class="col-sm-2 side">
+					<div class="list-group sidebar">
+						<a href="#" class="list-group-item list-group-item-action " onclick="show('centers')">Centers</a>
+						<a  href="#" class="list-group-item list-group-item-action" onclick="show('add-center')">Add Center</a>
+						<a href="./myevents.htm" class="list-group-item list-group-item-action" >Events</a>
+						<a href="#" class="list-group-item list-group-item-action">Users</a>
+					</div>
+					
+				</div>
+				<div class="col-sm-10 panel-column">
+					<div id="add-center" class="panel add-center">
+						
+						<div   class="container " >
+							<div class= "row">
+								<div class="container">
+									<form>
+										<p class="text-center h5"><b>ADD CENTER</b></p>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Name</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="Description" class="col-sm-3 col-form-label">Description</label>
+											<div class="col-sm-9">
+												<textarea type="text" class="form-control" id="" placeholder="">
+												</textarea>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Location</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Capacity</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Price</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Facilities</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="Separate with spaces">
+												<small id="fileHelp" class="form-text text-muted">( Optional )</small>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="exampleInputFile"  class="col-sm-3 col-form-label">Image</label>
+											<div class="col-sm-9">
+												<input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp">
+												<small id="fileHelp" class="form-text text-muted">( Optional )</small>
+											</div>
+										</div>
+										
+										
+										<div class="form-group row">
+											<div class="offset-sm-3 col-sm-9">
+												<button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus fa-lg"></i> Add Center</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<div id="modify-center" class="panel add-center">
+						
+						<div  class="container " >
+							<div class= "row">
+								<div class="container">
+									<form>
+										<p class="text-center h5"><b>MODIFY CENTER</b></p>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Name</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="Description" class="col-sm-3 col-form-label">Description</label>
+											<div class="col-sm-9">
+												<textarea type="text" class="form-control" id="" placeholder="">
+												</textarea>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Location</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Capacity</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Price</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="title" class="col-sm-3 col-form-label">Facilities</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="" placeholder="Separate with spaces">
+												<small id="fileHelp" class="form-text text-muted">( Optional )</small>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="exampleInputFile"  class="col-sm-3 col-form-label">Image</label>
+											<div class="col-sm-9">
+												<input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp">
+												<small id="fileHelp" class="form-text text-muted">( Optional )</small>
+											</div>
+										</div>
+										
+										
+										<div class="form-group row">
+											<div class="offset-sm-3 col-sm-9">
+												<button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus fa-lg"></i> Update</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<div id="centers" class="panel centers">
+						<div  id="events" class="container events">
+							<div class="row event-row">
+								<div class="col-md-4 event">
+									<div class="card">
+										<div class="card-block">
+											<h5 class="card-title"><b>City Halls</b></h5>
+											<p class="card-text h6">Suitable center for all kinds of events. We offer  affordable prices.</p>
+											<p class="card-text h6"><b>Location</b>: Ojota, Lagos</p>
+											<p class="card-text h6"><b>Capacity</b>: 500 seats</p>
+											<p class="card-text h6"><b>Price</b>: 150 000</p>
+											<p class="text-center"><a href="#" class="btn btn-sm btn-primary" onclick="show('center-details')"><i class="fa fa-info-circle fa-lg"></i> View Center</a>
+											<a href="#" class="btn btn-sm btn-success" onclick="show('modify-center')"><i class="fa fa-edit fa-lg" ></i> Modify</a>
+											<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o fa-lg"></i> Delete</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 event">
+									<div class="card">
+										<div class="card-block">
+											<h5 class="card-title"><b>EM Parks</b></h5>
+											<p class="card-text h6">The best environments for all your outdoor events. We also offer event planning as a bonus.</p>
+											<p class="card-text h6"><b>Location</b>: mile 4, Port Harcourt</p>
+											<p class="card-text h6"><b>Capacity</b>: 200 seats</p>
+											<p class="card-text h6"><b>Price</b>: 80 000</p>
+											<p class="text-center"><a href="#" class="btn btn-sm btn-primary" onclick="show('center-details')"><i class="fa fa-info-circle fa-lg"></i> View Center</a>
+											<a href="#" class="btn btn-sm btn-success" onclick="show('modify-center')"><i class="fa fa-edit fa-lg"></i> Modify</a>
+											<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o fa-lg"></i> Delete</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 event">
+									<div class="card">
+										<div class="card-block">
+											<h5 class="card-title"><b>Central Auditorium</b></h5>
+											<p class="card-text h6">With supporting text below as a natural lead-in to additional content.</p>
+											<p class="card-text h6"><b>Location</b>: Lagos</p>
+											<p class="card-text h6"><b>Capacity</b>: 1 000 seats</p>
+											<p class="card-text h6"><b>Price</b>: 300 000</p>
+											<p class="text-center"><a href="#" class="btn btn-sm btn-primary" onclick="show('center-details')"><i class="fa fa-info-circle fa-lg" onclick="show('center-details')"></i> View Center</a>
+											<a href="#" class="btn btn-sm btn-success"  onclick="show('modify-center')"><i class="fa fa-edit fa-lg" ></i> Modify</a>
+											<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o fa-lg"></i> Delete</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<!-- Delete Modal -->
+						<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title" id="eventModalLabel">Delete center</h6>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p class="text-center">Are you sure you want to delete this center?</p>
+										<form>
+											
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-sm btn-secondary" >Cancel</button>
+										<button type="button" class="btn btn-sm btn-danger">Delete Center</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="center-details" class=" panel center-details">
+						
+						<div class="container event-details">
+							<div class="row">
+								<div class=" event">
+									<div class="card mb-3">
+										<img class="card-img-top img-fluid" src="./img/matthew-cramblett-429664.jpg" height="300px" alt="Card image cap">
+										<div class="card-block">
+											<h5 class="card-title"><b>City Halls</b></h5>
+											<p class="card-text">Suitable center for all kinds of events. We offer affordable prices.</p>
+											<p>Lorem ipsum dolor sit amet, consectetur uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatadipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatsint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<p class="card-text"><b>Capacity: 500 seats</b></p>
+											<p class="card-text"><b>Facility: Generator, Toilet, Car Park, Security</b></p>
+											<p class="card-text"><b>Address: Lorem ipsum dolor sit amet, consectetur, Ojota, Lagos</b></p>
+											<p class="card-text"><b>Price: &#8358;150 000</b></p>
+										</div>
+									</div>
+									
+									<div class="row venue-date" >
+										<div class="container">
+											
+											
+											
+											<div class="card" style="min-height: 350px !important">
+												<h6 class="card-header"><b>LOCATION</b></h6>
+												<div class="card-block">
+													<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=Ojota, lagos&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{overflow:hidden;height:100%;width:100%;}.gmap_canvas {background:none!important;height:100%;width:100%;}</style></div>
+												</div>
+											</div>
+											<div class="card">
+												<h6 class="card-header"><b>EVENTS</b></h6>
+												<div class="card-block">
+													<div class="container events">
+														<div class="row event-row">
+															<div class="col-md-4 event">
+																<div class="card">
+																	<div class="card-block">
+																		<h5 class="card-title"><b>Empowerment Seminar</b></h5>
+																		<p class="card-text h6">Lorem ipsum dolor sit amet, consectetur uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatadipiscing</p>
+																		<p class="card-text h6"><b>Venue</b>: City Halls, Lagos</p>
+																		<p class="card-text h6"><b>Date</b>: Saturday, 23 December, 2017</p>
+																		<p class="card-text h6"><b>Time</b>: 4:30pm</p>
+																		<p class="card-text h6"><b>Status</b>: Canceled</p>
+																		<p class="text-center"><a href="./event.htm" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Event</a>
+																		<a href="#" class="btn btn-sm btn-danger" ><i class="fa fa-times fa-lg"></i> Cancel</a></p>
+																	</div>
+																</div>
+															</div>
+															
+															<div class="col-md-4 event">
+																<div class="card">
+																	<div class="card-block">
+																		<h5 class="card-title"><b>Wedding Party</b></h5>
+																		<p class="card-text h6">With supporting text below as a natural lead-in to additional content.</p>
+																		<p class="card-text h6"><b>Venue</b>: City , Lagos</p>
+																		<p class="card-text h6"><b>Date</b>: Saturday, 23 December, 2017</p>
+																		<p class="card-text h6"><b>Time</b>: 4:30pm</p>
+																		<p class="card-text h6"><b>Status</b>: Holding</p>
+																		<p class="text-center"><a href="./event.htm" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Event</a>
+																		<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times fa-lg"></i> Cancel</a></p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 event">
+																<div class="card">
+																	<div class="card-block">
+																		<h5 class="card-title"><b>Wedding Party</b></h5>
+																		<p class="card-text h6">With supporting text below as a natural lead-in to additional content.</p>
+																		<p class="card-text h6"><b>Venue</b>: City , Lagos</p>
+																		<p class="card-text h6"><b>Date</b>: Saturday, 30 December, 2017</p>
+																		<p class="card-text h6"><b>Time</b>: 4:30pm</p>
+																		<p class="card-text h6"><b>Status</b>: Holding</p>
+																		<p class="text-center"><a href="./event.htm" class="btn btn-sm btn-primary"><i class="fa fa-info-circle fa-lg"></i> View Event</a>
+																		<a href="#" class="btn btn-sm btn-danger" ><i class="fa fa-times fa-lg"></i> Cancel</a></p>
+																	</div>
+																</div>
+															</div>
+															
+															
+														</div> <nav aria-label="Page navigation example" >
+														<ul class="pagination">
+															<li class="page-item">
+																<a class="page-link" href="#" aria-label="Previous">
+																	<span aria-hidden="true">&laquo;</span>
+																	<span class="sr-only">Previous</span>
+																</a>
+															</li>
+															<li class="page-item"><a class="page-link" href="#">1</a></li>
+															<li class="page-item"><a class="page-link" href="#">2</a></li>
+															<li class="page-item"><a class="page-link" href="#">3</a></li>
+															<li class="page-item">
+																<a class="page-link" href="#" aria-label="Next">
+																	<span aria-hidden="true">&raquo;</span>
+																	<span class="sr-only">Next</span>
+																</a>
+															</li>
+														</ul>
+													</nav>
+													
+													
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>                      </div>
+								
+							</div>
+							<div class="row">
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<footer class="container-fluid">
+				<p class="h6 text-center"><i class="fa fa-copyright"></i> 2017 EVENTS MANAGER</p>
+				
+			</footer>
+			
+			<script src="./js/jquery-3.1.1.slim.min.js"></script>
+			<script src="./js/tether.min.js"></script>
+			<script src="./js/bootstrap.min.js"></script>
+			<script type="text/javascript">
+				let show = function(elemId) {
+					document.getElementById("add-center").style.display = "none";
+					document.getElementById("modify-center").style.display = "none";
+					document.getElementById("centers").style.display = "none";
+					document.getElementById("center-details").style.display = "none";
+					document.getElementById(elemId).style.display = "flex";
+					
+				}
+				window.onload = function() {
+					show("centers");
+				}
+			</script>
+		</div>
+	</body>
+</html>
