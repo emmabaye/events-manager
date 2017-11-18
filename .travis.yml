@@ -1,0 +1,16 @@
+language: node_js
+node_js: "stable"
+install:
+  - npm install
+script:
+  - npm test
+env:
+  - NODE_ENV=test
+cache:
+  directories:
+    - "node_modules"
+services:
+  - postgresql
+before_script:
+  - createdb travis_ci_testdb --username=postgres
+after_success: npm run coverage  

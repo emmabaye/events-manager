@@ -57,3 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
+# windows command files
+*.cmd
+
+#build folder
+build/
+
+
