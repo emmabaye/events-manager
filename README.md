@@ -1,5 +1,6 @@
 # Events-Manager
-Application for managing event centers. this app will help you accept applications
+[![Build Status](https://travis-ci.org/emmabaye/events-manager.svg?branch=development)](https://travis-ci.org/emmabaye/events-manager)
+Application for managing event centers. This app will help you accept applications
  to use your center/facilities, and will either decline events when the proposed day
 is already taken, or suggest an available day
 
