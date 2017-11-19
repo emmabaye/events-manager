@@ -27,4 +27,6 @@ describe('API endpoints /api/v1', () => {
         expect(res.body.title).to.equal('Welcome to Events Manager');
       }),
   );
+
+
 });
