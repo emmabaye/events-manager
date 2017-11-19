@@ -12,5 +12,8 @@ cache:
 services:
   - postgresql
 before_script:
-  - createdb travis_ci_testdb --username=postgres
-after_success: npm run coverage  
+  - createuser emmabaye -s -U postgres
+  - createdb travis_ci_testdb --username=emmabaye
+  - sequelize db:migrate
+after_success:
+  -npm run coverage  
