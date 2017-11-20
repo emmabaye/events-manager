@@ -13,6 +13,9 @@ const routes = (app) => {
 
   app.route('/api/v1/users/login')
   	 .post(UserController.signIn);
+
+  app.route('/api/v1/users/logout')
+     .get(UserController.signOut);
 };
 
 export default routes;
