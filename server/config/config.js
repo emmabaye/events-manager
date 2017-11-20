@@ -4,7 +4,7 @@
   "development": {
     "username": process.env.DB_USERNAME,
     "password": null,
-    "database": "database_development",
+    "database": "database_development2",
     "host": process.env.HOST,
     "port": process.env.DB_PORT,
     "dialect": "postgres"
