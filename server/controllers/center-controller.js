@@ -6,11 +6,13 @@ const Center = Model.Center;
 class CenterController {
 	static createCenter(req, res) {
       Center.create({
-      	title: req.body.title,
+      	name: req.body.name,
       	description: req.body.description,
       	location: req.body.location,
-      	date:date.req.body.date,
-      	time: req.body.time
+      	capacity: req.body.capacity,
+      	facilities: req.body.facilities,
+      	price:req.body.price,
+      	userId: req.userId
       }).then(center => {
       	res.status(200).send({
       		status: 'Success',
