@@ -16,4 +16,4 @@ before_script:
   - createdb database_test --username=emmabaye
   - sequelize db:migrate
 after_success:
-  -npm run coverage  
+  - npm run coverage  

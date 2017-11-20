@@ -1,5 +1,8 @@
 # Events-Manager
 [![Build Status](https://travis-ci.org/emmabaye/events-manager.svg?branch=development)](https://travis-ci.org/emmabaye/events-manager)
+[![Coverage Status](https://coveralls.io/repos/github/emmabaye/events-manager/badge.svg?branch=development)](https://coveralls.io/github/emmabaye/events-manager?branch=development)
+
+
 Application for managing event centers. This app will help you accept applications
  to use your center/facilities, and will either decline events when the proposed day
 is already taken, or suggest an available day
