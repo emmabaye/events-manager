@@ -13,7 +13,6 @@ services:
   - postgresql
 before_script:
   - createuser emmabaye -s -U postgres
-  - sequelize db:drop
   - createdb database_test --username=emmabaye 
   - sequelize db:migrate
 after_success:
