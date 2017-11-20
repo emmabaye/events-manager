@@ -29,6 +29,7 @@ class UserController {
             data: {
               token,
               user: {
+                id: user.id,
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
@@ -63,6 +64,7 @@ class UserController {
           token,
           user: {
             user: {
+              id: user.id,
               firstName: user.firstName,
               lastName: user.lastName,
               email: user.email,
@@ -71,10 +73,10 @@ class UserController {
           }
         }
         });
-    })
-    .catch(e => res.status(500).json({
-          status: 'Error',
-          message: 'Server Error',
+      })
+      .catch(e => res.status(500).json({
+        status: 'Error',
+         message: 'Server Error',
         }));
   }
 
@@ -90,6 +92,35 @@ class UserController {
     });
   }
 
+  static isAuthenticated(req, res, next) {
+    const token = req.headers['x-access-token'];
+
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+    if (err) {
+        return res.status(401).json({ 
+          status: 'Fail',
+          message: 'User is not logged in'
+        });
+    }
+    console.log("DECODED ", decoded);
+    req.userId = decoded.id;
+     return next();
+   });
+  }
+
+  static isAdmin(req, res, next) {
+    User.findById(req.userId)
+      .then(user => {
+        if(user.role == 'admin') {
+          return next();
+        }
+
+         return res.status(403).send({
+          status: 'Error',
+          message: 'User forbidden'
+        });
+      }) 
+  }
 
 }
 
