@@ -10,6 +10,9 @@ const routes = (app) => {
   
   app.route('/api/v1/users')
     .post(UserController.signUp);
+
+  app.route('/api/v1/users/login')
+  	 .post(UserController.signIn);
 };
 
 export default routes;

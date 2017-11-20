@@ -13,7 +13,7 @@ services:
   - postgresql
 before_script:
   - createuser emmabaye -s -U postgres
-  - createdb database_test --username=emmabaye
+  - createdb database_test --username=emmabaye 
   - sequelize db:migrate
 after_success:
   - npm run coverage  
