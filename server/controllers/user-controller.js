@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 const User = Model.User;
 
 class UserController {
-  static signUp(req, res, next) {
+  static signUp(req, res) {
   	const hash = bcrypt.hashSync(req.body.password, 7);
   	User.findOne({ where: { email: req.body.email.trim().toLowerCase() } })
       .then((existingUser) => {
@@ -32,6 +32,7 @@ class UserController {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
+                role: user.role
               },
             },
           });
@@ -41,6 +42,39 @@ class UserController {
         }));
       });
   }
+
+
+  static signIn(req, res) {
+    User.findOne({ where: { email: req.body.email } })
+    .then((user) => {
+      const validPassword = bcrypt.compareSync(req.body.password, user.password);
+      if (!validPassword) {
+        return res.status(401).send({ 
+          status: 'Fail', 
+          message: 'Invalid Password' 
+        });
+      }
+      const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: 86400 });
+
+      return res.status(200).send({ 
+        status: 'Success', 
+        massage: "User has been logged in",
+        data: {
+          token,
+          user: {
+            user: {
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+              role: user.role
+            }
+          }
+        }
+        });
+    });
+  }
+
+
 }
 
 
