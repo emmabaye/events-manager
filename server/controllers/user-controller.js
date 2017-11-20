@@ -58,7 +58,7 @@ class UserController {
 
       return res.status(200).send({ 
         status: 'Success', 
-        massage: "User has been logged in",
+        message: "User has been logged in",
         data: {
           token,
           user: {
@@ -71,6 +71,22 @@ class UserController {
           }
         }
         });
+    })
+    .catch(e => res.status(500).json({
+          status: 'Error',
+          message: 'Server Error',
+        }));
+  }
+
+
+  static signOut(req, res) {
+    res.setHeader('x-access-token', null);
+    return res.status(200).send({
+      status: 'Success',
+      message: 'User has been logged out',
+      data: {
+        token: null
+      }
     });
   }
 
