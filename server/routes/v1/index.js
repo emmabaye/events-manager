@@ -1,13 +1,14 @@
 import UserController from '../../controllers/user-controller.js';
-
+import CenterController from '../../controllers/center-controller.js';
+import EventController from '../../controllers/event-controller.js';
 
 const routes = (app) => {
   /*
-	 *GET API index route
-	 */
+	*GET API index route
+   */
   app.route('/api/v1')
 	  .get((req, res) => res.send({ title: 'Welcome to Events Manager' }));
-  
+
   app.route('/api/v1/users')
     .post(UserController.signUp);
 
@@ -15,7 +16,13 @@ const routes = (app) => {
   	 .post(UserController.signIn);
 
   app.route('/api/v1/users/logout')
-     .get(UserController.signOut);
+    .get(UserController.signOut);
+
+  app.route('/api/v1/events')
+    .post(UserController.isAuthenticated, EventController.createEvent);
+
+   app.route('/api/v1/centers')
+     .post(UserController.isAuthenticated,UserController.isAdmin,CenterController.createCenter);
 };
 
 export default routes;
