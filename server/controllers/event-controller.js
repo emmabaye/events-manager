@@ -53,6 +53,47 @@ class EventController {
         });
       });
   }
+
+
+  static updateEvent(req, res) {
+       Event.findById(req.params.eventId)
+      .then((event) => {
+        if (!event) {
+          return res.status(404).send({ error: 'Event not found' });
+        }
+
+        if (req.userId != event.userId) {
+          return res.status(400).send({ error: 'You do not have privilege to modify this Event' });
+        }
+
+        Event.update({
+          title: req.body.title || event.title,
+		  description: req.body.description || event.description,
+		  venue: req.body.venue || event.venue,
+		  date: new Date(req.body.date).toISOString() || event.date,
+		  time: req.body.time || event.time,
+		  userId: req.userId || event.userId,
+		  centerId: req.body.centerId || event.centerId
+        }, {
+          where: {
+            id: req.params.eventId,
+          },
+        }).then((updatedEvent) => {
+          if (!updatedEvent) {
+        		res.status(500).send({
+      		    status: ' Server Error',
+      		    message: 'Cannot update event'
+      	      })
+          }
+
+          res.status(200).send({
+      		  status: 'Success',
+      		  message: 'Event Updated',
+      		  data: updatedEvent
+         	});
+        });
+      });
+    }
 }
 
 export default EventController;

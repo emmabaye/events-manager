@@ -102,12 +102,10 @@ class CenterController {
           },
         }).then((updatedCenter) => {
           if (!updatedCenter) {
-            if(!centers){
         		res.status(500).send({
       		    status: ' Server Error',
       		    message: 'Centers not update center'
       	      })
-        	}
           }
 
           res.status(200).send({
