@@ -20,8 +20,8 @@ class EventController {
                    		id: existingEvent.id,
                    		title: existingEvent.title,
                    		centerId: existingEvent.centerId,
-            },
-          });
+               },
+              });
         	}
 
         Event.create({
