@@ -22,6 +22,7 @@ const routes = (app) => {
     .post(UserController.isAuthenticated, EventController.createEvent);
 
    app.route('/api/v1/centers')
+     .get(CenterController.getAllCenters)
      .post(UserController.isAuthenticated,UserController.isAdmin,CenterController.createCenter);
 
    app.route('/api/v1/centers/:centerId')

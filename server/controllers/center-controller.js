@@ -50,6 +50,30 @@ class CenterController {
       	});
       });
     }
+
+
+    static getAllCenters(req, res) {
+      Center.findAll({})
+      	.then(centers => {
+        	if(!centers){
+        		res.status(404).send({
+      		    status: ' Server Error',
+      		    message: 'Centers not found'
+      	      })
+        	}
+        	res.status(200).send({
+      		  status: 'Success',
+      		  message: 'Centers found',
+      		  data: centers
+         	});
+
+        }).catch(e => {
+      	res.status(500).send({
+      		status: 'Error',
+      		message: 'Server Error'
+      	});
+      });
+    }
 }
 
 export default CenterController;
