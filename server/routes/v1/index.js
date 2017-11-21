@@ -18,10 +18,9 @@ const routes = (app) => {
   app.route('/api/v1/users/logout')
     .get(UserController.signOut);
 
-  /* app.route('/api/v1/events')
+  app.route('/api/v1/events')
     .post(UserController.isAuthenticated, EventController.createEvent);
-   */
-  
+
    app.route('/api/v1/centers')
      .post(UserController.isAuthenticated,UserController.isAdmin,CenterController.createCenter);
 };
