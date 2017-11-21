@@ -23,6 +23,10 @@ const routes = (app) => {
 
    app.route('/api/v1/centers')
      .post(UserController.isAuthenticated,UserController.isAdmin,CenterController.createCenter);
+
+   app.route('/api/v1/centers/:centerId')
+     .get(CenterController.getCenter);
+
 };
 
 export default routes;

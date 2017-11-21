@@ -21,11 +21,35 @@ class CenterController {
       	});
       }).catch(e => {
       	res.status(500).send({
-      		status: ' Server Error',
+      		status: 'Error',
       		message: 'Server Error'
       	});
       });
 	}
+
+
+    static getCenter(req, res) {
+      Center.findOne({ where: { id: req.params.centerId }, include: [Model.Event]})
+        .then(center => {
+        	if(!center){
+        		res.status(404).send({
+      		    status: ' Server Error',
+      		    message: 'Center not found'
+      	      })
+        	}
+        	res.status(200).send({
+      		  status: 'Success',
+      		  message: 'Center found',
+      		  data: center
+         	});
+
+        }).catch(e => {console.log(e)
+      	res.status(500).send({
+      		status: 'Error',
+      		message: 'Server Error'
+      	});
+      });
+    }
 }
 
 export default CenterController;
