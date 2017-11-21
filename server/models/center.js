@@ -25,6 +25,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    available: {
+      type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'true',
+    },
     image: {
       type: DataTypes.BLOB,
       allowNull: true

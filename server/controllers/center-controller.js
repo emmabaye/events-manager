@@ -74,6 +74,50 @@ class CenterController {
       	});
       });
     }
+
+
+    static updateCenter(req, res) {
+       Center.findById(req.params.centerId)
+      .then((center) => {
+        if (!center) {
+          return res.status(404).send({ error: 'Center not found' });
+        }
+
+        if (req.userId != center.userId) {
+          return res.status(400).send({ error: 'You do not have privilege to modify this Center' });
+        }
+
+        Center.update({
+          name: req.body.name || center.name,
+      	  description: req.body.description || center.description,
+      	  location: req.body.location || center.location,
+      	  capacity: req.body.capacity || center.capacity,
+      	  facilities: req.body.facilities || center.facilities,
+      	  price:req.body.price || center.price,
+      	  available: req.body.available || center.available,
+      	  userId: req.userId
+        }, {
+          where: {
+            id: req.params.centerId,
+          },
+        }).then((updatedCenter) => {
+          if (!updatedCenter) {
+            if(!centers){
+        		res.status(500).send({
+      		    status: ' Server Error',
+      		    message: 'Centers not update center'
+      	      })
+        	}
+          }
+
+          res.status(200).send({
+      		  status: 'Success',
+      		  message: 'Center Updated',
+      		  data: updatedCenter
+         	});
+        });
+      });
+    }
 }
 
 export default CenterController;

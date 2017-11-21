@@ -44,6 +44,11 @@ module.exports = {
         type: Sequelize.BLOB,
         allowNull: true
       },
+      available: {
+      type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
