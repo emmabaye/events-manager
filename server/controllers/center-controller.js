@@ -20,10 +20,9 @@ class CenterController {
       		data: center
       	});
       }).catch(e => {
-      	console.log(e);
       	res.status(500).send({
-      		status: 'Error',
-      		message: 'Error'
+      		status: ' Server Error',
+      		message: 'Server Error'
       	});
       });
 	}
