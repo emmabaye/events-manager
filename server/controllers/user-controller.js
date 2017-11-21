@@ -22,7 +22,7 @@ class UserController {
           email: req.body.email,
           password: hash,
         }).then((user) => {
-          const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: 86400 });
+          const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: 86400 * 14 });
           return res.status(200).json({
             status: 'Succcess',
             message: 'User has been logged in',

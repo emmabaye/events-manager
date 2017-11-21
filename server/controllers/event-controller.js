@@ -35,7 +35,7 @@ class EventController {
         }).then((event) => {
           res.status(200).send({
 			       status: 'Success',
-				   message: 'Center has been created',
+				   message: ' Event created',
 				   data: event,
           });
         }).catch((e) => {
@@ -94,6 +94,40 @@ class EventController {
         });
       });
     }
+
+
+    static deleteEvent(req, res) {
+       Event.findById(req.params.eventId)
+      .then((event) => {
+        if (!event) {
+          return res.status(404).send({ error: 'Event not found' });
+        }
+
+        if (req.userId != event.userId) {
+          return res.status(400).send({ error: 'You do not have privilege to delete this Event' });
+        }
+
+        Event.destroy({
+          where: {
+            id: req.params.eventId,
+          }
+        }).then((deletedEvent) => {
+          if (!deletedEvent) {
+        		res.status(500).send({
+      		    status: ' Server Error',
+      		    message: 'Cannot delete event'
+      	      })
+          }
+
+          res.status(200).send({
+      		  status: 'Success',
+      		  message: 'Event deleted',
+      		  data: deletedEvent
+         	});
+        });
+      });
+    }
+
 }
 
 export default EventController;
