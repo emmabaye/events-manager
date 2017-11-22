@@ -89,7 +89,7 @@ describe('API endpoints /api/v1/events', () => {
   
    // GET all centers - should return status 200
   it(
-    'Should return status 200',
+    'Should get all errors',
     () => chai.request(app)
       .get('/api/v1/centers')
       .then((res) => {
@@ -104,6 +104,7 @@ describe('API endpoints /api/v1/events', () => {
 
 describe('API endpoints /api/v1/centers', () => {
   
+  /*
    // POST -  get all centers
   it(
     'Should create event',
@@ -116,5 +117,7 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.be.json;
       }),
   );
+
+  */
 
 });
