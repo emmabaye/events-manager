@@ -13,7 +13,18 @@ let event = {
   date: new Date('2017-11-21').toISOString(),
   time:'5pm',
   centerId: '1'
-}
+};
+
+let center = {
+    name: 'City Hall',
+    description:'Best Hall for your events',
+    location: 'Port Harcourt',
+    capacity: "500",
+    facilities: "Toilet",
+    price:"20 000",
+    available: "false"
+}; 
+
 
 chai.use(chaiHttp);
 
@@ -85,11 +96,11 @@ describe('API endpoints /api/v1/login', () => {
 });
 
 
-describe('API endpoints /api/v1/events', () => {
+describe('API endpoints /api/v1/centers', () => {
   
-   // GET all centers - should return status 200
+   // - GET all centers
   it(
-    'Should get all errors',
+    'Should get all centers',
     () => chai.request(app)
       .get('/api/v1/centers')
       .then((res) => {
@@ -99,13 +110,72 @@ describe('API endpoints /api/v1/events', () => {
       }),
   );
 
+
+   // POST - should create  a center
+  it(
+    'Should create a center',
+    () => chai.request(app)
+      .post('/api/v1/centers')
+      .set('x-access-token', adminToken)
+      .send(center)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        center.id = res.body.data.id;
+      }),
+  );
+
+
+   // GET - should get  a center
+  it(
+    'Should get a center',
+    () => chai.request(app)
+      .get('/api/v1/centers' + center.id)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        center.id = res.body.data.id;
+      })
+      .catch( err => err.responses ),
+  );
+
+
+
+
+  // PUT - should update  a center
+  center.name = center.name + Math.random();
+  it(
+    'Should update a center',
+    () => chai.request(app)
+      .put('/api/v1/centers/' + center.id)
+      .set('x-access-token', adminToken)
+      .send(center)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+      }),
+  );
+
+it(
+    'Should return 404 - center not found',
+    () => chai.request(app)
+      .put('/api/v1/centers/' + 10000000)
+      .set('x-access-token', adminToken)
+      .send(center)
+      .then((res) => {
+        expect(res).to.have.status(404);
+        expect(res).to.be.json;
+      })
+      .catch(err => err.response),
+  );
 });
 
 
-describe('API endpoints /api/v1/centers', () => {
+describe('API endpoints /api/v1/events', () => {
   
-  /*
-   // POST -  get all centers
+  
+   // POST - create event
   it(
     'Should create event',
     () => chai.request(app)
@@ -115,9 +185,70 @@ describe('API endpoints /api/v1/centers', () => {
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
-      }),
+        event.id = res.body.data.id;
+      })
+      .catch( err => err.response ),  
+);
+
+
+// PUT - update event
+  event.date = new Date().toISOString()
+  it(
+    'Should update event',
+    () => chai.request(app)
+      .put('/api/v1/events/' + event.id)
+      .set('x-access-token', adminToken)
+      .send(event)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+      })
+      .catch( err => err.response ),  
+);
+
+
+  // should return 404
+  it(
+    'delete event - should return 404',
+    () => chai.request(app)
+      .delete('/api/v1/events/' + 1000000)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(404);
+        expect(res).to.be.json;
+      })
+      .catch( err => err.response ),  
+);
+
+
+
+
+  // DELETE - delete event
+  it(
+    'Should delete event',
+    () => chai.request(app)
+      .delete('/api/v1/events/' + event.id)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+      })
+      .catch( err => err.response ),  
+);
+
+
+it(
+    'Should return 404 - event not found',
+    () => chai.request(app)
+      .delete('/api/v1/centers/' + event.id)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(404);
+        expect(res).to.be.json;
+      })
+      .catch(err => err.response),
   );
 
-  */
+ 
 
 });
