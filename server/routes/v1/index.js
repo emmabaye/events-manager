@@ -31,7 +31,7 @@ const routes = (app) => {
     .get(CenterController.getCenter)
     .put(UserController.isAuthenticated, UserController.isAdmin, CenterController.updateCenter);
 
-  app.all('*', (req, res){
+  app.all('*', (req, res) => {
     return res.status(404).send({
       status: 'Error',
       message: 'Resource not found'
