@@ -25,13 +25,13 @@ class EventController {
         	}
 
         Event.create({
-			  title: req.body.title,
-			  description: req.body.description,
-			  venue: req.body.venue,
-			  date: new Date(req.body.date).toISOString(),
-			  time: req.body.time,
-			  userId: req.userId,
-			  centerId: req.body.centerId,
+			    title: req.body.title,
+			    description: req.body.description,
+			    venue: req.body.venue,
+			    date: new Date(req.body.date).toISOString(),
+			    time: req.body.time,
+			    userId: req.userId,
+			    centerId: req.body.centerId,
         }).then((event) => {
           res.status(200).send({
 			       status: 'Success',
@@ -66,15 +66,15 @@ class EventController {
           return res.status(400).send({ error: 'You do not have privilege to modify this Event' });
         }
 
-        Event.update({
-          title: req.body.title || event.title,
-		  description: req.body.description || event.description,
-		  venue: req.body.venue || event.venue,
-		  date: new Date(req.body.date).toISOString() || event.date,
-		  time: req.body.time || event.time,
-		  userId: req.userId || event.userId,
-		  centerId: req.body.centerId || event.centerId
-        }, {
+      Event.update({
+        title: req.body.title || event.title,
+		    description: req.body.description || event.description,
+		    venue: req.body.venue || event.venue,
+		    date: new Date(req.body.date).toISOString() || event.date,
+		    time: req.body.time || event.time,
+		    userId: req.userId || event.userId,
+		    centerId: req.body.centerId || event.centerId
+      }, {
           where: {
             id: req.params.eventId,
           },

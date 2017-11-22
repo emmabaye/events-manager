@@ -118,7 +118,7 @@ class UserController {
          return res.status(403).send({
           status: 'Error',
           message: 'User forbidden',
-          data: user.createdAt
+          data: user
         });
       }) 
   }
