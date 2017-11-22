@@ -47,20 +47,6 @@ describe('API endpoints /api/v1', () => {
 
 
 describe('API endpoints /api/v1/users', () => {
-  
-  it(
-    'Should successfully authenticate',
-    () => chai.request(app)
-      .post('/api/v1/users/login')
-      .send({email: 'Admin@Admin.com', password:'password'})
-      .then((res) => {
-        expect(res).to.have.status(200);
-        expect(res).to.be.json;
-        adminToken = res.body.token;
-      }),
-  );
-
-
   it(
     'Should create new user',
     () => chai.request(app)
@@ -126,7 +112,7 @@ describe('API endpoints /api/v1/centers', () => {
       .set('x-access-token', adminToken)
       .send(event)
       .then((res) => {
-        expect(res).to.have.status(200 || 409);
+        expect(res).to.have.status(200);
         expect(res).to.be.json;
       }),
   );
