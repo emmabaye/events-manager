@@ -4,8 +4,16 @@ import app from '../server.js';
 
 console.log("ENV ", process.env.NODE_ENV);
 
+let user = {
+  firstName: 'userName',
+  lastName: 'userSurname',
+  email: 'user@user.com',
+  password: 'password'
+}
+
 let adminToken = "";
 let userToken = "";
+
 let event = {
   title: 'Powerful Seminar',
   description: 'Come and See',
@@ -57,21 +65,19 @@ describe('API endpoints /api/v1', () => {
 });
 
 
+// POST - Should create user
 describe('API endpoints /api/v1/users', () => {
   it(
     'Should create new user',
     () => chai.request(app)
       .post('/api/v1/users')
-      .send({
-        firstName: 'userName',
-        lastName: 'userSurname',
-        email: 'user' + Math.random() + '@user.com',
-        password: 'password'
-      })
+      .send(user)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
-      }),
+        expect(res.body.status).to.equal('Success');
+      })
+      .catch( err => err.response ),
   );
 
 
@@ -96,6 +102,37 @@ describe('API endpoints /api/v1/login', () => {
 });
 
 
+describe('API endpoints /api/v1/login', () => {
+
+  // POST - should pass authentication
+  it(
+    'Should successfully authenticate',
+    () => chai.request(app)
+      .post('/api/v1/users/login')
+      .send({email: user.email, password: user.password})
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        userToken = res.body.data.token;
+      }),
+  );
+
+  // POST - should fail authentication, invalid password
+  it(
+    'Should return 401, Should fail authentication, invalid password',
+    () => chai.request(app)
+      .post('/api/v1/users/login')
+      .send({email: user.email, password: user.password + 1})
+      .then((res) => {
+        expect(res).to.have.status(401);
+        expect(res).to.be.json;
+      })
+      .catch( err => err.response ),
+  );
+
+});
+
+
 describe('API endpoints /api/v1/centers', () => {
   
    // - GET all centers
@@ -110,6 +147,34 @@ describe('API endpoints /api/v1/centers', () => {
       }),
   );
 
+  // POST - should return 404 -create  a center
+  it(
+    'Should return 401 create a center',
+    () => chai.request(app)
+      .post('/api/v1/centers')
+      .set('x-access-token', null)
+      .send(center)
+      .then((res) => {
+        expect(res).to.have.status(401);
+        expect(res).to.be.json;
+      })
+      .catch( err => err.response),
+  );
+
+    // POST - should return 404 -create  a center
+    // User cannot create center
+  it(
+    'Should return 403 ',
+    () => chai.request(app)
+      .post('/api/v1/centers')
+      .set('x-access-token', userToken)
+      .send(center)
+      .then((res) => {
+        expect(res).to.have.status(403);
+        expect(res).to.be.json;
+      })
+      .catch( err => err.response),
+  );
 
    // POST - should create  a center
   it(
@@ -169,6 +234,7 @@ it(
       })
       .catch(err => err.response),
   );
+
 });
 
 
@@ -250,5 +316,31 @@ it(
   );
 
  
+
+});
+
+
+
+describe('API endpoints /api/v1/users/logout', () => {
+  before(() => {
+
+  });
+
+  after(() => {
+
+  });
+
+  // GET - log out user
+  it(
+    'Should log out user',
+    () => chai.request(app)
+      .get('/api/v1/users/logout')
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        }),
+  );
+
+
 
 });
