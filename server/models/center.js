@@ -1,46 +1,46 @@
-'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Center = sequelize.define('Center', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     capacity: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     price: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     facilities: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     available: {
       type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: 'true',
+      allowNull: false,
+      defaultValue: 'true',
     },
     image: {
       type: DataTypes.BLOB,
-      allowNull: true
+      allowNull: true,
     },
   });
-  Center.associate =  (models) => {
+  Center.associate = (models) => {
     Center.hasMany(models.Event, {
-      foreignKey: 'centerId'
+      foreignKey: 'centerId',
     });
     Center.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
     });
   };
   return Center;
