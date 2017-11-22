@@ -22,7 +22,7 @@ class UserController {
           });
         }
 
-        const hash = bcrypt.hashSync(req.body.password, 7);
+        const hash = bcrypt.hashSync(req.body.password, parseInt(process.env.SALT));
 
         User.create({
           firstName: req.body.firstName,
@@ -126,7 +126,6 @@ class UserController {
           message: 'User is not logged in',
         });
       }
-      console.log('DECODED ', decoded);
       req.userId = decoded.id;
       return next();
     });

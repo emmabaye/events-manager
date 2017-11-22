@@ -9,7 +9,7 @@
     "heroku-postbuild": "npm run build-server && npm run migrate",
     "migrate": "node ./node_modules/sequelize-cli/lib/sequelize db:migrate",
     "start-dev": "nodemon --exec node ./node_modules/babel-cli/bin/babel-node.js ./server/server.js",
-    "test": "nyc mocha  --compilers js:babel-core/register ./server/test --exit",
+    "test": "nyc mocha  --compilers js:babel-core/register ./server/test --timeout 60000 --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
