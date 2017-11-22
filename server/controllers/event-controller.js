@@ -1,7 +1,7 @@
 import Model from '../models';
 import jwt from 'jsonwebtoken';
 
-const Event = Model.Event;
+const { Event } = Model;
 
 class EventController {
   /**
