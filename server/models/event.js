@@ -1,37 +1,37 @@
-'use strict';
+
 module.exports = (sequelize, DataTypes) => {
-  var Event = sequelize.define('Event', {
+  const Event = sequelize.define('Event', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     venue: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    date:{
+    date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     time: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     image: {
       type: DataTypes.BLOB,
-      allowNull: true
+      allowNull: true,
     },
-  })
-  Event.associate =  (models) => {
+  });
+  Event.associate = (models) => {
     Event.belongsTo(models.Center, {
-      foreignKey: 'centerId'
+      foreignKey: 'centerId',
     });
     Event.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
     });
   };
   return Event;

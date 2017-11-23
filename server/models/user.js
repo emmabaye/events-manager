@@ -1,36 +1,36 @@
-'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
       unique: true,
-      allowNull: false
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     role: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "member"
+      defaultValue: 'member',
     },
   });
 
-  User.associate =  (models) => {
+  User.associate = (models) => {
     User.hasMany(models.Center, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
     });
     User.hasMany(models.Event, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
     });
   };
   return User;

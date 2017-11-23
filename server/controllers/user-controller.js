@@ -68,7 +68,7 @@ class UserController {
             message: 'Invalid Password',
           });
         }
-        const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: 86400 });
+        const token = jwt.sign({ id: user.id, role: user.role }, process.env.SECRET, { expiresIn: 86400 });
 
         return res.status(200).send({
           status: 'Success',
@@ -190,8 +190,8 @@ class UserController {
           return res.status(404).send({ error: 'User not found' });
         }
 
-        if ((req.userId != user.id) || (req.userRole != 'admin')) {
-          return res.status(400).send({ error: 'You do not have privilege to modify this user' });
+        if ((req.userId != user.id) && (req.userRole != 'admin')) {
+          return res.status(403).send({ error: 'You do not have privilege to modify this user', id: req.user });
         }
 
         User.update({
