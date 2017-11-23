@@ -1,9 +1,8 @@
-import UserController from '../../controllers/user-controller.js';
-import CenterController from '../../controllers/center-controller.js';
-import EventController from '../../controllers/event-controller.js';
+import UserController from '../../controllers/user-controller';
+import CenterController from '../../controllers/center-controller';
+import EventController from '../../controllers/event-controller';
 
 const routes = (app) => {
-  
   app.route('/api/v1')
     .get((req, res) => res.send({ title: 'Welcome to Events Manager' }));
 
@@ -16,10 +15,15 @@ const routes = (app) => {
   app.route('/api/v1/users/logout')
     .get(UserController.signOut);
 
+  app.route('/api/v1/users/:userId')
+    .get(UserController.getUser)
+    .put(UserController.isAuthenticated, UserController.updateUser);
+
   app.route('/api/v1/events')
     .post(UserController.isAuthenticated, EventController.createEvent);
 
   app.route('/api/v1/events/:eventId')
+    .get(EventController.getEvent)
     .put(UserController.isAuthenticated, EventController.updateEvent)
     .delete(UserController.isAuthenticated, EventController.deleteEvent);
 
@@ -31,12 +35,10 @@ const routes = (app) => {
     .get(CenterController.getCenter)
     .put(UserController.isAuthenticated, UserController.isAdmin, CenterController.updateCenter);
 
-  app.all('*', (req, res) => {
-    return res.status(404).send({
-      status: 'Error',
-      message: 'Resource not found'
-    });
-  })
+  app.all('*', (req, res) => res.status(404).send({
+    status: 'Error',
+    message: 'Resource not found',
+  }));
 };
 
 export default routes;
