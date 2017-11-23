@@ -106,6 +106,27 @@ class EventController {
       });
   }
 
+   /**
+   * Get details of an event by Id
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getEvent(req, res) {
+    Event.findById(req.params.eventId)
+      .then((event) => {
+        if (!event) {
+          return res.status(404).send({ error: 'Event not found' });
+        }
+
+         res.status(200).send({
+            status: 'Success',
+            message: 'Event found',
+            data: event,
+          });
+      });
+  }
+
   /**
    * Delete an event
    * @param {object} req The request body of the request.

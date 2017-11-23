@@ -30,7 +30,7 @@ class UserController {
           email: req.body.email,
           password: hash,
         }).then((user) => {
-          const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: 86400 * 14 });
+          const token = jwt.sign({ id: user.id, role: user.role }, process.env.SECRET, { expiresIn: 86400 * 14 });
           return res.status(200).json({
             status: 'Success',
             message: 'User has been logged in',
@@ -127,6 +127,7 @@ class UserController {
         });
       }
       req.userId = decoded.id;
+      req.userRole = decoded.role;
       return next();
     });
   }
@@ -148,6 +149,72 @@ class UserController {
           status: 'Error',
           message: 'User forbidden',
           data: user,
+        });
+      });
+  }
+
+  /**
+    * Get details of an user by Id
+    * @param {object} req The request body of the request.
+    * @param {object} res The response body.
+    * @returns {object} res.
+    */
+  static getUser(req, res) {
+    User.findOne({
+      where: { id: req.params.userId },
+      attributes: { exclude: ['password'] },
+    })
+      .then((user) => {
+        if (!user) {
+          return res.status(404).send({ error: 'User not found' });
+        }
+
+        res.status(200).send({
+          status: 'Success',
+          message: 'User found',
+          data: user,
+        });
+      });
+  }
+
+  /**
+   * Update user details
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static updateUser(req, res) {
+    User.findById(req.params.userId)
+      .then((user) => {
+        if (!user) {
+          return res.status(404).send({ error: 'User not found' });
+        }
+
+        if ((req.userId != user.id) || (req.userRole != 'admin')) {
+          return res.status(400).send({ error: 'You do not have privilege to modify this user' });
+        }
+
+        User.update({
+          firstName: req.body.firstName || user.firstName,
+          lastName: req.body.lastName || user.lastName,
+          role: (req.userRole == 'admin') ? req.body.role || user.role : user.role,
+        }, {
+          where: {
+            id: req.params.userId,
+          },
+        }).then((updatedUser) => {
+          if (!updatedUser) {
+            res.status(500).send({
+              status: ' Server Error',
+              message: 'Cannot update user',
+            });
+          }
+
+          res.status(200).send({
+            status: 'Success',
+            message: 'user Updated',
+            data: updatedUser,
+          });
         });
       });
   }

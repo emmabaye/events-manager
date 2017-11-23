@@ -7,7 +7,7 @@ console.log("ENV ", process.env.NODE_ENV);
 let user = {
   firstName: 'userName',
   lastName: 'userSurname',
-  email: 'user@user.com',
+  email: 'user' + Math.random() + '@user.com',
   password: 'password'
 }
 
@@ -24,13 +24,13 @@ let event = {
 };
 
 let center = {
-    name: 'City Hall',
-    description:'Best Hall for your events',
-    location: 'Port Harcourt',
-    capacity: "500",
-    facilities: "Toilet",
-    price:"20 000",
-    available: "false"
+   name: 'City Hall',
+   description:'Best Hall for your events',
+   location: 'Port Harcourt',
+   capacity: "500",
+   facilities: "Toilet",
+   price:"20 000",
+   available: "false"
 }; 
 
 
@@ -76,12 +76,28 @@ describe('API endpoints /api/v1/users', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.body.status).to.equal('Success');
+        user.id = res.body.data.user.id;
       })
-      .catch( err => err.response ),
+     // .catch( err => err.response ),
   );
 
 
+   it(
+    'Should get user details',
+    () => chai.request(app)
+      .get('/api/v1/users/' + user.id)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.body.status).to.equal('Success');
+      })
+      .catch( err => err.response ),
+  ); 
+
+
 });
+
+
 
 
 describe('API endpoints /api/v1/login', () => {
@@ -115,6 +131,20 @@ describe('API endpoints /api/v1/login', () => {
         expect(res).to.be.json;
         userToken = res.body.data.token;
       }),
+  );
+
+  // POST - should update user details
+  it(
+    'Should update user details',
+    () => chai.request(app)
+      .put('/api/v1/users/' + user.id)
+      .set('x-access-token', userToken)
+      .send({firstName: "John"})
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res.body.data).to.be.an('array');
+      })
+      .catch (err => err.response)
   );
 
   // POST - should fail authentication, invalid password

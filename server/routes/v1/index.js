@@ -15,10 +15,15 @@ const routes = (app) => {
   app.route('/api/v1/users/logout')
     .get(UserController.signOut);
 
+  app.route('/api/v1/users/:userId')
+    .get(UserController.getUser)
+    .put(UserController.isAuthenticated, UserController.updateUser);
+
   app.route('/api/v1/events')
     .post(UserController.isAuthenticated, EventController.createEvent);
 
   app.route('/api/v1/events/:eventId')
+    .get(EventController.getEvent)
     .put(UserController.isAuthenticated, EventController.updateEvent)
     .delete(UserController.isAuthenticated, EventController.deleteEvent);
 
