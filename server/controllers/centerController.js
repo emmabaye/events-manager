@@ -6,6 +6,7 @@ const { Center } = Model;
 class CenterController {
   /**
    * Create a new center
+   * 
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
    * @returns {object} res.
@@ -35,6 +36,7 @@ class CenterController {
 
   /**
    * Get the details of a center
+   * 
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
    * @returns {object} res.
@@ -64,6 +66,7 @@ class CenterController {
 
   /**
    * Get all centers
+   * 
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
    * @returns {object} res.
@@ -92,6 +95,7 @@ class CenterController {
 
   /**
    * Update center details
+   * 
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
    * @returns {object} res.
