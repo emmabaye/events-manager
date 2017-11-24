@@ -312,6 +312,7 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
+        done();
       })
       .catch(err => err.response),
   );
@@ -325,6 +326,7 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
+        done();
       })
       .catch(err => err.response),
   );
