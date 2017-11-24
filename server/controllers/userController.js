@@ -27,7 +27,7 @@ class UserController {
         User.create({
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          email: req.body.email,
+          email: req.body.email.trim().toLowerCase(),
           password: hash,
         }).then((user) => {
           const token = jwt.sign({ id: user.id, role: user.role }, process.env.SECRET, { expiresIn: 86400 * 14 });
@@ -59,8 +59,14 @@ class UserController {
    * @returns {object} res.
    */
   static signIn(req, res) {
-    User.findOne({ where: { email: req.body.email } })
+    User.findOne({ where: { email: req.body.email.trim().toLowerCase() } })
       .then((user) => {
+         if (!user) {
+          return res.status(404).send({
+            status: 'Error',
+            message: 'Email has not been registered',
+          });
+        }
         const validPassword = bcrypt.compareSync(req.body.password, user.password);
         if (!validPassword) {
           return res.status(401).send({
@@ -68,6 +74,7 @@ class UserController {
             message: 'Invalid Password',
           });
         }
+        
         const token = jwt.sign({ id: user.id, role: user.role }, process.env.SECRET, { expiresIn: 86400 });
 
         return res.status(200).send({
@@ -87,10 +94,12 @@ class UserController {
           },
         });
       })
-      .catch(e => res.status(500).json({
-        status: 'Error',
-        message: 'Server Error',
-      }));
+      .catch(e => {
+         return res.status(500).json({
+         status: 'Error',
+         message: 'Server Error',
+        })
+       });
   }
 
   /**
@@ -110,48 +119,9 @@ class UserController {
     });
   }
 
-  /**
-   * Checks if a user is authenticated
-   * @param {object} req The request body of the request.
-   * @param {object} res The response body.
-   * @returns {object} res.
-   */
-  static isAuthenticated(req, res, next) {
-    const token = req.headers['x-access-token'];
+  
 
-    jwt.verify(token, process.env.SECRET, (err, decoded) => {
-      if (err) {
-        return res.status(401).json({
-          status: 'Fail',
-          message: 'User is not logged in',
-        });
-      }
-      req.userId = decoded.id;
-      req.userRole = decoded.role;
-      return next();
-    });
-  }
-
-  /**
-   * Checks if a user is admin
-   * @param {object} req The request body of the request.
-   * @param {object} res The response body.
-   * @returns {object} res.
-   */
-  static isAdmin(req, res, next) {
-    User.findById(req.userId)
-      .then((user) => {
-        if (user.role == 'admin') {
-          return next();
-        }
-
-        return res.status(403).send({
-          status: 'Error',
-          message: 'User forbidden',
-          data: user,
-        });
-      });
-  }
+  
 
   /**
     * Get details of an user by Id

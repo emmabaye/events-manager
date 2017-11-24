@@ -13,11 +13,11 @@ class CenterController {
   static createCenter(req, res) {
     Center.create({
       name: req.body.name,
-      description: req.body.description,
-      location: req.body.location,
-      capacity: req.body.capacity,
-      facilities: req.body.facilities,
-      price: req.body.price,
+      description: req.body.description.trim(),
+      location: req.body.location.trim(),
+      capacity: req.body.capacity.trim(),
+      facilities: req.body.facilities.trim(),
+      price: req.body.price.trim(),
       userId: req.userId,
     }).then((center) => {
       res.status(200).send({

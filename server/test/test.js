@@ -18,7 +18,7 @@ let event = {
   title: 'Powerful Seminar',
   description: 'Come and See',
   venue: 'City Hall',
-  date: new Date().toISOString(),
+  date: '2018-11-27',
   time: '5pm',
   centerId: '1',
 };
@@ -99,11 +99,12 @@ describe('API endpoints /api/v1/login', () => {
     'Should successfully authenticate',
     () => chai.request(app)
       .post('/api/v1/users/login')
-      .send({ email: 'Admin@Admin.com', password: 'password' })
+      .send({ email: 'admin@admin.com', password: 'password' })
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         adminToken = res.body.data.token;
+        event.userId = res.body.data.user.id;
       }),
   );
 });
@@ -205,6 +206,7 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         center.id = res.body.data.id;
+        event.centerId = res.body.data.id;
       }),
   );
 
@@ -219,7 +221,8 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         center.id = res.body.data.id;
-      }),
+      })
+      .catch(err => err.response),
   );
 
 
@@ -234,7 +237,8 @@ describe('API endpoints /api/v1/centers', () => {
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
-      }),
+      })
+      .catch(err => err.response),
   );
 
   it(
@@ -264,7 +268,7 @@ describe('API endpoints /api/v1/events', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         event.id = res.body.data.id;
-      }),
+      }).catch(err => err.response),
 
   );
 
@@ -308,7 +312,9 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
-      }),
+        done();
+      })
+      .catch(err => err.response),
   );
 
 
@@ -320,6 +326,7 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
+        done();
       })
       .catch(err => err.response),
   );
