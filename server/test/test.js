@@ -2,8 +2,6 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../server.js';
 
-console.log('ENV ', process.env.NODE_ENV);
-
 let user = {
   firstName: 'userName',
   lastName: 'userSurname',
@@ -274,7 +272,6 @@ describe('API endpoints /api/v1/events', () => {
 
 
   // PUT - update event
-  event.date = new Date().toISOString();
   it(
     'Should update event',
     () => chai.request(app)
