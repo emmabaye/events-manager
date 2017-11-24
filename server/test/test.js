@@ -90,6 +90,48 @@ describe('API endpoints /api/v1/users', () => {
   );
 });
 
+describe('API endpoints /api/v1/login', () => {
+  // POST - should  return status 400
+  it(
+    'Should return status 400',
+    () => chai.request(app)
+      .post('/api/v1/users/login')
+      .send({ email: undefined, password: '' })
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      }).catch( err => err.response ),
+  );
+});
+
+describe('API endpoints /api/v1/login', () => {
+  // POST - should  return status 400
+  it(
+    'Should return status 400',
+    () => chai.request(app)
+      .post('/api/v1/users/login')
+      .send({ email: '', password: '' })
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      }).catch( err => err.response ),
+  );
+});
+
+describe('API endpoints /api/v1/login', () => {
+  // POST - should  return status 400
+  it(
+    'Should return status 400',
+    () => chai.request(app)
+      .post('/api/v1/users/login')
+      .send({ email: 'admin@admin.com', password: '' })
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      }).catch( err => err.response ),
+  );
+});
+
 
 describe('API endpoints /api/v1/login', () => {
   // POST - should pass authentication
@@ -103,7 +145,7 @@ describe('API endpoints /api/v1/login', () => {
         expect(res).to.be.json;
         adminToken = res.body.data.token;
         event.userId = res.body.data.user.id;
-      }),
+      }).catch( err => err.response ),
   );
 });
 
@@ -266,7 +308,7 @@ describe('API endpoints /api/v1/events', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         event.id = res.body.data.id;
-      }).catch(err => err.response),
+      })
 
   );
 
@@ -282,7 +324,6 @@ describe('API endpoints /api/v1/events', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
       })
-      .catch(err => err.response),
   );
 
 
@@ -295,8 +336,7 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
-      })
-      .catch(err => err.response),
+      }).catch(e => e.response)
   );
 
 
@@ -309,9 +349,8 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
-        done();
       })
-      .catch(err => err.response),
+      
   );
 
 
