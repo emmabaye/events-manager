@@ -63,4 +63,7 @@ typings/
 #build folder
 build/
 
+#dist folder
+dist/
+
 
