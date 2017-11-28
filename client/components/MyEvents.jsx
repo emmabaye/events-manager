@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from  './NavBar.jsx';
 import Event from './Event.jsx'
 import DeleteModal from './DeleteModal.jsx'
+import '../styles/myevents.scss';
 
 export default class extends Component {
     render () {
