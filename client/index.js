@@ -8,7 +8,7 @@ import App from './containers/App'
 
 ReactDOM.render(
 <Provider store={store} >
- <App />
+ <Routes />
  </Provider>,
 document.getElementById('app')
 )
