@@ -5,6 +5,13 @@ import Center from './Center.jsx'
 import '../styles/allcenters.scss';
 
 export default class AllCenters extends Component {
+  componentDidMount() {
+    document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundAttachment = 'fixed';
+  }
+  
   render() {
     return (
             <div>

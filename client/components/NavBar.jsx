@@ -17,19 +17,16 @@ export default class NavBar extends Component {
         <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item active">
-                    <a className="nav-link" href="./index.htm">Home <span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="./myevents.htm">Events</a>
+                    <a className="nav-link" href="/myevents">Events</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="./centers.htm">Centers</a>
+                    <a className="nav-link" href="/login">Sign In</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="./admin.htm">Admin</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="./index.htm">Sign Out</a>
+                    <a className="nav-link" href="/signup">Sign Up</a>
                 </li>
             </ul>
         </div>

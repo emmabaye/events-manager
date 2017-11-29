@@ -6,6 +6,11 @@ import Location from './Location.jsx';
 import '../styles/centerdetails.scss'
 
 export default class CenterDetails extends Component {
+  componentDidMount () {
+    document.body.style.backgroundColor = 'white !important';
+    document.body.style.backgroundImage = 'none';
+  }
+
   render () {
     return (
       <div>
