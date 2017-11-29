@@ -6,9 +6,9 @@ import {connect} from 'react-redux';
 
 class App extends Component {
   render() {
-    const {firstName, lastName} = this.props.userReducer;
+    
     return (
-            <SignUpForm firstName={firstName} lastName={lastName} />
+            <SignUpForm />
     );
   }
 }

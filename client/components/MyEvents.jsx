@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import NavBar from './NavBar.jsx';
 import Event from './Event.jsx';
 import DeleteModal from './DeleteModal.jsx';
+import { connect } from 'react-redux';
 
-export default class extends Component {
+class MyEvents extends Component {
+    componentWillMount () {
+      console.log("BANANA")
+      console.log("ALL STATE ", this.props.allState);
+    }
     componentDidMount() {
       document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
       document.body.style.backgroundPosition = 'center';
@@ -18,17 +23,29 @@ export default class extends Component {
                 <div className="container events">
 			  <div className="row event-row">
 		        <Event />
-			    <Event />
-                        <Event />
+			      <Event />
+            <Event />
 			  </div>
-                    <div className="row event-row">
+        <div className="row event-row">
 		       <Event />
-			   <Event />
-                        <Event />
+			     <Event />
+          <Event />
 			  </div>
 		    </div>
-                <DeleteModal />
+          <DeleteModal />
             </div>
         );
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    allState: state.userReducer
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(MyEvents)
+

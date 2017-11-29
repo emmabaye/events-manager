@@ -11,11 +11,11 @@ class SignUpForm extends Component {
 		}
 
 		handleSubmit = (e) => {
-      e.preventDefault();
-      console.log("HERE")
-			let signUpDetails =  this.state
-			const { dispatch } = this.props;
-			dispatch(signUp(signUpDetails));
+          e.preventDefault();
+          console.log("HERE")
+		  let signUpDetails =  this.state
+		  const { dispatch } = this.props;
+          return dispatch(signUp(signUpDetails))
     }
 
     render() {
