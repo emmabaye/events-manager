@@ -4,7 +4,6 @@ export default class Center extends Component {
   render() {
     return (
         <div className="card mb-3">
-          <img className="card-img-top img-fluid" src="./img/radek-grzybowski-76296.jpg" height="300px" alt="Card image cap" />
           <div className="card-block">
               <h5 className="card-title"><b>Central Auditorium</b></h5>
               <p className="card-text">Suitable center for all kinds of events where sound quality is a priority. We offer affordable prices.</p>

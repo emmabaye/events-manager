@@ -5,7 +5,7 @@ export default class AddEvent extends Component {
   render () {
 		return (
       <div>
-				<NavBar />
+		<NavBar />
         <div className="container add-event ">
 		<div className= "row">
 			<div className="container">
