@@ -6,6 +6,7 @@ import App from './containers/App.js';
 import SignUpForm from './components/SignUpForm.jsx';
 import SignInForm from './components/SignInForm.jsx';
 import AllCenters from './components/AllCenters.jsx';
+import AddEvent from './components/AddEvent.jsx';
 
 export const history = createBrowserHistory();
 
@@ -18,6 +19,7 @@ export default () => {
       <Route exact path='/login' component={SignInForm}/>
       <Route exact path='/myevents' component={MyEvents}/>
       <Route exact path='/centers' component={AllCenters}/>
+      <Route exact path='/addevent' component={AddEvent}/>
      </Switch>
    </Router>
  )

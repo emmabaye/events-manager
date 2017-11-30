@@ -12,7 +12,8 @@
     "start-dev": "nodemon --exec node ./node_modules/babel-cli/bin/babel-node.js ./server/server.js",
     "test": "nyc mocha  --compilers js:babel-core/register ./server/test --timeout 60000 --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint server"
+    "lint": "eslint server",
+    "webpack-dev-server": "webpack-dev-server --config webpack.dev.config.js "
   },
   "repository": {
     "type": "git",
@@ -63,8 +64,9 @@
     "express": "^4.16.2",
     "history": "^4.7.2",
     "jsonwebtoken": "^8.1.0",
+    "jwt-decode": "^2.2.0",
     "lodash": "^4.17.4",
-    "moment": "^2.19.2",
+    "moment": "^2.19.3",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.0",

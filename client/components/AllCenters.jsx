@@ -25,7 +25,6 @@ export default class AllCenters extends Component {
 			withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data.data);
         this.setState({ centers: response.data.data});
       })
       .catch((err) => {
