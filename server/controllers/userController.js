@@ -132,6 +132,7 @@ class UserController {
   static getUser(req, res) {
     User.findOne({
       where: { id: req.params.userId },
+      include: [Model.Event],
       attributes: { exclude: ['password'] },
     })
       .then((user) => {
