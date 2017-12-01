@@ -44,16 +44,14 @@ export default ( state = initState, action ) => {
       return {
         ...state, 
         status:action.payload.data.status ,
-        ...action.payload.data,
-        authenticated: true
+        ...action.payload.data
       }
     }
     case SIGN_IN_REJECTED: {
       return {
         ...state, 
-        status:'Error' || undefined ,
         ...action.payload,
-        authenticated: false
+        status:action.payload.status
       }
     }
 		default : return state;
