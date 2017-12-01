@@ -76,6 +76,14 @@ const routes = (app) => {
     .put(isAuthenticated, EventController.updateEvent)
     .delete(isAuthenticated, EventController.deleteEvent);
 
+    /**
+   * PUT method, update user details
+   * 
+   * @param {string} string
+   */
+  app.route('/api/v1/events/:eventId/cancel')
+    .put(isAuthenticated, isAdmin, EventController.cancelEvent);
+
   /**
    * GET method, Get all centers
    * POST method, create center

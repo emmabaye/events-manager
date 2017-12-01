@@ -1,5 +1,7 @@
 import Model from '../models';
 import jwt from 'jsonwebtoken';
+import nodemailer from 'nodemailer';
+
 
 const { Event } = Model;
 
@@ -163,6 +165,56 @@ class EventController {
           });
         });
       });
+  }
+  
+  /**
+   * Cancel an event by admin
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static cancelEvent(req, res) {
+    Event.update({
+          venue: "NOT AVAILABLE",
+        }, {
+          where: {
+            id: req.params.eventId,
+          },
+        }).then((updatedEvent) => {
+          if (updatedEvent == [0]) {
+            res.status(500).send({
+              status: ' Server Error',
+              message: 'Cannot update event',
+            });
+          }
+          let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: "emmanuel.nonye.abaye@gmail.com",
+              pass: process.env.EMAIL_PASSWORD
+            },
+            tls: {
+              rejectUnauthorized: false
+            }
+          });
+
+          let mailOptions = {
+            from: 'admin@eventsmanager.com',
+            to: 'emmanuel.nonye.abaye@gmail.com',
+            subject: 'Notification on Cancellation of Event',
+            text: 'Your event has been cancelled.'
+          };
+          transporter.sendMail(mailOptions, (err, info) => {
+            console.log('ERROR: ', err);
+            console.log('ENVELOPE: ', info.envelope);
+            console.log('MESSAGE ID: ', info.messageId);
+          });
+          res.status(200).send({
+            status: 'Success',
+            message: 'Event Updated',
+            data: updatedEvent,
+          });
+    })
   }
 }
 
