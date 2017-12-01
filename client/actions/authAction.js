@@ -18,8 +18,7 @@ export const signUp = (signUpDetails) => {
          history.push("/myevents");
        })
        .catch((err) => {
-         console.log(err)
-         dispatch({type: 'SIGN_UP_REJECTED', payload: err})
+         dispatch({type: 'SIGN_UP_REJECTED', payload: err.response.data})
          history.push("/signup");
        });
    }
@@ -40,8 +39,8 @@ export const signIn = (signInDetails) => {
          history.push("/myevents");
        })
        .catch((err) => {
-         console.log(err)
-         dispatch({type: 'SIGN_IN_REJECTED', payload: err})
+         console.log(err.response.data)
+         dispatch({type: 'SIGN_IN_REJECTED', payload: err.response.data})
          history.push("/login");
        });
    }

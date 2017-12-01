@@ -70,7 +70,7 @@ class UserController {
         const validPassword = bcrypt.compareSync(req.body.password, user.password);
         if (!validPassword) {
           return res.status(401).send({
-            status: 'Fail',
+            status: 'Error',
             message: 'Invalid Password',
           });
         }

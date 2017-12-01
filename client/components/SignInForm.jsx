@@ -25,6 +25,21 @@ class SignInForm  extends Component{
 			<div className= "row">
 				<div className="container">
 					<form action="./authindex.htm">
+					    <div className="form-group row">
+							<label htmlFor="" className="col-sm-3 col-form-label"></label>
+							<div className="col-sm-9">
+							 { (this.props.status == 'Error') &&
+		                                 <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+			                                 <div className="alert alert-dismissible alert-danger fade show" role="alert">
+			                          	       <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+				                                 <span aria-hidden="true">&times;</span>
+				                                 </button>
+				                                 <small>{this.props.message.toString().split(',').join(', ')}</small>
+			                                </div>
+		                            </div>
+		                          }
+						    </div>
+						</div>
 						<div className="form-group row">
 							<label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>
 							<div className="col-sm-9">
@@ -52,13 +67,17 @@ class SignInForm  extends Component{
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatch : (actionObject) => dispatch(actionObject)
-  }
-};
+const mapDispatchToProps = (dispatch) => ({
+    dispatch: (actionObject) => dispatch(actionObject)
+  
+});
+
+const mapStateToProps = (state) => ({
+    status: state.authReducer.status,
+    message: state.authReducer.message
+});
 
 export default connect(
-  null,
-  mapDispatchToProps
-)(SignInForm)
+    mapStateToProps,
+    mapDispatchToProps
+)(SignInForm);

@@ -7,7 +7,8 @@ class userValidation {
     if (req.body.email == undefined) {
       errors.push("Email is required");
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
 
@@ -18,7 +19,8 @@ class userValidation {
     if (req.body.firstName == undefined) {
       errors.push(" First name is required");
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
 
@@ -38,7 +40,8 @@ class userValidation {
     if (req.body.lastName == undefined) {
       errors.push("Last name is required");
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
 
@@ -57,7 +60,8 @@ class userValidation {
     if (req.body.password == undefined) {
       errors.push("Valid password required");
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
 
@@ -67,7 +71,8 @@ class userValidation {
 
     if (errors.length > 0) {
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
     return next();
@@ -78,7 +83,8 @@ class userValidation {
     if (req.body.email == undefined) {
       errors.push("Email is required");
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
 
@@ -89,7 +95,8 @@ class userValidation {
     if (req.body.password == undefined) {
       errors.push("Valid password required");
       return res.status(400).send({
-        errors: errors
+        status: 'Error',
+        message: errors
       });
     }
 
@@ -99,7 +106,8 @@ class userValidation {
 
     if (errors.length > 0) {
       return res.status(400).send({
-        errors: errors
+        status:'Error',
+        message: errors
       });
     }
     return next();
