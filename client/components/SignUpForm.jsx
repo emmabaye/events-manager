@@ -14,7 +14,7 @@ class SignUpForm extends Component {
 		  console.log("HERE");
 		  let signUpDetails = this.state;
 		  const { dispatch } = this.props;
-		  return dispatch(signUp(signUpDetails));
+		  dispatch(signUp(signUpDetails));
 		}
 
 		render() {
@@ -66,7 +66,9 @@ class SignUpForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: (actionObject) => dispatch(actionObject)
+    dispatch: (actionObject) => {
+      console.log("DISPACH FUNC ",dispatch(actionObject));
+  }
 });
 
 export default connect(

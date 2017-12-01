@@ -3,7 +3,6 @@ import { history } from '../routes';
 import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED } from '../types/event';
 
 export const addEvent = (eventDetails) => {
-  console.log("LETS CREATE EVENT");
    return (dispatch) => {
      dispatch({type: 'ADD_EVENT'});
     axios({
@@ -14,13 +13,11 @@ export const addEvent = (eventDetails) => {
 			withCredentials: true,
 			})
        .then((response) => {
-         console.log(response.data)
          dispatch({type: ADD_EVENT_FULFILLED, payload: response.data})
          history.push("/myevents");
        })
        .catch((err) => {
          console.log(err)
-         console.log(err.response.data);
          dispatch({type: 'ADD_EVENT_REJECTED', payload: err})
          history.push("/addevent");
        });
