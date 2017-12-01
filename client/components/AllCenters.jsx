@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import CenterCard from './CenterCard.jsx'
+import { getAllCenters } from '../actions/centerAction'
 
-export default class AllCenters extends Component {
+class AllCenters extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      centers: []
-    }
   }
 
   componentDidMount() {
@@ -19,17 +18,7 @@ export default class AllCenters extends Component {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
 
-    axios({
-			method: 'GET',
-			url:'http://localhost:3000/api/v1/centers',
-			withCredentials: true,
-      })
-      .then((response) => {
-        this.setState({ centers: response.data.data});
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+    this.props.dispatch(getAllCenters());
   }
   
   render() {
@@ -40,7 +29,7 @@ export default class AllCenters extends Component {
 			          <div  id="events" className="container events">
                 <div className="row event-row">
                 {
-                  (this.state.centers.map((center) =>  <CenterCard key={center.id} centerDetails={center} />))
+                  (this.props.allCenters.data.map((center) =>  <CenterCard key={center.id} centerDetails={center} />))
                 }
                  </div>
                 </div>
@@ -50,3 +39,17 @@ export default class AllCenters extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    dispatch: (actionObject) => dispatch(actionObject)
+});
+
+const mapStateToProps = (state) => ({
+    allCenters: state.centerReducer.allCenters
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AllCenters);
+
