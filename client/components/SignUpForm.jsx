@@ -24,7 +24,7 @@ class SignUpForm extends Component {
 			}
 		    return (
 		        <div>
-		            <NavBar />
+		            <NavBar page='SignUpForm' />
 		            <div className="container signup ">
 		                <div className= "row">
 		                    <div className="container">
@@ -37,11 +37,8 @@ class SignUpForm extends Component {
 		                                { (this.props.status == 'Error') &&
 		                                 <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
 			                                 <div className="alert alert-dismissible alert-danger fade show" role="alert">
-			                          	       <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-				                                 <span aria-hidden="true">&times;</span>
-				                                 </button>
 				                                 <small>{this.props.message.toString().split(',').join(', ')}</small>
-			                                </div>
+			                              </div>
 		                            </div>
 		                          }
 		                                </div>

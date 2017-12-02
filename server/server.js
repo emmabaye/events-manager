@@ -8,6 +8,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({credentials: true, origin: true}));
+app.use('/', express.static(process.cwd() + '/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

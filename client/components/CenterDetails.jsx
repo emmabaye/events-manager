@@ -14,7 +14,7 @@ export default class CenterDetails extends Component {
   render () {
     return (
       <div>
-        <NavBar />
+        <NavBar page='AllCenters'/>
         <div id="center-details" className=" panel center-details">	
 			    <div className="container event-details">
 				     <div className="row">

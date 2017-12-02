@@ -1,5 +1,6 @@
 import { UserController, CenterController, EventController } from '../../controllers';
 import { isAdmin, isAuthenticated, userValidation, centerValidation, eventValidation } from '../../middlewares';
+import path from 'path';
 
 /**
    * Create a new center
@@ -105,6 +106,17 @@ const routes = (app) => {
   app.route('/api/v1/centers/:centerId')
     .get(CenterController.getCenter)
     .put(isAuthenticated, isAdmin, CenterController.updateCenter);
+  
+  /**
+   * GET method, get routes for
+   * the client SPA
+   * 
+   * @param {string} string
+   * @returns {object} res.
+   */
+  app.get('*', function (req, res){
+    res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'))
+  })
 
    /**
    * Resource not found

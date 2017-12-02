@@ -58,13 +58,14 @@ class MyEvents extends Component {
       document.body.style.backgroundAttachment = 'fixed';
 
       let token = localStorage.getItem('x-access-token');
+
       try{
          let decoded = jwtDecode(token);
        } catch (e) {
         return history.push("/login")
        }
      
-      let userId = decoded.id;
+      let userId = jwtDecode(token).id;
 
       axios({
       method: 'GET',
@@ -86,7 +87,7 @@ class MyEvents extends Component {
     render() {
         return (
             <div>
-                <NavBar />
+                <NavBar page='MyEvents' />
                 <div className="container events">
 			            <div className="row event-row">
                     {
