@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from "./NavBar.jsx";
 import { addEvent } from '../actions/eventAction';
+import { history } from '../routes';
 
 class AddEvent extends Component {
 
@@ -12,6 +13,15 @@ class AddEvent extends Component {
     this.state = {
       event:{},
       centers: []
+    }
+  }
+
+  componentWillMount () {
+    let token = localStorage.getItem('x-access-token');
+      try{
+         let decoded = jwtDecode(token);
+       } catch (e) {
+        return history.push("/login")
     }
   }
 
