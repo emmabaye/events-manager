@@ -22,9 +22,8 @@ export default ( state = initState, action ) => {
     case SIGN_UP_FULFILLED: {
       return {
         ...state, 
-        status:action.payload.data.status ,
         ...action.payload.data,
-        authenticated: true
+        status: 'Success'
       }
     }
     case SIGN_UP_REJECTED: {
@@ -43,17 +42,15 @@ export default ( state = initState, action ) => {
     case SIGN_IN_FULFILLED: {
       return {
         ...state, 
-        status:action.payload.data.status ,
         ...action.payload.data,
-        authenticated: true
+        status: 'Success'
       }
     }
     case SIGN_IN_REJECTED: {
       return {
         ...state, 
-        status:'Error' || undefined ,
         ...action.payload,
-        authenticated: false
+        status:action.payload.status
       }
     }
 		default : return state;

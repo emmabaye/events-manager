@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { history } from '../routes';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import { signIn } from '../actions/authAction';
@@ -11,13 +13,15 @@ class SignInForm  extends Component{
 
 	handleSubmit = (e) => {
 	  e.preventDefault();
-		console.log("HERE SIGN IN");
 		let signInDetails =  this.state;
 		const { dispatch } = this.props;
 		return dispatch(signIn(signInDetails))
 	}
 
   render() {
+  	if( this.props.status == 'Success') {
+	  return <Redirect to="/myevents" push={true} />
+	}
     return (
       <div>
       <NavBar />
@@ -25,6 +29,21 @@ class SignInForm  extends Component{
 			<div className= "row">
 				<div className="container">
 					<form action="./authindex.htm">
+					    <div className="form-group row">
+							<label htmlFor="" className="col-sm-3 col-form-label"></label>
+							<div className="col-sm-9">
+							 { (this.props.status == 'Error') &&
+		                                 <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+			                                 <div className="alert alert-dismissible alert-danger fade show" role="alert">
+			                          	       <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+				                                 <span aria-hidden="true">&times;</span>
+				                                 </button>
+				                                 <small>{this.props.message.toString().split(',').join(', ')}</small>
+			                                </div>
+		                            </div>
+		                          }
+						    </div>
+						</div>
 						<div className="form-group row">
 							<label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>
 							<div className="col-sm-9">
@@ -52,13 +71,17 @@ class SignInForm  extends Component{
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatch : (actionObject) => dispatch(actionObject)
-  }
-};
+const mapDispatchToProps = (dispatch) => ({
+    dispatch: (actionObject) => dispatch(actionObject)
+  
+});
+
+const mapStateToProps = (state) => ({
+    status: state.authReducer.status,
+    message: state.authReducer.message
+});
 
 export default connect(
-  null,
-  mapDispatchToProps
-)(SignInForm)
+    mapStateToProps,
+    mapDispatchToProps
+)(SignInForm);

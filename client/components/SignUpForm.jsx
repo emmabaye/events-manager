@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { history } from '../routes';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import { signUp } from '../actions/authAction';
@@ -11,20 +13,39 @@ class SignUpForm extends Component {
 
 		handleSubmit = (e) => {
 		  e.preventDefault();
-		  console.log("HERE");
 		  let signUpDetails = this.state;
 		  const { dispatch } = this.props;
-		  return dispatch(signUp(signUpDetails));
+		  dispatch(signUp(signUpDetails));
 		}
 
 		render() {
+			if( this.props.status == 'Success') {
+				return <Redirect to="/myevents" push={true} />
+			}
 		    return (
 		        <div>
 		            <NavBar />
 		            <div className="container signup ">
 		                <div className= "row">
 		                    <div className="container">
+												
 		                        <form action="true">
+		                        
+		                          	<div className="form-group row">
+		                                <label  className="col-sm-3 col-form-label"></label>
+		                                <div className="col-sm-9">
+		                                { (this.props.status == 'Error') &&
+		                                 <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+			                                 <div className="alert alert-dismissible alert-danger fade show" role="alert">
+			                          	       <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+				                                 <span aria-hidden="true">&times;</span>
+				                                 </button>
+				                                 <small>{this.props.message.toString().split(',').join(', ')}</small>
+			                                </div>
+		                            </div>
+		                          }
+		                                </div>
+		                            </div>
 		                            <div className="form-group row">
 		                                <label htmlFor="inputEmail3" className="col-sm-3 col-form-label">First Name</label>
 		                                <div className="col-sm-9">
@@ -67,9 +88,15 @@ class SignUpForm extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
     dispatch: (actionObject) => dispatch(actionObject)
+  
+});
+
+const mapStateToProps = (state) => ({
+    status: state.authReducer.status,
+    message: state.authReducer.message
 });
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(SignUpForm);

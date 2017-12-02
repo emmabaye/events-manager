@@ -23,7 +23,7 @@ class EventController {
         if (existingEvent) {
           return res.status(409).send({
             status: 'Fail',
-            message: 'Center has been booked for this date',
+            message: 'Center has already been booked for this date',
             data: {
               id: existingEvent.id,
               title: existingEvent.title,
