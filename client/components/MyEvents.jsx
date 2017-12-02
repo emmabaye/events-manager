@@ -5,6 +5,7 @@ import NavBar from './NavBar.jsx';
 import Event from './Event.jsx';
 import DeleteModal from './DeleteModal.jsx';
 import { connect } from 'react-redux';
+import { history } from '../routes';
 
 class MyEvents extends Component {
 
@@ -15,10 +16,19 @@ class MyEvents extends Component {
       };
     }
 
+    componentWillMount() {
+      let token = localStorage.getItem('x-access-token');
+      try{
+         let decoded = jwtDecode(token);
+       } catch (e) {
+        return history.push("/login")
+       }
+    }
+
     componentDidUpdate() {
-      console.log("COMPONENT DID UPDATE");
       let token = localStorage.getItem('x-access-token');
       let decoded = jwtDecode(token);
+      
       let userId = decoded.id;
 
       axios({
@@ -41,16 +51,20 @@ class MyEvents extends Component {
 
 
     componentDidMount() {
-      console.log("MOUNTING");
+      document.body.title = 'My Events | Events Manager'
       document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
       document.body.style.backgroundPosition = 'center';
       document.body.style.backgroundSize = 'cover';
       document.body.style.backgroundAttachment = 'fixed';
 
       let token = localStorage.getItem('x-access-token');
-      let decoded = jwtDecode(token);
+      try{
+         let decoded = jwtDecode(token);
+       } catch (e) {
+        return history.push("/login")
+       }
+     
       let userId = decoded.id;
-      console.log("USER ID: ", decoded.id);
 
       axios({
       method: 'GET',
