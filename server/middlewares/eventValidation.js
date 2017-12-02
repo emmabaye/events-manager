@@ -15,7 +15,7 @@ const eventValidation = (req, res, next) => {
   }
 
   if (req.body.date === undefined) {
-  	return res.status(400).send({message: "date is required"});
+  	return res.status(400).send({message: "Date is required"});
   }
 
   if (req.body.time === undefined) {

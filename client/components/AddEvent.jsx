@@ -59,6 +59,21 @@ class AddEvent extends Component {
           <div className="row">
             <div className="container">
               <form>
+               <div className="form-group row">
+              <label htmlFor="" className="col-sm-3 col-form-label"></label>
+              <div className="col-sm-9">
+               { (this.props.status == 'Error') &&
+                  <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+                    <div className="alert alert-dismissible alert-danger fade show" role="alert">
+                      <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                      </button>
+                        <small>{this.props.message.toString().split(',').join(', ')}</small>
+                      </div>
+                    </div>
+                }
+                </div>
+            </div>
                 <p className="text-center h5">
                   <b>ADD EVENT</b>
                 </p>
