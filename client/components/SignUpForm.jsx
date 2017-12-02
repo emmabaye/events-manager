@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { history } from '../routes';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import { signUp } from '../actions/authAction';
@@ -17,6 +19,9 @@ class SignUpForm extends Component {
 		}
 
 		render() {
+			if( this.props.status == 'Success') {
+				return <Redirect to="/myevents" push={true} />
+			}
 		    return (
 		        <div>
 		            <NavBar />

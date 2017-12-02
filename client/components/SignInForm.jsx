@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { history } from '../routes';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import { signIn } from '../actions/authAction';
@@ -11,13 +13,15 @@ class SignInForm  extends Component{
 
 	handleSubmit = (e) => {
 	  e.preventDefault();
-		console.log("HERE SIGN IN");
 		let signInDetails =  this.state;
 		const { dispatch } = this.props;
 		return dispatch(signIn(signInDetails))
 	}
 
   render() {
+  	if( this.props.status == 'Success') {
+	  return <Redirect to="/myevents" push={true} />
+	}
     return (
       <div>
       <NavBar />

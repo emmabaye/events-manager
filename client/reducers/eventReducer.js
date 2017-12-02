@@ -1,7 +1,6 @@
-import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED } from '../types/user';
+import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED } from '../types/event';
 
 const initState = {
-  authenticated: false,
   status: "",
 	event: {
 	  description: "",
@@ -10,7 +9,8 @@ const initState = {
     time: "",
     userId: "",
     centerId:"",
-	}
+	},
+  message:""
 };
 
 export default ( state = initState, action ) => {
@@ -26,18 +26,16 @@ export default ( state = initState, action ) => {
       console.log("FINISHED CREATING  EVENT");
       return {
         ...state, 
-        status:action.payload.data.status ,
         ...action.payload.data,
-        authenticated: true
+        status:'Success'
       }
     }
     case ADD_EVENT_REJECTED: {
       console.log("CREATE EVENT FAILED, DUE TO ERROR");
       return {
         ...state, 
-        status:'Error' || undefined ,
         ...action.payload,
-        authenticated: false
+        status:'Error'
       }
     }
 		default : return state;

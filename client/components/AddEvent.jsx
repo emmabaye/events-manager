@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from "./NavBar.jsx";
 import { addEvent } from '../actions/eventAction';
@@ -47,6 +48,10 @@ class AddEvent extends Component {
   }
 
   render() {
+    console.log("STATUS ",this.props.status);
+    if( this.props.status == 'Success') {
+      return <Redirect to="/myevents" push={true} />
+    }
     return (
       <div>
         <NavBar />
@@ -151,8 +156,15 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch: (actionObject) => dispatch(actionObject)
 });
 
+const mapStateToProps = (state) => {
+  return {
+    status: state.eventReducer.status,
+    message: state.eventReducer.message
+  }
+};
+
 export default connect(
-    null,
+     mapStateToProps,
     mapDispatchToProps
 )(AddEvent);
 

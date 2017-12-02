@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 class App extends Component {
   render() {
-    return <SignUpForm />;
+    return <LandingPage />;
   }
 }
 

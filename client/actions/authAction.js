@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { history } from '../routes';
 import { SIGN_UP, SIGN_UP_FULFILLED, SIGN_UP_REJECTED } from '../types/user';
 import { SIGN_IN, SIGN_IN_FULFILLED, SIGN_IN_REJECTED } from '../types/user';
 
@@ -15,11 +14,9 @@ export const signUp = (signUpDetails) => {
        .then((response) => {
          localStorage.setItem('x-access-token', response.data.data.token );
          dispatch({type: SIGN_UP_FULFILLED, payload: response.data})
-         history.push("/myevents");
        })
        .catch((err) => {
          dispatch({type: 'SIGN_UP_REJECTED', payload: err.response.data})
-         history.push("/signup");
        });
    }
 };
@@ -36,12 +33,10 @@ export const signIn = (signInDetails) => {
        .then((response) => {
          localStorage.setItem('x-access-token', response.data.data.token );
          dispatch({type: SIGN_IN_FULFILLED, payload: response.data})
-         history.push("/myevents");
        })
        .catch((err) => {
          console.log(err.response.data)
          dispatch({type: 'SIGN_IN_REJECTED', payload: err.response.data})
-         history.push("/login");
        });
    }
 };
