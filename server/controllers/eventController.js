@@ -1,6 +1,7 @@
 import Model from '../models';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
+import moment from 'moment';
 
 
 const { Event } = Model;
@@ -187,28 +188,49 @@ class EventController {
               message: 'Cannot update event',
             });
           }
-          let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              user: "emmanuel.nonye.abaye@gmail.com",
-              pass: process.env.EMAIL_PASSWORD
-            },
-            tls: {
-              rejectUnauthorized: false
-            }
-          });
 
-          let mailOptions = {
-            from: 'admin@eventsmanager.com',
-            to: 'emmanuel.nonye.abaye@gmail.com',
-            subject: 'Notification on Cancellation of Event',
-            text: 'Your event has been cancelled.'
-          };
-          transporter.sendMail(mailOptions, (err, info) => {
-            console.log('ERROR: ', err);
-            console.log('ENVELOPE: ', info.envelope);
-            console.log('MESSAGE ID: ', info.messageId);
-          });
+          Event.findOne({ 
+            where: {id: req.params.eventId }, 
+            include:[Model.User]
+          })
+            .then((event) => {
+              console.log("FOUND");
+              console.log(event.User.dataValues.email.toString());
+          if (event) {
+            let transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASSWORD
+              },
+              tls: {
+                rejectUnauthorized: false
+              }
+            });
+
+            let mailOptions = {
+              from: 'admin@eventsmanager.com',
+              to: event.User.dataValues.email.toString(),
+              subject: 'Notification on Cancellation of Event',
+              html: `<p>Your event,<b> ${event.title}</b>, holding on <b>${moment(event.date).format('DD MMMM YYYY')} </b>has been \
+              cancelled on our platform. This is because\
+               the center you chose will not be available. </b></p><br>\
+               <p>Contact Admin at <b>admin@eventsmanager.com</b><br>
+               Sorry for the incovenience</p>`
+            };
+            transporter.sendMail(mailOptions, (err, info) => {
+              console.log('ERROR: ', err);
+              console.log('ENVELOPE: ', info.envelope);
+              console.log('MESSAGE ID: ', info.messageId);
+            });
+          }
+        }).catch((err) => {
+           res.status(500).send({
+              status: ' Server Error',
+              message: 'Cannot send mail',
+            });
+        });
+          
           res.status(200).send({
             status: 'Success',
             message: 'Event Updated',

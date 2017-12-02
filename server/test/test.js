@@ -326,6 +326,19 @@ describe('API endpoints /api/v1/events', () => {
       })
   );
 
+  // PUT - cancel event
+  it(
+    'Should cancel event',
+    () => chai.request(app)
+      .put(`/api/v1/events/${event.id}/cancel`)
+      .set('x-access-token', adminToken)
+      .send(event)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+      })
+  );
+
 
   // should return 404
   it(
