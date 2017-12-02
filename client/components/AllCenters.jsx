@@ -3,13 +3,23 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
-import CenterCard from './CenterCard.jsx'
-import { getAllCenters } from '../actions/centerAction'
+import CenterCard from './CenterCard.jsx';
+import { getAllCenters } from '../actions/centerAction';
+import { history } from '../routes';
 
 class AllCenters extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount () {
+    let token = localStorage.getItem('x-access-token');
+    try{
+        let decoded = jwtDecode(token);
+    } catch (e) {
+    return history.push("/login")
+   }
   }
 
   componentDidMount() {
