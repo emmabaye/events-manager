@@ -47,7 +47,7 @@ class AddEvent extends Component {
   componentDidMount() {
     axios({
       method: 'GET',
-      url:'http://localhost:3000/api/v1/centers',
+      url:'/api/v1/centers',
       withCredentials: true,
       })
       .then((response) => {

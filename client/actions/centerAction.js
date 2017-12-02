@@ -6,7 +6,7 @@ export const getAllCenters = () => {
     dispatch({type: 'GET_ALL_CENTERS'});
     axios({
 			method: 'GET',
-			url:'http://localhost:3000/api/v1/centers',
+			url:'/api/v1/centers',
       headers: {'x-access-token': localStorage.getItem('x-access-token')},
 			withCredentials: true,
 			})

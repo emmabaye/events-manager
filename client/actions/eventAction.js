@@ -6,7 +6,7 @@ export const addEvent = (eventDetails) => {
      dispatch({type: 'ADD_EVENT'});
     axios({
 			method: 'post',
-			url:'http://localhost:3000/api/v1/events',
+			url:'/api/v1/events',
 			data: eventDetails,
       headers: {'x-access-token': localStorage.getItem('x-access-token')},
 			withCredentials: true,

@@ -7,7 +7,7 @@ export const signUp = (signUpDetails) => {
      dispatch({type: 'SIGN_UP'});
     axios({
 			method: 'post',
-			url:'http://localhost:3000/api/v1/users',
+			url:'/api/v1/users',
 			data: signUpDetails,
 			withCredentials: true,
 			})
@@ -26,7 +26,7 @@ export const signIn = (signInDetails) => {
      dispatch({type: 'SIGN_IN'});
     axios({
 			method: 'post',
-			url:'http://localhost:3000/api/v1/users/login',
+			url:'/api/v1/users/login',
 			data: signInDetails,
 			withCredentials: true,
 			})
