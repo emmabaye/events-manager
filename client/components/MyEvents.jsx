@@ -33,7 +33,7 @@ class MyEvents extends Component {
 
       axios({
       method: 'GET',
-      url:'http://localhost:3000/api/v1/users/' + userId,
+      url:'/api/v1/users/' + userId,
       withCredentials: true,
       })
       .then((response) => {
@@ -69,7 +69,7 @@ class MyEvents extends Component {
 
       axios({
       method: 'GET',
-      url:'http://localhost:3000/api/v1/users/' + userId,
+      url:'/api/v1/users/' + userId,
       withCredentials: true,
       })
       .then((response) => {

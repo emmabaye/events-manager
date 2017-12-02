@@ -9,7 +9,7 @@ export default class DeleteModal extends Component {
     let eventId = this.props.objectId;
     axios({
       method: 'DELETE',
-      url:'http://localhost:3000/api/v1/events/' + eventId,
+      url:'/api/v1/events/' + eventId,
       headers: {'x-access-token': localStorage.getItem('x-access-token')},
       withCredentials: true,
       })
