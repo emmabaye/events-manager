@@ -3,27 +3,27 @@ import validator from 'validator';
 const eventValidation = (req, res, next) => {
   let errors = [];
   if (req.body.title === undefined) {
-  	return res.status(400).send({error: "Title is required"});
+  	return res.status(400).send({message: "Title is required"});
   }
 
   if (req.body.description === undefined) {
-  	return res.status(400).send({error: "Description is required"});
+  	return res.status(400).send({message: "Description is required"});
   }
 
   if (req.body.venue === undefined) {
-  	return res.status(400).send({error: "Venue is required"});
+  	return res.status(400).send({message: "Venue is required"});
   }
 
   if (req.body.date === undefined) {
-  	return res.status(400).send({error: "date is required"});
+  	return res.status(400).send({message: "Date is required"});
   }
 
   if (req.body.time === undefined) {
-  	return res.status(400).send({error: "Time is required "});
+  	return res.status(400).send({message: "Time is required "});
   }
 
   if (req.body.centerId === undefined) {
-  	return res.status(400).send({error: "CenterId is required"});
+  	return res.status(400).send({message: "CenterId is required"});
   }
 
   if(req.body.title.toString().trim() === ""){
@@ -55,7 +55,7 @@ const eventValidation = (req, res, next) => {
   }
 
   if(errors.length > 0) {
-  	return res.status(400).send({errors: errors});
+  	return res.status(400).send({message: errors});
   }
 
   return next();

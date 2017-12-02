@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from "./NavBar.jsx";
 import { addEvent } from '../actions/eventAction';
@@ -47,6 +48,10 @@ class AddEvent extends Component {
   }
 
   render() {
+    console.log("STATUS ",this.props.status);
+    if( this.props.status == 'Success') {
+      return <Redirect to="/myevents" push={true} />
+    }
     return (
       <div>
         <NavBar />
@@ -54,6 +59,21 @@ class AddEvent extends Component {
           <div className="row">
             <div className="container">
               <form>
+               <div className="form-group row">
+              <label htmlFor="" className="col-sm-3 col-form-label"></label>
+              <div className="col-sm-9">
+               { (this.props.status == 'Error') &&
+                  <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+                    <div className="alert alert-dismissible alert-danger fade show" role="alert">
+                      <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                      </button>
+                        <small>{this.props.message.toString().split(',').join(', ')}</small>
+                      </div>
+                    </div>
+                }
+                </div>
+            </div>
                 <p className="text-center h5">
                   <b>ADD EVENT</b>
                 </p>
@@ -151,8 +171,15 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch: (actionObject) => dispatch(actionObject)
 });
 
+const mapStateToProps = (state) => {
+  return {
+    status: state.eventReducer.status,
+    message: state.eventReducer.message
+  }
+};
+
 export default connect(
-    null,
+     mapStateToProps,
     mapDispatchToProps
 )(AddEvent);
 

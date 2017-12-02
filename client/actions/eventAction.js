@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { history } from '../routes';
 import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED } from '../types/event';
 
 export const addEvent = (eventDetails) => {
@@ -14,12 +13,10 @@ export const addEvent = (eventDetails) => {
 			})
        .then((response) => {
          dispatch({type: ADD_EVENT_FULFILLED, payload: response.data})
-         history.push("/myevents");
        })
        .catch((err) => {
          console.log(err)
-         dispatch({type: 'ADD_EVENT_REJECTED', payload: err})
-         history.push("/addevent");
+         dispatch({type: 'ADD_EVENT_REJECTED', payload: err.response.data});
        });
    }
 };
