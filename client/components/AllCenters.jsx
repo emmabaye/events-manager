@@ -13,14 +13,7 @@ class AllCenters extends Component {
     super(props);
   }
 
-  componentWillMount () {
-    let token = localStorage.getItem('x-access-token');
-    try{
-        let decoded = jwtDecode(token);
-    } catch (e) {
-    return history.push("/login")
-   }
-  }
+  
 
   componentDidMount() {
     document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
@@ -34,7 +27,7 @@ class AllCenters extends Component {
   render() {
     return (
             <div>
-              <NavBar />
+              <NavBar page='AllCenters' />
               <div id="centers" className="panel centers">
 			          <div  id="events" className="container events">
                 <div className="row event-row">

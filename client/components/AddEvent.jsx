@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from "./NavBar.jsx";
 import { addEvent } from '../actions/eventAction';
 import { history } from '../routes';
+
 
 class AddEvent extends Component {
 
@@ -20,8 +22,9 @@ class AddEvent extends Component {
     let token = localStorage.getItem('x-access-token');
       try{
          let decoded = jwtDecode(token);
+         
        } catch (e) {
-        return history.push("/login")
+       return history.push("/login")
     }
   }
 
@@ -36,7 +39,6 @@ class AddEvent extends Component {
 
   handleSubmit = (e) => {
       e.preventDefault();
-      console.log("SUBMIT");
       let eventDetails = this.state.event;
       const { dispatch } = this.props;
       return dispatch(addEvent(eventDetails));
@@ -58,13 +60,12 @@ class AddEvent extends Component {
   }
 
   render() {
-    console.log("STATUS ",this.props.status);
     if( this.props.status == 'Success') {
       return <Redirect to="/myevents" push={true} />
     }
     return (
       <div>
-        <NavBar />
+        <NavBar page='AddEvent' />
         <div className="container add-event ">
           <div className="row">
             <div className="container">
@@ -75,9 +76,6 @@ class AddEvent extends Component {
                { (this.props.status == 'Error') &&
                   <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
                     <div className="alert alert-dismissible alert-danger fade show" role="alert">
-                      <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                      </button>
                         <small>{this.props.message.toString().split(',').join(', ')}</small>
                       </div>
                     </div>

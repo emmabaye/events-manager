@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
     render () {
         return (
             <div>
-                <NavBar />
+                <NavBar page="landingpage"/>
                 <Body />
                 <Footer />
             </div>
