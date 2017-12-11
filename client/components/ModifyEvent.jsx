@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.jsx';
-import '../styles/modifyevents.scss';
 import Footer from './Footer.jsx';
 
 export default class ModifyEvent extends Component {
@@ -54,7 +53,7 @@ export default class ModifyEvent extends Component {
                                 <div className="form-group row">
                                     <label htmlFor="title" className="col-sm-3 col-form-label">Time</label>
                                     <div className="col-sm-9">
-                                        <input type="time" className="form-control" id="" />
+                                        <input  type="time" className="form-control" id="" />
                                     </div>
                                 </div>
                                 <div className="form-group row">

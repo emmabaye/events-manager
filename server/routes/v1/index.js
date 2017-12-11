@@ -115,6 +115,8 @@ const routes = (app) => {
    * @returns {object} res.
    */
   app.get('*', function (req, res){
+    console.log("GOT HERE");
+    console.log(path.resolve(process.cwd(), 'dist', 'index.html'));
     res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'))
   })
 
