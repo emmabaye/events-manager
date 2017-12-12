@@ -74,7 +74,7 @@ const routes = (app) => {
    */
   app.route('/api/v1/events/:eventId')
     .get(EventController.getEvent)
-    .put(isAuthenticated, EventController.updateEvent)
+    .put(isAuthenticated, eventValidation, EventController.updateEvent)
     .delete(isAuthenticated, EventController.deleteEvent);
 
     /**

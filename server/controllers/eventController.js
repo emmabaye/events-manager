@@ -73,11 +73,11 @@ class EventController {
     Event.findById(req.params.eventId)
       .then((event) => {
         if (!event) {
-          return res.status(404).send({ error: 'Event not found' });
+          return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
 
         if (req.userId != event.userId) {
-          return res.status(400).send({ error: 'You do not have privilege to modify this Event' });
+          return res.status(400).send({ status: 'Error', message: 'You do not have privilege to modify this Event' });
         }
 
         Event.update({
@@ -119,7 +119,7 @@ class EventController {
     Event.findById(req.params.eventId)
       .then((event) => {
         if (!event) {
-          return res.status(404).send({ error: 'Event not found' });
+          return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
 
          res.status(200).send({
@@ -140,11 +140,11 @@ class EventController {
     Event.findById(req.params.eventId)
       .then((event) => {
         if (!event) {
-          return res.status(404).send({ error: 'Event not found' });
+          return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
 
         if (req.userId != event.userId) {
-          return res.status(400).send({ error: 'You do not have privilege to delete this Event' });
+          return res.status(400).send({ status: 'Error', message: 'You do not have privilege to delete this Event' });
         }
 
         Event.destroy({

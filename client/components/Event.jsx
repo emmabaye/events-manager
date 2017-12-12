@@ -20,7 +20,7 @@ export default class Event extends Component {
         <p className="card-text h6"><b>Date</b>: {moment( this.props.eventDetails.date ).format('DD MMMM YYYY')}</p>
         <p className="card-text h6"><b>Time</b>: {this.props.eventDetails.time}</p>
         <p className="text-center"><a href="./event.htm" className="btn btn-sm btn-primary"><i className="fa fa-info-circle fa-lg"></i> View Event</a>
-        <a href="./modifyevent.htm" className="btn btn-sm btn-success"><i className="fa fa-edit fa-lg"></i> Modify</a>
+        <a href={`./modifyevent/${this.props.eventDetails.id}`} className="btn btn-sm btn-success"><i className="fa fa-edit fa-lg"></i> Modify</a>
         <a href="#" className="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i className="fa fa-trash-o fa-lg"></i> Delete</a></p>
       </div>
     </div>
