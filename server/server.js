@@ -22,7 +22,7 @@ if(process.env.NODE_ENV !== 'production') {
   app.use(webpackDevMiddleware(compiler, { noInfo: false, publicPath: config.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));
 }
-app.use(express.static(process.cwd() + '/dist'));
+app.use('/', express.static(process.cwd() + '/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

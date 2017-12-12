@@ -74,7 +74,7 @@ const routes = (app) => {
    */
   app.route('/api/v1/events/:eventId')
     .get(EventController.getEvent)
-    .put(isAuthenticated, EventController.updateEvent)
+    .put(isAuthenticated, eventValidation, EventController.updateEvent)
     .delete(isAuthenticated, EventController.deleteEvent);
 
     /**
@@ -115,8 +115,6 @@ const routes = (app) => {
    * @returns {object} res.
    */
   app.get('*', function (req, res){
-    console.log("GOT HERE");
-    console.log(path.resolve(process.cwd(), 'dist', 'index.html'));
     res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'))
   })
 

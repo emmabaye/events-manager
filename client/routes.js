@@ -21,7 +21,7 @@ export default () => {
       <Route exact path='/myevents' component={MyEvents}/>
       <Route exact path='/centers' component={AllCenters}/>
       <Route exact path='/addevent' component={AddEvent}/>
-      <Route exact path='/modifyevent' component={ModifyEvent}/>
+      <Route path='/modifyevent/:id' component={ModifyEvent}/>
      </Switch>
    </Router>
  )
