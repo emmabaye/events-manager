@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
+import jwtDecode from 'jwt-decode';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import AdminPanelBody from './AdminPanelBody.jsx';
+import { history } from '../routes.js';
 
 class AdminPanel extends Component {
 
-  //show = (elemId) => {
-  //  let elementsObject = this.getElement();
-   // document.getElementById("add-center").style.display = "none";
-    //document.getElementById("modify-center").style.display = "none";
-    //document.getElementById("centers").style.display = "none";
-   // document.getElementById("center-details").style.display = "none";
-    //document.getElementById(elemId).style.display = "flex";
- // }
- // 
- // 
-  componentDidUpdate(){
-    console.log("ADMIN PANEL UPDATED");
+  componentWillMount() {
+    let token = localStorage.getItem('x-access-token');
+    try {
+      let decoded = jwtDecode(token);
+      if(decoded.role !== 'admin') {
+        return history.push("/login");
+      }
+    } catch (e) {
+      return history.push("/login");
+    }
   }
 
   componentDidMount() {

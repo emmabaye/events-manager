@@ -1,21 +1,21 @@
 const centerValidation = (req, res, next) => {
   let errors = [];
-  let fields = ['name', 'description','location', 'capacity', 'facilities', 'price'];
+  let fields = ['Name', 'Description','Location', 'Capacity', 'Facilities', 'Price'];
 
 for( let i = 0; i<fields.length; i++) {
-	if(req.body[fields[i]] == undefined){
-		return res.status(400).send({error: req.body[fields[i]] + "is required"});
+	if(req.body[fields[i].toLowerCase()] == undefined){
+		return res.status(400).send({message: fields[i] + " is required"});
 	}
 }
 
 for( let i = 0; i<fields.length; i++) {
-	if(req.body[fields[i]].toString().trim() === ""){
-		errors.push(req.body[fields[i]] + "is required");
+	if(req.body[fields[i].toLowerCase()].toString().trim() === ""){
+		errors.push(fields[i] + " is required");
 	}
 }
   
   if(errors.length > 0) {
-  	return res.status(400).send({errors: errors});
+  	return res.status(400).send({message: errors});
   }
 
   return next();
