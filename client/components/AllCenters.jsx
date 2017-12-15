@@ -12,9 +12,7 @@ class AllCenters extends Component {
   constructor(props) {
     super(props);
   }
-
   
-
   componentDidMount() {
     document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
     document.body.style.backgroundPosition = 'center';
