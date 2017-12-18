@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GET_ALL_CENTERS, GET_ALL_CENTERS_FULFILLED, GET_ALL_CENTERS_REJECTED } from '../types/center';
 import { ADD_CENTER, ADD_CENTER_FULFILLED, ADD_CENTER_REJECTED } from '../types/center';
+import { GET_CENTER, GET_CENTER_FULFILLED, GET_CENTER_REJECTED } from '../types/center';
 
 export const getAllCenters = () => (dispatch) => {
   dispatch({ type: 'GET_ALL_CENTERS' });
@@ -43,4 +44,22 @@ export const setStatus = (str) => {
   return (dispatch) => {
     dispatch({type: 'SET_STATUS', payload: str});
   }
+};
+
+export const getCenter = (centerId) => {
+   return (dispatch) => {
+    dispatch({type: GET_CENTER});
+    axios({
+      method: 'get',
+      url:`/api/v1/centers/${centerId}`,
+      withCredentials: true,
+      })
+       .then((response) => {
+         dispatch({type: GET_CENTER_FULFILLED, payload: response.data})
+       })
+       .catch((err) => {
+         console.log(err)
+         dispatch({type: GET_CENTER_REJECTED, payload: err.response.data});
+        });
+   }
 };

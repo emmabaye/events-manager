@@ -1,5 +1,6 @@
 import { GET_ALL_CENTERS, GET_ALL_CENTERS_FULFILLED, GET_ALL_CENTERS_REJECTED } from '../types/center';
 import { ADD_CENTER, ADD_CENTER_FULFILLED, ADD_CENTER_REJECTED } from '../types/center';
+import { GET_CENTER, GET_CENTER_FULFILLED, GET_CENTER_REJECTED } from '../types/center';
 
 const initState = {
   allCenters:{
@@ -55,6 +56,28 @@ export default ( state = initState, action ) => {
          ...state,
          status: action.payload,
          message:""
+      }
+    }
+    case GET_CENTER: {
+      return {
+        ...state
+      }
+  }
+    case GET_CENTER_FULFILLED: {
+      console.log("PAYLOAD ", action.payload)
+      return {
+        ...state,
+        status: action.payload.status,
+        message: action.payload.message,
+        center: action.payload.data
+      }
+    }
+    case GET_CENTER_REJECTED: {
+      console.log("CENTER REJECTED");
+      return {
+         ...state,
+         status: 'Error',
+         message: action.payload.message
 
       }
     }
