@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCenter } from '../actions/centerAction';
+import { getCenter, modifyCenter, setStatus } from '../actions/centerAction';
 import { connect } from    'react-redux';
 
 class ModifyCenter extends Component {
@@ -33,11 +33,24 @@ class ModifyCenter extends Component {
       [e.target.name]: e.target.value,
         }
     });
-    console.log("STATE ", this.state.center);
+  }
+
+  handleSubmit = (e) => {
+      e.preventDefault();
+      let centerDetails = this.state.center;
+      const { dispatch } = this.props;
+      return dispatch(modifyCenter(centerDetails));
   }
 
   render() {
-    console.log("STATE ", this.props);
+    {
+      if( this.props.status === 'Success') {
+          console.log("SWITCHING");
+          this.props.show('centers');
+          this.props.dispatch(setStatus(""));
+          return null;
+        }
+    }
     return(
         <div id="add-center" className="panel add-center">
           <div   className="container " >
@@ -127,7 +140,7 @@ class ModifyCenter extends Component {
                   </div>
                   <div className="form-group row">
                     <div className="offset-sm-3 col-sm-9">
-                      <button type="submit" className="btn btn-sm btn-success"><i className="fa fa-plus fa-lg"></i> Update</button>
+                      <button type="submit" className="btn btn-sm btn-success" onClick={this.handleSubmit}><i className="fa fa-plus fa-lg"></i> Update</button>
                     </div>
                   </div>
                 </form>

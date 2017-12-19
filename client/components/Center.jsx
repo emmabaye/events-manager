@@ -18,11 +18,9 @@ export default class Center extends Component {
               <p className="card-text h6"><b>Capacity</b>: {this.props.centerDetails.capacity} seats</p>
               <p className="card-text h6"><b>Price</b>: &#8358;{this.props.centerDetails.price}</p>
               <p className="text-center"><a href="#" className="btn btn-sm btn-primary" onClick={ () => this.props.show('centerDetails') } ><i className="fa fa-info-circle fa-lg"></i> View Center</a>
-              <a href="#" className="btn btn-sm btn-success" onClick={ () => this.props.show('modifyCenter', this.props.centerDetails.id) } ><i className="fa fa-edit fa-lg"></i> Modify</a>
-              <a href="#" className="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i className="fa fa-trash-o fa-lg"></i> Delete</a></p>
+              <a href="#" className="btn btn-sm btn-success" onClick={ () => this.props.show('modifyCenter', this.props.centerDetails.id) } ><i className="fa fa-edit fa-lg"></i> Modify</a></p>
             </div>
           </div>
-          <DeleteModal objectId={1}  />
         </div>
     );
   }

@@ -56,7 +56,7 @@ class AdminPanelBody extends Component {
           <div className="col-sm-10 panel-column">
             { (this.state.centers.visible) && <AdminCenters show={this.show} /> }
             { (this.state.addCenter.visible) && <AddCenter show={this.show} /> }
-            { (this.state.modifyCenter.visible) && <ModifyCenter centerId={this.state.modifyCenter.centerId} /> }
+            { (this.state.modifyCenter.visible) && <ModifyCenter show={this.show} centerId={this.state.modifyCenter.centerId} /> }
             { (this.state.centerDetails.visible) && <AdminCenterDetails centerId={this.state.centerDetails.centerId} /> }
           </div>
         </div>
