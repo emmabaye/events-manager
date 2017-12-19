@@ -8,15 +8,15 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     name: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
     description: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
     location: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
     capacity: {
@@ -28,7 +28,7 @@ module.exports = {
       allowNull: false,
     },
     facilities: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
     userId: {
@@ -46,7 +46,7 @@ module.exports = {
     available: {
       type: Sequelize.STRING,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: 'true',
     },
     createdAt: {
       allowNull: false,
