@@ -27,7 +27,7 @@ let center = {
   location: 'Port Harcourt',
   capacity: '500',
   facilities: 'Toilet',
-  price: '20 000',
+  price: '20000',
   available: 'false',
 };
 
