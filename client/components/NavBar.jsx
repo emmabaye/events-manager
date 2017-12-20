@@ -41,7 +41,7 @@ render() {
               <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
               </button>
-              <a className="navbar-brand" href="./authindex.htm">EVENTS MANAGER</a>
+              <a className="navbar-brand" href="/">EVENTS MANAGER</a>
               <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item active">
@@ -60,7 +60,7 @@ render() {
                   <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                   </button>
-                  <a className="navbar-brand" href="./authindex.htm">EVENTS MANAGER</a>
+                  <a className="navbar-brand" href="/">EVENTS MANAGER</a>
                   <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav ml-auto">
                       <li className="nav-item active">
@@ -79,7 +79,7 @@ render() {
                   <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                   </button>
-                  <a className="navbar-brand" href="./authindex.htm">EVENTS MANAGER</a>
+                  <a className="navbar-brand" href="/">EVENTS MANAGER</a>
                   <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav ml-auto">
                       <li className="nav-item active">
@@ -89,7 +89,7 @@ render() {
                         <a className="nav-link" href="/addevent">Add Event</a>
                       </li>
                        <li className="nav-item">
-                        <a className="nav-link" href="#">Centers</a>
+                        <a className="nav-link" href="/centers">Centers</a>
                       </li>
                        <li className="nav-item">
                         <a className="nav-link" href="/SignOut">Sign Out </a>
@@ -104,7 +104,7 @@ render() {
                           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                           <span className="navbar-toggler-icon"></span>
                           </button>
-                          <a className="navbar-brand" href="./authindex.htm">EVENTS MANAGER</a>
+                          <a className="navbar-brand" href="/">EVENTS MANAGER</a>
                           <div className="collapse navbar-collapse" id="navbarText">
                             <ul className="navbar-nav ml-auto">
                               <li className="nav-item active">
@@ -129,7 +129,7 @@ render() {
                                 <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                                 </button>
-                                <a className="navbar-brand" href="./authindex.htm">EVENTS MANAGER</a>
+                                <a className="navbar-brand" href="/">EVENTS MANAGER</a>
                                 <div className="collapse navbar-collapse" id="navbarText">
                                   <ul className="navbar-nav ml-auto">
                                     <li className="nav-item active">
