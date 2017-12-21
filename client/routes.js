@@ -10,6 +10,7 @@ import AddEvent from './components/AddEvent.jsx';
 import ModifyEvent from './components/ModifyEvent.jsx';
 import AdminPanel from './components/AdminPanel.jsx';
 import EventDetails from './components/EventDetails.jsx';
+import CenterDetails from './components/CenterDetails.jsx';
 
 export const history = createBrowserHistory();
 
@@ -22,6 +23,7 @@ export default () => {
       <Route exact path='/login' component={SignInForm}/>
       <Route exact path='/myevents' component={MyEvents}/>
       <Route exact path='/centers' component={AllCenters}/>
+      <Route exact path='/centers/:id' component={CenterDetails}/>
       <Route exact path='/addevent' component={AddEvent}/>
       <Route exact path='/events/:id' component={EventDetails}/>
       <Route path='/modifyevent/:id' component={ModifyEvent}/>

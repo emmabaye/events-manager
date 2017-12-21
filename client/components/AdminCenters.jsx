@@ -25,11 +25,11 @@ class AdminCenters extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: (actionObject) => dispatch(actionObject)
+  dispatch: (actionObject) => dispatch(actionObject)
 });
 
 const mapStateToProps = (state) => ({
-    allCenters: state.centerReducer.allCenters
+  allCenters: state.centerReducer.allCenters
 });
 
 export default connect(
