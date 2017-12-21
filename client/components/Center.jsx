@@ -16,7 +16,7 @@ export default class Center extends Component {
               <p className="card-text h6" >{this.props.centerDetails.description.substr(0, 50) + '...'}</p>
               <p className="card-text h6"><b>Location</b>:{this.props.centerDetails.location.substr(0, 25) + '...'}</p>
               <p className="card-text h6"><b>Capacity</b>: {this.props.centerDetails.capacity} seats</p>
-              <p className="card-text h6"><b>Price</b>: &#8358;{this.props.centerDetails.capacity}</p>
+              <p className="card-text h6"><b>Price</b>: &#8358;{this.props.centerDetails.price}</p>
               <p className="text-center"><a href="#" className="btn btn-sm btn-primary" onClick={ () => this.props.show('centerDetails') } ><i className="fa fa-info-circle fa-lg"></i> View Center</a>
               <a href="#" className="btn btn-sm btn-success" onClick={ () => this.props.show('modifyCenter', this.props.centerDetails.id) } ><i className="fa fa-edit fa-lg"></i> Modify</a></p>
             </div>
