@@ -32,6 +32,7 @@ class CenterDetails extends Component {
                   <p className="card-text"><b>Facilities: {this.props.center.facilities}</b></p>
                   <p className="card-text"><b>Address: {this.props.center.location}</b></p>
                   <p className="card-text"><b>Price: &#8358;{this.props.center.price}</b></p>
+                  <p className="card-text"><b>Availability: {(this.props.center.available === 'true')? "Center is Available" : "Not Available" }</b></p>
                 </div>
               </div>
               <div className="row venue-date" >
