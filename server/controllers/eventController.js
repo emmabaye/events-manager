@@ -116,7 +116,10 @@ class EventController {
    * @returns {object} res.
    */
   static getEvent(req, res) {
-    Event.findById(req.params.eventId)
+    Event.findOne({ 
+      where: {id: req.params.eventId }, 
+      include:[Model.Center]
+      })
       .then((event) => {
         if (!event) {
           return res.status(404).send({ status: 'Error', message: 'Event not found' });
