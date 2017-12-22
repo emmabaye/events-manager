@@ -13,7 +13,6 @@ class ModifyCenter extends Component {
 
   componentDidMount() {
     let centerId = this.props.centerId;
-    console.log("CENTERID ", centerId);
     this.props.dispatch(getCenter(centerId));
   }
 
@@ -31,7 +30,7 @@ class ModifyCenter extends Component {
     this.setState({ center: {
       ...this.state.center, 
       [e.target.name]: e.target.value,
-        }
+      }
     });
   }
 
@@ -45,7 +44,6 @@ class ModifyCenter extends Component {
   render() {
     {
       if( this.props.status === 'Success') {
-          console.log("SWITCHING");
           this.props.show('centers');
           this.props.dispatch(setStatus(""));
           return null;
@@ -129,6 +127,17 @@ class ModifyCenter extends Component {
                         onChange={this.handleChange}
                         />
                       <small id="fileHelp" className="form-text text-muted">( Optional )</small>
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label htmlFor="available" className="col-sm-3 col-form-label">
+                      Availability
+                    </label>
+                    <div className="col-sm-9">
+                      <select ref="available" className="form-control" name="available" onChange={this.handleChange}>
+                        <option value={"true"}>{"Center is Available"}</option>
+                        <option value={"false"}>{"Center is not Available"}</option>
+                      </select>
                     </div>
                   </div>
                   <div className="form-group row">
