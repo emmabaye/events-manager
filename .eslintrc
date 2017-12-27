@@ -2,7 +2,7 @@
   
      "root": true,
   
-     "extends": [ "airbnb-base", "react" ],
+     "extends": ["airbnb-base", "react" ],
   
      "env": {
   
@@ -28,7 +28,10 @@
     },
   
      "rules": {
-  
+         "indent": ["error", 2],
+
+         "semi": ["error","always"],
+
          "one-var": 0,
   
          "one-var-declaration-per-line": 0,

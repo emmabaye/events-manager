@@ -1,13 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import cors from 'cors';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpack from 'webpack';
-import config from '../webpack.config';
 import bodyParser from 'body-parser';
+import busboyBodyParser from 'busboy-body-parser';
+import config from '../webpack.config';
+
 import routes from './routes/v1/index';
-import cors from 'cors';
+
 
 dotenv.config();
 
@@ -25,6 +28,7 @@ if(process.env.NODE_ENV !== 'production') {
 app.use('/', express.static(process.cwd() + '/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(busboyBodyParser({ limit: '10mb' }));
 
 routes(app);
 

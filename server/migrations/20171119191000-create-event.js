@@ -28,7 +28,7 @@ module.exports = {
       allowNull: false,
     },
     image: {
-      type: Sequelize.BLOB,
+      type: Sequelize.TEXT,
       allowNull: true,
     },
     userId: {

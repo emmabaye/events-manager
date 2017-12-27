@@ -37,10 +37,19 @@ class ModifyEvent extends Component {
   }
 
   handleSubmit = (e) => {
-      e.preventDefault();
-      let eventDetails = this.state.event;
-      const { dispatch } = this.props;
-      return dispatch(modifyEvent(eventDetails));
+    e.preventDefault();
+    let eventDetails = this.state.event;
+    const { dispatch } = this.props;
+    let eventForm = new FormData();
+    eventForm.append('id', eventDetails.id);
+    eventForm.append('title', eventDetails.title);
+    eventForm.append('venue', eventDetails.venue);
+    eventForm.append('description', eventDetails.description);
+    eventForm.append('centerId', eventDetails.centerId);
+    eventForm.append('time', eventDetails.time);
+    eventForm.append('date', eventDetails.date);
+    eventForm.append('image', this.refs.image.files[0]);
+    return dispatch(modifyEvent(eventForm));
   }
 
   componentDidMount() {
@@ -159,6 +168,7 @@ class ModifyEvent extends Component {
                   </label>
                   <div className="col-sm-9">
                     <input
+                      ref="image"
                       type="file"
                       className="form-control"
                       name="image"

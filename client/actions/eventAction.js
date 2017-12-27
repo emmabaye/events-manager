@@ -41,13 +41,13 @@ export const getEvent = (eventId) => {
   }
 }
 
-export const modifyEvent = (eventDetails) => {
+export const modifyEvent = (eventForm) => {
   return (dispatch) => {
     dispatch({type: MODIFY_EVENT})
     axios({
       method: 'put',
-      url: `/api/v1/events/${eventDetails.id}`,
-      data: eventDetails,
+      url: `/api/v1/events/${eventForm.get('id')}`,
+      data: eventForm,
       headers: {'x-access-token': localStorage.getItem('x-access-token')},
       withCredentials: true
     })

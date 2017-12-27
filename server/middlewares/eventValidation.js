@@ -1,6 +1,8 @@
 import validator from 'validator';
 
 const eventValidation = (req, res, next) => {
+  console.log("EVENT REQ BODY ", req.body)
+   console.log("EVENT REQ FILES ", req.files)
   let errors = [];
   if (req.body.title === undefined) {
   	return res.status(400).send({message: "Title is required"});
