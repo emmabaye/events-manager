@@ -34,8 +34,6 @@ class AddEvent extends Component {
         venue: this.refs.venue.options[this.refs.venue.selectedIndex].text
       }
     });
-    console.log(this.state.event);
-    console.log("IMAGE ", this.refs.image.files[0]);
   }
 
   handleSubmit = (e) => {
@@ -60,7 +58,6 @@ class AddEvent extends Component {
       withCredentials: true,
     })
       .then((response) => {
-        console.log(response.data.data);
         this.setState({ centers: response.data.data });
       })
       .catch((err) => {

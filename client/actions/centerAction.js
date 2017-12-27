@@ -21,13 +21,13 @@ export const getAllCenters = () => (dispatch) => {
       });
 };
 
-export const addCenter = (centerDetails) => {
+export const addCenter = (centerForm) => {
    return (dispatch) => {
     dispatch({type: ADD_CENTER});
     axios({
       method: 'post',
       url:'/api/v1/centers',
-      data: centerDetails,
+      data: centerForm,
       headers: {'x-access-token': localStorage.getItem('x-access-token')},
       withCredentials: true,
       })
@@ -65,13 +65,13 @@ export const getCenter = (centerId) => {
    }
 };
 
-export const modifyCenter = (centerDetails) => {
+export const modifyCenter = (centerForm) => {
   return (dispatch) => {
     dispatch({type: MODIFY_CENTER})
     axios({
       method: 'put',
-      url: `/api/v1/centers/${centerDetails.id}`,
-      data: centerDetails,
+      url: `/api/v1/centers/${centerForm.get('id')}`,
+      data: centerForm,
       headers: {'x-access-token': localStorage.getItem('x-access-token')},
       withCredentials: true
     })

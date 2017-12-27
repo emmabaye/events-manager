@@ -66,7 +66,6 @@ class EventController {
               data: event
             });
           }).catch((e) => {
-            console.log(e);
             return res.status(500).send({
               status: 'Error',
               message: 'Error'
@@ -76,7 +75,6 @@ class EventController {
           .end((req.files.image)?req.files.image.data:undefined);
         // Cloudinary covers above this
       }).catch((e) => {
-        console.log(e);
         return res.status(500).send({
           status: 'Error',
           message: 'Error'
