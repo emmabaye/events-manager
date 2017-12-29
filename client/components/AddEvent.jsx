@@ -9,50 +9,56 @@ import { history } from '../routes';
 
 
 class AddEvent extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      event:{},
+      event: {},
       centers: []
-    }
+    };
   }
 
-  componentWillMount () {
+  componentWillMount() {
     let token = localStorage.getItem('x-access-token');
-      try{
-         let decoded = jwtDecode(token);
-         
-       } catch (e) {
-       return history.push("/login")
+    try {
+      let decoded = jwtDecode(token);
+    } catch (e) {
+      return history.push("/login");
     }
   }
 
   handleChange = (e) => {
-    this.setState({ event: {
-      ...this.state.event, 
-      [e.target.name]: e.target.value,
-      venue: this.refs.venue.options[this.refs.venue.selectedIndex].text }
+    this.setState({
+      event: {
+        ...this.state.event,
+        [e.target.name]: e.target.value,
+        venue: this.refs.venue.options[this.refs.venue.selectedIndex].text
+      }
     });
-    console.log(this.state.event)
   }
 
   handleSubmit = (e) => {
-      e.preventDefault();
-      let eventDetails = this.state.event;
-      const { dispatch } = this.props;
-      return dispatch(addEvent(eventDetails));
-    }
+    e.preventDefault();
+    let eventDetails = this.state.event;
+    const { dispatch } = this.props;
+    let eventForm = new FormData();
+    eventForm.append('title', eventDetails.title);
+    eventForm.append('venue', eventDetails.venue);
+    eventForm.append('description', eventDetails.description);
+    eventForm.append('centerId', eventDetails.centerId);
+    eventForm.append('time', eventDetails.time);
+    eventForm.append('date', eventDetails.date);
+    eventForm.append('image', this.refs.image.files[0]);
+    return dispatch(addEvent(eventForm));
+  }
 
   componentDidMount() {
     axios({
       method: 'GET',
-      url:'/api/v1/centers',
+      url: '/api/v1/centers',
       withCredentials: true,
-      })
+    })
       .then((response) => {
-        console.log(response.data.data);
-        this.setState({ centers: response.data.data});
+        this.setState({ centers: response.data.data });
       })
       .catch((err) => {
         console.log(err.response);
@@ -60,28 +66,28 @@ class AddEvent extends Component {
   }
 
   render() {
-    if( this.props.status == 'Success') {
-      return <Redirect to="/myevents" push={true} />
+    if (this.props.status == 'Success') {
+      return <Redirect to="/myevents" push />;
     }
     return (
       <div>
-        <NavBar page='AddEvent' />
+        <NavBar page="AddEvent" />
         <div className="container add-event ">
           <div className="row">
             <div className="container">
-              <form>
-               <div className="form-group row">
-                  <label htmlFor="" className="col-sm-3 col-form-label"></label>
+              <form ref="form">
+                <div className="form-group row">
+                  <label htmlFor="" className="col-sm-3 col-form-label" />
                   <div className="col-sm-9">
-                   { (this.props.status == 'Error') &&
-                      <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+                    { (this.props.status == 'Error') &&
+                      <div className="form-group row" style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
                         <div className="alert alert-dismissible alert-danger fade show" role="alert">
-                            <small>{this.props.message.toString().split(',').join(', ')}</small>
-                          </div>
+                          <small>{this.props.message.toString().split(',').join(', ')}</small>
                         </div>
-                    }
                       </div>
+                    }
                   </div>
+                </div>
                 <p className="text-center h5">
                   <b>ADD EVENT</b>
                 </p>
@@ -113,9 +119,9 @@ class AddEvent extends Component {
                   </label>
                   <div className="col-sm-9">
                     <select className="form-control" ref="venue" name="centerId" onChange={this.handleChange}>
-                      <option></option>
+                      <option />
                       {
-                        (this.state.centers.map((center) =>  <option key={center.id}  value={center.id}>{center.name}</option>))
+                        (this.state.centers.map((center) => <option key={center.id} value={center.id}>{center.name}</option>))
                       }
                     </select>
                     <small id="fileHelp" className="form-text text-muted">
@@ -147,6 +153,7 @@ class AddEvent extends Component {
                   </label>
                   <div className="col-sm-9">
                     <input
+                      ref="image"
                       type="file"
                       className="form-control"
                       name="image"
@@ -176,18 +183,16 @@ class AddEvent extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: (actionObject) => dispatch(actionObject)
+  dispatch: (actionObject) => dispatch(actionObject)
 });
 
-const mapStateToProps = (state) => {
-  return {
-    status: state.eventReducer.status,
-    message: state.eventReducer.message
-  }
-};
+const mapStateToProps = (state) => ({
+  status: state.eventReducer.status,
+  message: state.eventReducer.message
+});
 
 export default connect(
-     mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AddEvent);
 

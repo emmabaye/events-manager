@@ -1,6 +1,8 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import request from 'supertest';
 import app from '../server.js';
+
 
 let user = {
   firstName: 'userName',
@@ -16,9 +18,10 @@ let event = {
   title: 'Powerful Seminar',
   description: 'Come and See',
   venue: 'City Hall',
-  date: '2018-11-27',
+  date: '2018-10-27',
   time: '5pm',
   centerId: '1',
+  image: '#noImage'
 };
 
 let center = {
@@ -28,9 +31,9 @@ let center = {
   capacity: '500',
   facilities: 'Toilet',
   price: '20000',
-  available: 'false',
+  available: 'true',
+  image: '#noImage'
 };
-
 
 chai.use(chaiHttp);
 
@@ -48,7 +51,7 @@ describe('API endpoints /api/v1', () => {
   // GET - index
   it(
     'Should return http code status 200',
-    () => chai.request(app)
+    () => request(app)
       .get('/api/v1')
       .then((res) => {
         expect(res).to.have.status(200);
@@ -64,7 +67,7 @@ describe('API endpoints /api/v1', () => {
 describe('API endpoints /api/v1/users', () => {
   it(
     'Should create new user',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users')
       .send(user)
       .then((res) => {
@@ -73,20 +76,18 @@ describe('API endpoints /api/v1/users', () => {
         expect(res.body.status).to.equal('Success');
         user.id = res.body.data.user.id;
       }),
-    // .catch( err => err.response ),
   );
 
 
   it(
     'Should get user details',
-    () => chai.request(app)
+    () => request(app)
       .get(`/api/v1/users/${user.id}`)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.body.status).to.equal('Success');
       })
-      .catch(err => err.response),
   );
 });
 
@@ -94,13 +95,13 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should  return status 400
   it(
     'Should return status 400',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users/login')
       .send({ email: undefined, password: '' })
       .then((res) => {
         expect(res).to.have.status(400);
         expect(res).to.be.json;
-      }).catch( err => err.response ),
+      })
   );
 });
 
@@ -108,13 +109,13 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should  return status 400
   it(
     'Should return status 400',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users/login')
       .send({ email: '', password: '' })
       .then((res) => {
         expect(res).to.have.status(400);
         expect(res).to.be.json;
-      }).catch( err => err.response ),
+      })
   );
 });
 
@@ -122,13 +123,13 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should  return status 400
   it(
     'Should return status 400',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users/login')
       .send({ email: 'admin@admin.com', password: '' })
       .then((res) => {
         expect(res).to.have.status(400);
         expect(res).to.be.json;
-      }).catch( err => err.response ),
+      })
   );
 });
 
@@ -137,7 +138,7 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should pass authentication
   it(
     'Should successfully authenticate',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users/login')
       .send({ email: 'admin@admin.com', password: 'password' })
       .then((res) => {
@@ -145,7 +146,7 @@ describe('API endpoints /api/v1/login', () => {
         expect(res).to.be.json;
         adminToken = res.body.data.token;
         event.userId = res.body.data.user.id;
-      }).catch( err => err.response ),
+      })
   );
 });
 
@@ -154,7 +155,7 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should pass authentication
   it(
     'Should successfully authenticate',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users/login')
       .send({ email: user.email, password: user.password })
       .then((res) => {
@@ -167,7 +168,7 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should update user details
   it(
     'Should update user details',
-    () => chai.request(app)
+    () => request(app)
       .put(`/api/v1/users/${user.id}`)
       .set('x-access-token', userToken)
       .send({ firstName: 'John' })
@@ -181,14 +182,14 @@ describe('API endpoints /api/v1/login', () => {
   // POST - should fail authentication, invalid password
   it(
     'Should return 401, Should fail authentication, invalid password',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/users/login')
       .send({ email: user.email, password: user.password + 1 })
       .then((res) => {
         expect(res).to.have.status(401);
         expect(res).to.be.json;
       })
-      .catch(err => err.response),
+
   );
 });
 
@@ -197,7 +198,7 @@ describe('API endpoints /api/v1/centers', () => {
   // - GET all centers
   it(
     'Should get all centers',
-    () => chai.request(app)
+    () => request(app)
       .get('/api/v1/centers')
       .then((res) => {
         expect(res).to.have.status(200);
@@ -209,7 +210,7 @@ describe('API endpoints /api/v1/centers', () => {
   // POST - should return 404 -create  a center
   it(
     'Should return 401 create a center',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/centers')
       .set('x-access-token', null)
       .send(center)
@@ -217,14 +218,13 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.have.status(401);
         expect(res).to.be.json;
       })
-      .catch(err => err.response),
   );
 
   // POST - should return 404 -create  a center
   // User cannot create center
   it(
     'Should return 403 ',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/centers')
       .set('x-access-token', userToken)
       .send(center)
@@ -232,16 +232,22 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.have.status(403);
         expect(res).to.be.json;
       })
-      .catch(err => err.response),
   );
 
   // POST - should create  a center
   it(
     'Should create a center',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/centers')
       .set('x-access-token', adminToken)
-      .send(center)
+      .field('name', center.name)
+      .field('description', center.description)
+      .field('location', center.location)
+      .field('capacity', center.capacity)
+      .field('facilities', center.facilities)
+      .field('price', center.price)
+      .field('available', center.available)
+      .field('image', center.image)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -254,7 +260,7 @@ describe('API endpoints /api/v1/centers', () => {
   // GET - should get  a center
   it(
     'Should get a center',
-    () => chai.request(app)
+    () => request(app)
       .get(`/api/v1/centers/${center.id}`)
       .set('x-access-token', adminToken)
       .then((res) => {
@@ -262,28 +268,33 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.be.json;
         center.id = res.body.data.id;
       })
-      .catch(err => err.response),
   );
 
 
   // PUT - should update  a center
-  center.name += Math.random();
   it(
     'Should update a center',
-    () => chai.request(app)
+    () => request(app)
       .put(`/api/v1/centers/${center.id}`)
       .set('x-access-token', adminToken)
-      .send(center)
+      .field('name', center.name)
+      .field('description', center.description)
+      .field('location', center.location)
+      .field('capacity', center.capacity)
+      .field('facilities', center.facilities)
+      .field('price', center.price)
+      .field('available', center.available)
+      .field('image', center.image)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
       })
-      .catch(err => err.response),
   );
+
 
   it(
     'Should return 404 - center not found',
-    () => chai.request(app)
+    () => request(app)
       .put(`/api/v1/centers/${10000000}`)
       .set('x-access-token', adminToken)
       .send(center)
@@ -291,7 +302,6 @@ describe('API endpoints /api/v1/centers', () => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
       })
-      .catch(err => err.response),
   );
 });
 
@@ -300,10 +310,16 @@ describe('API endpoints /api/v1/events', () => {
   // POST - create event
   it(
     'Should create event',
-    () => chai.request(app)
+    () => request(app)
       .post('/api/v1/events')
       .set('x-access-token', adminToken)
-      .send(event)
+      .field('title', event.title)
+      .field('venue', event.venue)
+      .field('description', event.description)
+      .field('date', event.date)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -316,23 +332,29 @@ describe('API endpoints /api/v1/events', () => {
   // PUT - update event
   it(
     'Should update event',
-    () => chai.request(app)
+    () => request(app)
       .put(`/api/v1/events/${event.id}`)
       .set('x-access-token', adminToken)
-      .send(event)
+      .field('title', event.title)
+      .field('venue', event.venue)
+      .field('description', event.description)
+      .field('date', event.date)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
       })
   );
 
+
   // PUT - cancel event
   it(
     'Should cancel event',
-    () => chai.request(app)
+    () => request(app)
       .put(`/api/v1/events/${event.id}/cancel`)
       .set('x-access-token', adminToken)
-      .send(event)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -343,41 +365,39 @@ describe('API endpoints /api/v1/events', () => {
   // should return 404
   it(
     'delete event - should return 404',
-    () => chai.request(app)
+    () => request(app)
       .delete(`/api/v1/events/${1000000}`)
       .set('x-access-token', adminToken)
       .then((res) => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
-      }).catch(e => e.response)
+      })
   );
 
 
   // DELETE - delete event
   it(
     'Should delete event',
-    () => chai.request(app)
+    () => request(app)
       .delete(`/api/v1/events/${event.id}`)
       .set('x-access-token', adminToken)
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
       })
-      
+
   );
 
 
   it(
     'Should return 404 - event not found',
-    () => chai.request(app)
+    () => request(app)
       .delete(`/api/v1/centers/${event.id}`)
       .set('x-access-token', adminToken)
       .then((res) => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
-        done();
       })
-      .catch(err => err.response),
   );
 });
 
@@ -394,7 +414,7 @@ describe('API endpoints /api/v1/users/logout', () => {
   // GET - log out user
   it(
     'Should log out user',
-    () => chai.request(app)
+    () => request(app)
       .get('/api/v1/users/logout')
       .then((res) => {
         expect(res).to.have.status(200);

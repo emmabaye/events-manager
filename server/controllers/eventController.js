@@ -1,11 +1,20 @@
-import Model from '../models';
-import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import moment from 'moment';
+import cloudinary from 'cloudinary';
+import Model from '../models';
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 const { Event } = Model;
 
+/**
+   * Event controller
+   *
+   */
 class EventController {
   /**
    * Create an event
@@ -17,8 +26,8 @@ class EventController {
     Event.findOne({
       where: {
         centerId: req.body.centerId,
-        date: new Date(req.body.date).toISOString(),
-      },
+        date: new Date(req.body.date).toISOString()
+      }
     })
       .then((existingEvent) => {
         if (existingEvent) {
@@ -28,37 +37,47 @@ class EventController {
             data: {
               id: existingEvent.id,
               title: existingEvent.title,
-              centerId: existingEvent.centerId,
-            },
+              centerId: existingEvent.centerId
+            }
           });
         }
 
-        Event.create({
-          title: req.body.title,
-          description: req.body.description,
-          venue: req.body.venue,
-          date: new Date(req.body.date).toISOString(),
-          time: req.body.time,
-          userId: req.userId,
-          centerId: req.body.centerId,
-        }).then((event) => {
-          res.status(200).send({
-            status: 'Success',
-            message: ' Event created',
-            data: event,
+        // Cloudinary below this line
+        cloudinary.v2.uploader.upload_stream({
+          resource_type: 'raw'
+        }, (error, result) => {
+          if (error) {
+            console.log('IMAGE ERROR ', error);
+          }
+
+          Event.create({
+            title: req.body.title,
+            description: req.body.description,
+            venue: req.body.venue,
+            date: new Date(req.body.date).toISOString(),
+            time: req.body.time,
+            userId: req.userId,
+            centerId: req.body.centerId,
+            image: (result) ? result.url : '#noImage'
+          }).then((event) => {
+            res.status(200).send({
+              status: 'Success',
+              message: ' Event created',
+              data: event
+            });
+          }).catch((e) => {
+            return res.status(500).send({
+              status: 'Error',
+              message: 'Error'
+            });
           });
-        }).catch((e) => {
-          console.log(e);
-          res.status(500).send({
-            status: 'Error',
-            message: 'Error',
-          });
-        });
+        })
+          .end((req.files.image)?req.files.image.data:undefined);
+        // Cloudinary covers above this
       }).catch((e) => {
-        console.log(e);
-        res.status(500).send({
+        return res.status(500).send({
           status: 'Error',
-          message: 'Error',
+          message: 'Error'
         });
       });
   }
@@ -76,60 +95,72 @@ class EventController {
           return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
 
-        if (req.userId != event.userId) {
+        if (req.userId !== event.userId) {
           return res.status(400).send({ status: 'Error', message: 'You do not have privilege to modify this Event' });
         }
 
-        Event.update({
-          title: req.body.title || event.title,
-          description: req.body.description || event.description,
-          venue: req.body.venue || event.venue,
-          date: new Date(req.body.date).toISOString() || event.date,
-          time: req.body.time || event.time,
-          userId: req.userId || event.userId,
-          centerId: req.body.centerId || event.centerId,
-        }, {
-          where: {
-            id: req.params.eventId,
-          },
-        }).then((updatedEvent) => {
-          if (!updatedEvent) {
-            res.status(500).send({
-              status: ' Server Error',
-              message: 'Cannot update event',
-            });
+        // cloudinary below this line
+        cloudinary.v2.uploader.upload_stream({
+          resource_type: 'raw'
+        }, (error, result) => {
+          if (error) {
+            console.log('IMAGE ERROR ', error);
           }
 
-          res.status(200).send({
-            status: 'Success',
-            message: 'Event Updated',
-            data: updatedEvent,
+          Event.update({
+            title: req.body.title || event.title,
+            description: req.body.description || event.description,
+            venue: req.body.venue || event.venue,
+            date: new Date(req.body.date).toISOString() || event.date,
+            time: req.body.time || event.time,
+            userId: req.userId || event.userId,
+            centerId: req.body.centerId || event.centerId,
+            image: (result) ? result.url : event.image
+          }, {
+            where: {
+              id: req.params.eventId
+            }
+          }).then((updatedEvent) => {
+            if (!updatedEvent) {
+              res.status(500).send({
+                status: ' Server Error',
+                message: 'Cannot update event'
+              });
+            }
+
+            res.status(200).send({
+              status: 'Success',
+              message: 'Event Updated',
+              data: updatedEvent
+            });
           });
-        });
+        }).end((req.files.image)?req.files.image.data:undefined);
+
+        // cloudinary above this line
       });
   }
 
-   /**
+  /**
    * Get details of an event by Id
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
    * @returns {object} res.
    */
   static getEvent(req, res) {
-    Event.findOne({ 
-      where: {id: req.params.eventId }, 
-      include:[Model.Center]
-      })
+    Event.findOne({
+      where: { id: req.params.eventId },
+      include: [Model.Center]
+    })
       .then((event) => {
         if (!event) {
           return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
 
-         res.status(200).send({
-            status: 'Success',
-            message: 'Event found',
-            data: event,
-          });
+        res.status(200).send({
+          status: 'Success',
+          message: 'Event found',
+          data: event
+        });
       });
   }
 
@@ -146,31 +177,31 @@ class EventController {
           return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
 
-        if (req.userId != event.userId) {
+        if (req.userId !== event.userId) {
           return res.status(400).send({ status: 'Error', message: 'You do not have privilege to delete this Event' });
         }
 
         Event.destroy({
           where: {
-            id: req.params.eventId,
-          },
+            id: req.params.eventId
+          }
         }).then((deletedEvent) => {
           if (!deletedEvent) {
             res.status(500).send({
               status: ' Server Error',
-              message: 'Cannot delete event',
+              message: 'Cannot delete event'
             });
           }
 
           res.status(200).send({
             status: 'Success',
             message: 'Event deleted',
-            data: deletedEvent,
+            data: deletedEvent
           });
         });
       });
   }
-  
+
   /**
    * Cancel an event by admin
    * @param {object} req The request body of the request.
@@ -179,26 +210,26 @@ class EventController {
    */
   static cancelEvent(req, res) {
     Event.update({
-          venue: "NOT AVAILABLE",
-        }, {
-          where: {
-            id: req.params.eventId,
-          },
-        }).then((updatedEvent) => {
-          if (updatedEvent == [0]) {
-            res.status(500).send({
-              status: ' Server Error',
-              message: 'Cannot update event',
-            });
-          }
+      venue: 'NOT AVAILABLE'
+    }, {
+      where: {
+        id: req.params.eventId
+      }
+    }).then((updatedEvent) => {
+      if (updatedEvent === [0]) {
+        res.status(500).send({
+          status: ' Server Error',
+          message: 'Cannot update event'
+        });
+      }
 
-          Event.findOne({ 
-            where: {id: req.params.eventId }, 
-            include:[Model.User]
-          })
-            .then((event) => {
-              console.log("FOUND");
-              console.log(event.User.dataValues.email.toString());
+      Event.findOne({
+        where: { id: req.params.eventId },
+        include: [Model.User]
+      })
+        .then((event) => {
+          console.log('FOUND');
+          console.log(event.User.dataValues.email.toString());
           if (event) {
             let transporter = nodemailer.createTransport({
               service: 'gmail',
@@ -215,7 +246,8 @@ class EventController {
               from: 'admin@eventsmanager.com',
               to: event.User.dataValues.email.toString(),
               subject: 'Notification on Cancellation of Event',
-              html: `<p>Your event,<b> ${event.title}</b>, holding on <b>${moment(event.date).format('DD MMMM YYYY')} </b>has been \
+              html: `<p>Your event,<b> ${event.title}</b>, holding on \
+              <b>${moment(event.date).format('DD MMMM YYYY')} </b>has been \
               cancelled on our platform. This is because\
                the center you chose will not be available. </b></p><br>\
                <p>Contact Admin at <b>admin@eventsmanager.com</b><br>
@@ -228,18 +260,18 @@ class EventController {
             });
           }
         }).catch((err) => {
-           res.status(500).send({
-              status: ' Server Error',
-              message: 'Cannot send mail',
-            });
-        });
-          
-          res.status(200).send({
-            status: 'Success',
-            message: 'Event Updated',
-            data: updatedEvent,
+          res.status(500).send({
+            status: ' Server Error',
+            message: 'Cannot send mail'
           });
-    })
+        });
+
+      res.status(200).send({
+        status: 'Success',
+        message: 'Event Updated',
+        data: updatedEvent
+      });
+    });
   }
 }
 

@@ -22,7 +22,16 @@ class AddCenter extends Component {
     e.preventDefault();
     let centerDetails = this.state.center;
     const { dispatch } = this.props;
-    return dispatch(addCenter(centerDetails));
+    let centerForm = new FormData();
+    centerForm.append('name', centerDetails.name);
+    centerForm.append('description', centerDetails.description);
+    centerForm.append('location', centerDetails.location);
+    centerForm.append('capacity', centerDetails.capacity);
+    centerForm.append('price', centerDetails.price);
+    centerForm.append('facilities', centerDetails.facilities);
+    centerForm.append('available', centerDetails.available);
+    centerForm.append('image', this.refs.image.files[0]);
+    return dispatch(addCenter(centerForm));
   }
 
   render() {
@@ -93,7 +102,7 @@ class AddCenter extends Component {
                   <div className="form-group row">
                     <label htmlFor="exampleInputFile"  className="col-sm-3 col-form-label">Image</label>
                     <div className="col-sm-9">
-                      <input type="file" className="form-control" onChange={this.handleChange} name="Image" aria-describedby="fileHelp" />
+                      <input ref="image" type="file" className="form-control" onChange={this.handleChange} name="Image" aria-describedby="fileHelp" />
                       <small id="fileHelp" className="form-text text-muted">( Optional )</small>
                     </div>
                   </div>

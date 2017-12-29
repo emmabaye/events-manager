@@ -9,7 +9,6 @@ class CenterDetails extends Component {
 
   componentDidMount() {
     let centerId = this.props.centerId;
-    console.log("CENTERID ", centerId);
     this.props.dispatch(getCenter(centerId));
   }
 
@@ -24,7 +23,7 @@ class CenterDetails extends Component {
           <div className="row">
             <div className=" event">
               <div className="card mb-3">
-                <img className="card-img-top img-fluid" src="./img/matthew-cramblett-429664.jpg" height="300px" alt="Card image cap" />
+                <img className="card-img-top img-fluid" src={this.props.center.image} height="300px" alt="Card image cap" />
                 <div className="card-block">
                   <h5 className="card-title"><b>{this.props.center.name}</b></h5>
                   <p className="card-text">{this.props.center.description}</p>

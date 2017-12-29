@@ -28,7 +28,7 @@ class EventDetails extends Component {
           <div className="row">
             <div className="col-md-8 event">
               <div className="card mb-3">
-                <img className="card-img-top img-fluid" src="/img/matty-adame-200085.jpg" height="300" alt="Card image cap" />
+                <img className="card-img-top img-fluid" src={this.props.event.image} height="300" alt="Card image cap" />
                 <div className="card-block">
                   <h5 className="card-title"><b>{this.props.event.title}</b></h5>
                   <p className="card-text">{this.props.event.description}</p>
@@ -42,7 +42,7 @@ class EventDetails extends Component {
                   <div className="card">
                     <h6 className="card-header"><b>VENUE</b></h6>
                     <div className="card-block">
-                      <p className="card-text">{this.props.event.venue}</p>
+                       { this.props.event.Center !== undefined && <p className="card-text">{`${this.props.event.Center.name}, ${this.props.event.Center.location}`}</p> }
                     </div>
                   </div>
                 </div>
