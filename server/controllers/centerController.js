@@ -26,7 +26,7 @@ class CenterController {
       if (error) {
         console.log('IMAGE ERROR ', error);
       }
-      Center.create({
+      return Center.create({
         name: req.body.name,
         description: req.body.description.trim(),
         location: req.body.location.trim(),
