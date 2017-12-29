@@ -1,15 +1,7 @@
-import cloudinary from 'cloudinary';
+import cloudinary from '../config/cloudinary';
 import Model from '../models';
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-});
-
-
 const { Center } = Model;
-
 
 class CenterController {
   /**
@@ -35,19 +27,14 @@ class CenterController {
         price: req.body.price.trim(),
         userId: req.userId,
         image: (result) ? result.url : '#noImage'
-      }).then((center) => {
-        return res.status(200).send({
-          status: 'Success',
-          message: 'Center has been created',
-          data: center,
-        });
-      }).catch((e) => {
-        console.log("ERROR I CREATING CENTER",e);
-        return res.status(500).send({
-          status: 'Error',
-          message: 'Server Error',
-        });
-      });
+      }).then((center) => res.status(200).send({
+        status: 'Success',
+        message: 'Center has been created',
+        data: center,
+      })).catch((e) => res.status(500).send({
+        status: 'Error',
+        message: 'There was an error in adding center pls try again',
+      }));
     })
       .end((req.files.image) ? req.files.image.data : undefined);
   }
@@ -157,6 +144,11 @@ class CenterController {
                 message: 'Centers not update center',
               });
             }
+
+            cloudinary.v2.uploader.destroy(center.image.split('/')[7], {
+              resource_type: 'raw'
+            }, (err, result) => {
+            });
 
             return res.status(200).send({
               status: 'Success',

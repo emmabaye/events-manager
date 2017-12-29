@@ -1,13 +1,7 @@
 import nodemailer from 'nodemailer';
 import moment from 'moment';
-import cloudinary from 'cloudinary';
+import cloudinary from '../config/cloudinary';
 import Model from '../models';
-
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-});
 
 const { Event } = Model;
 
@@ -65,21 +59,17 @@ class EventController {
               message: ' Event created',
               data: event
             });
-          }).catch((e) => {
-            return res.status(500).send({
-              status: 'Error',
-              message: 'Error'
-            });
-          });
+          }).catch((e) => res.status(500).send({
+            status: 'Error',
+            message: 'Error'
+          }));
         })
-          .end((req.files.image)?req.files.image.data:undefined);
+          .end((req.files.image) ? req.files.image.data : undefined);
         // Cloudinary covers above this
-      }).catch((e) => {
-        return res.status(500).send({
-          status: 'Error',
-          message: 'Error'
-        });
-      });
+      }).catch((e) => res.status(500).send({
+        status: 'Error',
+        message: 'Error'
+      }));
   }
 
   /**
@@ -128,13 +118,18 @@ class EventController {
               });
             }
 
+            cloudinary.v2.uploader.destroy(event.image.split('/')[7], {
+              resource_type: 'raw'
+            }, (err, result) => {
+            });
+
             res.status(200).send({
               status: 'Success',
               message: 'Event Updated',
               data: updatedEvent
             });
           });
-        }).end((req.files.image)?req.files.image.data:undefined);
+        }).end((req.files.image) ? req.files.image.data : undefined);
 
         // cloudinary above this line
       });
@@ -193,6 +188,12 @@ class EventController {
             });
           }
 
+          cloudinary.v2.uploader.destroy(event.image.split('/')[7], {
+            resource_type: 'raw'
+          }, (err, result) => {
+
+          });
+
           res.status(200).send({
             status: 'Success',
             message: 'Event deleted',
@@ -228,8 +229,6 @@ class EventController {
         include: [Model.User]
       })
         .then((event) => {
-          console.log('FOUND');
-          console.log(event.User.dataValues.email.toString());
           if (event) {
             let transporter = nodemailer.createTransport({
               service: 'gmail',
