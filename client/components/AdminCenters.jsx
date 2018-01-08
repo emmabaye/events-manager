@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Center from './Center.jsx';
 import { getAllCenters } from '../actions/centerAction';
 
-class AdminCenters extends Component {
+export class AdminCenters extends Component {
 
   componentDidMount() {
     this.props.dispatch(getAllCenters());

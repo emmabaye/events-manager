@@ -1,0 +1,1501 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminCenterDetails Component AdminCenterDetails form  should render self it should render for dumb component 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CenterDetails
+    center={
+      Object {
+        "data": Array [
+          Object {
+            "Events": Array [],
+            "available": "false",
+            "capacity": "500",
+            "description": Object {
+              "substr": [Function],
+            },
+            "id": "1",
+            "image": "",
+            "location": Object {
+              "substr": [Function],
+            },
+            "name": "City Hall",
+            "price": "50000",
+          },
+        ],
+      }
+    }
+    centerId="1"
+    dispatch={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="container event-details"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className=" event"
+          >
+            <div
+              className="card mb-3"
+            >
+              <img
+                alt="Card image cap"
+                className="card-img-top img-fluid"
+                height="300px"
+                src={undefined}
+              />
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b />
+                </h5>
+                <p
+                  className="card-text"
+                />
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Capacity: 
+                     seats
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Facilities: 
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Address: 
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Price: ₦
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Availability: 
+                    Not Available
+                  </b>
+                </p>
+              </div>
+            </div>
+            <div
+              className="row venue-date"
+            >
+              <div
+                className="container"
+              >
+                <Location
+                  location="undefined, undefined"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>,
+      "className": " panel center-details",
+      "id": "center-details",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="row"
+        >
+          <div
+            className=" event"
+          >
+            <div
+              className="card mb-3"
+            >
+              <img
+                alt="Card image cap"
+                className="card-img-top img-fluid"
+                height="300px"
+                src={undefined}
+              />
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b />
+                </h5>
+                <p
+                  className="card-text"
+                />
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Capacity: 
+                     seats
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Facilities: 
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Address: 
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Price: ₦
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Availability: 
+                    Not Available
+                  </b>
+                </p>
+              </div>
+            </div>
+            <div
+              className="row venue-date"
+            >
+              <div
+                className="container"
+              >
+                <Location
+                  location="undefined, undefined"
+                />
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": "container event-details",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className=" event"
+          >
+            <div
+              className="card mb-3"
+            >
+              <img
+                alt="Card image cap"
+                className="card-img-top img-fluid"
+                height="300px"
+                src={undefined}
+              />
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b />
+                </h5>
+                <p
+                  className="card-text"
+                />
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Capacity: 
+                     seats
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Facilities: 
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Address: 
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Price: ₦
+                  </b>
+                </p>
+                <p
+                  className="card-text"
+                >
+                  <b>
+                    Availability: 
+                    Not Available
+                  </b>
+                </p>
+              </div>
+            </div>
+            <div
+              className="row venue-date"
+            >
+              <div
+                className="container"
+              >
+                <Location
+                  location="undefined, undefined"
+                />
+              </div>
+            </div>
+          </div>,
+          "className": "row",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="card mb-3"
+              >
+                <img
+                  alt="Card image cap"
+                  className="card-img-top img-fluid"
+                  height="300px"
+                  src={undefined}
+                />
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b />
+                  </h5>
+                  <p
+                    className="card-text"
+                  />
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Capacity: 
+                       seats
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Facilities: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Address: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Price: ₦
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Availability: 
+                      Not Available
+                    </b>
+                  </p>
+                </div>
+              </div>,
+              <div
+                className="row venue-date"
+              >
+                <div
+                  className="container"
+                >
+                  <Location
+                    location="undefined, undefined"
+                  />
+                </div>
+              </div>,
+            ],
+            "className": " event",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="Card image cap"
+                    className="card-img-top img-fluid"
+                    height="300px"
+                    src={undefined}
+                  />,
+                  <div
+                    className="card-block"
+                  >
+                    <h5
+                      className="card-title"
+                    >
+                      <b />
+                    </h5>
+                    <p
+                      className="card-text"
+                    />
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Capacity: 
+                         seats
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Facilities: 
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Address: 
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Price: ₦
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Availability: 
+                        Not Available
+                      </b>
+                    </p>
+                  </div>,
+                ],
+                "className": "card mb-3",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Card image cap",
+                    "className": "card-img-top img-fluid",
+                    "height": "300px",
+                    "src": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h5
+                        className="card-title"
+                      >
+                        <b />
+                      </h5>,
+                      <p
+                        className="card-text"
+                      />,
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Capacity: 
+                           seats
+                        </b>
+                      </p>,
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Facilities: 
+                        </b>
+                      </p>,
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Address: 
+                        </b>
+                      </p>,
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Price: ₦
+                        </b>
+                      </p>,
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Availability: 
+                          Not Available
+                        </b>
+                      </p>,
+                    ],
+                    "className": "card-block",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <b />,
+                        "className": "card-title",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "b",
+                      },
+                      "type": "h5",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": undefined,
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <b>
+                          Capacity: 
+                           seats
+                        </b>,
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Capacity: ",
+                            undefined,
+                            " seats",
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Capacity: ",
+                          undefined,
+                          " seats",
+                        ],
+                        "type": "b",
+                      },
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <b>
+                          Facilities: 
+                        </b>,
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Facilities: ",
+                            undefined,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Facilities: ",
+                          undefined,
+                        ],
+                        "type": "b",
+                      },
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <b>
+                          Address: 
+                        </b>,
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Address: ",
+                            undefined,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Address: ",
+                          undefined,
+                        ],
+                        "type": "b",
+                      },
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <b>
+                          Price: ₦
+                        </b>,
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Price: ₦",
+                            undefined,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Price: ₦",
+                          undefined,
+                        ],
+                        "type": "b",
+                      },
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <b>
+                          Availability: 
+                          Not Available
+                        </b>,
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Availability: ",
+                            "Not Available",
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Availability: ",
+                          "Not Available",
+                        ],
+                        "type": "b",
+                      },
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="container"
+                >
+                  <Location
+                    location="undefined, undefined"
+                  />
+                </div>,
+                "className": "row venue-date",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <Location
+                      location="undefined, undefined"
+                    />,
+                    false,
+                  ],
+                  "className": "container",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "location": "undefined, undefined",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  false,
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="container event-details"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className=" event"
+            >
+              <div
+                className="card mb-3"
+              >
+                <img
+                  alt="Card image cap"
+                  className="card-img-top img-fluid"
+                  height="300px"
+                  src={undefined}
+                />
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b />
+                  </h5>
+                  <p
+                    className="card-text"
+                  />
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Capacity: 
+                       seats
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Facilities: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Address: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Price: ₦
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Availability: 
+                      Not Available
+                    </b>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="row venue-date"
+              >
+                <div
+                  className="container"
+                >
+                  <Location
+                    location="undefined, undefined"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": " panel center-details",
+        "id": "center-details",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="row"
+          >
+            <div
+              className=" event"
+            >
+              <div
+                className="card mb-3"
+              >
+                <img
+                  alt="Card image cap"
+                  className="card-img-top img-fluid"
+                  height="300px"
+                  src={undefined}
+                />
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b />
+                  </h5>
+                  <p
+                    className="card-text"
+                  />
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Capacity: 
+                       seats
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Facilities: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Address: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Price: ₦
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Availability: 
+                      Not Available
+                    </b>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="row venue-date"
+              >
+                <div
+                  className="container"
+                >
+                  <Location
+                    location="undefined, undefined"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>,
+          "className": "container event-details",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className=" event"
+            >
+              <div
+                className="card mb-3"
+              >
+                <img
+                  alt="Card image cap"
+                  className="card-img-top img-fluid"
+                  height="300px"
+                  src={undefined}
+                />
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b />
+                  </h5>
+                  <p
+                    className="card-text"
+                  />
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Capacity: 
+                       seats
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Facilities: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Address: 
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Price: ₦
+                    </b>
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    <b>
+                      Availability: 
+                      Not Available
+                    </b>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="row venue-date"
+              >
+                <div
+                  className="container"
+                >
+                  <Location
+                    location="undefined, undefined"
+                  />
+                </div>
+              </div>
+            </div>,
+            "className": "row",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="card mb-3"
+                >
+                  <img
+                    alt="Card image cap"
+                    className="card-img-top img-fluid"
+                    height="300px"
+                    src={undefined}
+                  />
+                  <div
+                    className="card-block"
+                  >
+                    <h5
+                      className="card-title"
+                    >
+                      <b />
+                    </h5>
+                    <p
+                      className="card-text"
+                    />
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Capacity: 
+                         seats
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Facilities: 
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Address: 
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Price: ₦
+                      </b>
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      <b>
+                        Availability: 
+                        Not Available
+                      </b>
+                    </p>
+                  </div>
+                </div>,
+                <div
+                  className="row venue-date"
+                >
+                  <div
+                    className="container"
+                  >
+                    <Location
+                      location="undefined, undefined"
+                    />
+                  </div>
+                </div>,
+              ],
+              "className": " event",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <img
+                      alt="Card image cap"
+                      className="card-img-top img-fluid"
+                      height="300px"
+                      src={undefined}
+                    />,
+                    <div
+                      className="card-block"
+                    >
+                      <h5
+                        className="card-title"
+                      >
+                        <b />
+                      </h5>
+                      <p
+                        className="card-text"
+                      />
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Capacity: 
+                           seats
+                        </b>
+                      </p>
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Facilities: 
+                        </b>
+                      </p>
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Address: 
+                        </b>
+                      </p>
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Price: ₦
+                        </b>
+                      </p>
+                      <p
+                        className="card-text"
+                      >
+                        <b>
+                          Availability: 
+                          Not Available
+                        </b>
+                      </p>
+                    </div>,
+                  ],
+                  "className": "card mb-3",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "Card image cap",
+                      "className": "card-img-top img-fluid",
+                      "height": "300px",
+                      "src": undefined,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <h5
+                          className="card-title"
+                        >
+                          <b />
+                        </h5>,
+                        <p
+                          className="card-text"
+                        />,
+                        <p
+                          className="card-text"
+                        >
+                          <b>
+                            Capacity: 
+                             seats
+                          </b>
+                        </p>,
+                        <p
+                          className="card-text"
+                        >
+                          <b>
+                            Facilities: 
+                          </b>
+                        </p>,
+                        <p
+                          className="card-text"
+                        >
+                          <b>
+                            Address: 
+                          </b>
+                        </p>,
+                        <p
+                          className="card-text"
+                        >
+                          <b>
+                            Price: ₦
+                          </b>
+                        </p>,
+                        <p
+                          className="card-text"
+                        >
+                          <b>
+                            Availability: 
+                            Not Available
+                          </b>
+                        </p>,
+                      ],
+                      "className": "card-block",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <b />,
+                          "className": "card-title",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "b",
+                        },
+                        "type": "h5",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": undefined,
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <b>
+                            Capacity: 
+                             seats
+                          </b>,
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "Capacity: ",
+                              undefined,
+                              " seats",
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Capacity: ",
+                            undefined,
+                            " seats",
+                          ],
+                          "type": "b",
+                        },
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <b>
+                            Facilities: 
+                          </b>,
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "Facilities: ",
+                              undefined,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Facilities: ",
+                            undefined,
+                          ],
+                          "type": "b",
+                        },
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <b>
+                            Address: 
+                          </b>,
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "Address: ",
+                              undefined,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Address: ",
+                            undefined,
+                          ],
+                          "type": "b",
+                        },
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <b>
+                            Price: ₦
+                          </b>,
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "Price: ₦",
+                              undefined,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Price: ₦",
+                            undefined,
+                          ],
+                          "type": "b",
+                        },
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <b>
+                            Availability: 
+                            Not Available
+                          </b>,
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "Availability: ",
+                              "Not Available",
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Availability: ",
+                            "Not Available",
+                          ],
+                          "type": "b",
+                        },
+                        "type": "p",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="container"
+                  >
+                    <Location
+                      location="undefined, undefined"
+                    />
+                  </div>,
+                  "className": "row venue-date",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <Location
+                        location="undefined, undefined"
+                      />,
+                      false,
+                    ],
+                    "className": "container",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "location": "undefined, undefined",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    false,
+                  ],
+                  "type": "div",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

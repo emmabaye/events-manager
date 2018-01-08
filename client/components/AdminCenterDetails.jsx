@@ -5,15 +5,11 @@ import CenterEventsCard from './CenterEventsCard.jsx';
 import { getCenter } from '../actions/centerAction';
 
 
-class CenterDetails extends Component {
+export class CenterDetails extends Component {
 
   componentDidMount() {
     let centerId = this.props.centerId;
     this.props.dispatch(getCenter(centerId));
-  }
-
-  componentDidUpdate() {
-    console.log('EVENTs ', this.props.center.Events)
   }
 
   render() {

@@ -16,7 +16,6 @@ export const getAllCenters = () => (dispatch) => {
        dispatch({ type: GET_ALL_CENTERS_FULFILLED, payload: response.data });
      })
       .catch((err) => {
-        console.log(err);
         dispatch({ type: 'GET_ALL_CENTERS_REJECTED', payload: err });
       });
 };
@@ -35,7 +34,6 @@ export const addCenter = (centerForm) => {
          dispatch({type: ADD_CENTER_FULFILLED, payload: response.data})
        })
        .catch((err) => {
-         console.log(err)
          dispatch({type: ADD_CENTER_REJECTED, payload: err.response.data});
         });
    }
@@ -59,7 +57,6 @@ export const getCenter = (centerId) => {
          dispatch({type: GET_CENTER_FULFILLED, payload: response.data})
        })
        .catch((err) => {
-         console.log(err)
          dispatch({type: GET_CENTER_REJECTED, payload: err.response.data});
         });
    }
@@ -79,7 +76,6 @@ export const modifyCenter = (centerForm) => {
          dispatch({type: MODIFY_CENTER_FULFILLED, payload: response.data})
        })
        .catch((err) => {
-         console.log(err)
          dispatch({type: MODIFY_CENTER_REJECTED, payload: err.response.data})
        })
   }

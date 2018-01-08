@@ -6,20 +6,14 @@ import Footer from './Footer.jsx';
 import { connect } from 'react-redux';
 import { getEvent, modifyEvent } from '../actions/eventAction';
 
-class EventDetails extends Component {
+export class EventDetails extends Component {
 
   componentDidMount() {
     document.body.style.backgroundColor = 'white';
     let eventId = this.props.match.params.id;
     this.props.dispatch(getEvent(eventId));
   }
-
-  componentDidUpdate() {
-    console.log("EVENT PROPS ", this.props.event);
-  }
-
-
-
+  
   render() {
     return(
       <div>

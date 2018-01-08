@@ -8,7 +8,7 @@ import { getEvent, modifyEvent } from '../actions/eventAction';
 import { history } from '../routes';
 
 
-class ModifyEvent extends Component {
+export class ModifyEvent extends Component {
 
   constructor(props) {
     super(props);

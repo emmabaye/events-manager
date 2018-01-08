@@ -1,0 +1,1626 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminEvent Component it should render component shallow 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AdminEvent
+    event={
+      Object {
+        "date": "",
+        "description": "",
+        "id": "1",
+        "location": "",
+        "status": "true",
+        "time": "",
+        "title": "",
+      }
+    }
+    show={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="container events"
+      >
+        <div
+          className="row event-row"
+        >
+          <div
+            className="col-md-4 event"
+          >
+            <div
+              className="card"
+            >
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b>
+                    
+                  </b>
+                </h5>
+                <p
+                  className="card-text h6"
+                >
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Venue
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Date
+                  </b>
+                  : 
+                  Invalid date
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Time
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Status
+                  </b>
+                  : Holding
+                </p>
+                <p
+                  className="text-center"
+                >
+                  <a
+                    className="btn btn-sm btn-primary"
+                    href="/events/1"
+                  >
+                    <i
+                      className="fa fa-info-circle fa-lg"
+                    />
+                     View Event
+                  </a>
+                  <a
+                    className="btn btn-sm btn-danger"
+                    href="#"
+                  >
+                    <i
+                      className="fa fa-times fa-lg"
+                    />
+                     Cancel
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>,
+      "className": "card-block",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="row event-row"
+        >
+          <div
+            className="col-md-4 event"
+          >
+            <div
+              className="card"
+            >
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b>
+                    
+                  </b>
+                </h5>
+                <p
+                  className="card-text h6"
+                >
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Venue
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Date
+                  </b>
+                  : 
+                  Invalid date
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Time
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Status
+                  </b>
+                  : Holding
+                </p>
+                <p
+                  className="text-center"
+                >
+                  <a
+                    className="btn btn-sm btn-primary"
+                    href="/events/1"
+                  >
+                    <i
+                      className="fa fa-info-circle fa-lg"
+                    />
+                     View Event
+                  </a>
+                  <a
+                    className="btn btn-sm btn-danger"
+                    href="#"
+                  >
+                    <i
+                      className="fa fa-times fa-lg"
+                    />
+                     Cancel
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": "container events",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="col-md-4 event"
+          >
+            <div
+              className="card"
+            >
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b>
+                    
+                  </b>
+                </h5>
+                <p
+                  className="card-text h6"
+                >
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Venue
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Date
+                  </b>
+                  : 
+                  Invalid date
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Time
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Status
+                  </b>
+                  : Holding
+                </p>
+                <p
+                  className="text-center"
+                >
+                  <a
+                    className="btn btn-sm btn-primary"
+                    href="/events/1"
+                  >
+                    <i
+                      className="fa fa-info-circle fa-lg"
+                    />
+                     View Event
+                  </a>
+                  <a
+                    className="btn btn-sm btn-danger"
+                    href="#"
+                  >
+                    <i
+                      className="fa fa-times fa-lg"
+                    />
+                     Cancel
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>,
+          "className": "row event-row",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card"
+            >
+              <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b>
+                    
+                  </b>
+                </h5>
+                <p
+                  className="card-text h6"
+                >
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Venue
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Date
+                  </b>
+                  : 
+                  Invalid date
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Time
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Status
+                  </b>
+                  : Holding
+                </p>
+                <p
+                  className="text-center"
+                >
+                  <a
+                    className="btn btn-sm btn-primary"
+                    href="/events/1"
+                  >
+                    <i
+                      className="fa fa-info-circle fa-lg"
+                    />
+                     View Event
+                  </a>
+                  <a
+                    className="btn btn-sm btn-danger"
+                    href="#"
+                  >
+                    <i
+                      className="fa fa-times fa-lg"
+                    />
+                     Cancel
+                  </a>
+                </p>
+              </div>
+            </div>,
+            "className": "col-md-4 event",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card-block"
+              >
+                <h5
+                  className="card-title"
+                >
+                  <b>
+                    
+                  </b>
+                </h5>
+                <p
+                  className="card-text h6"
+                >
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Venue
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Date
+                  </b>
+                  : 
+                  Invalid date
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Time
+                  </b>
+                  : 
+                  
+                </p>
+                <p
+                  className="card-text h6"
+                >
+                  <b>
+                    Status
+                  </b>
+                  : Holding
+                </p>
+                <p
+                  className="text-center"
+                >
+                  <a
+                    className="btn btn-sm btn-primary"
+                    href="/events/1"
+                  >
+                    <i
+                      className="fa fa-info-circle fa-lg"
+                    />
+                     View Event
+                  </a>
+                  <a
+                    className="btn btn-sm btn-danger"
+                    href="#"
+                  >
+                    <i
+                      className="fa fa-times fa-lg"
+                    />
+                     Cancel
+                  </a>
+                </p>
+              </div>,
+              "className": "card",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h5
+                    className="card-title"
+                  >
+                    <b>
+                      
+                    </b>
+                  </h5>,
+                  <p
+                    className="card-text h6"
+                  >
+                    
+                  </p>,
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Venue
+                    </b>
+                    : 
+                    
+                  </p>,
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Date
+                    </b>
+                    : 
+                    Invalid date
+                  </p>,
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Time
+                    </b>
+                    : 
+                    
+                  </p>,
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Status
+                    </b>
+                    : Holding
+                  </p>,
+                  <p
+                    className="text-center"
+                  >
+                    <a
+                      className="btn btn-sm btn-primary"
+                      href="/events/1"
+                    >
+                      <i
+                        className="fa fa-info-circle fa-lg"
+                      />
+                       View Event
+                    </a>
+                    <a
+                      className="btn btn-sm btn-danger"
+                      href="#"
+                    >
+                      <i
+                        className="fa fa-times fa-lg"
+                      />
+                       Cancel
+                    </a>
+                  </p>,
+                ],
+                "className": "card-block",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <b>
+                      
+                    </b>,
+                    "className": "card-title",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "",
+                    },
+                    "ref": null,
+                    "rendered": "",
+                    "type": "b",
+                  },
+                  "type": "h5",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "",
+                    "className": "card-text h6",
+                  },
+                  "ref": null,
+                  "rendered": "",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <b>
+                        Venue
+                      </b>,
+                      ": ",
+                      "",
+                    ],
+                    "className": "card-text h6",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Venue",
+                      },
+                      "ref": null,
+                      "rendered": "Venue",
+                      "type": "b",
+                    },
+                    ": ",
+                    "",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <b>
+                        Date
+                      </b>,
+                      ": ",
+                      "Invalid date",
+                    ],
+                    "className": "card-text h6",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Date",
+                      },
+                      "ref": null,
+                      "rendered": "Date",
+                      "type": "b",
+                    },
+                    ": ",
+                    "Invalid date",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <b>
+                        Time
+                      </b>,
+                      ": ",
+                      "",
+                    ],
+                    "className": "card-text h6",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Time",
+                      },
+                      "ref": null,
+                      "rendered": "Time",
+                      "type": "b",
+                    },
+                    ": ",
+                    "",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <b>
+                        Status
+                      </b>,
+                      ": Holding",
+                    ],
+                    "className": "card-text h6",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Status",
+                      },
+                      "ref": null,
+                      "rendered": "Status",
+                      "type": "b",
+                    },
+                    ": Holding",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <a
+                        className="btn btn-sm btn-primary"
+                        href="/events/1"
+                      >
+                        <i
+                          className="fa fa-info-circle fa-lg"
+                        />
+                         View Event
+                      </a>,
+                      <a
+                        className="btn btn-sm btn-danger"
+                        href="#"
+                      >
+                        <i
+                          className="fa fa-times fa-lg"
+                        />
+                         Cancel
+                      </a>,
+                    ],
+                    "className": "text-center",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <i
+                            className="fa fa-info-circle fa-lg"
+                          />,
+                          " View Event",
+                        ],
+                        "className": "btn btn-sm btn-primary",
+                        "href": "/events/1",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "fa fa-info-circle fa-lg",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "i",
+                        },
+                        " View Event",
+                      ],
+                      "type": "a",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <i
+                            className="fa fa-times fa-lg"
+                          />,
+                          " Cancel",
+                        ],
+                        "className": "btn btn-sm btn-danger",
+                        "href": "#",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "fa fa-times fa-lg",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "i",
+                        },
+                        " Cancel",
+                      ],
+                      "type": "a",
+                    },
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="container events"
+        >
+          <div
+            className="row event-row"
+          >
+            <div
+              className="col-md-4 event"
+            >
+              <div
+                className="card"
+              >
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b>
+                      
+                    </b>
+                  </h5>
+                  <p
+                    className="card-text h6"
+                  >
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Venue
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Date
+                    </b>
+                    : 
+                    Invalid date
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Time
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Status
+                    </b>
+                    : Holding
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    <a
+                      className="btn btn-sm btn-primary"
+                      href="/events/1"
+                    >
+                      <i
+                        className="fa fa-info-circle fa-lg"
+                      />
+                       View Event
+                    </a>
+                    <a
+                      className="btn btn-sm btn-danger"
+                      href="#"
+                    >
+                      <i
+                        className="fa fa-times fa-lg"
+                      />
+                       Cancel
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": "card-block",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="row event-row"
+          >
+            <div
+              className="col-md-4 event"
+            >
+              <div
+                className="card"
+              >
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b>
+                      
+                    </b>
+                  </h5>
+                  <p
+                    className="card-text h6"
+                  >
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Venue
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Date
+                    </b>
+                    : 
+                    Invalid date
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Time
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Status
+                    </b>
+                    : Holding
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    <a
+                      className="btn btn-sm btn-primary"
+                      href="/events/1"
+                    >
+                      <i
+                        className="fa fa-info-circle fa-lg"
+                      />
+                       View Event
+                    </a>
+                    <a
+                      className="btn btn-sm btn-danger"
+                      href="#"
+                    >
+                      <i
+                        className="fa fa-times fa-lg"
+                      />
+                       Cancel
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>,
+          "className": "container events",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="col-md-4 event"
+            >
+              <div
+                className="card"
+              >
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b>
+                      
+                    </b>
+                  </h5>
+                  <p
+                    className="card-text h6"
+                  >
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Venue
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Date
+                    </b>
+                    : 
+                    Invalid date
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Time
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Status
+                    </b>
+                    : Holding
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    <a
+                      className="btn btn-sm btn-primary"
+                      href="/events/1"
+                    >
+                      <i
+                        className="fa fa-info-circle fa-lg"
+                      />
+                       View Event
+                    </a>
+                    <a
+                      className="btn btn-sm btn-danger"
+                      href="#"
+                    >
+                      <i
+                        className="fa fa-times fa-lg"
+                      />
+                       Cancel
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>,
+            "className": "row event-row",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card"
+              >
+                <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b>
+                      
+                    </b>
+                  </h5>
+                  <p
+                    className="card-text h6"
+                  >
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Venue
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Date
+                    </b>
+                    : 
+                    Invalid date
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Time
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Status
+                    </b>
+                    : Holding
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    <a
+                      className="btn btn-sm btn-primary"
+                      href="/events/1"
+                    >
+                      <i
+                        className="fa fa-info-circle fa-lg"
+                      />
+                       View Event
+                    </a>
+                    <a
+                      className="btn btn-sm btn-danger"
+                      href="#"
+                    >
+                      <i
+                        className="fa fa-times fa-lg"
+                      />
+                       Cancel
+                    </a>
+                  </p>
+                </div>
+              </div>,
+              "className": "col-md-4 event",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="card-block"
+                >
+                  <h5
+                    className="card-title"
+                  >
+                    <b>
+                      
+                    </b>
+                  </h5>
+                  <p
+                    className="card-text h6"
+                  >
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Venue
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Date
+                    </b>
+                    : 
+                    Invalid date
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Time
+                    </b>
+                    : 
+                    
+                  </p>
+                  <p
+                    className="card-text h6"
+                  >
+                    <b>
+                      Status
+                    </b>
+                    : Holding
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    <a
+                      className="btn btn-sm btn-primary"
+                      href="/events/1"
+                    >
+                      <i
+                        className="fa fa-info-circle fa-lg"
+                      />
+                       View Event
+                    </a>
+                    <a
+                      className="btn btn-sm btn-danger"
+                      href="#"
+                    >
+                      <i
+                        className="fa fa-times fa-lg"
+                      />
+                       Cancel
+                    </a>
+                  </p>
+                </div>,
+                "className": "card",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h5
+                      className="card-title"
+                    >
+                      <b>
+                        
+                      </b>
+                    </h5>,
+                    <p
+                      className="card-text h6"
+                    >
+                      
+                    </p>,
+                    <p
+                      className="card-text h6"
+                    >
+                      <b>
+                        Venue
+                      </b>
+                      : 
+                      
+                    </p>,
+                    <p
+                      className="card-text h6"
+                    >
+                      <b>
+                        Date
+                      </b>
+                      : 
+                      Invalid date
+                    </p>,
+                    <p
+                      className="card-text h6"
+                    >
+                      <b>
+                        Time
+                      </b>
+                      : 
+                      
+                    </p>,
+                    <p
+                      className="card-text h6"
+                    >
+                      <b>
+                        Status
+                      </b>
+                      : Holding
+                    </p>,
+                    <p
+                      className="text-center"
+                    >
+                      <a
+                        className="btn btn-sm btn-primary"
+                        href="/events/1"
+                      >
+                        <i
+                          className="fa fa-info-circle fa-lg"
+                        />
+                         View Event
+                      </a>
+                      <a
+                        className="btn btn-sm btn-danger"
+                        href="#"
+                      >
+                        <i
+                          className="fa fa-times fa-lg"
+                        />
+                         Cancel
+                      </a>
+                    </p>,
+                  ],
+                  "className": "card-block",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <b>
+                        
+                      </b>,
+                      "className": "card-title",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "",
+                      },
+                      "ref": null,
+                      "rendered": "",
+                      "type": "b",
+                    },
+                    "type": "h5",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "",
+                      "className": "card-text h6",
+                    },
+                    "ref": null,
+                    "rendered": "",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <b>
+                          Venue
+                        </b>,
+                        ": ",
+                        "",
+                      ],
+                      "className": "card-text h6",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Venue",
+                        },
+                        "ref": null,
+                        "rendered": "Venue",
+                        "type": "b",
+                      },
+                      ": ",
+                      "",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <b>
+                          Date
+                        </b>,
+                        ": ",
+                        "Invalid date",
+                      ],
+                      "className": "card-text h6",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Date",
+                        },
+                        "ref": null,
+                        "rendered": "Date",
+                        "type": "b",
+                      },
+                      ": ",
+                      "Invalid date",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <b>
+                          Time
+                        </b>,
+                        ": ",
+                        "",
+                      ],
+                      "className": "card-text h6",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Time",
+                        },
+                        "ref": null,
+                        "rendered": "Time",
+                        "type": "b",
+                      },
+                      ": ",
+                      "",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <b>
+                          Status
+                        </b>,
+                        ": Holding",
+                      ],
+                      "className": "card-text h6",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Status",
+                        },
+                        "ref": null,
+                        "rendered": "Status",
+                        "type": "b",
+                      },
+                      ": Holding",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <a
+                          className="btn btn-sm btn-primary"
+                          href="/events/1"
+                        >
+                          <i
+                            className="fa fa-info-circle fa-lg"
+                          />
+                           View Event
+                        </a>,
+                        <a
+                          className="btn btn-sm btn-danger"
+                          href="#"
+                        >
+                          <i
+                            className="fa fa-times fa-lg"
+                          />
+                           Cancel
+                        </a>,
+                      ],
+                      "className": "text-center",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <i
+                              className="fa fa-info-circle fa-lg"
+                            />,
+                            " View Event",
+                          ],
+                          "className": "btn btn-sm btn-primary",
+                          "href": "/events/1",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "fa fa-info-circle fa-lg",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "i",
+                          },
+                          " View Event",
+                        ],
+                        "type": "a",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <i
+                              className="fa fa-times fa-lg"
+                            />,
+                            " Cancel",
+                          ],
+                          "className": "btn btn-sm btn-danger",
+                          "href": "#",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "fa fa-times fa-lg",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "i",
+                          },
+                          " Cancel",
+                        ],
+                        "type": "a",
+                      },
+                    ],
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

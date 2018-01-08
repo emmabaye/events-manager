@@ -4,7 +4,7 @@ import LandingPage from "../components/LandingPage.jsx";
 import SignUpForm from "../components/SignUpForm.jsx";
 import { connect } from "react-redux";
 
-class App extends Component {
+export class App extends Component {
   render() {
     return <LandingPage />;
   }

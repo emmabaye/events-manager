@@ -7,7 +7,7 @@ import CenterCard from './CenterCard.jsx';
 import { getAllCenters } from '../actions/centerAction';
 import { history } from '../routes';
 
-class AllCenters extends Component {
+export class AllCenters extends Component {
 
   constructor(props) {
     super(props);
