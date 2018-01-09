@@ -9,7 +9,7 @@ ShallowWrapper {
       Array [
         Object {
           "Center": Array [],
-          "date": 1515401557176,
+          "date": 1515504777425,
           "description": "",
           "id": "1",
           "image": "",
@@ -45,7 +45,7 @@ ShallowWrapper {
             event={
               Object {
                 "Center": Array [],
-                "date": 1515401557176,
+                "date": 1515504777425,
                 "description": "",
                 "id": "1",
                 "image": "",
@@ -92,7 +92,7 @@ ShallowWrapper {
         "props": Object {
           "event": Object {
             "Center": Array [],
-            "date": 1515401557176,
+            "date": 1515504777425,
             "description": "",
             "id": "1",
             "image": "",
@@ -127,7 +127,7 @@ ShallowWrapper {
               event={
                 Object {
                   "Center": Array [],
-                  "date": 1515401557176,
+                  "date": 1515504777425,
                   "description": "",
                   "id": "1",
                   "image": "",
@@ -174,7 +174,7 @@ ShallowWrapper {
           "props": Object {
             "event": Object {
               "Center": Array [],
-              "date": 1515401557176,
+              "date": 1515504777425,
               "description": "",
               "id": "1",
               "image": "",

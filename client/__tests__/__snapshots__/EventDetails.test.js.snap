@@ -10,7 +10,7 @@ ShallowWrapper {
     event={
       Object {
         "Center": Array [],
-        "date": 1515401552699,
+        "date": 1515504773615,
         "description": "",
         "id": "1",
         "image": "",
@@ -131,7 +131,7 @@ ShallowWrapper {
                       <p
                         className="card-text"
                       >
-                        08 January 2018
+                        09 January 2018
                       </p>
                       <p
                         className="card-text"
@@ -251,7 +251,7 @@ ShallowWrapper {
                       <p
                         className="card-text"
                       >
-                        08 January 2018
+                        09 January 2018
                       </p>
                       <p
                         className="card-text"
@@ -355,7 +355,7 @@ ShallowWrapper {
                         <p
                           className="card-text"
                         >
-                          08 January 2018
+                          09 January 2018
                         </p>
                         <p
                           className="card-text"
@@ -589,7 +589,7 @@ ShallowWrapper {
                         <p
                           className="card-text"
                         >
-                          08 January 2018
+                          09 January 2018
                         </p>
                         <p
                           className="card-text"
@@ -652,7 +652,7 @@ ShallowWrapper {
                           <p
                             className="card-text"
                           >
-                            08 January 2018
+                            09 January 2018
                           </p>
                           <p
                             className="card-text"
@@ -799,7 +799,7 @@ ShallowWrapper {
                           <p
                             className="card-text"
                           >
-                            08 January 2018
+                            09 January 2018
                           </p>
                           <p
                             className="card-text"
@@ -830,7 +830,7 @@ ShallowWrapper {
                             <p
                               className="card-text"
                             >
-                              08 January 2018
+                              09 January 2018
                             </p>
                             <p
                               className="card-text"
@@ -876,7 +876,7 @@ ShallowWrapper {
                               <p
                                 className="card-text"
                               >
-                                08 January 2018
+                                09 January 2018
                               </p>,
                               <p
                                 className="card-text"
@@ -893,11 +893,11 @@ ShallowWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "children": "08 January 2018",
+                                "children": "09 January 2018",
                                 "className": "card-text",
                               },
                               "ref": null,
-                              "rendered": "08 January 2018",
+                              "rendered": "09 January 2018",
                               "type": "p",
                             },
                             Object {
@@ -1040,7 +1040,7 @@ ShallowWrapper {
                         <p
                           className="card-text"
                         >
-                          08 January 2018
+                          09 January 2018
                         </p>
                         <p
                           className="card-text"
@@ -1160,7 +1160,7 @@ ShallowWrapper {
                         <p
                           className="card-text"
                         >
-                          08 January 2018
+                          09 January 2018
                         </p>
                         <p
                           className="card-text"
@@ -1264,7 +1264,7 @@ ShallowWrapper {
                           <p
                             className="card-text"
                           >
-                            08 January 2018
+                            09 January 2018
                           </p>
                           <p
                             className="card-text"
@@ -1498,7 +1498,7 @@ ShallowWrapper {
                           <p
                             className="card-text"
                           >
-                            08 January 2018
+                            09 January 2018
                           </p>
                           <p
                             className="card-text"
@@ -1561,7 +1561,7 @@ ShallowWrapper {
                             <p
                               className="card-text"
                             >
-                              08 January 2018
+                              09 January 2018
                             </p>
                             <p
                               className="card-text"
@@ -1708,7 +1708,7 @@ ShallowWrapper {
                             <p
                               className="card-text"
                             >
-                              08 January 2018
+                              09 January 2018
                             </p>
                             <p
                               className="card-text"
@@ -1739,7 +1739,7 @@ ShallowWrapper {
                               <p
                                 className="card-text"
                               >
-                                08 January 2018
+                                09 January 2018
                               </p>
                               <p
                                 className="card-text"
@@ -1785,7 +1785,7 @@ ShallowWrapper {
                                 <p
                                   className="card-text"
                                 >
-                                  08 January 2018
+                                  09 January 2018
                                 </p>,
                                 <p
                                   className="card-text"
@@ -1802,11 +1802,11 @@ ShallowWrapper {
                                 "key": undefined,
                                 "nodeType": "host",
                                 "props": Object {
-                                  "children": "08 January 2018",
+                                  "children": "09 January 2018",
                                   "className": "card-text",
                                 },
                                 "ref": null,
-                                "rendered": "08 January 2018",
+                                "rendered": "09 January 2018",
                                 "type": "p",
                               },
                               Object {
