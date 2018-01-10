@@ -12,7 +12,7 @@
     "seed": "node ./node_modules/sequelize-cli/lib/sequelize db:seed:all",
     "start-dev": "nodemon --exec node ./node_modules/babel-cli/bin/babel-node.js ./server/server.js",
     "test": "nyc mocha --compilers js:babel-core/register ./server/test --timeout 60000 --exit",
-    "test-client": "jest --coverage -u ",
+    "test-client": "jest --watch --coverage",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint server",
     "webpack-dev-server": "webpack-dev-server --config webpack.dev.config.js "

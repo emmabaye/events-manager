@@ -17,7 +17,7 @@ describe('Event Component', () => {
         description: "",
         location: "",
         time:"5:00",
-        date:Date.now(),
+        date:'2020-01-01',
         image: "",
         Center:[]
       }

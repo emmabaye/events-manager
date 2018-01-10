@@ -12,14 +12,7 @@ describe('Routes Component', () => {
   describe('App form  should render self', () => {
     it('it should render for dumb component', () => {
       const wrapper = shallow(Routes());
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.length).toEqual(1);
     });
-
-    it('it should render for dumb component', () => {
-      const wrapper = shallow(Routes());
-      expect(wrapper).toMatchSnapshot();
-    });
-
-     });
-
+  });
 });

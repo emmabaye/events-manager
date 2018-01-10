@@ -8,7 +8,7 @@ ShallowWrapper {
     eventDetails={
       Object {
         "Center": Array [],
-        "date": 1515504774665,
+        "date": "2020-01-01",
         "description": "",
         "id": "1",
         "image": "",
@@ -65,7 +65,7 @@ ShallowWrapper {
                 Date
               </b>
               : 
-              09 January 2018
+              01 January 2020
             </p>
             <p
               className="card-text h6"
@@ -155,7 +155,7 @@ ShallowWrapper {
                 Date
               </b>
               : 
-              09 January 2018
+              01 January 2020
             </p>
             <p
               className="card-text h6"
@@ -237,7 +237,7 @@ ShallowWrapper {
                   Date
                 </b>
                 : 
-                09 January 2018
+                01 January 2020
               </p>,
               <p
                 className="card-text h6"
@@ -370,7 +370,7 @@ ShallowWrapper {
                     Date
                   </b>,
                   ": ",
-                  "09 January 2018",
+                  "01 January 2020",
                 ],
                 "className": "card-text h6",
               },
@@ -388,7 +388,7 @@ ShallowWrapper {
                   "type": "b",
                 },
                 ": ",
-                "09 January 2018",
+                "01 January 2020",
               ],
               "type": "p",
             },
@@ -622,7 +622,7 @@ ShallowWrapper {
                   Date
                 </b>
                 : 
-                09 January 2018
+                01 January 2020
               </p>
               <p
                 className="card-text h6"
@@ -712,7 +712,7 @@ ShallowWrapper {
                   Date
                 </b>
                 : 
-                09 January 2018
+                01 January 2020
               </p>
               <p
                 className="card-text h6"
@@ -794,7 +794,7 @@ ShallowWrapper {
                     Date
                   </b>
                   : 
-                  09 January 2018
+                  01 January 2020
                 </p>,
                 <p
                   className="card-text h6"
@@ -927,7 +927,7 @@ ShallowWrapper {
                       Date
                     </b>,
                     ": ",
-                    "09 January 2018",
+                    "01 January 2020",
                   ],
                   "className": "card-text h6",
                 },
@@ -945,7 +945,7 @@ ShallowWrapper {
                     "type": "b",
                   },
                   ": ",
-                  "09 January 2018",
+                  "01 January 2020",
                 ],
                 "type": "p",
               },
