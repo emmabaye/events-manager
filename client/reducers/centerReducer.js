@@ -65,14 +65,12 @@ export default ( state = initState, action ) => {
       }
   }
     case GET_CENTER_FULFILLED: {
-      console.log("PAYLOAD ", action.payload)
       return {
         ...state,
         center: action.payload.data
       }
     }
     case GET_CENTER_REJECTED: {
-      console.log("CENTER REJECTED");
       return {
          ...state,
          status: 'Error',
@@ -86,7 +84,6 @@ export default ( state = initState, action ) => {
       }
   }
     case MODIFY_CENTER_FULFILLED: {
-      console.log("PAYLOAD ", action.payload)
       return {
         ...state,
         status: action.payload.status,
@@ -95,12 +92,10 @@ export default ( state = initState, action ) => {
       }
     }
     case MODIFY_CENTER_REJECTED: {
-      console.log("CENTER REJECTED");
       return {
          ...state,
          status: 'Error',
          message: action.payload.message
-
       }
     }
 		default : return state;
