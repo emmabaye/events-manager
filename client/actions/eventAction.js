@@ -6,7 +6,7 @@ import { MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED } from '../
 export const addEvent = (eventDetails) => {
   return (dispatch) => {
     dispatch({type: ADD_EVENT})
-    axios({
+    return axios({
       method: 'post',
       url: '/api/v1/events',
       data: eventDetails,
@@ -26,7 +26,7 @@ export const addEvent = (eventDetails) => {
 export const getEvent = (eventId) => {
   return (dispatch) => {
     dispatch({type: GET_EVENT})
-    axios({
+    return axios({
       method: 'get',
       url: `/api/v1/events/${eventId}`,
       withCredentials: true
@@ -44,7 +44,7 @@ export const getEvent = (eventId) => {
 export const modifyEvent = (eventForm) => {
   return (dispatch) => {
     dispatch({type: MODIFY_EVENT})
-    axios({
+    return axios({
       method: 'put',
       url: `/api/v1/events/${eventForm.get('id')}`,
       data: eventForm,

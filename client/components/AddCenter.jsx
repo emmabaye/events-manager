@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCenter, setStatus } from '../actions/centerAction';
 
-class AddCenter extends Component {
+export class AddCenter extends Component {
 
    constructor(props) {
     super(props);

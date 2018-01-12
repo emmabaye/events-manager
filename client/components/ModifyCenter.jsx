@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getCenter, modifyCenter, setStatus } from '../actions/centerAction';
 import { connect } from 'react-redux';
 
-class ModifyCenter extends Component {
+export class ModifyCenter extends Component {
   constructor(props) {
     super(props);
     this.state = {

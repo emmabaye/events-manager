@@ -6,14 +6,14 @@ import Footer from './Footer.jsx';
 import { signIn } from '../actions/authAction';
 import { connect } from 'react-redux';
 
-class SignInForm  extends Component{
+export class SignInForm  extends Component{
 
 	componentDidMount () {
-       document.body.style.backgroundColor = '#262626';
+      document.body.style.backgroundColor = '#262626';
 	}
 
 	handleChange = (e) => {
-		this.setState({[e.target.name]: e.target.value});
+	  this.setState({[e.target.name]: e.target.value});
 	}
 
 	handleSubmit = (e) => {

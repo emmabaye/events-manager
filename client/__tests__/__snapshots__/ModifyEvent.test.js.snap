@@ -1,0 +1,3479 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModifyEvent Component ModifyEvent form  should render self it should render for dumb component 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ModifyEvent
+    dispatch={[Function]}
+    match={
+      Object {
+        "params": Object {
+          "id": "1",
+        },
+      }
+    }
+    show={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <NavBar
+          page="ModifyEvent"
+        />,
+        <div
+          className="container add-event "
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="container"
+            >
+              <form>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor=""
+                  />
+                  <div
+                    className="col-sm-9"
+                  />
+                </div>
+                <p
+                  className="text-center h5"
+                >
+                  <b>
+                    MODIFY EVENT
+                  </b>
+                </p>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Title
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="title"
+                      onChange={[Function]}
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="Description"
+                  >
+                    Description
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <textarea
+                      className="form-control"
+                      name="description"
+                      onChange={[Function]}
+                      placeholder="Description"
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="venue"
+                  >
+                    Venue
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <select
+                      className="form-control"
+                      name="centerId"
+                      onChange={[Function]}
+                    >
+                      <option
+                        value={undefined}
+                      />
+                    </select>
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      <a
+                        href="/centers"
+                        target="_blank"
+                      >
+                        View Centers
+                      </a>
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="date"
+                      onChange={[Function]}
+                      type="date"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Time
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="time"
+                      onChange={[Function]}
+                      type="time"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="exampleInputFile"
+                  >
+                    Image
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      aria-describedby="fileHelp"
+                      className="form-control"
+                      name="image"
+                      onChange={[Function]}
+                      type="file"
+                    />
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      ( Optional )
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <div
+                    className="offset-sm-3 col-sm-9"
+                  >
+                    <button
+                      className="btn btn-sm btn-success"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      <i
+                        className="fa fa-plus fa-lg"
+                      />
+                       Update
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "page": "ModifyEvent",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="row"
+          >
+            <div
+              className="container"
+            >
+              <form>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor=""
+                  />
+                  <div
+                    className="col-sm-9"
+                  />
+                </div>
+                <p
+                  className="text-center h5"
+                >
+                  <b>
+                    MODIFY EVENT
+                  </b>
+                </p>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Title
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="title"
+                      onChange={[Function]}
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="Description"
+                  >
+                    Description
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <textarea
+                      className="form-control"
+                      name="description"
+                      onChange={[Function]}
+                      placeholder="Description"
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="venue"
+                  >
+                    Venue
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <select
+                      className="form-control"
+                      name="centerId"
+                      onChange={[Function]}
+                    >
+                      <option
+                        value={undefined}
+                      />
+                    </select>
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      <a
+                        href="/centers"
+                        target="_blank"
+                      >
+                        View Centers
+                      </a>
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="date"
+                      onChange={[Function]}
+                      type="date"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Time
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="time"
+                      onChange={[Function]}
+                      type="time"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="exampleInputFile"
+                  >
+                    Image
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      aria-describedby="fileHelp"
+                      className="form-control"
+                      name="image"
+                      onChange={[Function]}
+                      type="file"
+                    />
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      ( Optional )
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <div
+                    className="offset-sm-3 col-sm-9"
+                  >
+                    <button
+                      className="btn btn-sm btn-success"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      <i
+                        className="fa fa-plus fa-lg"
+                      />
+                       Update
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>,
+          "className": "container add-event ",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="container"
+            >
+              <form>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor=""
+                  />
+                  <div
+                    className="col-sm-9"
+                  />
+                </div>
+                <p
+                  className="text-center h5"
+                >
+                  <b>
+                    MODIFY EVENT
+                  </b>
+                </p>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Title
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="title"
+                      onChange={[Function]}
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="Description"
+                  >
+                    Description
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <textarea
+                      className="form-control"
+                      name="description"
+                      onChange={[Function]}
+                      placeholder="Description"
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="venue"
+                  >
+                    Venue
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <select
+                      className="form-control"
+                      name="centerId"
+                      onChange={[Function]}
+                    >
+                      <option
+                        value={undefined}
+                      />
+                    </select>
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      <a
+                        href="/centers"
+                        target="_blank"
+                      >
+                        View Centers
+                      </a>
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="date"
+                      onChange={[Function]}
+                      type="date"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Time
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="time"
+                      onChange={[Function]}
+                      type="time"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="exampleInputFile"
+                  >
+                    Image
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      aria-describedby="fileHelp"
+                      className="form-control"
+                      name="image"
+                      onChange={[Function]}
+                      type="file"
+                    />
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      ( Optional )
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <div
+                    className="offset-sm-3 col-sm-9"
+                  >
+                    <button
+                      className="btn btn-sm btn-success"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      <i
+                        className="fa fa-plus fa-lg"
+                      />
+                       Update
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>,
+            "className": "row",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <form>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor=""
+                  />
+                  <div
+                    className="col-sm-9"
+                  />
+                </div>
+                <p
+                  className="text-center h5"
+                >
+                  <b>
+                    MODIFY EVENT
+                  </b>
+                </p>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Title
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="title"
+                      onChange={[Function]}
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="Description"
+                  >
+                    Description
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <textarea
+                      className="form-control"
+                      name="description"
+                      onChange={[Function]}
+                      placeholder="Description"
+                      type="text"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="venue"
+                  >
+                    Venue
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <select
+                      className="form-control"
+                      name="centerId"
+                      onChange={[Function]}
+                    >
+                      <option
+                        value={undefined}
+                      />
+                    </select>
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      <a
+                        href="/centers"
+                        target="_blank"
+                      >
+                        View Centers
+                      </a>
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="date"
+                      onChange={[Function]}
+                      type="date"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="title"
+                  >
+                    Time
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="time"
+                      onChange={[Function]}
+                      type="time"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="exampleInputFile"
+                  >
+                    Image
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      aria-describedby="fileHelp"
+                      className="form-control"
+                      name="image"
+                      onChange={[Function]}
+                      type="file"
+                    />
+                    <small
+                      className="form-text text-muted"
+                      id="fileHelp"
+                    >
+                      ( Optional )
+                    </small>
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <div
+                    className="offset-sm-3 col-sm-9"
+                  >
+                    <button
+                      className="btn btn-sm btn-success"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      <i
+                        className="fa fa-plus fa-lg"
+                      />
+                       Update
+                    </button>
+                  </div>
+                </div>
+              </form>,
+              "className": "container",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor=""
+                    />
+                    <div
+                      className="col-sm-9"
+                    />
+                  </div>,
+                  <p
+                    className="text-center h5"
+                  >
+                    <b>
+                      MODIFY EVENT
+                    </b>
+                  </p>,
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Title
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="title"
+                        onChange={[Function]}
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>,
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="Description"
+                    >
+                      Description
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <textarea
+                        className="form-control"
+                        name="description"
+                        onChange={[Function]}
+                        placeholder="Description"
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>,
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="venue"
+                    >
+                      Venue
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <select
+                        className="form-control"
+                        name="centerId"
+                        onChange={[Function]}
+                      >
+                        <option
+                          value={undefined}
+                        />
+                      </select>
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        <a
+                          href="/centers"
+                          target="_blank"
+                        >
+                          View Centers
+                        </a>
+                      </small>
+                    </div>
+                  </div>,
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="date"
+                        onChange={[Function]}
+                        type="date"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>,
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Time
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="time"
+                        onChange={[Function]}
+                        type="time"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>,
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="exampleInputFile"
+                    >
+                      Image
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        aria-describedby="fileHelp"
+                        className="form-control"
+                        name="image"
+                        onChange={[Function]}
+                        type="file"
+                      />
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        ( Optional )
+                      </small>
+                    </div>
+                  </div>,
+                  <div
+                    className="form-group row"
+                  >
+                    <div
+                      className="offset-sm-3 col-sm-9"
+                    >
+                      <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>
+                    </div>
+                  </div>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor=""
+                      />,
+                      <div
+                        className="col-sm-9"
+                      />,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": false,
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": false,
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <b>
+                      MODIFY EVENT
+                    </b>,
+                    "className": "text-center h5",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "MODIFY EVENT",
+                    },
+                    "ref": null,
+                    "rendered": "MODIFY EVENT",
+                    "type": "b",
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="title"
+                      >
+                        Title
+                      </label>,
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          className="form-control"
+                          name="title"
+                          onChange={[Function]}
+                          type="text"
+                          value={undefined}
+                        />
+                      </div>,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Title",
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Title",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <input
+                          className="form-control"
+                          name="title"
+                          onChange={[Function]}
+                          type="text"
+                          value={undefined}
+                        />,
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "form-control",
+                          "name": "title",
+                          "onChange": [Function],
+                          "type": "text",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="Description"
+                      >
+                        Description
+                      </label>,
+                      <div
+                        className="col-sm-9"
+                      >
+                        <textarea
+                          className="form-control"
+                          name="description"
+                          onChange={[Function]}
+                          placeholder="Description"
+                          type="text"
+                          value={undefined}
+                        />
+                      </div>,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Description",
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "Description",
+                      },
+                      "ref": null,
+                      "rendered": "Description",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <textarea
+                          className="form-control"
+                          name="description"
+                          onChange={[Function]}
+                          placeholder="Description"
+                          type="text"
+                          value={undefined}
+                        />,
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "form-control",
+                          "name": "description",
+                          "onChange": [Function],
+                          "placeholder": "Description",
+                          "type": "text",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "textarea",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="venue"
+                      >
+                        Venue
+                      </label>,
+                      <div
+                        className="col-sm-9"
+                      >
+                        <select
+                          className="form-control"
+                          name="centerId"
+                          onChange={[Function]}
+                        >
+                          <option
+                            value={undefined}
+                          />
+                        </select>
+                        <small
+                          className="form-text text-muted"
+                          id="fileHelp"
+                        >
+                          <a
+                            href="/centers"
+                            target="_blank"
+                          >
+                            View Centers
+                          </a>
+                        </small>
+                      </div>,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Venue",
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "venue",
+                      },
+                      "ref": null,
+                      "rendered": "Venue",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <select
+                            className="form-control"
+                            name="centerId"
+                            onChange={[Function]}
+                          >
+                            <option
+                              value={undefined}
+                            />
+                          </select>,
+                          <small
+                            className="form-text text-muted"
+                            id="fileHelp"
+                          >
+                            <a
+                              href="/centers"
+                              target="_blank"
+                            >
+                              View Centers
+                            </a>
+                          </small>,
+                        ],
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <option
+                                value={undefined}
+                              />,
+                              Array [],
+                            ],
+                            "className": "form-control",
+                            "name": "centerId",
+                            "onChange": [Function],
+                          },
+                          "ref": "venue",
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": undefined,
+                                "value": undefined,
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "option",
+                            },
+                          ],
+                          "type": "select",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <a
+                              href="/centers"
+                              target="_blank"
+                            >
+                              View Centers
+                            </a>,
+                            "className": "form-text text-muted",
+                            "id": "fileHelp",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "View Centers",
+                              "href": "/centers",
+                              "target": "_blank",
+                            },
+                            "ref": null,
+                            "rendered": "View Centers",
+                            "type": "a",
+                          },
+                          "type": "small",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="title"
+                      >
+                        Date
+                      </label>,
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          className="form-control"
+                          name="date"
+                          onChange={[Function]}
+                          type="date"
+                          value={undefined}
+                        />
+                      </div>,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Date",
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Date",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <input
+                          className="form-control"
+                          name="date"
+                          onChange={[Function]}
+                          type="date"
+                          value={undefined}
+                        />,
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "form-control",
+                          "name": "date",
+                          "onChange": [Function],
+                          "type": "date",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="title"
+                      >
+                        Time
+                      </label>,
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          className="form-control"
+                          name="time"
+                          onChange={[Function]}
+                          type="time"
+                          value={undefined}
+                        />
+                      </div>,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Time",
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Time",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <input
+                          className="form-control"
+                          name="time"
+                          onChange={[Function]}
+                          type="time"
+                          value={undefined}
+                        />,
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "form-control",
+                          "name": "time",
+                          "onChange": [Function],
+                          "type": "time",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="exampleInputFile"
+                      >
+                        Image
+                      </label>,
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          aria-describedby="fileHelp"
+                          className="form-control"
+                          name="image"
+                          onChange={[Function]}
+                          type="file"
+                        />
+                        <small
+                          className="form-text text-muted"
+                          id="fileHelp"
+                        >
+                          ( Optional )
+                        </small>
+                      </div>,
+                    ],
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Image",
+                        "className": "col-sm-3 col-form-label",
+                        "htmlFor": "exampleInputFile",
+                      },
+                      "ref": null,
+                      "rendered": "Image",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <input
+                            aria-describedby="fileHelp"
+                            className="form-control"
+                            name="image"
+                            onChange={[Function]}
+                            type="file"
+                          />,
+                          <small
+                            className="form-text text-muted"
+                            id="fileHelp"
+                          >
+                            ( Optional )
+                          </small>,
+                        ],
+                        "className": "col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "aria-describedby": "fileHelp",
+                            "className": "form-control",
+                            "name": "image",
+                            "onChange": [Function],
+                            "type": "file",
+                          },
+                          "ref": "image",
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "( Optional )",
+                            "className": "form-text text-muted",
+                            "id": "fileHelp",
+                          },
+                          "ref": null,
+                          "rendered": "( Optional )",
+                          "type": "small",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div
+                      className="offset-sm-3 col-sm-9"
+                    >
+                      <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>
+                    </div>,
+                    "className": "form-group row",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>,
+                      "className": "offset-sm-3 col-sm-9",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <i
+                            className="fa fa-plus fa-lg"
+                          />,
+                          " Update",
+                        ],
+                        "className": "btn btn-sm btn-success",
+                        "onClick": [Function],
+                        "type": "submit",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "fa fa-plus fa-lg",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "i",
+                        },
+                        " Update",
+                      ],
+                      "type": "button",
+                    },
+                    "type": "div",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "form",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavBar
+            page="ModifyEvent"
+          />,
+          <div
+            className="container add-event "
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="container"
+              >
+                <form>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor=""
+                    />
+                    <div
+                      className="col-sm-9"
+                    />
+                  </div>
+                  <p
+                    className="text-center h5"
+                  >
+                    <b>
+                      MODIFY EVENT
+                    </b>
+                  </p>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Title
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="title"
+                        onChange={[Function]}
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="Description"
+                    >
+                      Description
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <textarea
+                        className="form-control"
+                        name="description"
+                        onChange={[Function]}
+                        placeholder="Description"
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="venue"
+                    >
+                      Venue
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <select
+                        className="form-control"
+                        name="centerId"
+                        onChange={[Function]}
+                      >
+                        <option
+                          value={undefined}
+                        />
+                      </select>
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        <a
+                          href="/centers"
+                          target="_blank"
+                        >
+                          View Centers
+                        </a>
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="date"
+                        onChange={[Function]}
+                        type="date"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Time
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="time"
+                        onChange={[Function]}
+                        type="time"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="exampleInputFile"
+                    >
+                      Image
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        aria-describedby="fileHelp"
+                        className="form-control"
+                        name="image"
+                        onChange={[Function]}
+                        type="file"
+                      />
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        ( Optional )
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <div
+                      className="offset-sm-3 col-sm-9"
+                    >
+                      <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "page": "ModifyEvent",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="row"
+            >
+              <div
+                className="container"
+              >
+                <form>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor=""
+                    />
+                    <div
+                      className="col-sm-9"
+                    />
+                  </div>
+                  <p
+                    className="text-center h5"
+                  >
+                    <b>
+                      MODIFY EVENT
+                    </b>
+                  </p>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Title
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="title"
+                        onChange={[Function]}
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="Description"
+                    >
+                      Description
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <textarea
+                        className="form-control"
+                        name="description"
+                        onChange={[Function]}
+                        placeholder="Description"
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="venue"
+                    >
+                      Venue
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <select
+                        className="form-control"
+                        name="centerId"
+                        onChange={[Function]}
+                      >
+                        <option
+                          value={undefined}
+                        />
+                      </select>
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        <a
+                          href="/centers"
+                          target="_blank"
+                        >
+                          View Centers
+                        </a>
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="date"
+                        onChange={[Function]}
+                        type="date"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Time
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="time"
+                        onChange={[Function]}
+                        type="time"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="exampleInputFile"
+                    >
+                      Image
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        aria-describedby="fileHelp"
+                        className="form-control"
+                        name="image"
+                        onChange={[Function]}
+                        type="file"
+                      />
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        ( Optional )
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <div
+                      className="offset-sm-3 col-sm-9"
+                    >
+                      <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>,
+            "className": "container add-event ",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="container"
+              >
+                <form>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor=""
+                    />
+                    <div
+                      className="col-sm-9"
+                    />
+                  </div>
+                  <p
+                    className="text-center h5"
+                  >
+                    <b>
+                      MODIFY EVENT
+                    </b>
+                  </p>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Title
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="title"
+                        onChange={[Function]}
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="Description"
+                    >
+                      Description
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <textarea
+                        className="form-control"
+                        name="description"
+                        onChange={[Function]}
+                        placeholder="Description"
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="venue"
+                    >
+                      Venue
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <select
+                        className="form-control"
+                        name="centerId"
+                        onChange={[Function]}
+                      >
+                        <option
+                          value={undefined}
+                        />
+                      </select>
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        <a
+                          href="/centers"
+                          target="_blank"
+                        >
+                          View Centers
+                        </a>
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="date"
+                        onChange={[Function]}
+                        type="date"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Time
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="time"
+                        onChange={[Function]}
+                        type="time"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="exampleInputFile"
+                    >
+                      Image
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        aria-describedby="fileHelp"
+                        className="form-control"
+                        name="image"
+                        onChange={[Function]}
+                        type="file"
+                      />
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        ( Optional )
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <div
+                      className="offset-sm-3 col-sm-9"
+                    >
+                      <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>,
+              "className": "row",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <form>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor=""
+                    />
+                    <div
+                      className="col-sm-9"
+                    />
+                  </div>
+                  <p
+                    className="text-center h5"
+                  >
+                    <b>
+                      MODIFY EVENT
+                    </b>
+                  </p>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Title
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="title"
+                        onChange={[Function]}
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="Description"
+                    >
+                      Description
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <textarea
+                        className="form-control"
+                        name="description"
+                        onChange={[Function]}
+                        placeholder="Description"
+                        type="text"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="venue"
+                    >
+                      Venue
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <select
+                        className="form-control"
+                        name="centerId"
+                        onChange={[Function]}
+                      >
+                        <option
+                          value={undefined}
+                        />
+                      </select>
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        <a
+                          href="/centers"
+                          target="_blank"
+                        >
+                          View Centers
+                        </a>
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="date"
+                        onChange={[Function]}
+                        type="date"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="title"
+                    >
+                      Time
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        className="form-control"
+                        name="time"
+                        onChange={[Function]}
+                        type="time"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <label
+                      className="col-sm-3 col-form-label"
+                      htmlFor="exampleInputFile"
+                    >
+                      Image
+                    </label>
+                    <div
+                      className="col-sm-9"
+                    >
+                      <input
+                        aria-describedby="fileHelp"
+                        className="form-control"
+                        name="image"
+                        onChange={[Function]}
+                        type="file"
+                      />
+                      <small
+                        className="form-text text-muted"
+                        id="fileHelp"
+                      >
+                        ( Optional )
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group row"
+                  >
+                    <div
+                      className="offset-sm-3 col-sm-9"
+                    >
+                      <button
+                        className="btn btn-sm btn-success"
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        <i
+                          className="fa fa-plus fa-lg"
+                        />
+                         Update
+                      </button>
+                    </div>
+                  </div>
+                </form>,
+                "className": "container",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor=""
+                      />
+                      <div
+                        className="col-sm-9"
+                      />
+                    </div>,
+                    <p
+                      className="text-center h5"
+                    >
+                      <b>
+                        MODIFY EVENT
+                      </b>
+                    </p>,
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="title"
+                      >
+                        Title
+                      </label>
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          className="form-control"
+                          name="title"
+                          onChange={[Function]}
+                          type="text"
+                          value={undefined}
+                        />
+                      </div>
+                    </div>,
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="Description"
+                      >
+                        Description
+                      </label>
+                      <div
+                        className="col-sm-9"
+                      >
+                        <textarea
+                          className="form-control"
+                          name="description"
+                          onChange={[Function]}
+                          placeholder="Description"
+                          type="text"
+                          value={undefined}
+                        />
+                      </div>
+                    </div>,
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="venue"
+                      >
+                        Venue
+                      </label>
+                      <div
+                        className="col-sm-9"
+                      >
+                        <select
+                          className="form-control"
+                          name="centerId"
+                          onChange={[Function]}
+                        >
+                          <option
+                            value={undefined}
+                          />
+                        </select>
+                        <small
+                          className="form-text text-muted"
+                          id="fileHelp"
+                        >
+                          <a
+                            href="/centers"
+                            target="_blank"
+                          >
+                            View Centers
+                          </a>
+                        </small>
+                      </div>
+                    </div>,
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="title"
+                      >
+                        Date
+                      </label>
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          className="form-control"
+                          name="date"
+                          onChange={[Function]}
+                          type="date"
+                          value={undefined}
+                        />
+                      </div>
+                    </div>,
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="title"
+                      >
+                        Time
+                      </label>
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          className="form-control"
+                          name="time"
+                          onChange={[Function]}
+                          type="time"
+                          value={undefined}
+                        />
+                      </div>
+                    </div>,
+                    <div
+                      className="form-group row"
+                    >
+                      <label
+                        className="col-sm-3 col-form-label"
+                        htmlFor="exampleInputFile"
+                      >
+                        Image
+                      </label>
+                      <div
+                        className="col-sm-9"
+                      >
+                        <input
+                          aria-describedby="fileHelp"
+                          className="form-control"
+                          name="image"
+                          onChange={[Function]}
+                          type="file"
+                        />
+                        <small
+                          className="form-text text-muted"
+                          id="fileHelp"
+                        >
+                          ( Optional )
+                        </small>
+                      </div>
+                    </div>,
+                    <div
+                      className="form-group row"
+                    >
+                      <div
+                        className="offset-sm-3 col-sm-9"
+                      >
+                        <button
+                          className="btn btn-sm btn-success"
+                          onClick={[Function]}
+                          type="submit"
+                        >
+                          <i
+                            className="fa fa-plus fa-lg"
+                          />
+                           Update
+                        </button>
+                      </div>
+                    </div>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor=""
+                        />,
+                        <div
+                          className="col-sm-9"
+                        />,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": false,
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": false,
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <b>
+                        MODIFY EVENT
+                      </b>,
+                      "className": "text-center h5",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "MODIFY EVENT",
+                      },
+                      "ref": null,
+                      "rendered": "MODIFY EVENT",
+                      "type": "b",
+                    },
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor="title"
+                        >
+                          Title
+                        </label>,
+                        <div
+                          className="col-sm-9"
+                        >
+                          <input
+                            className="form-control"
+                            name="title"
+                            onChange={[Function]}
+                            type="text"
+                            value={undefined}
+                          />
+                        </div>,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Title",
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "title",
+                        },
+                        "ref": null,
+                        "rendered": "Title",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <input
+                            className="form-control"
+                            name="title"
+                            onChange={[Function]}
+                            type="text"
+                            value={undefined}
+                          />,
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "form-control",
+                            "name": "title",
+                            "onChange": [Function],
+                            "type": "text",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor="Description"
+                        >
+                          Description
+                        </label>,
+                        <div
+                          className="col-sm-9"
+                        >
+                          <textarea
+                            className="form-control"
+                            name="description"
+                            onChange={[Function]}
+                            placeholder="Description"
+                            type="text"
+                            value={undefined}
+                          />
+                        </div>,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Description",
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "Description",
+                        },
+                        "ref": null,
+                        "rendered": "Description",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <textarea
+                            className="form-control"
+                            name="description"
+                            onChange={[Function]}
+                            placeholder="Description"
+                            type="text"
+                            value={undefined}
+                          />,
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "form-control",
+                            "name": "description",
+                            "onChange": [Function],
+                            "placeholder": "Description",
+                            "type": "text",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "textarea",
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor="venue"
+                        >
+                          Venue
+                        </label>,
+                        <div
+                          className="col-sm-9"
+                        >
+                          <select
+                            className="form-control"
+                            name="centerId"
+                            onChange={[Function]}
+                          >
+                            <option
+                              value={undefined}
+                            />
+                          </select>
+                          <small
+                            className="form-text text-muted"
+                            id="fileHelp"
+                          >
+                            <a
+                              href="/centers"
+                              target="_blank"
+                            >
+                              View Centers
+                            </a>
+                          </small>
+                        </div>,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Venue",
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "venue",
+                        },
+                        "ref": null,
+                        "rendered": "Venue",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <select
+                              className="form-control"
+                              name="centerId"
+                              onChange={[Function]}
+                            >
+                              <option
+                                value={undefined}
+                              />
+                            </select>,
+                            <small
+                              className="form-text text-muted"
+                              id="fileHelp"
+                            >
+                              <a
+                                href="/centers"
+                                target="_blank"
+                              >
+                                View Centers
+                              </a>
+                            </small>,
+                          ],
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <option
+                                  value={undefined}
+                                />,
+                                Array [],
+                              ],
+                              "className": "form-control",
+                              "name": "centerId",
+                              "onChange": [Function],
+                            },
+                            "ref": "venue",
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": undefined,
+                                  "value": undefined,
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "option",
+                              },
+                            ],
+                            "type": "select",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <a
+                                href="/centers"
+                                target="_blank"
+                              >
+                                View Centers
+                              </a>,
+                              "className": "form-text text-muted",
+                              "id": "fileHelp",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "View Centers",
+                                "href": "/centers",
+                                "target": "_blank",
+                              },
+                              "ref": null,
+                              "rendered": "View Centers",
+                              "type": "a",
+                            },
+                            "type": "small",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor="title"
+                        >
+                          Date
+                        </label>,
+                        <div
+                          className="col-sm-9"
+                        >
+                          <input
+                            className="form-control"
+                            name="date"
+                            onChange={[Function]}
+                            type="date"
+                            value={undefined}
+                          />
+                        </div>,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Date",
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "title",
+                        },
+                        "ref": null,
+                        "rendered": "Date",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <input
+                            className="form-control"
+                            name="date"
+                            onChange={[Function]}
+                            type="date"
+                            value={undefined}
+                          />,
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "form-control",
+                            "name": "date",
+                            "onChange": [Function],
+                            "type": "date",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor="title"
+                        >
+                          Time
+                        </label>,
+                        <div
+                          className="col-sm-9"
+                        >
+                          <input
+                            className="form-control"
+                            name="time"
+                            onChange={[Function]}
+                            type="time"
+                            value={undefined}
+                          />
+                        </div>,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Time",
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "title",
+                        },
+                        "ref": null,
+                        "rendered": "Time",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <input
+                            className="form-control"
+                            name="time"
+                            onChange={[Function]}
+                            type="time"
+                            value={undefined}
+                          />,
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "form-control",
+                            "name": "time",
+                            "onChange": [Function],
+                            "type": "time",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="col-sm-3 col-form-label"
+                          htmlFor="exampleInputFile"
+                        >
+                          Image
+                        </label>,
+                        <div
+                          className="col-sm-9"
+                        >
+                          <input
+                            aria-describedby="fileHelp"
+                            className="form-control"
+                            name="image"
+                            onChange={[Function]}
+                            type="file"
+                          />
+                          <small
+                            className="form-text text-muted"
+                            id="fileHelp"
+                          >
+                            ( Optional )
+                          </small>
+                        </div>,
+                      ],
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Image",
+                          "className": "col-sm-3 col-form-label",
+                          "htmlFor": "exampleInputFile",
+                        },
+                        "ref": null,
+                        "rendered": "Image",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <input
+                              aria-describedby="fileHelp"
+                              className="form-control"
+                              name="image"
+                              onChange={[Function]}
+                              type="file"
+                            />,
+                            <small
+                              className="form-text text-muted"
+                              id="fileHelp"
+                            >
+                              ( Optional )
+                            </small>,
+                          ],
+                          "className": "col-sm-9",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "aria-describedby": "fileHelp",
+                              "className": "form-control",
+                              "name": "image",
+                              "onChange": [Function],
+                              "type": "file",
+                            },
+                            "ref": "image",
+                            "rendered": null,
+                            "type": "input",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "( Optional )",
+                              "className": "form-text text-muted",
+                              "id": "fileHelp",
+                            },
+                            "ref": null,
+                            "rendered": "( Optional )",
+                            "type": "small",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <div
+                        className="offset-sm-3 col-sm-9"
+                      >
+                        <button
+                          className="btn btn-sm btn-success"
+                          onClick={[Function]}
+                          type="submit"
+                        >
+                          <i
+                            className="fa fa-plus fa-lg"
+                          />
+                           Update
+                        </button>
+                      </div>,
+                      "className": "form-group row",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="btn btn-sm btn-success"
+                          onClick={[Function]}
+                          type="submit"
+                        >
+                          <i
+                            className="fa fa-plus fa-lg"
+                          />
+                           Update
+                        </button>,
+                        "className": "offset-sm-3 col-sm-9",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <i
+                              className="fa fa-plus fa-lg"
+                            />,
+                            " Update",
+                          ],
+                          "className": "btn btn-sm btn-success",
+                          "onClick": [Function],
+                          "type": "submit",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "fa fa-plus fa-lg",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "i",
+                          },
+                          " Update",
+                        ],
+                        "type": "button",
+                      },
+                      "type": "div",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "form",
+              },
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

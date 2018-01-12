@@ -6,7 +6,7 @@ import Location from './Location.jsx';
 import { connect } from 'react-redux';
 import { getCenter } from '../actions/centerAction';
 
-class CenterDetails extends Component {
+export class CenterDetails extends Component {
 
   componentDidMount () {
     document.body.style.backgroundColor = 'white !important';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Router, Route, Switch, Link } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory, createMemoryHistory } from 'history';
 import MyEvents from './components/MyEvents.jsx'
 import App from './containers/App.js';
 import SignUpForm from './components/SignUpForm.jsx';
@@ -12,7 +12,8 @@ import AdminPanel from './components/AdminPanel.jsx';
 import EventDetails from './components/EventDetails.jsx';
 import CenterDetails from './components/CenterDetails.jsx';
 
-export const history = createBrowserHistory();
+
+export const history = (process.env.NODE_ENV === 'test') ? createMemoryHistory() : createBrowserHistory();
 
 export default () => {
  return (

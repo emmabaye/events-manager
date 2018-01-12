@@ -16,8 +16,7 @@ export default class DeleteModal extends Component {
         history.push("/myevents");
       })
       .catch((err) => {
-        console.log("ERROR ", err);
-        console.log("error in delelting obj");
+        
       });
   }
 

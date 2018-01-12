@@ -7,7 +7,7 @@ import DeleteModal from './DeleteModal.jsx';
 import { connect } from 'react-redux';
 import { history } from '../routes';
 
-class MyEvents extends Component {
+export class MyEvents extends Component {
 
     constructor(props){
       super(props);
@@ -73,7 +73,6 @@ class MyEvents extends Component {
       withCredentials: true,
       })
       .then((response) => {
-        console.log("LETS GET MY EVENTS: ",response.data.data.Events);
         this.setState({ myEvents: response.data.data.Events});
       })
       .catch((err) => {

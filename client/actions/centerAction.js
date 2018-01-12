@@ -6,7 +6,7 @@ import { MODIFY_CENTER, MODIFY_CENTER_FULFILLED, MODIFY_CENTER_REJECTED } from '
 
 export const getAllCenters = () => (dispatch) => {
   dispatch({ type: 'GET_ALL_CENTERS' });
-  axios({
+  return axios({
     method: 'GET',
     url: '/api/v1/centers',
     headers: { 'x-access-token': localStorage.getItem('x-access-token') },
@@ -16,7 +16,6 @@ export const getAllCenters = () => (dispatch) => {
        dispatch({ type: GET_ALL_CENTERS_FULFILLED, payload: response.data });
      })
       .catch((err) => {
-        console.log(err);
         dispatch({ type: 'GET_ALL_CENTERS_REJECTED', payload: err });
       });
 };
@@ -24,7 +23,7 @@ export const getAllCenters = () => (dispatch) => {
 export const addCenter = (centerForm) => {
    return (dispatch) => {
     dispatch({type: ADD_CENTER});
-    axios({
+    return axios({
       method: 'post',
       url:'/api/v1/centers',
       data: centerForm,
@@ -35,7 +34,7 @@ export const addCenter = (centerForm) => {
          dispatch({type: ADD_CENTER_FULFILLED, payload: response.data})
        })
        .catch((err) => {
-         console.log(err)
+        console.log("ERROR ", err);
          dispatch({type: ADD_CENTER_REJECTED, payload: err.response.data});
         });
    }
@@ -50,7 +49,7 @@ export const setStatus = (str) => {
 export const getCenter = (centerId) => {
    return (dispatch) => {
     dispatch({type: GET_CENTER});
-    axios({
+    return axios({
       method: 'get',
       url:`/api/v1/centers/${centerId}`,
       withCredentials: true,
@@ -59,7 +58,6 @@ export const getCenter = (centerId) => {
          dispatch({type: GET_CENTER_FULFILLED, payload: response.data})
        })
        .catch((err) => {
-         console.log(err)
          dispatch({type: GET_CENTER_REJECTED, payload: err.response.data});
         });
    }
@@ -68,7 +66,7 @@ export const getCenter = (centerId) => {
 export const modifyCenter = (centerForm) => {
   return (dispatch) => {
     dispatch({type: MODIFY_CENTER})
-    axios({
+    return axios({
       method: 'put',
       url: `/api/v1/centers/${centerForm.get('id')}`,
       data: centerForm,
@@ -79,7 +77,7 @@ export const modifyCenter = (centerForm) => {
          dispatch({type: MODIFY_CENTER_FULFILLED, payload: response.data})
        })
        .catch((err) => {
-         console.log(err)
+        console.log("ERROR ", err);
          dispatch({type: MODIFY_CENTER_REJECTED, payload: err.response.data})
        })
   }
