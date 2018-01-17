@@ -6,12 +6,15 @@ import AdminPanelBody from './AdminPanelBody.jsx';
 import { history } from '../routes.js';
 
 class AdminPanel extends Component {
-
   componentWillMount() {
     let token = localStorage.getItem('x-access-token');
     try {
       let decoded = jwtDecode(token);
-      if(decoded.role !== 'admin') {
+      let timeLeft = decoded.exp - (Date.now() / 1000);
+      if (timeLeft <= 0) {
+        return history.push("/login");
+      }
+      if (decoded.role !== 'admin') {
         return history.push("/login");
       }
     } catch (e) {
@@ -26,11 +29,11 @@ class AdminPanel extends Component {
   render() {
     return (
       <div>
-        <NavBar page='LandingPage' />
-          <AdminPanelBody />
+        <NavBar page="LandingPage" />
+        <AdminPanelBody />
         <Footer />
       </div>
-      )
+    );
   }
 }
 
