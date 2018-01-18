@@ -17,21 +17,23 @@ export default class NavBar extends Component {
   }
 
   componentWillMount() {
-    let token = localStorage.getItem('x-access-token');
-    try {
-      let decoded = jwtDecode(token);
-      let isAdmin = (decoded.role === "admin");
-      let timeLeft = decoded.exp - (Date.now() / 1000);
-      let isLoggedIn = !((timeLeft <= 0));
-      if (!isLoggedIn) {
+    if (process.env.NODE_ENV != 'test') {
+      let token = localStorage.getItem('x-access-token');
+      try {
+        let decoded = jwtDecode(token);
+        let isAdmin = (decoded.role === "admin");
+        let timeLeft = decoded.exp - (Date.now() / 1000);
+        let isLoggedIn = !((timeLeft <= 0));
+        if (!isLoggedIn) {
+          return this.isLoggedIn = false;
+        }
+        if (isAdmin) {
+          this.isAdmin = true;
+        }
+        return this.isLoggedIn = true;
+      } catch (e) {
         return this.isLoggedIn = false;
       }
-      if (isAdmin) {
-        this.isAdmin = true;
-      }
-      return this.isLoggedIn = true;
-    } catch (e) {
-      return this.isLoggedIn = false;
     }
   }
 

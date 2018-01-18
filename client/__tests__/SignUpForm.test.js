@@ -24,6 +24,10 @@ describe('SignUpForm Component', () => {
     dispatch: () => {}
   };
 
+  global.localStorage = {
+    getItem: (str) => str
+  };
+
   describe('SignUp page  should render self', () => {
     it('it should render for dumb component', () => {
       const wrapper = mount(<SignUpForm />);

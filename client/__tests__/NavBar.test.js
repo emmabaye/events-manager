@@ -4,6 +4,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import NavBar from '../components/NavBar.jsx';
 
 Enzyme.configure({ adapter: new Adapter() });
+global.localStorage = {
+    getItem: (str) => {
+      return str;
+    }
+  }
 
 let setup = (page) => {
   const props = {

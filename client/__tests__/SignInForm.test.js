@@ -31,7 +31,7 @@ describe('SignInForm Component', () => {
     });
 
     it('it should render for connected component', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedSignInForm /></Provider>);
+      const wrapper = shallow(<Provider store={store}><ConnectedSignInForm /></Provider>);
     });
 
     it('it should render redirect on  success', () => {

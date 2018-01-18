@@ -24,7 +24,7 @@ describe('App Component', () => {
     });
 
     it('it should render connected component', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedApp /></Provider>);
+      const wrapper = shallow(<Provider store={store}><ConnectedApp /></Provider>);
     });
 
   });
