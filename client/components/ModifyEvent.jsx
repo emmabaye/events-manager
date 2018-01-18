@@ -9,30 +9,34 @@ import { history } from '../routes';
 
 
 export class ModifyEvent extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      event:{},
+      event: {},
       centers: []
-    }
+    };
   }
 
-  componentWillMount () {
+  componentWillMount() {
     let token = localStorage.getItem('x-access-token');
-      try{
-         let decoded = jwtDecode(token);
-         
-       } catch (e) {
-       return history.push("/login")
+    try {
+      let decoded = jwtDecode(token);
+      let timeLeft = decoded.exp - (Date.now() / 1000);
+      if (timeLeft <= 0) {
+        return history.push("/login");
+      }
+    } catch (e) {
+      return history.push("/login");
     }
   }
 
   handleChange = (e) => {
-    this.setState({ event: {
-      ...this.state.event, 
-      [e.target.name]: e.target.value,
-      venue: this.refs.venue.options[this.refs.venue.selectedIndex].text }
+    this.setState({
+      event: {
+        ...this.state.event,
+        [e.target.name]: e.target.value,
+        venue: this.refs.venue.options[this.refs.venue.selectedIndex].text
+      }
     });
   }
 
@@ -60,16 +64,16 @@ export class ModifyEvent extends Component {
   componentDidUpdate() {
     if (Object.keys(this.state.event).length == 0 && this.state.centers.length == 0) {
       axios({
-          method: 'GET',
-          url: '/api/v1/centers',
-          withCredentials: true,
-        })
+        method: 'GET',
+        url: '/api/v1/centers',
+        withCredentials: true,
+      })
         .then((response) => {
           this.setState({
-            event:  {
-          ...this.props.event,
-          date: this.props.event.date.substring(0, 10)
-        },
+            event: {
+              ...this.props.event,
+              date: this.props.event.date.substring(0, 10)
+            },
             centers: response.data.data
           });
         })
@@ -80,28 +84,28 @@ export class ModifyEvent extends Component {
   }
 
   render() {
-    if( this.props.status == 'Success') {
-      return <Redirect to="/myevents" push={true} />
+    if (this.props.status == 'Success') {
+      return <Redirect to="/myevents" push />;
     }
     return (
       <div>
-        <NavBar page='ModifyEvent' />
+        <NavBar page="ModifyEvent" />
         <div className="container add-event ">
           <div className="row">
             <div className="container">
               <form>
-               <div className="form-group row">
-              <label htmlFor="" className="col-sm-3 col-form-label"></label>
-              <div className="col-sm-9">
-               { (this.props.status == 'Error') &&
-                  <div className="form-group row" style={{width:'100%', marginRight: 'auto', marginLeft:'auto'}}>
+                <div className="form-group row">
+                  <label htmlFor="" className="col-sm-3 col-form-label" />
+                  <div className="col-sm-9">
+                    { (this.props.status == 'Error') &&
+                  <div className="form-group row" style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
                     <div className="alert alert-dismissible alert-danger fade show" role="alert">
-                        <small>{this.props.message.toString().split(',').join(', ')}</small>
-                      </div>
+                      <small>{this.props.message.toString().split(',').join(', ')}</small>
                     </div>
-                }
+                  </div>
+                    }
+                  </div>
                 </div>
-            </div>
                 <p className="text-center h5">
                   <b>MODIFY EVENT</b>
                 </p>
@@ -110,7 +114,7 @@ export class ModifyEvent extends Component {
                     Title
                   </label>
                   <div className="col-sm-9">
-                    <input type="text" className="form-control" name="title" value={this.state.event.title}  onChange={this.handleChange} />
+                    <input type="text" className="form-control" name="title" value={this.state.event.title} onChange={this.handleChange} />
                   </div>
                 </div>
                 <div className="form-group row">
@@ -133,10 +137,10 @@ export class ModifyEvent extends Component {
                     Venue
                   </label>
                   <div className="col-sm-9">
-                    <select className="form-control" ref="venue"  name="centerId" onChange={this.handleChange}>
-                      <option key={this.state.event.centerId}  value={this.state.event.centerId}>{this.state.event.venue}</option>
+                    <select className="form-control" ref="venue" name="centerId" onChange={this.handleChange}>
+                      <option key={this.state.event.centerId} value={this.state.event.centerId}>{this.state.event.venue}</option>
                       {
-                        (this.state.centers.map((center) =>  <option key={center.id}  value={center.id}>{center.name}</option>))
+                        (this.state.centers.map((center) => <option key={center.id} value={center.id}>{center.name}</option>))
                       }
                     </select>
                     <small id="fileHelp" className="form-text text-muted">
@@ -198,19 +202,17 @@ export class ModifyEvent extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: (actionObject) => dispatch(actionObject)
+  dispatch: (actionObject) => dispatch(actionObject)
 });
 
-const mapStateToProps = (state) => {
-  return {
-    status: state.eventReducer.status,
-    message: state.eventReducer.message,
-    event: state.eventReducer.event
-  }
-};
+const mapStateToProps = (state) => ({
+  status: state.eventReducer.status,
+  message: state.eventReducer.message,
+  event: state.eventReducer.event
+});
 
 export default connect(
-     mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ModifyEvent);
 

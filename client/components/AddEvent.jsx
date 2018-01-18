@@ -21,6 +21,10 @@ export class AddEvent extends Component {
     let token = localStorage.getItem('x-access-token');
     try {
       let decoded = jwtDecode(token);
+      let timeLeft = decoded.exp - (Date.now() / 1000);
+      if (timeLeft <= 0) {
+        return history.push("/login");
+      }
     } catch (e) {
       return history.push("/login");
     }

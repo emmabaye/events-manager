@@ -20,6 +20,10 @@ export class MyEvents extends Component {
       let token = localStorage.getItem('x-access-token');
       try{
          let decoded = jwtDecode(token);
+         let timeLeft = decoded.exp - (Date.now()/1000);
+         if(timeLeft <= 0) {
+          return history.push("/login")
+         }
        } catch (e) {
         return history.push("/login")
        }
@@ -28,7 +32,6 @@ export class MyEvents extends Component {
     componentDidUpdate() {
       let token = localStorage.getItem('x-access-token');
       let decoded = jwtDecode(token);
-      
       let userId = decoded.id;
 
       axios({
@@ -37,8 +40,6 @@ export class MyEvents extends Component {
       withCredentials: true,
       })
       .then((response) => {
-        console.log("LETS GET MY EVENTS: ",response.data.data.Events);
-
         if(this.state.myEvents.length > response.data.data.Events.length){
            this.setState({ myEvents: response.data.data.Events});
         }
@@ -86,7 +87,7 @@ export class MyEvents extends Component {
     render() {
         return (
             <div>
-                <NavBar page='MyEvents' />
+                <NavBar page='MyEvents' auth={true}/>
                 <div className="container events">
 			            <div className="row event-row">
                     {

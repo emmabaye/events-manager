@@ -11,6 +11,7 @@ import ModifyEvent from './components/ModifyEvent.jsx';
 import AdminPanel from './components/AdminPanel.jsx';
 import EventDetails from './components/EventDetails.jsx';
 import CenterDetails from './components/CenterDetails.jsx';
+import SignOut from './components/SignOut.jsx';
 
 
 export const history = (process.env.NODE_ENV === 'test') ? createMemoryHistory() : createBrowserHistory();
@@ -29,7 +30,7 @@ export default () => {
       <Route exact path='/events/:id' component={EventDetails}/>
       <Route path='/modifyevent/:id' component={ModifyEvent}/>
       <Route exact path='/admin' component={AdminPanel}/>
-      
+      <Route exaxt path='/logout' component={SignOut} />
      </Switch>
    </Router>
  )
