@@ -194,8 +194,11 @@ class CenterController {
             message: 'Center has been deleted',
             data: deleteStatus
           });
-        }).catch((e)=>{
-          console.log("ERROR ",e);
+        }).catch((e) => {
+          res.status(500).send({
+            status: 'Error',
+            message: 'There was an error in deleting the center. Please try again later.'
+          });
         });
       });
   }

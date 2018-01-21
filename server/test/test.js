@@ -388,7 +388,6 @@ describe('API endpoints /api/v1/events', () => {
 
   );
 
-
   it(
     'Should return 404 - event not found',
     () => request(app)
@@ -400,6 +399,21 @@ describe('API endpoints /api/v1/events', () => {
       })
   );
 });
+
+describe('API endpoint api/v1/centers', () => {
+
+    // DELETE - delete center
+    it(
+      'Should delete center',
+      () => request(app)
+        .delete(`/api/v1/centers/${center.id}`)
+        .set('x-access-token', adminToken)
+        .then((res) => {
+          expect(res).to.have.status(200);
+          expect(res).to.be.json;
+        })
+    );
+  });
 
 
 describe('API endpoints /api/v1/users/logout', () => {
