@@ -15,7 +15,7 @@ export class AdminCenters extends Component {
         <div  id="events" className="container events">
           <div className="row event-row">
             {
-                  (this.props.allCenters.data.reverse().map((center) =>  <Center key={center.id} centerDetails={center} show={this.props.show} />))
+              (this.props.allCenters.data.reverse().map((center) =>  <Center key={center.id} centerDetails={center} show={this.props.show} />))
             }
           </div>
         </div>
