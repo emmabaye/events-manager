@@ -105,7 +105,8 @@ const routes = (app) => {
    */
   app.route('/api/v1/centers/:centerId')
     .get(CenterController.getCenter)
-    .put(isAuthenticated, isAdmin, centerValidation, CenterController.updateCenter);
+    .put(isAuthenticated, isAdmin, centerValidation, CenterController.updateCenter)
+    .delete(isAuthenticated, isAdmin, CenterController.deleteCenter);
   
   /**
    * GET method, get routes for

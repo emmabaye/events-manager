@@ -159,6 +159,49 @@ class CenterController {
         }).end((req.files.image) ? req.files.image.data : undefined);
       });
   }
+
+  static deleteCenter(req, res) {
+    Center.findById(req.params.centerId)
+      .then((center) => {
+        if (!center) {
+          return res.status(404).send({ status: 'Error', message: 'Center not found' });
+        }
+
+        if (req.userRole !== 'admin') {
+          return res.status(400).send({ status: 'Error', message: 'You do not have privilege to delete this center' });
+        }
+
+        Center.destroy({
+          where: {
+            id: req.params.centerId
+          }
+        }).then((deleteStatus) => {
+          if (!deleteStatus) {
+            res.status(500).send({
+              status: ' Server Error',
+              message: 'Cannot delete center'
+            });
+          }
+
+          cloudinary.v2.uploader.destroy(center.image.split('/')[7], {
+            resource_type: 'raw'
+          }, (err, result) => {
+
+          });
+
+          res.status(200).send({
+            status: 'Success',
+            message: 'Center has been deleted',
+            data: deleteStatus
+          });
+        }).catch((e) => {
+          res.status(500).send({
+            status: 'Error',
+            message: 'There was an error in deleting the center. Please try again later.'
+          });
+        });
+      });
+  }
 }
 
 export default CenterController;

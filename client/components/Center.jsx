@@ -21,10 +21,11 @@ export default class Center extends Component {
               <p className="text-center"><a href="#" className="btn btn-sm btn-primary" onClick={ () => this.props.show('centerDetails', this.props.centerDetails.id) } >
               <i className="fa fa-info-circle fa-lg"></i> View Center</a>
               <a href="#" className="btn btn-sm btn-success" onClick={ () => this.props.show('modifyCenter', this.props.centerDetails.id) } >
-              <i className="fa fa-edit fa-lg"></i> Modify</a></p>
+              <i className="fa fa-edit fa-lg"></i> Modify</a>
+              <a href="#" className="btn btn-sm btn-danger" data-toggle="modal" data-target={`#${this.props.centerDetails.id}`}><i className="fa fa-trash-o fa-lg" /> Delete</a></p>
             </div>
           </div>
-          <DeleteModal objectId={1}  />
+          <DeleteModal item='center' objectId={this.props.centerDetails.id} show={ this.props.show } />
         </div>
     );
   }
