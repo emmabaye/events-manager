@@ -391,7 +391,7 @@ describe('API endpoints /api/v1/events', () => {
   it(
     'Should return 404 - event not found',
     () => request(app)
-      .delete(`/api/v1/centers/${event.id}`)
+      .delete(`/api/v1/events/${event.id}`)
       .set('x-access-token', adminToken)
       .then((res) => {
         expect(res).to.have.status(404);
