@@ -15,7 +15,7 @@ export default {
   event: {
   	title: `Seminar ${Math.random().toString().substr(-5)}`,
     description: 'Lorem Ipsum Seminar Description',
-    center: 'City Hfff',
+    center: 'City Hall',
     date: generateFutureDate(2018),
     time: '17:00',
     image: '#noImage',
