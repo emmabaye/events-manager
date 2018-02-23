@@ -49,13 +49,6 @@ export default {
       .pause(5000)
       .clearValue('input[name=name]')
       .setValue('input[name=name]', 'Town Hall')
-      .setValue('textarea[name=description]', client.globals.center.description)
-      .setValue('input[name=location]', client.globals.center.location)
-      .setValue('input[name=capacity]', client.globals.center.capacity)
-      .setValue('input[name=price]', client.globals.center.price)
-      .setValue('input[name=facilities]', client.globals.center.facilities)
-      .setValue('select[name=available]', client.globals.center.available)
-      .setValue('input[name=image]', client.globals.center.image)
       .click('form button[type=submit]')
       .waitForElementVisible('.centers', 5000)
       .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title', 'Town Hall')
@@ -68,9 +61,13 @@ export default {
       .pause(5000)
       .waitForElementVisible(".centers .row .col-md-4:nth-child(1) .modal button.btn-danger", 5000)
       .click(".centers .row .col-md-4:nth-child(1) .modal button.btn-danger")
+      .pause(3000)
   },
 
   "after": (client) => {
-
+    client
+      .click(".navbar a[href='/logout']")
+      .pause(3000)
+      .end()
   }
 };
