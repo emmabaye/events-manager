@@ -27,7 +27,19 @@ export default {
   },
 
   "add center": (client) => {
-
+    client
+      .click(".sidebar a[href='#add-center']")
+      .waitForElementVisible('form', 3000)
+      .setValue('input[name=name]', client.globals.center.name)
+      .setValue('textarea[name=description]', client.globals.center.description)
+      .setValue('input[name=location]', client.globals.center.location)
+      .setValue('input[name=capacity]', client.globals.center.capacity)
+      .setValue('input[name=price]', client.globals.center.price)
+      .setValue('input[name=facilities]', client.globals.center.facilities)
+      .setValue('input[name=image]', client.globals.center.image)
+      .click('form button[type=submit]')
+      .waitForElementVisible('.centers', 5000)
+      .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title',client.globals.center.name)
   },
 
   "modify center": (client) => {
