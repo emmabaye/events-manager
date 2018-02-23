@@ -209,6 +209,7 @@ exports[`ModifyCenter Component ModifyCenter form  should render self it should 
                 aria-describedby="fileHelp"
                 className="form-control"
                 id="exampleInputFile"
+                name="image"
                 type="file"
               />
               <small
