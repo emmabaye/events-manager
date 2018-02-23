@@ -52,7 +52,7 @@ export default {
       .click('form button[type=submit]')
       .waitForElementVisible('body', 2000)
       .pause(5000)
-      .verify.urlEquals(`${client.launch_url}/myevents`)
+      .verify.urlEquals(`${c]`lient.launch_url}/myevents`)
   },
 
   'delete event': (client) => {
@@ -62,5 +62,10 @@ export default {
       .pause(5000)
       .waitForElementVisible(".event:last-child .modal button.btn-danger", 5000)
       .click(".event:last-child .modal button.btn-danger")
+  }
+
+  'after': (client) => {
+    client
+      .end()
   }
 };
