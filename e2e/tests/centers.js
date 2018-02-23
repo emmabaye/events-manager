@@ -43,7 +43,22 @@ export default {
   },
 
   "modify center": (client) => {
-
+    client
+      .click('.centers .row .col-md-4:nth-child(1) .btn-success')
+      .waitForElementVisible('form', 3000)
+      .pause(5000)
+      .clearValue('input[name=name]')
+      .setValue('input[name=name]', 'Town Hall')
+      .setValue('textarea[name=description]', client.globals.center.description)
+      .setValue('input[name=location]', client.globals.center.location)
+      .setValue('input[name=capacity]', client.globals.center.capacity)
+      .setValue('input[name=price]', client.globals.center.price)
+      .setValue('input[name=facilities]', client.globals.center.facilities)
+      .setValue('select[name=available]', client.globals.center.available)
+      .setValue('input[name=image]', client.globals.center.image)
+      .click('form button[type=submit]')
+      .waitForElementVisible('.centers', 5000)
+      .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title', 'Town Hall')
   },
 
   "delete center": (client) => {

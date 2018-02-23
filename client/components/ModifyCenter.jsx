@@ -152,7 +152,7 @@ export class ModifyCenter extends Component {
                 <div className="form-group row">
                   <label htmlFor="exampleInputFile" className="col-sm-3 col-form-label">Image</label>
                   <div className="col-sm-9">
-                    <input ref="image" type="file" className="form-control" id="exampleInputFile" aria-describedby="fileHelp" />
+                    <input ref="image" type="file" className="form-control" name="image" id="exampleInputFile" aria-describedby="fileHelp" />
                     <small id="fileHelp" className="form-text text-muted">( Optional )</small>
                   </div>
                 </div>

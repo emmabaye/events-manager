@@ -28,7 +28,7 @@ export default {
     capacity: '500',
     facilities: 'Toilet',
     price: '20000',
-    available: 'true',
+    available: 'Center is Available',
     image: '#noImage'
   }
 };
