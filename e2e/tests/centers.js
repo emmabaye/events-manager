@@ -62,7 +62,12 @@ export default {
   },
 
   "delete center": (client) => {
-
+    client
+      .waitForElementPresent(".centers .row .col-md-4:nth-child(1) a.btn-danger", 5000)
+      .click(".centers .row .col-md-4:nth-child(1) a.btn-danger")
+      .pause(5000)
+      .waitForElementVisible(".centers .row .col-md-4:nth-child(1) .modal button.btn-danger", 5000)
+      .click(".centers .row .col-md-4:nth-child(1) .modal button.btn-danger")
   },
 
   "after": (client) => {
