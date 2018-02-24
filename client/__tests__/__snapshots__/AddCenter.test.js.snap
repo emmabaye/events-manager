@@ -185,7 +185,7 @@ exports[`AddCenter Component AddCenter form  should render self it should render
                 <input
                   aria-describedby="fileHelp"
                   className="form-control"
-                  name="Image"
+                  name="image"
                   onChange={[Function]}
                   type="file"
                 />

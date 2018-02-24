@@ -63,5 +63,9 @@ typings/
 #build folder
 build/
 
+# End-to-end test binaries and reports
+e2e/bin
+e2e/reports
+
 
 

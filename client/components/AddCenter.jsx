@@ -102,7 +102,7 @@ export class AddCenter extends Component {
                   <div className="form-group row">
                     <label htmlFor="exampleInputFile"  className="col-sm-3 col-form-label">Image</label>
                     <div className="col-sm-9">
-                      <input ref="image" type="file" className="form-control" onChange={this.handleChange} name="Image" aria-describedby="fileHelp" />
+                      <input ref="image" type="file" className="form-control" onChange={this.handleChange} name="image" aria-describedby="fileHelp" />
                       <small id="fileHelp" className="form-text text-muted">( Optional )</small>
                     </div>
                   </div>

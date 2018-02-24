@@ -16,27 +16,27 @@ exports[`AdminPanelBody Component AdminPanelBody should render self it should re
         centerId
         <a
           className="list-group-item list-group-item-action centers-button"
-          href="#"
+          href="#centers"
           onClick={[Function]}
         >
           Centers
         </a>
         <a
           className="list-group-item list-group-item-action add-center-button"
-          href="#"
+          href="#add-center"
           onClick={[Function]}
         >
           Add Center
         </a>
         <a
           className="list-group-item list-group-item-action"
-          href="#"
+          href="#events"
         >
           Events
         </a>
         <a
           className="list-group-item list-group-item-action"
-          href="#"
+          href="#users"
         >
           Users
         </a>

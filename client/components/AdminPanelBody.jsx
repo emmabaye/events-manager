@@ -47,10 +47,10 @@ class AdminPanelBody extends Component {
         <div className='row'>
           <div className="col-sm-2 side">
             <div className="list-group sidebar">centerId
-              <a href="#" className="list-group-item list-group-item-action centers-button" onClick={ () => this.show('centers') }>Centers</a>
-              <a  href="#" className="list-group-item list-group-item-action add-center-button" onClick={ () => this.show('addCenter') }>Add Center</a>
-              <a href="#" className="list-group-item list-group-item-action" >Events</a>
-              <a href="#" className="list-group-item list-group-item-action">Users</a>
+              <a href="#centers" className="list-group-item list-group-item-action centers-button" onClick={ () => this.show('centers') }>Centers</a>
+              <a  href="#add-center" className="list-group-item list-group-item-action add-center-button" onClick={ () => this.show('addCenter') }>Add Center</a>
+              <a href="#events" className="list-group-item list-group-item-action" >Events</a>
+              <a href="#users" className="list-group-item list-group-item-action">Users</a>
             </div>
           </div>
           <div className="col-sm-10 panel-column">

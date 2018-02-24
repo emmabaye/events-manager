@@ -5,13 +5,13 @@ import Body from './Body.jsx';
 
 
 export default class LandingPage extends Component {
-    render () {
-        return (
-            <div>
-                <NavBar page="landingpage"/>
-                <Body />
-                <Footer />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <NavBar page="landingpage"/>
+        <Body />
+        <Footer />
+      </div>
+    );
+  }
 }
