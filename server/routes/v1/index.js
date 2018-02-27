@@ -66,9 +66,9 @@ const routes = (app) => {
     .post(isAuthenticated, eventValidation, EventController.createEvent);
 
   /**
-   * GET method, get user details
-   * PUT method, update user details
-   * DELETE method, delete user details
+   * GET method, get event details
+   * PUT method, update event details
+   * DELETE method, delete event details
    * 
    * @param {string} string
    */
