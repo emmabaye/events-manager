@@ -460,6 +460,144 @@ paths:
             application/json:
               status: 'Server Error'
               message: 'Cannot delete event'
+  # Centers api
+  /api/v1/centers:
+    get:
+      tags:
+      - developers
+      - centers
+      summary: Get details of all centers
+      operationId: get-all-centers
+      description: Gets the details of all centers
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Success, Centers found
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Centers  found'
+              data:
+                - id: '1'
+                  name: 'City Hall'
+                  description: 'Best center for your indoor events'
+                  location: 'Lagos'
+                  capacity: '1000'
+                  facilities: 'Car park, Bathroom/Toilet'
+                  price: '200000'
+                  userId: '1'
+                  image: '#noImage'
+                - id: '2'
+                  name: 'Event Manager Park'
+                  description: 'Best center for your outdoor events'
+                  location: 'Lagos'
+                  capacity: '1000'
+                  facilities: 'Car park, Bathroom/Toilet'
+                  price: '200000'
+                  userId: '1'
+                  image: '#noImage' 
+        500:
+          description: 'Event not found'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+    post:
+      tags:
+      - admins
+      - centers
+      summary: Create an event center
+      operationId: createCenter
+      description: Creates a new center for an admin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Center
+        description: center details to be created
+        required: true
+        schema:
+          $ref: '#/definitions/Center'
+        examples:
+          application/json:
+            name: 'City Hall'
+            description: 'Best center for your indoor events'
+            location: 'Lagos'
+            capacity: '1000'
+            facilities: 'Car park, Bathroom/Toilet'
+            price: '200000'
+            userId: '1'
+            image: '#noImage'
+      responses:
+        200:
+          description: Successfully created an center
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                $ref: '#/definitions/center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center has been  created'
+              data:
+                id: '1'
+                name: 'City Hall'
+                description: 'Best center for your indoor events'
+                location: 'Lagos'
+                capacity: '1000'
+                facilities: 'Car park, Bathroom/Toilet'
+                price: '200000'
+                userId: '1'
+                image: '#noImage'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'There was an error in adding center pls try again'
 
 definitions:
   User:
@@ -554,3 +692,54 @@ definitions:
         type: string
       image:
         type: string
+  Center:
+    type: object
+    required:
+    - name
+    - description
+    - location
+    - capacity
+    - facilities
+    - price
+    - userId
+    - image
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      capacity:
+        type: string
+      facilities:
+        type: string
+      price:
+        type: string
+      userId:
+        type: string
+      image:
+        type: string
+  # center for responses
+  center:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      capacity:
+        type: string
+      facilities:
+        type: string
+      price:
+        type: string
+      userId:
+        type: string
+      image:
+        type: string
+
