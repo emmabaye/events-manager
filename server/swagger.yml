@@ -509,7 +509,7 @@ paths:
                   userId: '1'
                   image: '#noImage' 
         500:
-          description: 'Event not found'
+          description: 'Center not found'
           schema:
             type: object
             properties:
@@ -598,6 +598,240 @@ paths:
             application/json:
               status: 'Error'
               message: 'There was an error in adding center pls try again'
+
+  /api/v1/centers/{centerId}:
+    get:
+      tags:
+      - admins
+      - centers
+      summary: Get details of a center
+      operationId: get-a-center
+      description: Gets the details of a center using its id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Success, Center found
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                $ref: '#/definitions/center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center found'
+              data:
+                id: '1'
+                name: 'City Hall'
+                description: 'Best center for your indoor events'
+                location: 'Lagos'
+                capacity: '1000'
+                facilities: 'Car park, Bathroom/Toilet'
+                price: '200000'
+                userId: '1'
+                image: '#noImage'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        404:
+          description: 'Center not found'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Center not found'
+        500:
+          description: 'Server error'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+    put:
+      tags:
+      - admins
+      - centers
+      summary: Update an event center
+      operationId: update-center
+      description: Updates an existing center for an admin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: centerId
+        description: id of the center admin wants to update
+        required: true
+      - in: body
+        name: Center
+        description: center details to be updated
+        required: true
+        schema:
+          $ref: '#/definitions/Center'
+        examples:
+          application/json:
+            name: 'City Hall'
+            description: 'Best center for your indoor events'
+            location: 'Lagos'
+            capacity: '1000'
+            facilities: 'Car park, Bathroom/Toilet'
+            price: '200000'
+            userId: '1'
+            image: '#noImage'
+      responses:
+        200:
+          description: Successfully updated a center
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                $ref: '#/definitions/center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center has been  created'
+              data:
+                id: '1'
+                name: 'City Hall'
+                description: 'Best center for your indoor events'
+                location: 'Lagos'
+                capacity: '1000'
+                facilities: 'Car park, Bathroom/Toilet'
+                price: '200000'
+                userId: '1'
+                image: '#noImage'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        403:
+          description: Forbidden from updating center
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "You do not have privilege to modify this Center"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Cannot update center due to server error'
+    delete:
+      tags:
+      - admins
+      - centers
+      summary: Delete an event center
+      operationId: delete-center
+      description: Deletes an existing center for an admin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: centerId
+        description: id of the center admin wants to delete
+        required: true
+      - in: header
+        name: x-access-token
+        description: authorization header
+        required: true
+      responses:
+        200:
+          description: Successfully deleted a center
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                type: string
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center has been  deleted'
+              data: '[1]'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        403:
+          description: Forbidden from deleting center
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "You do not have privilege to delete this Center"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'There was an error in deleting the center. Please try again later.' 
 
 definitions:
   User:
