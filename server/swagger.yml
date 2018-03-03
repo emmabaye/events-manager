@@ -229,9 +229,13 @@ paths:
         description: 
         schema:
           $ref: '#/definitions/updateUserDetails'
-        required: false
+        required: true
       - name: userId
         in: path
+        required: true
+      - in: header
+        name: x-access-token
+        description: authorization header
         required: true
       responses:
         200:
@@ -273,6 +277,10 @@ paths:
       produces:
       - application/json
       parameters:
+      - in: header
+        name: x-access-token
+        description: authorization header
+        required: true
       - in: body
         name: Event
         description: event details to be created
@@ -386,8 +394,9 @@ paths:
         schema:
           $ref: '#/definitions/Event'
         required: false
-      - name: eventId
-        in: path
+      - in: header
+        name: x-access-token
+        description: authorization header
         required: true
       responses:
         200:
@@ -433,6 +442,10 @@ paths:
         schema:
           type: integer
           minimum: 1
+        required: true
+      - in: header
+        name: x-access-token
+        description: authorization header
         required: true
       responses:
         200:
@@ -539,6 +552,10 @@ paths:
         required: true
         schema:
           $ref: '#/definitions/Center'
+      - in: header
+        name: x-access-token
+        description: authorization header
+        required: true
         examples:
           application/json:
             name: 'City Hall'
@@ -683,6 +700,10 @@ paths:
       produces:
       - application/json
       parameters:
+      - in: header
+        name: x-access-token
+        description: authorization header
+        required: true
       - in: path
         name: centerId
         description: id of the center admin wants to update
