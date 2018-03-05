@@ -273,30 +273,49 @@ paths:
       operationId: createEvent
       description: Creates a new event for an authenticated user
       consumes:
-      - application/json
+      - multipart/form-data
       produces:
       - application/json
       parameters:
       - in: header
         name: x-access-token
-        description: authorization header
+        description: Authorization header
         required: true
-      - in: body
-        name: Event
-        description: event details to be created
+      - in: formData
+        name: title
+        type: string
+        description: Title of event
         required: true
-        schema:
-          $ref: '#/definitions/Event'
-        examples:
-          application/json:
-            title: 'Empowerment program'
-            description: 'Empowerment progeam description'
-            venue: 'Lagos'
-            date: '12-12-2044'
-            time: '17:00'
-            userId: '1'
-            centerId: '1'
-            image: '#noImage'
+      - in: formData
+        name: description
+        type: string
+        description: Description of event
+        required: true
+      - in: formData
+        name: venue
+        type: string
+        description: Venue of event
+        required: true
+      - in: formData
+        name: date
+        type: string
+        description: Date of event
+        required: true
+      - in: formData
+        name: time
+        type: string
+        description: Time of event
+        required: true
+      - in: formData
+        name: centerId
+        type: string
+        description: Id of center for event
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image describing event
+        required: false
       responses:
         200:
           description: Successfully created an event
@@ -378,7 +397,7 @@ paths:
       operationId: updateEvent
       description: Update event details
       consumes:
-      - application/json
+      - multipart/form-data
       produces:
       - application/json
       parameters:
@@ -389,15 +408,45 @@ paths:
           type: integer
           minimum: 1
         required: true
-      - in: body
-        description: Details of event
-        schema:
-          $ref: '#/definitions/Event'
-        required: false
       - in: header
         name: x-access-token
         description: authorization header
         required: true
+      - in: formData
+        name: title
+        type: string
+        description: Title of event
+        required: true
+      - in: formData
+        name: description
+        type: string
+        description: Description of event
+        required: true
+      - in: formData
+        name: venue
+        type: string
+        description: Venue of event
+        required: true
+      - in: formData
+        name: date
+        type: string
+        description: Date of event
+        required: true
+      - in: formData
+        name: time
+        type: string
+        description: Time of event
+        required: true
+      - in: formData
+        name: centerId
+        type: string
+        description: Id of center for event
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image describing event
+        required: false
       responses:
         200:
           description: Success
@@ -946,7 +995,7 @@ definitions:
       centerId:
         type: string
       image:
-        type: string
+        type: file
   Center:
     type: object
     required:

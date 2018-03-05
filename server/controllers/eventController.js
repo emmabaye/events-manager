@@ -54,21 +54,21 @@ class EventController {
             centerId: req.body.centerId,
             image: (result) ? result.url : '#noImage'
           }).then((event) => {
-            res.status(200).send({
+            return res.status(200).send({
               status: 'Success',
               message: ' Event created',
               data: event
             });
           }).catch((e) => res.status(500).send({
             status: 'Error',
-            message: 'Error'
+            message: 'Server Error'
           }));
         })
           .end((req.files.image) ? req.files.image.data : undefined);
         // Cloudinary covers above this
       }).catch((e) => res.status(500).send({
         status: 'Error',
-        message: 'Error'
+        message: 'There seems to be an error.'
       }));
   }
 
@@ -86,7 +86,7 @@ class EventController {
         }
 
         if (req.userId !== event.userId) {
-          return res.status(400).send({ status: 'Error', message: 'You do not have privilege to modify this Event' });
+          return res.status(403).send({ status: 'Error', message: 'You do not have privilege to modify this Event' });
         }
 
         // cloudinary below this line
