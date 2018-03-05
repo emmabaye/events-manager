@@ -160,7 +160,7 @@ paths:
       tags:
       - developers
       - users
-      summary: login a user
+      summary: log out a user
       operationId: signOut
       description: Logs out a user to the platform
       consumes:
@@ -591,30 +591,49 @@ paths:
       operationId: createCenter
       description: Creates a new center for an admin
       consumes:
-      - application/json
+      - multipart/form-data
       produces:
       - application/json
       parameters:
-      - in: body
-        name: Center
-        description: center details to be created
-        required: true
-        schema:
-          $ref: '#/definitions/Center'
       - in: header
         name: x-access-token
         description: authorization header
         required: true
-        examples:
-          application/json:
-            name: 'City Hall'
-            description: 'Best center for your indoor events'
-            location: 'Lagos'
-            capacity: '1000'
-            facilities: 'Car park, Bathroom/Toilet'
-            price: '200000'
-            userId: '1'
-            image: '#noImage'
+      - in: formData
+        name: name
+        type: string
+        description: Name of center
+        required: true
+      - in: formData
+        name: description
+        type: string
+        description: Description of center
+        required: true
+      - in: formData
+        name: location
+        type: string
+        description: Location of center
+        required: true
+      - in: formData
+        name: capacity
+        type: string
+        description: Number of persons for a center
+        required: true
+      - in: formData
+        name: facilities
+        type: string
+        description: Facilities of event center
+        required: true
+      - in: formData
+        name: price
+        type: string
+        description: Price of center
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image showing event center
+        required: false
       responses:
         200:
           description: Successfully created an center
@@ -755,24 +774,49 @@ paths:
         required: true
       - in: path
         name: centerId
-        description: id of the center admin wants to update
+        type: string
+        description: Id of center
         required: true
-      - in: body
-        name: Center
-        description: center details to be updated
+      - in: formData
+        name: name
+        type: string
+        description: Name of center
         required: true
-        schema:
-          $ref: '#/definitions/Center'
-        examples:
-          application/json:
-            name: 'City Hall'
-            description: 'Best center for your indoor events'
-            location: 'Lagos'
-            capacity: '1000'
-            facilities: 'Car park, Bathroom/Toilet'
-            price: '200000'
-            userId: '1'
-            image: '#noImage'
+      - in: formData
+        name: description
+        type: string
+        description: Description of center
+        required: true
+      - in: formData
+        name: location
+        type: string
+        description: Location of center
+        required: true
+      - in: formData
+        name: capacity
+        type: string
+        description: Number of persons for a center
+        required: true
+      - in: formData
+        name: facilities
+        type: string
+        description: Facilities of event center
+        required: true
+      - in: formData
+        name: price
+        type: string
+        description: Price of center
+        required: true
+      - in: formData
+        name: available
+        type: string
+        description: Availablity of center
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image showing event center
+        required: false
       responses:
         200:
           description: Successfully updated a center
