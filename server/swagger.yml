@@ -3,7 +3,7 @@ info:
   description: API for Events Mananger Application
   version: 1.0.0
   title: Events Manager
-  # put the contact info for your development or API team
+  # Contact info for your development or API team
   contact:
     email: emmanuel.nonye.abaye@gmail.com
 
@@ -14,7 +14,7 @@ tags:
 - name: developers
   description: Operations available to regular developers
 - name: users
-  description: Operation for user details
+  description: Operations for user details
 - name: events
   description: Event operations
 - name: centers
@@ -190,6 +190,8 @@ paths:
       parameters:
       - name: userId
         in: path
+        type: integer
+        minimum: 1
         required: true
       responses:
         200:
@@ -226,15 +228,18 @@ paths:
       parameters:
       - in: body
         name: updateUserDetails
-        description: 
+        description: user details
         schema:
-          $ref: '#/definitions/updateUserDetails'
+          $ref: '#/definitions/UpdateUserDetails'
         required: true
       - name: userId
         in: path
+        type: integer
+        minimum: 1
         required: true
       - in: header
         name: x-access-token
+        type: string
         description: authorization header
         required: true
       responses:
@@ -279,6 +284,7 @@ paths:
       parameters:
       - in: header
         name: x-access-token
+        type: string
         description: Authorization header
         required: true
       - in: formData
@@ -326,6 +332,7 @@ paths:
               status: 'Success'
               message: 'Event created'
               data:
+                id: '1'
                 title: 'Empowerment program'
                 description: 'Empowerment progeam description'
                 venue: 'Lagos'
@@ -366,6 +373,8 @@ paths:
       parameters:
       - name: eventId
         in: path
+        type: integer
+        minimum: 1
         required: true
       responses:
         200:
@@ -375,6 +384,7 @@ paths:
               status: 'Success'
               message: 'Event  found'
               data:
+                id: '1'
                 title: 'Empowerment program'
                 description: 'Empowerment progeam description'
                 venue: 'Lagos'
@@ -404,12 +414,12 @@ paths:
       - in: path
         name: eventId
         description: Id of event
-        schema:
-          type: integer
-          minimum: 1
+        type: integer
+        minimum: 1
         required: true
       - in: header
         name: x-access-token
+        type: string
         description: authorization header
         required: true
       - in: formData
@@ -487,13 +497,13 @@ paths:
       parameters:
       - in: path
         name: eventId
-        description: 
-        schema:
-          type: integer
-          minimum: 1
+        description: Id of event
+        type: integer
+        minimum: 1
         required: true
       - in: header
         name: x-access-token
+        type: string
         description: authorization header
         required: true
       responses:
@@ -546,7 +556,7 @@ paths:
               data:
                 type: array
                 items:
-                  $ref: '#/definitions/center'
+                  $ref: '#/definitions/Center'
           examples:
             application/json:
               status: 'Success'
@@ -597,6 +607,7 @@ paths:
       parameters:
       - in: header
         name: x-access-token
+        type: string
         description: authorization header
         required: true
       - in: formData
@@ -645,7 +656,7 @@ paths:
               message:
                 type: string
               data:
-                $ref: '#/definitions/center'
+                $ref: '#/definitions/Center'
           examples:
             application/json:
               status: 'Success'
@@ -694,6 +705,13 @@ paths:
       description: Gets the details of a center using its id
       produces:
       - application/json
+      parameters:
+      - in: path
+        name: centerId
+        type: integer
+        minimum: 1
+        description:  Id of event center
+        required: true
       responses:
         200:
           description: Success, Center found
@@ -705,7 +723,7 @@ paths:
               message:
                 type: string
               data:
-                $ref: '#/definitions/center'
+                $ref: '#/definitions/Center'
           examples:
             application/json:
               status: 'Success'
@@ -764,17 +782,19 @@ paths:
       operationId: update-center
       description: Updates an existing center for an admin
       consumes:
-      - application/json
+      - multipart/form-data
       produces:
       - application/json
       parameters:
       - in: header
         name: x-access-token
+        type: string
         description: authorization header
         required: true
       - in: path
         name: centerId
-        type: string
+        type: integer
+        minimum: 1
         description: Id of center
         required: true
       - in: formData
@@ -828,21 +848,12 @@ paths:
               message:
                 type: string
               data:
-                $ref: '#/definitions/center'
+                $ref: '#/definitions/Center'
           examples:
             application/json:
               status: 'Success'
-              message: 'Center has been  created'
-              data:
-                id: '1'
-                name: 'City Hall'
-                description: 'Best center for your indoor events'
-                location: 'Lagos'
-                capacity: '1000'
-                facilities: 'Car park, Bathroom/Toilet'
-                price: '200000'
-                userId: '1'
-                image: '#noImage'
+              message: 'Center Updated'
+              data: [1]
         400:
           description: Invalid input
           schema:
@@ -890,10 +901,13 @@ paths:
       parameters:
       - in: path
         name: centerId
+        type: integer
+        minimum: 1
         description: id of the center admin wants to delete
         required: true
       - in: header
         name: x-access-token
+        type: string
         description: authorization header
         required: true
       responses:
@@ -1000,7 +1014,7 @@ definitions:
         type: string
       password:
         type: string
-  updateUserDetails:
+  UpdateUserDetails:
     type: object
     required:
     - firstName
@@ -1020,10 +1034,11 @@ definitions:
     - venue
     - date
     - time
-    - userId
     - centerId
     - image
     properties:
+      id:
+        type: string
       title:
         type: string
       description:
@@ -1034,42 +1049,12 @@ definitions:
         type: string
       time:
         type: string
-      userId:
-        type: string
       centerId:
-        type: string
-      image:
-        type: file
-  Center:
-    type: object
-    required:
-    - name
-    - description
-    - location
-    - capacity
-    - facilities
-    - price
-    - userId
-    - image
-    properties:
-      name:
-        type: string
-      description:
-        type: string
-      location:
-        type: string
-      capacity:
-        type: string
-      facilities:
-        type: string
-      price:
-        type: string
-      userId:
         type: string
       image:
         type: string
   # center for responses
-  center:
+  Center:
     type: object
     properties:
       id:
@@ -1090,4 +1075,3 @@ definitions:
         type: string
       image:
         type: string
-
