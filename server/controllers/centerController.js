@@ -51,7 +51,7 @@ class CenterController {
       .then((center) => {
         if (!center) {
           res.status(404).send({
-            status: ' Server Error',
+            status: 'Error',
             message: 'Center not found',
           });
         }
@@ -109,11 +109,11 @@ class CenterController {
     Center.findById(req.params.centerId)
       .then((center) => {
         if (!center) {
-          return res.status(404).send({ error: 'Center not found' });
+          return res.status(404).send({ status: 'Error', message: 'Center not found' });
         }
 
         if (req.userId != center.userId) {
-          return res.status(400).send({ error: 'You do not have privilege to modify this Center' });
+          return res.status(403).send({ status:'Error', messsage: 'You do not have privilege to modify this Center' });
         }
 
         cloudinary.v2.uploader.upload_stream({
@@ -140,8 +140,8 @@ class CenterController {
           }).then((updatedCenter) => {
             if (!updatedCenter) {
               return res.status(500).send({
-                status: ' Server Error',
-                message: 'Centers not update center',
+                status: 'Error',
+                message: 'Cannot update center due to server error',
               });
             }
 
@@ -168,7 +168,7 @@ class CenterController {
         }
 
         if (req.userRole !== 'admin') {
-          return res.status(400).send({ status: 'Error', message: 'You do not have privilege to delete this center' });
+          return res.status(403).send({ status: 'Error', message: 'You do not have privilege to delete this center' });
         }
 
         Center.destroy({
@@ -178,7 +178,7 @@ class CenterController {
         }).then((deleteStatus) => {
           if (!deleteStatus) {
             res.status(500).send({
-              status: ' Server Error',
+              status: 'Error',
               message: 'Cannot delete center'
             });
           }

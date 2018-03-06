@@ -1,0 +1,1077 @@
+swagger: '2.0'
+info:
+  description: API for Events Mananger Application
+  version: 1.0.0
+  title: Events Manager
+  # Contact info for your development or API team
+  contact:
+    email: emmanuel.nonye.abaye@gmail.com
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+- name: users
+  description: Operations for user details
+- name: events
+  description: Event operations
+- name: centers
+  description: Center operations
+
+paths:
+  /api/v1:
+    get:
+      tags:
+      - developers
+      summary: Index route of API
+      operationId: Index
+      description: Index endpoint for Events Manager API version 1
+      produces:
+      - application/json
+      responses:
+        200:
+          description: welcome message
+          schema:
+            type: object
+  
+  /api/v1/users:
+    post:
+      tags:
+      - developers
+      - users
+      summary: Signup, creates a new user
+      operationId: signUp
+      description: Adds a new user to the application
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: User
+        description: user details to add
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        200:
+          description: Successfully created a new user
+          schema:
+            $ref: '#/definitions/User'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'User has been logged in'
+              data:
+                token: ggt67IUjHf45679iKhFre3sVkLhR57iJhY654e
+                user:
+                  id: 4
+                  firstName: John
+                  lastName: Mark
+                  email: johnmark@email.com
+                  role: member
+        400:
+          description: invalid input
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Email is required'
+        409:
+          description: Email has already been used
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Email is has already been used'
+        500:
+          description: Server Error
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+
+  /api/v1/users/login:
+    post:
+      tags:
+      - developers
+      - users
+      summary: login a user
+      operationId: signIn
+      description: Logs in a user to the platform
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: signInDetails
+        description: User details for sign in
+        required: true
+        schema:
+          $ref: '#/definitions/SignInDetails'
+      responses:
+        200:
+          description: Success, user has been logged in
+          schema:
+            $ref: '#/definitions/SignUpSuccess'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'User has been logged in'
+              data:
+                token: ggt67IUjHf45679iKhFre3sVkLhR57iJhY654e
+                user:
+                  user:
+                    id: 4
+                    firstName: John
+                    lastName: Mark
+                    email: johnmark@email.com
+                    role: member
+
+        400:
+          description: Invalid input
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Email is required'
+
+        401:
+          description: Invalid password
+          examples:
+            application/json: 
+              status: 'Error'
+              message: 'Invalid password'
+        404:
+          description: Email not registered
+          examples:
+            application/json: 
+              status: 'Error'
+              message: 'Email has not been registered'
+        500:
+          description: Server error 
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+
+  /api/v1/users/logout:
+    get:
+      tags:
+      - developers
+      - users
+      summary: log out a user
+      operationId: signOut
+      description: Logs out a user to the platform
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Success, user has been logged out
+          examples:
+            application/json:
+              status: Success
+              message: User has been logged out
+              data:
+                token: null
+
+  /api/v1/users/{userId}:
+    get:
+      tags:
+      - developers
+      - users
+      summary: Get details of a user
+      operationId: getUser
+      description: Gets the details of user with id userId
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        type: integer
+        minimum: 1
+        required: true
+      responses:
+        200:
+          description: Success, user found
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'User found'
+              data:
+                user:
+                  id: 4
+                  firstName: John
+                  lastName: Mark
+                  email: johnmark@email.com
+                  role: member
+                  Events: []
+        404:
+          description: 'User not found'
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'User not found'
+    put:
+      tags: 
+      - admins
+      - users
+      summary: Update user details
+      operationId: updateUser
+      description: Update user details
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: updateUserDetails
+        description: user details
+        schema:
+          $ref: '#/definitions/UpdateUserDetails'
+        required: true
+      - name: userId
+        in: path
+        type: integer
+        minimum: 1
+        required: true
+      - in: header
+        name: x-access-token
+        type: string
+        description: authorization header
+        required: true
+      responses:
+        200:
+          description: Success
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'User updated'
+              data: [1]
+        403:
+          description: User does not have the priviledge to modify user
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'You do not have the privilege to modify this user'
+        404:
+          description: Error, user not found
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'User not found'
+        500:
+          description: Server error 
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+
+  /api/v1/events:
+    post:
+      tags:
+      - developers
+      - events
+      summary:  Create an event
+      operationId: createEvent
+      description: Creates a new event for an authenticated user
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: x-access-token
+        type: string
+        description: Authorization header
+        required: true
+      - in: formData
+        name: title
+        type: string
+        description: Title of event
+        required: true
+      - in: formData
+        name: description
+        type: string
+        description: Description of event
+        required: true
+      - in: formData
+        name: venue
+        type: string
+        description: Venue of event
+        required: true
+      - in: formData
+        name: date
+        type: string
+        description: Date of event
+        required: true
+      - in: formData
+        name: time
+        type: string
+        description: Time of event
+        required: true
+      - in: formData
+        name: centerId
+        type: string
+        description: Id of center for event
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image describing event
+        required: false
+      responses:
+        200:
+          description: Successfully created an event
+          schema:
+            $ref: '#/definitions/Event'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Event created'
+              data:
+                id: '1'
+                title: 'Empowerment program'
+                description: 'Empowerment progeam description'
+                venue: 'Lagos'
+                date: '12-12-2044'
+                time: '17:00'
+                userId: '1'
+                centerId: '1'
+                image: '#noImage'
+        400:
+          description: invalid input
+          examples:
+            application/json:
+              status: 'Error'
+              message: '<Correct detail> is required'
+        409:
+          description: Attempting to create event on a booked date for a center
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Center has already been booked for this date'
+        500:
+          description: Server Error
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+
+  /api/v1/events/{eventId}:
+    get:
+      tags:
+      - developers
+      - events
+      summary: Get event details
+      operationId: getEvent
+      description: Gets the details of an event with it's id
+      produces:
+      - application/json
+      parameters:
+      - name: eventId
+        in: path
+        type: integer
+        minimum: 1
+        required: true
+      responses:
+        200:
+          description: Success, Event found
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Event  found'
+              data:
+                id: '1'
+                title: 'Empowerment program'
+                description: 'Empowerment progeam description'
+                venue: 'Lagos'
+                date: '12-12-2044'
+                time: '17:00'
+                userId: '1'
+                centerId: '1'
+                image: '#noImage'
+        404:
+          description: 'Event not found'
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Event not found'
+    put:
+      tags: 
+      - developers
+      - events
+      summary: Update eventdetails
+      operationId: updateEvent
+      description: Update event details
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: eventId
+        description: Id of event
+        type: integer
+        minimum: 1
+        required: true
+      - in: header
+        name: x-access-token
+        type: string
+        description: authorization header
+        required: true
+      - in: formData
+        name: title
+        type: string
+        description: Title of event
+        required: true
+      - in: formData
+        name: description
+        type: string
+        description: Description of event
+        required: true
+      - in: formData
+        name: venue
+        type: string
+        description: Venue of event
+        required: true
+      - in: formData
+        name: date
+        type: string
+        description: Date of event
+        required: true
+      - in: formData
+        name: time
+        type: string
+        description: Time of event
+        required: true
+      - in: formData
+        name: centerId
+        type: string
+        description: Id of center for event
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image describing event
+        required: false
+      responses:
+        200:
+          description: Success
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Event Updated'
+              data: [1]
+        403:
+          description: User does not have the priviledge to modify event
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'You do not have the privilege to modify this event'
+        404:
+          description: Error, user not found
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Event not found'
+        500:
+          description: Server error 
+          examples:
+            application/json:
+              status: 'Server Error'
+              message: 'Cannot update event'
+    delete:
+      tags: 
+      - developers
+      - events
+      summary: Delete an event
+      operationId: deleteEvent
+      description: Delete an event using the event id
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: eventId
+        description: Id of event
+        type: integer
+        minimum: 1
+        required: true
+      - in: header
+        name: x-access-token
+        type: string
+        description: authorization header
+        required: true
+      responses:
+        200:
+          description: Success
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Event deleted'
+              data: [1]
+        403:
+          description: Forbidden
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'You do not have the privilege to delete this event'
+        404:
+          description: Error, Event not found
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Event not found'
+        500:
+          description: Server error 
+          examples:
+            application/json:
+              status: 'Server Error'
+              message: 'Cannot delete event'
+  # Centers api
+  /api/v1/centers:
+    get:
+      tags:
+      - developers
+      - centers
+      summary: Get details of all centers
+      operationId: get-all-centers
+      description: Gets the details of all centers
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Success, Centers found
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Centers  found'
+              data:
+                - id: '1'
+                  name: 'City Hall'
+                  description: 'Best center for your indoor events'
+                  location: 'Lagos'
+                  capacity: '1000'
+                  facilities: 'Car park, Bathroom/Toilet'
+                  price: '200000'
+                  userId: '1'
+                  image: '#noImage'
+                - id: '2'
+                  name: 'Event Manager Park'
+                  description: 'Best center for your outdoor events'
+                  location: 'Lagos'
+                  capacity: '1000'
+                  facilities: 'Car park, Bathroom/Toilet'
+                  price: '200000'
+                  userId: '1'
+                  image: '#noImage' 
+        500:
+          description: 'Center not found'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+    post:
+      tags:
+      - admins
+      - centers
+      summary: Create an event center
+      operationId: createCenter
+      description: Creates a new center for an admin
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: x-access-token
+        type: string
+        description: authorization header
+        required: true
+      - in: formData
+        name: name
+        type: string
+        description: Name of center
+        required: true
+      - in: formData
+        name: description
+        type: string
+        description: Description of center
+        required: true
+      - in: formData
+        name: location
+        type: string
+        description: Location of center
+        required: true
+      - in: formData
+        name: capacity
+        type: string
+        description: Number of persons for a center
+        required: true
+      - in: formData
+        name: facilities
+        type: string
+        description: Facilities of event center
+        required: true
+      - in: formData
+        name: price
+        type: string
+        description: Price of center
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image showing event center
+        required: false
+      responses:
+        200:
+          description: Successfully created an center
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                $ref: '#/definitions/Center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center has been  created'
+              data:
+                id: '1'
+                name: 'City Hall'
+                description: 'Best center for your indoor events'
+                location: 'Lagos'
+                capacity: '1000'
+                facilities: 'Car park, Bathroom/Toilet'
+                price: '200000'
+                userId: '1'
+                image: '#noImage'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'There was an error in adding center pls try again'
+
+  /api/v1/centers/{centerId}:
+    get:
+      tags:
+      - admins
+      - centers
+      summary: Get details of a center
+      operationId: get-a-center
+      description: Gets the details of a center using its id
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: centerId
+        type: integer
+        minimum: 1
+        description:  Id of event center
+        required: true
+      responses:
+        200:
+          description: Success, Center found
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                $ref: '#/definitions/Center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center found'
+              data:
+                id: '1'
+                name: 'City Hall'
+                description: 'Best center for your indoor events'
+                location: 'Lagos'
+                capacity: '1000'
+                facilities: 'Car park, Bathroom/Toilet'
+                price: '200000'
+                userId: '1'
+                image: '#noImage'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        404:
+          description: 'Center not found'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Center not found'
+        500:
+          description: 'Server error'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Server Error'
+    put:
+      tags:
+      - admins
+      - centers
+      summary: Update an event center
+      operationId: update-center
+      description: Updates an existing center for an admin
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: x-access-token
+        type: string
+        description: authorization header
+        required: true
+      - in: path
+        name: centerId
+        type: integer
+        minimum: 1
+        description: Id of center
+        required: true
+      - in: formData
+        name: name
+        type: string
+        description: Name of center
+        required: true
+      - in: formData
+        name: description
+        type: string
+        description: Description of center
+        required: true
+      - in: formData
+        name: location
+        type: string
+        description: Location of center
+        required: true
+      - in: formData
+        name: capacity
+        type: string
+        description: Number of persons for a center
+        required: true
+      - in: formData
+        name: facilities
+        type: string
+        description: Facilities of event center
+        required: true
+      - in: formData
+        name: price
+        type: string
+        description: Price of center
+        required: true
+      - in: formData
+        name: available
+        type: string
+        description: Availablity of center
+        required: true
+      - in: formData
+        name: image
+        type: file
+        description: Image showing event center
+        required: false
+      responses:
+        200:
+          description: Successfully updated a center
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                $ref: '#/definitions/Center'
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center Updated'
+              data: [1]
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        403:
+          description: Forbidden from updating center
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "You do not have privilege to modify this Center"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'Cannot update center due to server error'
+    delete:
+      tags:
+      - admins
+      - centers
+      summary: Delete an event center
+      operationId: delete-center
+      description: Deletes an existing center for an admin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: centerId
+        type: integer
+        minimum: 1
+        description: id of the center admin wants to delete
+        required: true
+      - in: header
+        name: x-access-token
+        type: string
+        description: authorization header
+        required: true
+      responses:
+        200:
+          description: Successfully deleted a center
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              data:
+                type: string
+          examples:
+            application/json:
+              status: 'Success'
+              message: 'Center has been  deleted'
+              data: '[1]'
+        400:
+          description: Invalid input
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "Detail is required"
+        403:
+          description: Forbidden from deleting center
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            application/json:
+              message: "You do not have privilege to delete this Center"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            application/json:
+              status: 'Error'
+              message: 'There was an error in deleting the center. Please try again later.' 
+
+definitions:
+  User:
+    type: object
+    required:
+    - firstName
+    - lastName
+    - email
+    - password
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+        uniqueItems: true
+      password:
+        type: string
+  SignUpSuccess:
+    type: object
+    properties:
+      status:
+        type: string
+      message:
+        type: string
+      data:
+        type: object
+        properties:
+          token:
+            type: string
+          user:
+            type: object
+            properties:
+              id:
+                type: integer
+              firstName:
+                type: string
+              lastName: 
+                type: string
+              email:
+                type: string
+              role:
+                type: string
+  SignInDetails:
+    type: object
+    required:
+    - email
+    - password
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+  UpdateUserDetails:
+    type: object
+    required:
+    - firstName
+    - lastname
+    properties:
+      firstName:
+        type: string
+      lastname:
+        type: string
+      role:
+        type: string
+  Event:
+    type: object
+    required:
+    - title
+    - description
+    - venue
+    - date
+    - time
+    - centerId
+    - image
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      venue:
+        type: string
+      date:
+        type: string
+      time:
+        type: string
+      centerId:
+        type: string
+      image:
+        type: string
+  # center for responses
+  Center:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      capacity:
+        type: string
+      facilities:
+        type: string
+      price:
+        type: string
+      userId:
+        type: string
+      image:
+        type: string
