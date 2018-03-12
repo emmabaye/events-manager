@@ -165,6 +165,7 @@ class CenterController {
    *
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
+   * @returns {object} res.
    */
   static deleteCenter(req, res) {
     Center.findById(req.params.centerId)
@@ -195,17 +196,15 @@ class CenterController {
 
           });
 
-          res.status(200).send({
+          return res.status(200).send({
             status: 'Success',
             message: 'Center has been deleted',
             data: deleteStatus
           });
-        }).catch((e) => {
-          res.status(500).send({
-            status: 'Error',
-            message: 'There was an error in deleting the center. Please try again later.'
-          });
-        });
+        }).catch((e) => res.status(500).send({
+          status: 'Error',
+          message: 'There was an error in deleting the center. Please try again later.'
+        }));
       });
   }
 }
