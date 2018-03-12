@@ -3,6 +3,7 @@ import Model from '../models';
 
 const { Center } = Model;
 
+/** Class Center Controller functions. */
 class CenterController {
   /**
    * Create a new center
@@ -112,8 +113,8 @@ class CenterController {
           return res.status(404).send({ status: 'Error', message: 'Center not found' });
         }
 
-        if (req.userId != center.userId) {
-          return res.status(403).send({ status:'Error', messsage: 'You do not have privilege to modify this Center' });
+        if (req.userId !== center.userId) {
+          return res.status(403).send({ status: 'Error', messsage: 'You do not have privilege to modify this Center' });
         }
 
         cloudinary.v2.uploader.upload_stream({
@@ -147,7 +148,6 @@ class CenterController {
 
             cloudinary.v2.uploader.destroy(center.image.split('/')[7], {
               resource_type: 'raw'
-            }, (err, result) => {
             });
 
             return res.status(200).send({
@@ -160,6 +160,12 @@ class CenterController {
       });
   }
 
+  /**
+   * Delete a center
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   */
   static deleteCenter(req, res) {
     Center.findById(req.params.centerId)
       .then((center) => {

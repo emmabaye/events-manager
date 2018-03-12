@@ -2,9 +2,9 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import Model from '../models';
 
-
 const { User } = Model;
 
+/** Class for User Controller functions */
 class UserController {
   /**
    * Create a new user
@@ -22,7 +22,7 @@ class UserController {
           });
         }
 
-        const hash = bcrypt.hashSync(req.body.password, parseInt(process.env.SALT));
+        const hash = bcrypt.hashSync(req.body.password, parseInt(process.env.SALT, 10));
 
         User.create({
           firstName: req.body.firstName,
@@ -61,7 +61,7 @@ class UserController {
   static signIn(req, res) {
     User.findOne({ where: { email: req.body.email.trim().toLowerCase() } })
       .then((user) => {
-         if (!user) {
+        if (!user) {
           return res.status(404).send({
             status: 'Error',
             message: 'Email has not been registered',
@@ -74,7 +74,7 @@ class UserController {
             message: 'Invalid Password',
           });
         }
-        
+
         const token = jwt.sign({ id: user.id, role: user.role }, process.env.SECRET, { expiresIn: 86400 });
 
         return res.status(200).send({
@@ -94,12 +94,10 @@ class UserController {
           },
         });
       })
-      .catch(e => {
-         return res.status(500).json({
-         status: 'Error',
-         message: 'Server Error',
-        })
-       });
+      .catch(e => res.status(500).json({
+        status: 'Error',
+        message: 'Server Error',
+      }));
   }
 
   /**
@@ -119,9 +117,6 @@ class UserController {
     });
   }
 
-  
-
-  
 
   /**
     * Get details of an user by Id
@@ -161,14 +156,14 @@ class UserController {
           return res.status(404).send({ error: 'User not found' });
         }
 
-        if ((req.userId != user.id) && (req.userRole != 'admin')) {
+        if ((req.userId !== user.id) && (req.userRole !== 'admin')) {
           return res.status(403).send({ error: 'You do not have privilege to modify this user', id: req.user });
         }
 
         User.update({
           firstName: req.body.firstName || user.firstName,
           lastName: req.body.lastName || user.lastName,
-          role: (req.userRole == 'admin') ? req.body.role || user.role : user.role,
+          role: (req.userRole === 'admin') ? req.body.role || user.role : user.role,
         }, {
           where: {
             id: req.params.userId,

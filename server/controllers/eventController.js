@@ -53,13 +53,11 @@ class EventController {
             userId: req.userId,
             centerId: req.body.centerId,
             image: (result) ? result.url : '#noImage'
-          }).then((event) => {
-            return res.status(200).send({
-              status: 'Success',
-              message: ' Event created',
-              data: event
-            });
-          }).catch((e) => res.status(500).send({
+          }).then((event) => res.status(200).send({
+            status: 'Success',
+            message: ' Event created',
+            data: event
+          })).catch((e) => res.status(500).send({
             status: 'Error',
             message: 'Server Error'
           }));
@@ -120,7 +118,6 @@ class EventController {
 
             cloudinary.v2.uploader.destroy(event.image.split('/')[7], {
               resource_type: 'raw'
-            }, (err, result) => {
             });
 
             res.status(200).send({
