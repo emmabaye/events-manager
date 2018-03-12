@@ -7,6 +7,7 @@ import { isAdmin, isAuthenticated, userValidation, centerValidation, eventValida
  * Router function
  *
  * @param {object} app An instance of express
+ * @return {undefined}
  */
 const routes = (app) => {
   /**
