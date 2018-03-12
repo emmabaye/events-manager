@@ -45,9 +45,9 @@ module.exports = {
       references: {
         model: 'Centers',
         key: 'id',
-      }, 
+      },
       allowNull: true,
-      onDelete:'set null',
+      onDelete: 'set null',
     },
     createdAt: {
       allowNull: false,
