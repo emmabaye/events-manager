@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import request from 'supertest';
-import app from '../server.js';
+import app from '../server';
 
 
 let user = {
@@ -37,7 +37,7 @@ let center = {
 
 chai.use(chaiHttp);
 
-const expect = chai.expect;
+const { expect } = chai;
 
 describe('API endpoints /api/v1', () => {
   before(() => {
@@ -401,19 +401,18 @@ describe('API endpoints /api/v1/events', () => {
 });
 
 describe('API endpoint api/v1/centers', () => {
-
-    // DELETE - delete center
-    it(
-      'Should delete center',
-      () => request(app)
-        .delete(`/api/v1/centers/${center.id}`)
-        .set('x-access-token', adminToken)
-        .then((res) => {
-          expect(res).to.have.status(200);
-          expect(res).to.be.json;
-        })
-    );
-  });
+  // DELETE - delete center
+  it(
+    'Should delete center',
+    () => request(app)
+      .delete(`/api/v1/centers/${center.id}`)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+      })
+  );
+});
 
 
 describe('API endpoints /api/v1/users/logout', () => {
