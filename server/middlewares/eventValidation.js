@@ -1,67 +1,69 @@
-import validator from 'validator';
-
+/**
+ * Validates event details
+ * @param {object} req The request body of the request.
+ * @param {object} res The response body.
+ * @param {object} next Passes control to next middleware
+ * @returns {object} next
+ */
 const eventValidation = (req, res, next) => {
-  console.log("EVENT REQ BODY ", req.body)
-   console.log("EVENT REQ FILES ", req.files)
   let errors = [];
   if (req.body.title === undefined) {
-  	return res.status(400).send({message: "Title is required"});
+    return res.status(400).send({ message: "Title is required" });
   }
 
   if (req.body.description === undefined) {
-  	return res.status(400).send({message: "Description is required"});
+    return res.status(400).send({ message: "Description is required" });
   }
 
   if (req.body.venue === undefined) {
-  	return res.status(400).send({message: "Venue is required"});
+    return res.status(400).send({ message: "Venue is required" });
   }
 
   if (req.body.date === undefined) {
-  	return res.status(400).send({message: "Date is required"});
+    return res.status(400).send({ message: "Date is required" });
   }
 
   if (req.body.time === undefined) {
-  	return res.status(400).send({message: "Time is required "});
+    return res.status(400).send({ message: "Time is required " });
   }
 
   if (req.body.centerId === undefined) {
-  	return res.status(400).send({message: "CenterId is required"});
+    return res.status(400).send({ message: "CenterId is required" });
   }
 
-  if(req.body.title.toString().trim() === ""){
-  	 errors.push("Title is required");
+  if (req.body.title.toString().trim() === "") {
+    errors.push("Title is required");
   }
 
-  if(req.body.description.toString().trim() === "") {
-  	 errors.push("Description is required");
+  if (req.body.description.toString().trim() === "") {
+    errors.push("Description is required");
   }
 
-  if(req.body.venue.toString().trim() === "") {
-  	 errors.push("Venue is required");
+  if (req.body.venue.toString().trim() === "") {
+    errors.push("Venue is required");
   }
 
-  if(req.body.date.toString().trim() === "") {
-  	 errors.push("Date is required");
+  if (req.body.date.toString().trim() === "") {
+    errors.push("Date is required");
   }
 
-  if((new Date(req.body.date) - Date.now()) < 0) {
-  	errors.push('Cannot set a past date for event');
+  if ((new Date(req.body.date) - Date.now()) < 0) {
+    errors.push('Cannot set a past date for event');
   }
 
-  if(req.body.time.toString().trim() === "") {
-  	 errors.push("Time is required");
+  if (req.body.time.toString().trim() === "") {
+    errors.push("Time is required");
   }
 
-  if(req.body.centerId.toString().trim() === "") {
-  	 errors.push("Center is required");
+  if (req.body.centerId.toString().trim() === "") {
+    errors.push("Center is required");
   }
 
-  if(errors.length > 0) {
-  	return res.status(400).send({message: errors});
+  if (errors.length > 0) {
+    return res.status(400).send({ message: errors });
   }
 
   return next();
-
-}
+};
 
 export default eventValidation;
