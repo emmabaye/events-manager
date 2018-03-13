@@ -7,8 +7,15 @@ import NavBar from "./NavBar.jsx";
 import { addEvent } from '../actions/eventAction';
 import { history } from '../routes';
 
-
+/**
+ * AddEvent React Component
+ */
 export class AddEvent extends Component {
+  /**
+   * [constructor description]
+   * @param  {objects} props React component props
+   * @return {undefined}
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +24,14 @@ export class AddEvent extends Component {
     };
   }
 
-  componentWillMount() {
+  /**
+   * React's componentWillMount life cycle method
+   * runs before the component is mounted.
+   * Checks if user is logged in via jwt
+   *
+   * @return {object}
+   */
+  componentWillMount() { //eslint-disable-line class-methods-use-this
     let token = localStorage.getItem('x-access-token');
     try {
       let decoded = jwtDecode(token);
@@ -30,6 +44,31 @@ export class AddEvent extends Component {
     }
   }
 
+  /**
+   * React's componentDidMount life cycle method
+   * runs after component has been mounted
+   * @return {undefined}
+   */
+  componentDidMount() {
+    axios({
+      method: 'GET',
+      url: '/api/v1/centers',
+      withCredentials: true,
+    })
+      .then((response) => {
+        this.setState({ centers: response.data.data });
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }
+
+  /**
+   *  Event handler for changes in input
+   *
+   * @param  {object} e event object
+   * @return {undefined}
+   */
   handleChange = (e) => {
     this.setState({
       event: {
@@ -40,6 +79,12 @@ export class AddEvent extends Component {
     });
   }
 
+  /**
+   *  Event handler for submitting form
+   *
+   * @param  {object} e event object
+   * @return {object}
+   */
   handleSubmit = (e) => {
     e.preventDefault();
     let eventDetails = this.state.event;
@@ -55,22 +100,12 @@ export class AddEvent extends Component {
     return dispatch(addEvent(eventForm));
   }
 
-  componentDidMount() {
-    axios({
-      method: 'GET',
-      url: '/api/v1/centers',
-      withCredentials: true,
-    })
-      .then((response) => {
-        this.setState({ centers: response.data.data });
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  }
-
+  /**
+   * Function to render react component
+   * @return {object}
+   */
   render() {
-    if (this.props.status == 'Success') {
+    if (this.props.status === 'Success') {
       return <Redirect to="/myevents" push />;
     }
     return (
@@ -83,8 +118,9 @@ export class AddEvent extends Component {
                 <div className="form-group row">
                   <label htmlFor="" className="col-sm-3 col-form-label" />
                   <div className="col-sm-9">
-                    { (this.props.status == 'Error') &&
-                      <div className="form-group row" style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
+                    { (this.props.status === 'Error') &&
+                      <div className="form-group row"
+                        style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
                         <div className="alert alert-dismissible alert-danger fade show" role="alert">
                           <small>{this.props.message.toString().split(',').join(', ')}</small>
                         </div>
@@ -100,7 +136,8 @@ export class AddEvent extends Component {
                     Title
                   </label>
                   <div className="col-sm-9">
-                    <input type="text" className="form-control" name="title" placeholder="Title" onChange={this.handleChange} />
+                    <input type="text" className="form-control"
+                      name="title" placeholder="Title" onChange={this.handleChange} />
                   </div>
                 </div>
                 <div className="form-group row">
@@ -125,7 +162,11 @@ export class AddEvent extends Component {
                     <select className="form-control" ref="venue" name="centerId" onChange={this.handleChange}>
                       <option />
                       {
-                        (this.state.centers.map((center) => <option key={center.id} value={center.id}>{center.name}</option>))
+                        (this.state.centers.map((center) => (
+                          <option key={center.id} value={center.id}>
+                            {center.name}
+                          </option>))
+                        )
                       }
                     </select>
                     <small id="fileHelp" className="form-text text-muted">
@@ -186,10 +227,24 @@ export class AddEvent extends Component {
   }
 }
 
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
 const mapDispatchToProps = (dispatch) => ({
   dispatch: (actionObject) => dispatch(actionObject)
 });
 
+/**
+ * Makes redux state available in this
+ * component's props
+ *
+ * @param  {object} state global state
+ * @return {object} props object
+ */
 const mapStateToProps = (state) => ({
   status: state.eventReducer.status,
   message: state.eventReducer.message
