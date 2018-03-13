@@ -3,10 +3,20 @@ import jwtDecode from 'jwt-decode';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import AdminPanelBody from './AdminPanelBody.jsx';
-import { history } from '../routes.js';
+import { history } from '../routes';
 
+/**
+ * React component for admin panel
+ */
 class AdminPanel extends Component {
-  componentWillMount() {
+  /**
+   * React's componentWillMount life cycle method
+   * runs before the component is mounted.
+   * Checks if user is logged in via jwt
+   *
+   * @return {object}
+   */
+  componentWillMount() { //eslint-disable-line class-methods-use-this
     let token = localStorage.getItem('x-access-token');
     try {
       let decoded = jwtDecode(token);
@@ -22,11 +32,24 @@ class AdminPanel extends Component {
     }
   }
 
-  componentDidMount() {
+  /**
+   * React's componentDidMount life cycle method
+   * runs after component has been mounted.
+   * Changes background color after componented
+   * has been mounted
+   *
+   * @return {undefined}
+   */
+  componentDidMount() { //eslint-disable-line class-methods-use-this
     document.body.style.backgroundColor = 'white';
   }
 
-  render() {
+  /**
+   * React's method to render react component.
+   *
+   * @return {object}
+   */
+  render() { //eslint-disable-line class-methods-use-this
     return (
       <div>
         <NavBar page="LandingPage" />
