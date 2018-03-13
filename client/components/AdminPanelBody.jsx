@@ -36,8 +36,8 @@ class AdminPanelBody extends Component {
 
   /**
    * Show and hides components
-   * @param  {[type]} elem     component to show or hide
-   * @param  {[type]} centerId center id to get details of a specific center
+   * @param  {object} elem     component to show or hide
+   * @param  {string} centerId center id to get details of a specific center
    * @return {undefined}
    */
   show = (elem, centerId) => {
