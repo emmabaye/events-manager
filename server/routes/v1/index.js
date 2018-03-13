@@ -1,17 +1,18 @@
+import path from 'path';
 import { UserController, CenterController, EventController } from '../../controllers';
 import { isAdmin, isAuthenticated, userValidation, centerValidation, eventValidation } from '../../middlewares';
-import path from 'path';
+
 
 /**
-   * Create a new center
-   *
-   * @param {object} app. An instance of express
-   */
+ * Router function
+ *
+ * @param {object} app An instance of express
+ * @return {undefined}
+ */
 const routes = (app) => {
-
   /**
    * API index route
-   * 
+   *
    * @param {string} string, The route of the index.
    * @returns {object} res.
    */
@@ -20,7 +21,7 @@ const routes = (app) => {
 
   /**
    * Signup route
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
@@ -29,7 +30,7 @@ const routes = (app) => {
 
   /**
    * Login route
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
@@ -38,17 +39,17 @@ const routes = (app) => {
 
   /**
    * Logout route
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
   app.route('/api/v1/users/logout')
     .get(UserController.signOut);
-  
+
   /**
    * GET method, get user details
    * POST method, update user details
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
@@ -58,7 +59,7 @@ const routes = (app) => {
 
   /**
    * Create events
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
@@ -69,7 +70,7 @@ const routes = (app) => {
    * GET method, get event details
    * PUT method, update event details
    * DELETE method, delete event details
-   * 
+   *
    * @param {string} string
    */
   app.route('/api/v1/events/:eventId')
@@ -77,9 +78,9 @@ const routes = (app) => {
     .put(isAuthenticated, eventValidation, EventController.updateEvent)
     .delete(isAuthenticated, EventController.deleteEvent);
 
-    /**
+  /**
    * PUT method, update user details
-   * 
+   *
    * @param {string} string
    */
   app.route('/api/v1/events/:eventId/cancel')
@@ -88,18 +89,18 @@ const routes = (app) => {
   /**
    * GET method, Get all centers
    * POST method, create center
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
   app.route('/api/v1/centers')
     .get(CenterController.getAllCenters)
-    .post(isAuthenticated, isAdmin,centerValidation, CenterController.createCenter);
+    .post(isAuthenticated, isAdmin, centerValidation, CenterController.createCenter);
 
   /**
    * GET method, get a center details
    * PUT method, update a center details
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
@@ -107,19 +108,19 @@ const routes = (app) => {
     .get(CenterController.getCenter)
     .put(isAuthenticated, isAdmin, centerValidation, CenterController.updateCenter)
     .delete(isAuthenticated, isAdmin, CenterController.deleteCenter);
-  
+
   /**
    * GET method, get routes for
    * the client SPA
-   * 
+   *
    * @param {string} string
    * @returns {object} res.
    */
-  app.get('*', function (req, res){
-    res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'))
-  })
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'));
+  });
 
-   /**
+  /**
    * Resource not found
    * @param {string} string
    * @returns {object} res.

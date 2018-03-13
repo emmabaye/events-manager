@@ -1,6 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import path from 'path';
 import cors from 'cors';
 import YAML from 'yamljs';
 import swaggerUi from 'swagger-ui-express';
@@ -19,16 +18,16 @@ const app = express();
 const port = process.env.PORT || 3000;
 const swaggerDocument = YAML.load(`${process.cwd()}/server/swagger.yml`);
 
-app.use(cors({credentials: true, origin: true}));
+app.use(cors({ credentials: true, origin: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-if(process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   const compiler = webpack(config);
 
   app.use(webpackDevMiddleware(compiler, { noInfo: false, publicPath: config.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));
 }
-app.use('/', express.static(process.cwd() + '/dist'));
+app.use('/', express.static(`${process.cwd()}/dist`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(busboyBodyParser({ limit: '10mb' }));
