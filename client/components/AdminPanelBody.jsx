@@ -5,7 +5,6 @@ import AddCenter from './AddCenter.jsx';
 import ModifyCenter from './ModifyCenter.jsx';
 
 class AdminPanelBody extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -28,27 +27,27 @@ class AdminPanelBody extends Component {
 
   show = (elem, centerId) => {
     let hiddenElems = {
-      centers: { visible: false},
-      addCenter: { visible: false},
-      modifyCenter: { visible: false, centerId: ""},
-      centerDetails: { visible: false, centerId: ""}
-    }
+      centers: { visible: false },
+      addCenter: { visible: false },
+      modifyCenter: { visible: false, centerId: "" },
+      centerDetails: { visible: false, centerId: "" }
+    };
 
     this.setState({
       ...hiddenElems,
-      [elem]: { visible: true, centerId: centerId}
+      [elem]: { visible: true, centerId: centerId }
     });
   }
 
 
   render() {
-    return(
+    return (
       <div className="container-fluid admin">
-        <div className='row'>
+        <div className="row">
           <div className="col-sm-2 side">
             <div className="list-group sidebar">centerId
-              <a href="#centers" className="list-group-item list-group-item-action centers-button" onClick={ () => this.show('centers') }>Centers</a>
-              <a  href="#add-center" className="list-group-item list-group-item-action add-center-button" onClick={ () => this.show('addCenter') }>Add Center</a>
+              <a href="#centers" className="list-group-item list-group-item-action centers-button" onClick={() => this.show('centers')}>Centers</a>
+              <a href="#add-center" className="list-group-item list-group-item-action add-center-button" onClick={() => this.show('addCenter')}>Add Center</a>
               <a href="#events" className="list-group-item list-group-item-action" >Events</a>
               <a href="#users" className="list-group-item list-group-item-action">Users</a>
             </div>
@@ -61,7 +60,7 @@ class AdminPanelBody extends Component {
           </div>
         </div>
       </div>
-      )
+    );
   }
 }
 

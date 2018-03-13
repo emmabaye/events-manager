@@ -4,7 +4,6 @@ import Center from './Center.jsx';
 import { getAllCenters } from '../actions/centerAction';
 
 export class AdminCenters extends Component {
-
   componentDidMount() {
     this.props.dispatch(getAllCenters());
   }
@@ -12,15 +11,15 @@ export class AdminCenters extends Component {
   render() {
     return (
       <div id="centers" className="panel centers">
-        <div  id="events" className="container events">
+        <div id="events" className="container events">
           <div className="row event-row">
             {
-              (this.props.allCenters.data.reverse().map((center) =>  <Center key={center.id} centerDetails={center} show={this.props.show} />))
+              (this.props.allCenters.data.reverse().map((center) => <Center key={center.id} centerDetails={center} show={this.props.show} />))
             }
           </div>
         </div>
       </div>
-      )
+    );
   }
 }
 
@@ -33,6 +32,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AdminCenters);

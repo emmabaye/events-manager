@@ -22,7 +22,7 @@ export default class Event extends Component {
               <a href="#" className="btn btn-sm btn-danger" data-toggle="modal" data-target={`#${this.props.eventDetails.id}`}><i className="fa fa-trash-o fa-lg" /> Delete</a></p>
           </div>
         </div>
-        <DeleteModal item='event' objectId={this.props.eventDetails.id} />
+        <DeleteModal item="event" objectId={this.props.eventDetails.id} />
       </div>
     );
   }

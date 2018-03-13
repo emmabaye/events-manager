@@ -39,7 +39,7 @@ export class ModifyCenter extends Component {
     let centerDetails = this.state.center;
     const { dispatch } = this.props;
     let centerForm = new FormData();
-     centerForm.append('id', centerDetails.id);
+    centerForm.append('id', centerDetails.id);
     centerForm.append('name', centerDetails.name);
     centerForm.append('description', centerDetails.description);
     centerForm.append('location', centerDetails.location);

@@ -8,11 +8,10 @@ import { getAllCenters } from '../actions/centerAction';
 import { history } from '../routes';
 
 export class AllCenters extends Component {
-
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount() {
     document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
     document.body.style.backgroundPosition = 'center';
@@ -21,36 +20,36 @@ export class AllCenters extends Component {
 
     this.props.dispatch(getAllCenters());
   }
-  
+
   render() {
     return (
-            <div>
-              <NavBar page='AllCenters' />
-              <div id="centers" className="panel centers">
-			          <div  id="events" className="container events">
-                <div className="row event-row">
-                {
-                  (this.props.allCenters.data.map((center) =>  <CenterCard key={center.id} centerDetails={center} />))
-                }
-                 </div>
-                </div>
-              </div>
-              <Footer />
+      <div>
+        <NavBar page="AllCenters" />
+        <div id="centers" className="panel centers">
+			          <div id="events" className="container events">
+            <div className="row event-row">
+              {
+                (this.props.allCenters.data.map((center) => <CenterCard key={center.id} centerDetails={center} />))
+              }
             </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: (actionObject) => dispatch(actionObject)
+  dispatch: (actionObject) => dispatch(actionObject)
 });
 
 const mapStateToProps = (state) => ({
-    allCenters: state.centerReducer.allCenters
+  allCenters: state.centerReducer.allCenters
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AllCenters);
 

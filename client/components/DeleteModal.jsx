@@ -3,7 +3,6 @@ import axios from 'axios';
 import { history } from '../routes';
 
 export default class DeleteModal extends Component {
-
   deleteObject = () => {
     if (this.props.item === 'event') {
       let eventId = this.props.objectId;

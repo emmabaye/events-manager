@@ -7,17 +7,16 @@ import { connect } from 'react-redux';
 import { getEvent, modifyEvent } from '../actions/eventAction';
 
 export class EventDetails extends Component {
-
   componentDidMount() {
     document.body.style.backgroundColor = 'white';
     let eventId = this.props.match.params.id;
     this.props.dispatch(getEvent(eventId));
   }
-  
+
   render() {
-    return(
+    return (
       <div>
-      <NavBar page='MyEvents' />
+        <NavBar page="MyEvents" />
         <div className="container event-details">
           <div className="row">
             <div className="col-md-8 event">
@@ -26,7 +25,7 @@ export class EventDetails extends Component {
                 <div className="card-block">
                   <h5 className="card-title"><b>{this.props.event.title}</b></h5>
                   <p className="card-text">{this.props.event.description}</p>
-                  </div>
+                </div>
               </div>
               { this.props.event.Center !== undefined && <Location location={`${this.props.event.Center.name}, ${this.props.event.Center.location}`} />}
             </div>
@@ -36,7 +35,7 @@ export class EventDetails extends Component {
                   <div className="card">
                     <h6 className="card-header"><b>VENUE</b></h6>
                     <div className="card-block">
-                       { this.props.event.Center !== undefined && <p className="card-text">{`${this.props.event.Center.name}, ${this.props.event.Center.location}`}</p> }
+                      { this.props.event.Center !== undefined && <p className="card-text">{`${this.props.event.Center.name}, ${this.props.event.Center.location}`}</p> }
                     </div>
                   </div>
                 </div>
@@ -44,37 +43,35 @@ export class EventDetails extends Component {
                   <div className="card">
                     <h6 className="card-header"><b>DATE & TIME</b></h6>
                     <div className="card-block">
-                      <p className="card-text">{moment( this.props.event.date ).format('DD MMMM YYYY')}</p>
+                      <p className="card-text">{moment(this.props.event.date).format('DD MMMM YYYY')}</p>
                       <p className="card-text">{this.props.event.time}</p>
                     </div>
                   </div>
                 </div>
-                
+
               </div>
-              
+
             </div>
-            
+
           </div>
         </div>
         <Footer />
-        </div>
-      )
+      </div>
+    );
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: (actionObject) => dispatch(actionObject)
+  dispatch: (actionObject) => dispatch(actionObject)
 });
 
-const mapStateToProps = (state) => {
-  return {
-    status: state.eventReducer.status,
-    message: state.eventReducer.message,
-    event: state.eventReducer.event
-  }
-};
+const mapStateToProps = (state) => ({
+  status: state.eventReducer.status,
+  message: state.eventReducer.message,
+  event: state.eventReducer.event
+});
 
 export default connect(
-     mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(EventDetails);
