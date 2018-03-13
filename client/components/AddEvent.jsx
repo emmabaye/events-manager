@@ -12,7 +12,7 @@ import { history } from '../routes';
  */
 export class AddEvent extends Component {
   /**
-   * [constructor description]
+   * Constructor for AddEvent Component
    * @param  {objects} props React component props
    * @return {undefined}
    */
