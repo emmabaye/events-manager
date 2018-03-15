@@ -51,6 +51,7 @@
     }],
     "no-unused-expressions": 0,
     "chai-friendly/no-unused-expressions": 2,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "class-methods-use-this": 0
   }
 }

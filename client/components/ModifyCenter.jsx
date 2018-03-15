@@ -19,7 +19,7 @@ export class ModifyCenter extends Component {
   }
 
   /**
-   * Dispatches action to get event details
+   * Dispatches action to get center details
    * by id
    *
    * @return {undefined}
