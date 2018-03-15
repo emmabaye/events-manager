@@ -3,21 +3,28 @@ import jwtDecode from 'jwt-decode';
 
 
 /**
-*
-*
-* @export
-* @class NavBar Component
-* @extends {Component}
-*/
+ * React  component for Navigation Bar
+ */
 export default class NavBar extends Component {
+  /**
+   * Constructor
+   * @param {object} props
+   * @returns {undefined}
+   */
   constructor(props) {
     super(props);
     this.isLoggedIn = false;
     this.isAdmin = false;
   }
 
+  /**
+   * Check if user is logged in.
+   * If jwt has expired, user is not logged in.
+   *
+   * @return {undefined}
+   */
   componentWillMount() {
-    if (process.env.NODE_ENV != 'test') {
+    if (process.env.NODE_ENV !== 'test') {
       let token = localStorage.getItem('x-access-token');
       try {
         let decoded = jwtDecode(token);
@@ -25,24 +32,36 @@ export default class NavBar extends Component {
         let timeLeft = decoded.exp - (Date.now() / 1000);
         let isLoggedIn = !((timeLeft <= 0));
         if (!isLoggedIn) {
-          return this.isLoggedIn = false;
+          this.isLoggedIn = false;
+          return this.isLoggedIn;
         }
         if (isAdmin) {
           this.isAdmin = true;
         }
-        return this.isLoggedIn = true;
+        this.isLoggedIn = true;
+        return this.isLoggedIn;
       } catch (e) {
-        return this.isLoggedIn = false;
+        this.isLoggedIn = false;
+        return this.isLoggedIn;
       }
     }
   }
 
+  /**
+   * React's method to render react component.
+   * Renders navbar
+   *
+   * @return {object}
+   */
   render() {
     if (this.props.page) {
       return (
         <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-          <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
+          <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"
+            />
           </button>
           <a className="navbar-brand" href="/">EVENTS MANAGER</a>
           <div className="collapse navbar-collapse" id="navbarText">
