@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 
+/**
+ * React component fo body of landing page.
+ */
 export default class Body extends Component {
-  render() {
+  /**
+   * React's method to render react component.
+   *
+   * @return {object}
+   */
+  render() { //eslint-disable-line class-methods-use-this
     return (
       <div>
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
@@ -45,9 +53,18 @@ export default class Body extends Component {
         <div className="container-fluid features">
           <p className="h5 text-center"> FEATURES</p>
           <div className="row">
-            <div className="col-md-4 text-center feature"><br /><p className="text-center"><i className="fa fa-user fa-5x" /></p><p className="text-center">Have full control of your events</p></div>
-            <div className="col-md-4 text-center feature"><br /><p className="text-center"><i className="fa fa-calendar-o fa-5x" /></p><p className="text-center">Flexible booking for centers</p></div>
-            <div className="col-md-4 text-center feature"><br /><p className="text-center"><i className="fa fa-search fa-5x" /></p><p className="text-center">Look for centres within your community</p></div>
+            <div className="col-md-4 text-center feature"><br />
+              <p className="text-center"><i className="fa fa-user fa-5x" /></p>
+              <p className="text-center">Have full control of your events</p>
+            </div>
+            <div className="col-md-4 text-center feature"><br />
+              <p className="text-center"><i className="fa fa-calendar-o fa-5x" /></p>
+              <p className="text-center">Flexible booking for centers</p>
+            </div>
+            <div className="col-md-4 text-center feature"><br />
+              <p className="text-center"><i className="fa fa-search fa-5x" /></p>
+              <p className="text-center">Look for centres within your community</p>
+            </div>
           </div>
         </div>
         <div className="container-fluid capacity">
