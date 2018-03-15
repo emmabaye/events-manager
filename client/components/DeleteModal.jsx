@@ -8,8 +8,8 @@ import { history } from '../routes';
 export default class DeleteModal extends Component {
   /**
    * React's method to render react component.
-   * Iterates array of events to render
-   *
+   * Renders modal
+   * 
    * @return {object}
    */
   deleteObject = () => {
