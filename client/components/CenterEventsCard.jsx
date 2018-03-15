@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import AdminEvent from './AdminEvent.jsx';
 
+/**
+ * React component to display
+ * events for a given center in
+ * admin panel
+ */
 class CenterEventsCard extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  /**
+   * React's method to render react component.
+   * Iterates array of events to render
+   *
+   * @return {object}
+   */
   render() {
     return (
       <div className="card">
