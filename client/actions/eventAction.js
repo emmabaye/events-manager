@@ -1,8 +1,16 @@
 import axios from 'axios';
-import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED } from '../types/event';
-import { GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED } from '../types/event';
-import { MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED } from '../types/event';
+import {
+  ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED,
+  GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED,
+  MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED
+} from '../types/event';
 
+/**
+ * POST request for authenticated user to create an event
+ *
+ * @param {object} eventDetails Formdata for event details
+ * @return {object} Promise
+ */
 export const addEvent = (eventDetails) => (dispatch) => {
   dispatch({ type: ADD_EVENT });
   return axios({
@@ -21,6 +29,12 @@ export const addEvent = (eventDetails) => (dispatch) => {
     });
 };
 
+/**
+ * GET request for to get an event by id
+ *
+ * @param {string} eventId Id of event to be retrieved
+ * @return {object} Promise
+ */
 export const getEvent = (eventId) => (dispatch) => {
   dispatch({ type: GET_EVENT });
   return axios({
@@ -37,6 +51,12 @@ export const getEvent = (eventId) => (dispatch) => {
     });
 };
 
+/**
+ * PUT request for authenticated user to modify an event
+ *
+ * @param {object} eventForm Formdata for event details
+ * @return {object} Promise
+ */
 export const modifyEvent = (eventForm) => (dispatch) => {
   dispatch({ type: MODIFY_EVENT });
   return axios({
