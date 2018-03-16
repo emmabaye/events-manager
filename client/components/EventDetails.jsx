@@ -7,7 +7,7 @@ import Footer from './Footer.jsx';
 import { getEvent } from '../actions/eventAction';
 
 /**
- * React  component for event dispayed to be displayed
+ * React  component for event details to be displayed
  * to regular user
  */
 export class EventDetails extends Component {

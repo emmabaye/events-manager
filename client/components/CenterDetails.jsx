@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
-import Center from './Center.jsx';
 import Location from './Location.jsx';
-import { connect } from 'react-redux';
 import { getCenter } from '../actions/centerAction';
 
+/**
+ * React  component for center details to be displayed
+ * to regular user
+ */
 export class CenterDetails extends Component {
+  /**
+   * React's componentDidMount life cycle method
+   * runs after component has been mounted.
+   * Makes style changes after component has been mounted
+   * and dispatches action to get center details
+   * by id
+   *
+   * @return {undefined}
+   */
   componentDidMount() {
     document.body.style.backgroundColor = 'white !important';
     document.body.style.backgroundImage = 'none';
@@ -14,6 +26,12 @@ export class CenterDetails extends Component {
     this.props.dispatch(getCenter(centerId));
   }
 
+  /**
+   * React's method to render react component.
+   * Renders center details
+   *
+   * @return {object}
+   */
   render() {
     return (
       <div>
@@ -23,7 +41,11 @@ export class CenterDetails extends Component {
             <div className="row">
               <div className=" event">
                 <div className="card mb-3">
-                  <img className="card-img-top img-fluid" src={this.props.center.image} height="300px" alt="Card image cap" />
+                  <img className="card-img-top img-fluid"
+                    src={this.props.center.image}
+                    height="300px"
+                    alt="Card image cap"
+                  />
                   <div className="card-block">
                     <h5 className="card-title"><b>{this.props.center.name}</b></h5>
                     <p className="card-text">{this.props.center.description}</p>
@@ -48,10 +70,24 @@ export class CenterDetails extends Component {
   }
 }
 
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
 const mapDispatchToProps = (dispatch) => ({
   dispatch: (actionObject) => dispatch(actionObject)
 });
 
+/**
+ * Makes the necessary  redux state available in this
+ * component's props
+ *
+ * @param  {object} state global state
+ * @return {object} props object
+ */
 const mapStateToProps = (state) => ({
   status: state.centerReducer.status,
   message: state.centerReducer.message,
