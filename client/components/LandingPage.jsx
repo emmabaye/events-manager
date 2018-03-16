@@ -3,9 +3,17 @@ import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import Body from './Body.jsx';
 
-
+/**
+ * React  component for landing page
+ */
 export default class LandingPage extends Component {
-  render() {
+  /**
+   * React's method to render react component.
+   * Renders landing page
+   *
+   * @return {object}
+   */
+  render() { //eslint-disable-line class-methods-use-this
     return (
       <div>
         <NavBar page="landingpage"/>

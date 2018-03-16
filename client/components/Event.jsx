@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import DeleteModal from './DeleteModal.jsx';
 
+/**
+ * React  component for event card to be displayed
+ * as "myevents" for authenticated regular user
+ */
 export default class Event extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  /**
+   * React's method to render react component.
+   * Renders card for event details
+   *
+   * @return {object}
+   */
   render() {
     return (
       <div className="col-md-4 event">
@@ -17,12 +23,21 @@ export default class Event extends Component {
             <p className="card-text h6"><b>Venue</b> {this.props.eventDetails.venue}</p>
             <p className="card-text h6"><b>Date</b>: {moment(this.props.eventDetails.date).format('DD MMMM YYYY')}</p>
             <p className="card-text h6"><b>Time</b>: {this.props.eventDetails.time}</p>
-            <p className="text-center"><a href={`/events/${this.props.eventDetails.id}`} className="btn btn-sm btn-primary"><i className="fa fa-info-circle fa-lg" /> View Event</a>
-              <a href={`./modifyevent/${this.props.eventDetails.id}`} className="btn btn-sm btn-success"><i className="fa fa-edit fa-lg" /> Modify</a>
-              <a href="#" className="btn btn-sm btn-danger" data-toggle="modal" data-target={`#${this.props.eventDetails.id}`}><i className="fa fa-trash-o fa-lg" /> Delete</a></p>
+            <p className="text-center">
+              <a href={`/events/${this.props.eventDetails.id}`} className="btn btn-sm btn-primary">
+                <i className="fa fa-info-circle fa-lg" /> View Event
+              </a>
+              <a href={`./modifyevent/${this.props.eventDetails.id}`} className="btn btn-sm btn-success">
+                <i className="fa fa-edit fa-lg" /> Modify
+              </a>
+              <a href="#" className="btn btn-sm btn-danger" data-toggle="modal"
+                data-target={`#${this.props.eventDetails.id}`}>
+                <i className="fa fa-trash-o fa-lg" /> Delete
+              </a>
+            </p>
           </div>
         </div>
-        <DeleteModal item='event' objectId={this.props.eventDetails.id} />
+        <DeleteModal item="event" objectId={this.props.eventDetails.id} />
       </div>
     );
   }

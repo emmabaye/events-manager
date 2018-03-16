@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import { getCenter, modifyCenter, setStatus } from '../actions/centerAction';
 import { connect } from 'react-redux';
+import { getCenter, modifyCenter, setStatus } from '../actions/centerAction';
 
+/**
+ * React  component for modify center form
+ */
 export class ModifyCenter extends Component {
+  /**
+   * Constructor
+   * @param {object} props
+   * @returns {undefined}
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -10,14 +18,25 @@ export class ModifyCenter extends Component {
     };
   }
 
+  /**
+   * Dispatches action to get center details
+   * by id
+   *
+   * @return {undefined}
+   */
   componentDidMount() {
-    let centerId = this.props.centerId;
+    let { centerId } = this.props;
     this.props.dispatch(getCenter(centerId));
   }
 
+  /**
+   * Updates component state
+   *
+   * @return {undefined}
+   */
   componentDidUpdate() {
-    if (Object.keys(this.state.center).length == 0) {
-      this.setState({
+    if (Object.keys(this.state.center).length === 0) {
+      this.setState({ //eslint-disable-line react/no-did-update-set-state
         center: {
           ...this.props.center,
         }
@@ -25,6 +44,13 @@ export class ModifyCenter extends Component {
     }
   }
 
+  /**
+   *  Event handler for changes in input.
+   *  Sets the state on changes.
+   *
+   * @param  {object} e event object
+   * @return {undefined}
+   */
   handleChange = (e) => {
     this.setState({
       center: {
@@ -34,12 +60,18 @@ export class ModifyCenter extends Component {
     });
   }
 
+  /**
+   *  Event handler for submitting form
+   *
+   * @param  {object} e event object
+   * @return {object}
+   */
   handleSubmit = (e) => {
     e.preventDefault();
     let centerDetails = this.state.center;
     const { dispatch } = this.props;
     let centerForm = new FormData();
-     centerForm.append('id', centerDetails.id);
+    centerForm.append('id', centerDetails.id);
     centerForm.append('name', centerDetails.name);
     centerForm.append('description', centerDetails.description);
     centerForm.append('location', centerDetails.location);
@@ -51,13 +83,17 @@ export class ModifyCenter extends Component {
     return dispatch(modifyCenter(centerForm));
   }
 
+  /**
+   * React's method to render react component.
+   * Renders google map
+   *
+   * @return {object}
+   */
   render() {
-    {
-      if (this.props.status === 'Success') {
-        this.props.show('centers');
-        this.props.dispatch(setStatus(""));
-        return null;
-      }
+    if (this.props.status === 'Success') {
+      this.props.show('centers');
+      this.props.dispatch(setStatus(""));
+      return null;
     }
     return (
       <div id="add-center" className="panel add-center">
@@ -68,8 +104,10 @@ export class ModifyCenter extends Component {
                 <div className="form-group row">
                   <label htmlFor="" className="col-sm-3 col-form-label" />
                   <div className="col-sm-9">
-                    { (this.props.status == 'Error') &&
-                      <div className="form-group row" style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
+                    { (this.props.status === 'Error') &&
+                      <div className="form-group row"
+                        style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}
+                      >
                         <div className="alert alert-dismissible alert-danger fade show" role="alert">
                           <small>{this.props.message.toString().split(',').join(', ')}</small>
                         </div>
@@ -152,13 +190,21 @@ export class ModifyCenter extends Component {
                 <div className="form-group row">
                   <label htmlFor="exampleInputFile" className="col-sm-3 col-form-label">Image</label>
                   <div className="col-sm-9">
-                    <input ref="image" type="file" className="form-control" name="image" id="exampleInputFile" aria-describedby="fileHelp" />
+                    <input ref="image" type="file" className="form-control"
+                      name="image"
+                      id="exampleInputFile"
+                      aria-describedby="fileHelp"
+                    />
                     <small id="fileHelp" className="form-text text-muted">( Optional )</small>
                   </div>
                 </div>
                 <div className="form-group row">
                   <div className="offset-sm-3 col-sm-9">
-                    <button type="submit" className="btn btn-sm btn-success" onClick={this.handleSubmit}><i className="fa fa-plus fa-lg" /> Update</button>
+                    <button type="submit"
+                      className="btn btn-sm btn-success"
+                      onClick={this.handleSubmit}>
+                      <i className="fa fa-plus fa-lg" /> Update
+                    </button>
                   </div>
                 </div>
               </form>
@@ -171,10 +217,24 @@ export class ModifyCenter extends Component {
   }
 }
 
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
 const mapDispatchToProps = (dispatch) => ({
   dispatch: (actionObject) => dispatch(actionObject)
 });
 
+/**
+ * Makes the necessary  redux state available in this
+ * component's props
+ *
+ * @param  {object} state global state
+ * @return {object} props object
+ */
 const mapStateToProps = (state) => ({
   status: state.centerReducer.status,
   message: state.centerReducer.message,

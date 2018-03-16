@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { history } from '../routes';
 
+/**
+ * React component for delete modal
+ */
 export default class DeleteModal extends Component {
-
+  /**
+   * React's method to render react component.
+   * Renders modal
+   *
+   * @return {object}
+   */
   deleteObject = () => {
     if (this.props.item === 'event') {
       let eventId = this.props.objectId;
@@ -37,9 +45,16 @@ export default class DeleteModal extends Component {
     }
   }
 
+  /**
+   * React's method to render react component.
+   * Renders delete modal
+   *
+   * @return {object}
+   */
   render() {
     return (
-      <div className="modal fade" id={`${this.props.objectId}`} tabIndex="-1" role="dialog" aria-labelledby="11Label" aria-hidden="true">
+      <div className="modal fade"
+        id={`${this.props.objectId}`} tabIndex="-1" role="dialog" aria-labelledby="11Label" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -54,7 +69,9 @@ export default class DeleteModal extends Component {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" className="btn btn-sm btn-danger" data-dismiss="modal" onClick={this.deleteObject}>Delete {this.props.item}</button>
+              <button type="button" className="btn btn-sm btn-danger" data-dismiss="modal" onClick={this.deleteObject}>
+                Delete {this.props.item}
+              </button>
             </div>
           </div>
         </div>
