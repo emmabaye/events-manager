@@ -1,12 +1,4 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
 import { addEvent } from '../actions/eventAction';
-
-const axiosMock = new MockAdapter(axios);
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
 
 const eventDetails = {
   title: 'Powerful Seminar',

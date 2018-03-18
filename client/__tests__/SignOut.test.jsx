@@ -1,10 +1,4 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import SignOut from '../components/SignOut.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 global.localStorage = {
   setItem: (str) => str

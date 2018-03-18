@@ -1,30 +1,21 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import ConnectedAddCenter, { AddCenter } from '../components/AddCenter.jsx';
 
-Enzyme.configure({ adapter: new Adapter() });
+
 
 describe('AddCenter Component', () => {
   const initialState = {
     centerReducer: {
-      status: "Error",
+      status: "Error", 
       message: "",
     }
   };
 
-  const middlewares = [thunk];
-  const mockStore = configureStore(middlewares);
+ 
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},

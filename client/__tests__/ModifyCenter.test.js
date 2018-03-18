@@ -1,12 +1,4 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import ConnectedModifyCenter, { ModifyCenter } from '../components/ModifyCenter.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('ModifyCenter Component', () => {
   const initialState = {
@@ -17,8 +9,6 @@ describe('ModifyCenter Component', () => {
     }
   };
 
-  const middlewares = [thunk];
-  const mockStore = configureStore(middlewares);
   const store = mockStore(initialState);
 
   global.localStorage = {

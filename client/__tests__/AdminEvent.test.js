@@ -1,9 +1,4 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import AdminEvent from '../components/AdminEvent.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('AdminEvent Component', () => {
   const props = {

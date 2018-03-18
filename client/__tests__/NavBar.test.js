@@ -1,9 +1,5 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import NavBar from '../components/NavBar.jsx';
 
-Enzyme.configure({ adapter: new Adapter() });
 global.localStorage = {
     getItem: (str) => {
       return str;

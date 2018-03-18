@@ -5,5 +5,6 @@ module.exports = {
         "<rootDir>/client/__mocks__/fileMock.js",
     "\\.(css|scss)$": "<rootDir>/client/__mocks__/styleMock.js"
   },
+  setupFiles: ["./jestSetup.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"]
 };
