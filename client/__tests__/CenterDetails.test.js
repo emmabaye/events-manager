@@ -1,38 +1,35 @@
 import ConnectedCenterDetails, { CenterDetails } from '../components/CenterDetails.jsx';
 
 describe('CenterDetails Component', () => {
-
   const initialState = {
     centerReducer: {
       status: "Error",
       message: "",
       center: {
-      data:[{
-        id: '1',
-        name: 'City Hall',
-        description: {
-          substr: () => {}
-        },
-        location: {
-          substr: () => {}
-        },
-        capacity:"500",
-        price:"50000",
-        image: "",
-        available:'false',
-        Events:[]
-      }]
-    }
+        data: [{
+          id: '1',
+          name: 'City Hall',
+          description: {
+            substr: () => {}
+          },
+          location: {
+            substr: () => {}
+          },
+          capacity: "500",
+          price: "50000",
+          image: "",
+          available: 'false',
+          Events: []
+        }]
+      }
     }
   };
 
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
@@ -40,7 +37,7 @@ describe('CenterDetails Component', () => {
     center: initialState.centerReducer.center,
     match: {
       params: {
-        id:'1'
+        id: '1'
       }
     },
   };
@@ -54,7 +51,5 @@ describe('CenterDetails Component', () => {
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedCenterDetails match={props.match}/></Provider>);
     });
-
   });
-
 });

@@ -1,19 +1,18 @@
-import Event  from '../components/Event.jsx';
+import Event from '../components/Event.jsx';
 
 describe('Event Component', () => {
-
   const props = {
-      eventDetails:{
-        id: '1',
-        title: 'Seminar',
-        description: "",
-        location: "",
-        time:"5:00",
-        date:'2020-01-01',
-        image: "",
-        Center:[]
-      }
-    };
+    eventDetails: {
+      id: '1',
+      title: 'Seminar',
+      description: "",
+      location: "",
+      time: "5:00",
+      date: '2020-01-01',
+      image: "",
+      Center: []
+    }
+  };
 
   describe('Event  should render self', () => {
     it('it should render for dumb component', () => {
@@ -21,5 +20,4 @@ describe('Event Component', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
-
 });

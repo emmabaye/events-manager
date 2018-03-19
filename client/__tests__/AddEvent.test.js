@@ -8,14 +8,12 @@ describe('AddEvent Component', () => {
     }
   };
 
-  
+
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},

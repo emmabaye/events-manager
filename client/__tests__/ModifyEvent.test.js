@@ -11,17 +11,15 @@ describe('ModifyEvent Component', () => {
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
     show: () => {},
     match: {
       params: {
-        id:"1"
+        id: "1"
       }
     }
   };

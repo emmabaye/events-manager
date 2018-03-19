@@ -1,18 +1,15 @@
 import ConnectedMyEvents, { MyEvents } from '../components/MyEvents.jsx';
 
 describe('MyEvents Component', () => {
-
   const initialState = {
-    myEvents:[{}]
+    myEvents: [{}]
   };
 
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
@@ -28,7 +25,5 @@ describe('MyEvents Component', () => {
     it('it should render component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedMyEvents /></Provider>);
     });
-
   });
-
 });

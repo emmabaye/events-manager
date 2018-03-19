@@ -3,9 +3,9 @@ import Center from '../components/Center.jsx';
 describe('Center Component', () => {
   const props = {
     centerDetails: {
-      id:"1",
+      id: "1",
       name: "",
-      description:{
+      description: {
         substr: () => {}
       },
       location: {

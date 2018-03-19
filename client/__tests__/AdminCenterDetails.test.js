@@ -1,38 +1,35 @@
 import ConnectedAdminCenterDetails, { CenterDetails } from '../components/AdminCenterDetails.jsx';
 
 describe('AdminCenterDetails Component', () => {
-
   const initialState = {
     centerReducer: {
       status: "Error",
       message: "",
       center: {
-      data:[{
-        id: '1',
-        name: 'City Hall',
-        description: {
-          substr: () => {}
-        },
-        location: {
-          substr: () => {}
-        },
-        capacity:"500",
-        price:"50000",
-        image: "",
-        available:'false',
-        Events:[]
-      }]
-    }
+        data: [{
+          id: '1',
+          name: 'City Hall',
+          description: {
+            substr: () => {}
+          },
+          location: {
+            substr: () => {}
+          },
+          capacity: "500",
+          price: "50000",
+          image: "",
+          available: 'false',
+          Events: []
+        }]
+      }
     }
   };
 
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
@@ -49,7 +46,5 @@ describe('AdminCenterDetails Component', () => {
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAdminCenterDetails /></Provider>);
     });
-
   });
-
 });

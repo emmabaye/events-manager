@@ -3,7 +3,7 @@ import AdminEvent from '../components/AdminEvent.jsx';
 describe('AdminEvent Component', () => {
   const props = {
     event: {
-      id:"1",
+      id: "1",
       title: "",
       description: "",
       location: "",

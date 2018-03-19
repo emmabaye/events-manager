@@ -23,9 +23,7 @@ const existingCenter = {
   image: '#noImage',
 };
 
-existingCenter.get = (id) => {
-  return '1';
-}
+existingCenter.get = (id) => '1';
 
 let centerForm = existingCenter;
 
@@ -40,7 +38,6 @@ global.localStorage = {
 
 
 describe('center actions', () => {
-
   describe('add  center action', () => {
     afterEach(() => {
       axiosMock.reset();
@@ -61,5 +58,4 @@ describe('center actions', () => {
       });
     });
   });
-
 });

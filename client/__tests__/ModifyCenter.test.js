@@ -5,17 +5,15 @@ describe('ModifyCenter Component', () => {
     centerReducer: {
       status: "Error",
       message: "",
-      center:""
+      center: ""
     }
   };
 
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},

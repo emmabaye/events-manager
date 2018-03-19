@@ -1,7 +1,6 @@
 import AdminPanelBody from '../components/AdminPanelBody.jsx';
 
 describe('AdminPanelBody Component', () => {
-
   const initialState = {
     modifyCenter: {
       visible: 'true'
@@ -14,16 +13,14 @@ describe('AdminPanelBody Component', () => {
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
     show: () => {},
     allCenters: {
-      data:[]
+      data: []
     }
   };
 
@@ -32,7 +29,6 @@ describe('AdminPanelBody Component', () => {
       const wrapper = shallow(<AdminPanelBody {...props} />);
       expect(wrapper).toMatchSnapshot();
     });
-
   });
 
   describe('AdminPanelBody handle events', () => {
@@ -43,9 +39,5 @@ describe('AdminPanelBody Component', () => {
       centerButton.simulate('click');
       addCenterButton.simulate('click');
     });
-
-
-
   });
-
 });

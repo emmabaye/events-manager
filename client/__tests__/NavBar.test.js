@@ -1,10 +1,8 @@
 import NavBar from '../components/NavBar.jsx';
 
 global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+  getItem: (str) => str
+};
 
 let setup = (page) => {
   const props = {

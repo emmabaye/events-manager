@@ -22,7 +22,6 @@ global.localStorage = {
 
 
 describe('event actions', () => {
-
   describe('add  event action', () => {
     afterEach(() => {
       axiosMock.reset();
@@ -43,5 +42,4 @@ describe('event actions', () => {
       });
     });
   });
-
 });

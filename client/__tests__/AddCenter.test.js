@@ -1,16 +1,15 @@
 import ConnectedAddCenter, { AddCenter } from '../components/AddCenter.jsx';
 
 
-
 describe('AddCenter Component', () => {
   const initialState = {
     centerReducer: {
-      status: "Error", 
+      status: "Error",
       message: "",
     }
   };
 
- 
+
   const store = mockStore(initialState);
 
   global.localStorage = {

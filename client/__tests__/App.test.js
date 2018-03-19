@@ -1,7 +1,6 @@
 import ConnectedApp, { App } from '../containers/App.js';
 
 describe('App Component', () => {
-
   const initialState = {
   };
 
@@ -18,7 +17,5 @@ describe('App Component', () => {
     it('it should render connected component', () => {
       const wrapper = shallow(<Provider store={store}><ConnectedApp /></Provider>);
     });
-
   });
-
 });
