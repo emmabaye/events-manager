@@ -44,6 +44,7 @@ describe('AdminCenters Component', () => {
 
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAdminCenters /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
   });
 });
