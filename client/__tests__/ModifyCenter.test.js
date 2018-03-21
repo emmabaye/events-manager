@@ -28,10 +28,12 @@ describe('ModifyCenter Component', () => {
 
     it('it should render for connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedModifyCenter /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<ModifyCenter {...props} status="Success" />);
+      expect(wrapper.length).toEqual(1);
     });
   });
 
