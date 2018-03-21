@@ -1,4 +1,4 @@
-import ConnectedAllCenters, { AllCenters } from '../components/Allcenters.jsx';
+import ConnectedAllCenters, { AllCenters } from '../components/AllCenters.jsx';
 
 describe('Allcenters Component', () => {
   const initialState = {
@@ -44,6 +44,7 @@ describe('Allcenters Component', () => {
 
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAllCenters /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
   });
 });
