@@ -41,7 +41,7 @@ describe('async actions', () => {
 
       const store = mockStore({});
 
-      return store.dispatch(signUp(signUpDetails)).then(() => {
+      return store.dispatch(signUp(signUpDetails)).then(() => { //eslint-disable-line max-nested-callbacks
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
@@ -64,7 +64,7 @@ describe('async actions', () => {
 
       const store = mockStore({});
 
-      return store.dispatch(signIn(signInDetails)).then(() => {
+      return store.dispatch(signIn(signInDetails)).then(() => { // eslint-disable-line max-nested-callbacks
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
