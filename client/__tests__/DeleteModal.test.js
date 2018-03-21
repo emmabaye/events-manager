@@ -2,7 +2,9 @@ import DeleteModal from '../components/DeleteModal.jsx';
 
 describe('DeleteModal Component', () => {
   global.localStorage = {
-    getItem: (str) => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzUsInJvbGUiOiJhZG1pbiIsImlhdCI6MTUxMjEyMzIyMSwiZXhwIjoxNTEyMjA5NjIxfQ.IwykmkkET5VmBvTEyPPXfMOq611ITQaoh-9wV11mJgE'
+    getItem: (str) => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' +
+    '.eyJpZCI6NzUsInJvbGUiOiJhZG1pbiIsImlhdCI6MTUxMjEyMzIyMSwiZXhwIjoxNTEyMjA5NjIxfQ' +
+    '.IwykmkkET5VmBvTEyPPXfMOq611ITQaoh-9wV11mJgE'
   };
 
   const props = {
