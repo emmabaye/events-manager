@@ -10,8 +10,6 @@ describe('AdminPanelBody Component', () => {
     }
   };
 
-  const store = mockStore(initialState);
-
   global.localStorage = {
     getItem: (str) => str
   };
