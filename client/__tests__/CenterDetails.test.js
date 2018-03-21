@@ -50,6 +50,7 @@ describe('CenterDetails Component', () => {
 
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedCenterDetails match={props.match}/></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
   });
 });
