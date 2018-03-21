@@ -13,6 +13,7 @@ describe('AdminPanel Component', () => {
 
     it('it should render component', () => {
       const wrapper = shallow(<AdminPanel />);
+      expect(wrapper.length).toEqual(1);
     });
   });
 });
