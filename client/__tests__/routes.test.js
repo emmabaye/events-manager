@@ -1,4 +1,4 @@
-import Routes, { history } from '../routes.js';
+import Routes from '../routes';
 
 describe('Routes Component', () => {
   describe('App form  should render self', () => {
