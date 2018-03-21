@@ -37,7 +37,7 @@ describe('event actions', () => {
 
       const store = mockStore({});
 
-      return store.dispatch(addEvent(eventDetails)).then(() => {
+      return store.dispatch(addEvent(eventDetails)).then(() => { //eslint-disable-line max-nested-callbacks
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
