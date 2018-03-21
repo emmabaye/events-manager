@@ -1,4 +1,4 @@
-import ConnectedApp, { App } from '../containers/App.js';
+import ConnectedApp, { App } from '../containers/App';
 
 describe('App Component', () => {
   const initialState = {
@@ -16,6 +16,7 @@ describe('App Component', () => {
 
     it('it should render connected component', () => {
       const wrapper = shallow(<Provider store={store}><ConnectedApp /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
   });
 });
