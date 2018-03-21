@@ -1,4 +1,4 @@
-import { getAllCenters, addCenter, getCenter, modifyCenter } from '../actions/centerAction';
+import { addCenter } from '../actions/centerAction';
 
 const centerDetails = {
   name: 'City Hall',
@@ -24,8 +24,6 @@ const existingCenter = {
 };
 
 existingCenter.get = (id) => '1';
-
-let centerForm = existingCenter;
 
 const fulfilledResponse = {
   data: {
@@ -53,7 +51,7 @@ describe('center actions', () => {
 
       const store = mockStore({});
 
-      return store.dispatch(addCenter(centerDetails)).then(() => {
+      return store.dispatch(addCenter(centerDetails)).then(() => { //eslint-disable-line max-nested-callbacks
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
