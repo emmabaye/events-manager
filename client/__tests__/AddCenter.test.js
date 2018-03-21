@@ -29,10 +29,13 @@ describe('AddCenter Component', () => {
 
     it('it should render for connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAddCenter /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<AddCenter {...props} status="Success" />);
+      console.log("WRAPPER ", wrapper.prop);
+      expect(wrapper.length).toEqual(1);
     });
   });
 
