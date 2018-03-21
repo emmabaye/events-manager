@@ -45,6 +45,7 @@ describe('AdminCenterDetails Component', () => {
 
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAdminCenterDetails /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
   });
 });
