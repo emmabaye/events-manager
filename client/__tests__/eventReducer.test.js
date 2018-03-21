@@ -1,7 +1,8 @@
 import reducer from '../reducers/eventReducer';
-import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED } from '../types/event';
-import { GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED } from '../types/event';
-import { MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED } from '../types/event';
+import { ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED,
+  GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED,
+  MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED
+} from '../types/event';
 
 
 const initState = {};
