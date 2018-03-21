@@ -21,6 +21,7 @@ describe('AdminEvent Component', () => {
 
   it('it should render AdminEvent component mounted', () => {
     const wrapper = mount(<AdminEvent {...props} />);
+    expect(wrapper.length).toEqual(1);
   });
 
   it('it should handle onClick event', () => {
