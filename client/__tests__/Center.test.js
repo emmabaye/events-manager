@@ -26,6 +26,7 @@ describe('Center Component', () => {
   it('it should render Center component', () => {
     props.centerDetails.available = 'false';
     const wrapper = mount(<Center {...props} />);
+    expect(wrapper.length).toEqual(1);
   });
 
   it('it should handle onClick event', () => {
