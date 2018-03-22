@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/emmabaye/events-manager.svg?branch=development)](https://travis-ci.org/emmabaye/events-manager)
 [![Coverage Status](https://coveralls.io/repos/github/emmabaye/events-manager/badge.svg?branch=development)](https://coveralls.io/github/emmabaye/events-manager?branch=development)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d2f4089952b77ab60b97/maintainability)](https://codeclimate.com/github/emmabaye/events-manager/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d2f4089952b77ab60b97/test_coverage)](https://codeclimate.com/github/emmabaye/events-manager/test_coverage)
 
 
 Application for managing event centers. This app will help you accept applications
