@@ -1,12 +1,4 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import ConnectedSignUpForm, { SignUpForm } from '../components/SignUpForm.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('SignUpForm Component', () => {
   const initialState = {
@@ -16,8 +8,6 @@ describe('SignUpForm Component', () => {
     }
   };
 
-  const middlewares = [thunk];
-  const mockStore = configureStore(middlewares);
   const store = mockStore(initialState);
 
   const props = {
@@ -36,10 +26,12 @@ describe('SignUpForm Component', () => {
 
     it('it should render for connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedSignUpForm /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<SignUpForm {...props} status="Success" />);
+      expect(wrapper.length).toEqual(1);
     });
   });
 

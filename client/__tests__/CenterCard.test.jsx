@@ -1,16 +1,11 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import CenterCard from '../components/CenterCard.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('CenterCard Component', () => {
   const props = {
     centerDetails: {
-      id:"1",
+      id: "1",
       name: "",
-      description:{
+      description: {
         substr: () => {}
       },
       location: {
@@ -31,6 +26,7 @@ describe('CenterCard Component', () => {
   it('it should render CenterCard component', () => {
     props.centerDetails.available = 'false';
     const wrapper = mount(<CenterCard {...props} />);
+    expect(wrapper.length).toEqual(1);
   });
 
   it('it should handle onClick event', () => {

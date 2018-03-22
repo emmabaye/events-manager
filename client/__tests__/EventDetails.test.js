@@ -1,41 +1,28 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import ConnectedEventDetails, { EventDetails } from '../components/EventDetails.jsx';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('EventDetails Component', () => {
-
   const initialState = {
     eventReducer: {
       status: "Error",
       message: "",
-      event:{
+      event: {
         id: '1',
         title: 'Seminar',
         description: "",
         location: "",
-        time:"5:00",
-        date:'2020-01-01',
+        time: "5:00",
+        date: '2020-01-01',
         image: "",
-        Center:[]
+        Center: []
       }
     }
   };
 
-  const middlewares = [thunk];
-  const mockStore = configureStore(middlewares);
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
@@ -43,7 +30,7 @@ describe('EventDetails Component', () => {
     event: initialState.eventReducer.event,
     match: {
       params: {
-        id:'1'
+        id: '1'
       }
     },
   };
@@ -56,8 +43,7 @@ describe('EventDetails Component', () => {
 
     it('it should render connected component', () => {
       const wrapper = mount(<Provider store={store}><ConnectedEventDetails match={props.match}/></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
-
   });
-
 });

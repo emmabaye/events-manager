@@ -1,12 +1,4 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-import { getAllCenters, addCenter, getCenter, modifyCenter } from '../actions/centerAction';
-
-const axiosMock = new MockAdapter(axios);
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+import { addCenter } from '../actions/centerAction';
 
 const centerDetails = {
   name: 'City Hall',
@@ -31,11 +23,7 @@ const existingCenter = {
   image: '#noImage',
 };
 
-existingCenter.get = (id) => {
-  return '1';
-}
-
-let centerForm = existingCenter;
+existingCenter.get = (id) => '1';
 
 const fulfilledResponse = {
   data: {
@@ -48,7 +36,6 @@ global.localStorage = {
 
 
 describe('center actions', () => {
-
   describe('add  center action', () => {
     afterEach(() => {
       axiosMock.reset();
@@ -64,10 +51,9 @@ describe('center actions', () => {
 
       const store = mockStore({});
 
-      return store.dispatch(addCenter(centerDetails)).then(() => {
+      return store.dispatch(addCenter(centerDetails)).then(() => { //eslint-disable-line max-nested-callbacks
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });
-
 });

@@ -1,14 +1,9 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import AdminEvent from '../components/AdminEvent.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('AdminEvent Component', () => {
   const props = {
     event: {
-      id:"1",
+      id: "1",
       title: "",
       description: "",
       location: "",
@@ -26,6 +21,7 @@ describe('AdminEvent Component', () => {
 
   it('it should render AdminEvent component mounted', () => {
     const wrapper = mount(<AdminEvent {...props} />);
+    expect(wrapper.length).toEqual(1);
   });
 
   it('it should handle onClick event', () => {

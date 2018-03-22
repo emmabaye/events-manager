@@ -1,12 +1,4 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import ConnectedAddEvent, { AddEvent } from '../components/AddEvent.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('AddEvent Component', () => {
   const initialState = {
@@ -16,15 +8,12 @@ describe('AddEvent Component', () => {
     }
   };
 
-  const middlewares = [thunk];
-  const mockStore = configureStore(middlewares);
+
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
@@ -39,10 +28,12 @@ describe('AddEvent Component', () => {
 
     it('it should render for connected component', () => {
       const wrapper = shallow(<Provider store={store}><ConnectedAddEvent /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<AddEvent {...props} status="Success" />);
+      expect(wrapper.length).toEqual(1);
     });
   });
 

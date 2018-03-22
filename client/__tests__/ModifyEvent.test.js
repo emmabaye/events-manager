@@ -1,12 +1,4 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 import ConnectedModifyEvent, { ModifyEvent } from '../components/ModifyEvent.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('ModifyEvent Component', () => {
   const initialState = {
@@ -16,22 +8,18 @@ describe('ModifyEvent Component', () => {
     }
   };
 
-  const middlewares = [thunk];
-  const mockStore = configureStore(middlewares);
   const store = mockStore(initialState);
 
   global.localStorage = {
-    getItem: (str) => {
-      return str;
-    }
-  }
+    getItem: (str) => str
+  };
 
   const props = {
     dispatch: () => {},
     show: () => {},
     match: {
       params: {
-        id:"1"
+        id: "1"
       }
     }
   };
@@ -44,10 +32,12 @@ describe('ModifyEvent Component', () => {
 
     it('it should render for connected component', () => {
       const wrapper = shallow(<Provider store={store}><ConnectedModifyEvent /></Provider>);
+      expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<ModifyEvent {...props} status="Success" />);
+      expect(wrapper.length).toEqual(1);
     });
   });
 

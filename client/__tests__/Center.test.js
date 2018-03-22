@@ -1,16 +1,11 @@
-import React, { Components } from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import Center from '../components/Center.jsx';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Center Component', () => {
   const props = {
     centerDetails: {
-      id:"1",
+      id: "1",
       name: "",
-      description:{
+      description: {
         substr: () => {}
       },
       location: {
@@ -31,6 +26,7 @@ describe('Center Component', () => {
   it('it should render Center component', () => {
     props.centerDetails.available = 'false';
     const wrapper = mount(<Center {...props} />);
+    expect(wrapper.length).toEqual(1);
   });
 
   it('it should handle onClick event', () => {
