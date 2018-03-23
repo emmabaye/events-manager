@@ -328,6 +328,46 @@ describe('API endpoints /api/v1/events', () => {
 
   );
 
+   // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('venue', event.venue)
+      .field('description', 'undefined')
+      .field('date', event.date)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', "")
+      .field('venue', event.venue)
+      .field('description', "")
+      .field('date', "")
+      .field('time', "")
+      .field('centerId', "")
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+
 
   // PUT - update event
   it(
