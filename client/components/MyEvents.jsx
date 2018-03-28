@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import Nanobar from 'nanobar';
 import NavBar from './NavBar.jsx';
 import Event from './Event.jsx';
 import { history } from '../routes';
@@ -65,6 +66,8 @@ export class MyEvents extends Component {
     }
 
     let userId = jwtDecode(token).id;
+    let nanobar = new Nanobar();
+    nanobar.go(40);
 
     axios({
       method: 'GET',
@@ -72,9 +75,11 @@ export class MyEvents extends Component {
       withCredentials: true,
     })
       .then((response) => {
+        nanobar.go(100);
         this.setState({ myEvents: response.data.data.Events });
       })
       .catch((err) => {
+        nanobar.go(0);
         console.log(err.response);
       });
   }
