@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Nanobar from 'nanobar';
 import {
   ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED,
   GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED,
@@ -12,6 +13,8 @@ import {
  * @return {object} Promise
  */
 export const addEvent = (eventDetails) => (dispatch) => {
+  let nanobar = new Nanobar();
+  nanobar.go(40);
   dispatch({ type: ADD_EVENT });
   return axios({
     method: 'post',
@@ -21,9 +24,11 @@ export const addEvent = (eventDetails) => (dispatch) => {
     withCredentials: true
   })
     .then((response) => {
+      nanobar.go(100)
       dispatch({ type: ADD_EVENT_FULFILLED, payload: response.data });
     })
     .catch((err) => {
+      nanobar.go(0)
       console.log(err);
       dispatch({ type: ADD_EVENT_REJECTED, payload: err.response.data });
     });
@@ -58,6 +63,8 @@ export const getEvent = (eventId) => (dispatch) => {
  * @return {object} Promise
  */
 export const modifyEvent = (eventForm) => (dispatch) => {
+  let nanobar = new Nanobar();
+  nanobar.go(40);
   dispatch({ type: MODIFY_EVENT });
   return axios({
     method: 'put',
@@ -67,9 +74,11 @@ export const modifyEvent = (eventForm) => (dispatch) => {
     withCredentials: true
   })
     .then((response) => {
+      nanobar.go(100);
       dispatch({ type: MODIFY_EVENT_FULFILLED, payload: response.data });
     })
     .catch((err) => {
+      nanobar.go(0);
       console.log(err);
       dispatch({ type: MODIFY_EVENT_REJECTED, payload: err.response.data });
     });
