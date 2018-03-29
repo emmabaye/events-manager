@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Nanobar from 'nanobar';
 import { GET_ALL_CENTERS, GET_ALL_CENTERS_FULFILLED, GET_ALL_CENTERS_REJECTED,
   ADD_CENTER, ADD_CENTER_FULFILLED, ADD_CENTER_REJECTED,
   GET_CENTER, GET_CENTER_FULFILLED, GET_CENTER_REJECTED,
@@ -10,7 +11,10 @@ import { GET_ALL_CENTERS, GET_ALL_CENTERS_FULFILLED, GET_ALL_CENTERS_REJECTED,
  * @return {object}   Promise
  */
 export const getAllCenters = () => (dispatch) => {
+  let nanobar = new Nanobar();
+  nanobar.go(40);
   dispatch({ type: GET_ALL_CENTERS });
+
   return axios({
     method: 'GET',
     url: '/api/v1/centers',
@@ -18,9 +22,11 @@ export const getAllCenters = () => (dispatch) => {
     withCredentials: true,
   })
     .then((response) => {
+      nanobar.go(100);
       dispatch({ type: GET_ALL_CENTERS_FULFILLED, payload: response.data });
     })
     .catch((err) => {
+      nanobar.go(0);
       dispatch({ type: GET_ALL_CENTERS_REJECTED, payload: err });
     });
 };
@@ -32,7 +38,10 @@ export const getAllCenters = () => (dispatch) => {
  * @return {object} Promise
  */
 export const addCenter = (centerForm) => (dispatch) => {
+  let nanobar = new Nanobar();
+  nanobar.go(40);
   dispatch({ type: ADD_CENTER });
+
   return axios({
     method: 'post',
     url: '/api/v1/centers',
@@ -41,9 +50,11 @@ export const addCenter = (centerForm) => (dispatch) => {
     withCredentials: true,
   })
     .then((response) => {
+      nanobar.go(100);
       dispatch({ type: ADD_CENTER_FULFILLED, payload: response.data });
     })
     .catch((err) => {
+      nanobar.go(0);
       console.log("ERROR ", err);
       dispatch({ type: ADD_CENTER_REJECTED, payload: err.response.data });
     });
@@ -87,7 +98,10 @@ export const getCenter = (centerId) => (dispatch) => {
  * @return {object}   Promise
  */
 export const modifyCenter = (centerForm) => (dispatch) => {
+  let nanobar = new Nanobar();
+  nanobar.go(40);
   dispatch({ type: MODIFY_CENTER });
+
   return axios({
     method: 'put',
     url: `/api/v1/centers/${centerForm.get('id')}`,
@@ -96,9 +110,11 @@ export const modifyCenter = (centerForm) => (dispatch) => {
     withCredentials: true
   })
     .then((response) => {
+      nanobar.go(100);
       dispatch({ type: MODIFY_CENTER_FULFILLED, payload: response.data });
     })
     .catch((err) => {
+      nanobar.go(0);
       console.log("ERROR ", err);
       dispatch({ type: MODIFY_CENTER_REJECTED, payload: err.response.data });
     });
