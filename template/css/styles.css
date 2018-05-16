@@ -20,6 +20,13 @@ body {
 	font-size: 150%;
 }
 
+.navbar li:hover {
+	border-width: 2px;
+	border-color: white;
+	border-style: solid;
+	border-spacing: 2px
+}
+
 
 /* Carousel */
 .carousel {

@@ -67,5 +67,5 @@ build/
 e2e/bin
 e2e/reports
 
-
-
+#.DS_Store
+*.DS_Store

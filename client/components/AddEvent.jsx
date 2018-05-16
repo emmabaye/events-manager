@@ -3,6 +3,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Nanobar from 'nanobar';
 import NavBar from "./NavBar.jsx";
 import { addEvent } from '../actions/eventAction';
 import { history } from '../routes';
@@ -50,15 +51,20 @@ export class AddEvent extends Component {
    * @return {undefined}
    */
   componentDidMount() {
+    let nanobar = new Nanobar();
+    nanobar.go(40);
+
     axios({
       method: 'GET',
       url: '/api/v1/centers',
       withCredentials: true,
     })
       .then((response) => {
+        nanobar.go(100);
         this.setState({ centers: response.data.data });
       })
       .catch((err) => {
+        nanobar.go(0);
         console.log(err.response);
       });
   }

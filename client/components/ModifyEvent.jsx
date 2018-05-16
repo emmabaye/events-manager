@@ -3,6 +3,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Nanobar from 'nanobar';
 import NavBar from "./NavBar.jsx";
 import { getEvent, modifyEvent } from '../actions/eventAction';
 import { history } from '../routes';
@@ -61,12 +62,16 @@ export class ModifyEvent extends Component {
    */
   componentDidUpdate() {
     if (Object.keys(this.state.event).length === 0 && this.state.centers.length === 0) {
+      let nanobar = new Nanobar();
+      nanobar.go(40);
+
       axios({
         method: 'GET',
         url: '/api/v1/centers',
         withCredentials: true,
       })
         .then((response) => {
+          nanobar.go(100);
           this.setState({
             event: {
               ...this.props.event,
@@ -76,6 +81,7 @@ export class ModifyEvent extends Component {
           });
         })
         .catch((err) => {
+          nanobar.go(0);
           console.log(err.response);
         });
     }
