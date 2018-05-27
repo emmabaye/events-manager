@@ -157,6 +157,33 @@ class EventController {
   }
 
   /**
+   * Get all events for a specific user
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getUserEvents(req, res) {
+    const limit = 9;
+    const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+      0 : (req.query.page - 1) * limit;
+    Event.findAll({
+      where: { userId: req.userId },
+      limit: limit,
+      offset: offset
+    }).then((events) => {
+      if (!events) {
+        return res.status(404).send({ status: 'Error', message: 'Events not found' });
+      }
+
+      res.status(200).send({
+        status: 'Success',
+        message: 'Events found',
+        data: events
+      });
+    });
+  }
+
+  /**
    * Delete an event
    * @param {object} req The request body of the request.
    * @param {object} res The response body.
@@ -208,7 +235,7 @@ class EventController {
    */
   static cancelEvent(req, res) {
     Event.update({
-      venue: 'NOT AVAILABLE'
+      status: 'cancelled'
     }, {
       where: {
         id: req.params.eventId

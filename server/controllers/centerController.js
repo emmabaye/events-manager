@@ -2,6 +2,7 @@ import cloudinary from '../config/cloudinary';
 import Model from '../models';
 
 const { Center } = Model;
+const { Event } = Model;
 
 /** Class Center Controller functions. */
 class CenterController {
@@ -71,6 +72,38 @@ class CenterController {
   }
 
   /**
+   * Get events for a center
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getCenterEvents(req, res) {
+    const limit = 9;
+    const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+      0 : (req.query.page - 1) * limit;
+    Event.findAll({
+      where: { centerId: req.params.centerId },
+      limit: limit,
+      offset: offset
+    })
+      .then((events) => {
+        if (!events) {
+          res.status(404).send({
+            status: 'Error',
+            message: ' Events not found',
+          });
+        }
+
+        res.status(200).send({
+          status: 'Success',
+          message: 'Events found',
+          data: events,
+        });
+      });
+  }
+
+  /**
    * Get all centers
    *
    * @param {object} req The request body of the request.
@@ -78,7 +111,13 @@ class CenterController {
    * @returns {object} res.
    */
   static getAllCenters(req, res) {
-    Center.findAll({})
+    const limit = 9;
+    const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+      0 : (req.query.page - 1) * limit;
+    Center.findAll({
+      limit: limit,
+      offset: offset
+    })
       .then((centers) => {
         if (!centers) {
           res.status(404).send({
@@ -98,6 +137,7 @@ class CenterController {
         });
       });
   }
+
 
   /**
    * Update center details

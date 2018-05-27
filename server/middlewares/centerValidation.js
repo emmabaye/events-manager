@@ -6,6 +6,8 @@
  * @returns {object} next
  */
 const centerValidation = (req, res, next) => {
+  console.log("BODY ", req.body);
+  console.log("PRICE ", req.body.price);
   let errors = [];
   let fields = ['Name', 'Description', 'Location', 'Capacity', 'Facilities', 'Price'];
 

@@ -179,6 +179,19 @@ describe('API endpoints /api/v1/login', () => {
 
   );
 
+  // POST - update user details
+  it(
+    'Should return 403, Should update user details',
+    () => request(app)
+      .put(`/api/v1/users/${user.id}`)
+      .set('x-access-token', userToken)
+      .send({ role: 'admin' })
+      .then((res) => {
+        expect(res).to.have.status(403);
+      }),
+
+  );
+
   // POST - should fail authentication, invalid password
   it(
     'Should return 401, Should fail authentication, invalid password',
@@ -328,7 +341,36 @@ describe('API endpoints /api/v1/events', () => {
 
   );
 
-   // POST - create event
+  // POST - get events for a specific user
+  it(
+    'Should get events for a user',
+    () => request(app)
+      .get(`/api/v1/events/user?page=1`)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res.body.data).to.be.an('array');
+        expect(res).to.be.json;
+      })
+
+  );
+
+
+  // POST - get events for a specific center
+  it(
+    'Should get events for a center',
+    () => request(app)
+      .get(`/api/v1/events/centers/${center.id}/?page=1`)
+      .set('x-access-token', adminToken)
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res.body.data).to.be.an('array');
+        expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
   it(
     'Should create event - return 400',
     () => request(app)
