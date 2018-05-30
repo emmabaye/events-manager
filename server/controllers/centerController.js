@@ -1,5 +1,6 @@
 import cloudinary from '../config/cloudinary';
 import Model from '../models';
+import page from '../utils/page';
 
 const { Center } = Model;
 const { Event } = Model;
@@ -82,7 +83,7 @@ class CenterController {
     const limit = 9;
     const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
       0 : (req.query.page - 1) * limit;
-    Event.findAll({
+    Event.findAndCountAll({
       where: { centerId: req.params.centerId },
       limit: limit,
       offset: offset
@@ -95,10 +96,17 @@ class CenterController {
           });
         }
 
+        events.page = page(offset, limit, events.count);
+
         res.status(200).send({
           status: 'Success',
           message: 'Events found',
           data: events,
+        });
+      }).catch((e) => {
+        res.status(500).send({
+          status: 'Error',
+          message: 'Server Error',
         });
       });
   }
@@ -114,7 +122,7 @@ class CenterController {
     const limit = 9;
     const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
       0 : (req.query.page - 1) * limit;
-    Center.findAll({
+    Center.findAndCountAll({
       limit: limit,
       offset: offset
     })
@@ -125,6 +133,9 @@ class CenterController {
             message: 'Centers not found',
           });
         }
+
+        centers.page = page(offset, limit, centers.count);
+
         res.status(200).send({
           status: 'Success',
           message: 'Centers found',

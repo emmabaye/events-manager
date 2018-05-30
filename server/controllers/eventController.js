@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer';
 import moment from 'moment';
 import cloudinary from '../config/cloudinary';
 import Model from '../models';
+import page from '../utils/page';
 
 const { Event } = Model;
 
@@ -166,19 +167,27 @@ class EventController {
     const limit = 9;
     const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
       0 : (req.query.page - 1) * limit;
-    Event.findAll({
+    Event.findAndCountAll({
       where: { userId: req.userId },
       limit: limit,
       offset: offset
     }).then((events) => {
       if (!events) {
+        console.log("ALL USER EVENTS ", events);
         return res.status(404).send({ status: 'Error', message: 'Events not found' });
       }
+
+      events.page = page(offset, limit, events.count);
 
       res.status(200).send({
         status: 'Success',
         message: 'Events found',
         data: events
+      });
+    }).catch((e) => {
+      res.status(500).send({
+        status: 'Error',
+        message: 'Server Error',
       });
     });
   }
