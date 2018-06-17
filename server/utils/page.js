@@ -8,6 +8,5 @@ export default (offset, limit, count) => {
   page.previousPage = (page.currentPage - 1) > 0 ?
     page.currentPage - 1 : "";
   page.nextPage = (page.currentPage < page.lastPage) ? page.currentPage + 1 : page.lastPage;
-
   return page;
 };
