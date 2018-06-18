@@ -7,17 +7,17 @@ import { GET_ALL_CENTERS, GET_ALL_CENTERS_FULFILLED, GET_ALL_CENTERS_REJECTED,
 
 /**
  * GET request to get all centers
- *
+ * @param {integer} page page from pagination
  * @return {object}   Promise
  */
-export const getAllCenters = () => (dispatch) => {
+export const getAllCenters = (page) => (dispatch) => {
   let nanobar = new Nanobar();
   nanobar.go(40);
   dispatch({ type: GET_ALL_CENTERS });
-
+  console.log("PAGE ",page);
   return axios({
     method: 'GET',
-    url: '/api/v1/centers',
+    url: `/api/v1/centers?page=${page}`,
     headers: { 'x-access-token': localStorage.getItem('x-access-token') },
     withCredentials: true,
   })

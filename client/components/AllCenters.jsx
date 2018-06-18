@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Pagination from './Pagination.jsx';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import CenterCard from './CenterCard.jsx';
@@ -21,8 +22,9 @@ export class AllCenters extends Component {
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
-
-    this.props.dispatch(getAllCenters());
+    let page = 1;
+    console.log("COMPONENT DID MOUNT");
+    this.props.dispatch(getAllCenters(page));
   }
 
   /**
@@ -32,42 +34,30 @@ export class AllCenters extends Component {
    */
   render() {
     console.log("PROPS ALLCENTERS ", this.props.allCenters.data);
+    if (this.props.allCenters.data.rows === undefined) {
+      return null;
+    }
     return (
       <div>
         <NavBar page="AllCenters" />
         <div id="centers" className="panel centers">
           <div id="events" className="container events">
             <div className="row event-row">
-
-              {/*
-                (this.props.allCenters.data.map((center) => <CenterCard key={center.id} centerDetails={center} />))
-              */
+              {
+                (this.props.allCenters.data.rows.map((center) => <CenterCard key={center.id} centerDetails={center} />))
               }
             </div>
           </div>
         </div>
-        {
-          
-          
-        }
-        
-        <nav aria-label="...">
-          <ul className="pagination">
-            <li className="page-item disabled">
-              <a className="page-link" href="#" tabIndex="-1">Previous</a>
-            </li>
-            <li className="page-item"><a className="page-link" href="#">1</a></li>
-            <li className="page-item active">
-              <a className="page-link" href="#">2 <span className="sr-only">(current)</span></a>
-            </li>
-            <li className="page-item"><a className="page-link" href="#">3</a></li>
-            <li className="page-item">
-              <a className="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
 
-
+        <Pagination
+          firstPage={this.props.allCenters.data.page.firstPage}
+          currentPage={this.props.allCenters.data.page.currentPage}
+          previousPage={this.props.allCenters.data.page.previousPage}
+          nextPage={this.props.allCenters.data.page.nextPage}
+          lastPage={this.props.allCenters.data.page.lastPage}
+          getPage={this.props.dispatch}
+        />
         <Footer />
       </div>
     );
