@@ -6,6 +6,7 @@ import Nanobar from 'nanobar';
 import NavBar from './NavBar.jsx';
 import Pagination from './Pagination.jsx';
 import Event from './Event.jsx';
+import { getUserEvents } from '../actions/eventAction';
 import { history } from '../routes';
 
 /**
@@ -70,22 +71,7 @@ export class MyEvents extends Component {
     let nanobar = new Nanobar();
     nanobar.go(40);
 
-    axios({
-      method: 'GET',
-      url: '/api/v1/events/user',
-      withCredentials: true,
-      headers: { "x-access-token": localStorage.getItem('x-access-token') }
-    })
-      .then((response) => {
-        nanobar.go(100);
-        this.setState({ myEvents: response.data.data });
-        console.log("MY EVENTS ", response.data.data);
-        console.log("COMPONENT DID UPDATE ", this.componentDidUpdate());
-      })
-      .catch((err) => {
-        nanobar.go(0);
-        console.log(err.response);
-      });
+    this.props.dispatch(getUserEvents(1));
   }
 
   /**
@@ -93,26 +79,17 @@ export class MyEvents extends Component {
    *
    * @return {undefined}
    */
-  componentDidUpdate() {
-    let token = localStorage.getItem('x-access-token');
-    let decoded = jwtDecode(token);
-    let userId = decoded.id;
-
-    axios({
-      method: 'GET',
-      url: `/api/v1/events/user`,
-      withCredentials: true,
-      headers: { "x-access-token": localStorage.getItem('x-access-token') }
-    })
-      .then((response) => {
-        if (this.state.myEvents.length > response.data.data.Events.length) {
-          this.setState({ myEvents: response.data.data.Events });
-        }
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-
+  componentDidUpdate(prevProps) {
+    if(prevProps.myEvents === undefined){
+      return null;
+    }
+    console.log("PREVIOUS PROPS ", prevProps);
+    let { currentPage } = this.props.myEvents.data.page;
+    let previousEventsCount = prevProps.myEvents.data.count;
+    let currentEventsCount = this.props.myEvents.data.count;
+    if (previousEventsCount !== currentEventsCount) {
+     // this.props.dispatch(getUserEvents(currentPage));
+    }
   }
 
   /**
@@ -122,23 +99,44 @@ export class MyEvents extends Component {
    * @return {object}
    */
   render() {
-    if (this.state.myEvents.rows === undefined) {
+    if (this.props.myEvents === undefined) {
       return null;
     }
+    console.log("MY EVENTS ", this.props.myEvents.data);
     return (
       <div>
         <NavBar page="MyEvents" auth/>
         <div className="container events">
           <div className="row event-row">
             {
-              (this.state.myEvents.rows.map((event) => <Event key={event.id} eventDetails={event} />))
+              (this.props.myEvents.data.rows.map((event) => <Event key={event.id} eventDetails={event} />))
             }
           </div>
+          <Pagination
+            firstPage={this.props.myEvents.data.page.firstPage}
+            currentPage={this.props.myEvents.data.page.currentPage}
+            previousPage={this.props.myEvents.data.page.previousPage}
+            nextPage={this.props.myEvents.data.page.nextPage}
+            lastPage={this.props.myEvents.data.page.lastPage}
+            dispatch={this.props.dispatch}
+            getItems={getUserEvents}
+          />
         </div>
       </div>
     );
   }
 }
+
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: (actionObject) => dispatch(actionObject)
+});
 
 /**
  * Makes the necessary  redux state available in this
@@ -148,11 +146,11 @@ export class MyEvents extends Component {
  * @return {object} props object
  */
 const mapStateToProps = (state) => ({
-  allState: state.userReducer
+  myEvents: state.eventReducer.userEvents
 });
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(MyEvents);
 

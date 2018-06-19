@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { history } from '../routes';
+import { getUserEvents } from '../actions/eventAction';
+import { getAllCenters } from '../actions/centerAction';
 
 /**
  * React component for delete modal
  */
-export default class DeleteModal extends Component {
+export class DeleteModal extends Component {
   /**
    * React's method to render react component.
    * Renders modal
@@ -22,7 +25,9 @@ export default class DeleteModal extends Component {
         withCredentials: true,
       })
         .then((response) => {
-          history.push("/myevents");
+          console.log("DELETE SUCCESS");
+          let { currentPage } = this.props.myEvents.data.page;
+          this.props.dispatch(getUserEvents(currentPage));
         })
         .catch((err) => {
 
@@ -36,8 +41,11 @@ export default class DeleteModal extends Component {
         withCredentials: true,
       })
         .then((response) => {
-          this.props.show('addCenter'); // to trigger rerendering of AdminCenters
-          return this.props.show('centers');
+          console.log("DELETE SUCCESS");
+          let { currentPage } = this.props.allCenters.data.page;
+          this.props.dispatch(getAllCenters(currentPage));
+          //this.props.show('addCenter'); // to trigger rerendering of AdminCenters
+          //return this.props.show('centers');
         })
         .catch((err) => {
           console.log(err);
@@ -80,3 +88,31 @@ export default class DeleteModal extends Component {
     );
   }
 }
+
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: (actionObject) => dispatch(actionObject)
+});
+
+/**
+ * Makes the necessary  redux state available in this
+ * component's props
+ *
+ * @param  {object} state global state
+ * @return {object} props object
+ */
+const mapStateToProps = (state) => ({
+  myEvents: state.eventReducer.userEvents,
+  allCenters: state.centerReducer.allCenters
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DeleteModal);

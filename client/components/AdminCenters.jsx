@@ -28,7 +28,6 @@ export class AdminCenters extends Component {
     if (this.props.allCenters.data.rows === undefined) {
       return null;
     }
-    console.log("ALL CENTERS ", this.props.allCenters.data);
     return (
       <div id="centers" className="panel centers">
         <div id="events" className="container events">
@@ -40,14 +39,14 @@ export class AdminCenters extends Component {
             }
           </div>
           <Pagination
-          firstPage={this.props.allCenters.data.page.firstPage}
-          currentPage={this.props.allCenters.data.page.currentPage}
-          previousPage={this.props.allCenters.data.page.previousPage}
-          nextPage={this.props.allCenters.data.page.nextPage}
-          lastPage={this.props.allCenters.data.page.lastPage}
-          dispatch={this.props.dispatch}
-          getItems={getAllCenters}
-        />
+            firstPage={this.props.allCenters.data.page.firstPage}
+            currentPage={this.props.allCenters.data.page.currentPage}
+            previousPage={this.props.allCenters.data.page.previousPage}
+            nextPage={this.props.allCenters.data.page.nextPage}
+            lastPage={this.props.allCenters.data.page.lastPage}
+            dispatch={this.props.dispatch}
+            getItems={getAllCenters}
+          />
         </div>
       </div>
     );

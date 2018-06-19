@@ -1,7 +1,8 @@
 import {
   ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED,
   GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED,
-  MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED
+  MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED,
+  GET_USER_EVENTS, GET_USER_EVENTS_FULFILLED, GET_USER_EVENTS_REJECTED
 } from '../types/event';
 
 const initState = {
@@ -83,6 +84,23 @@ export default (state = initState, action) => {
       ...state,
       ...action.payload,
       status: 'Error'
+    };
+  }
+  case GET_USER_EVENTS: {
+    return {
+      ...state
+    };
+  }
+  case GET_USER_EVENTS_FULFILLED: {
+    console.log("SUCCESS ", action.payload);
+    return {
+      ...state,
+      userEvents: action.payload
+    };
+  }
+  case GET_USER_EVENTS_REJECTED: {
+    return {
+      ...state
     };
   }
   default:

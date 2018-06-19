@@ -3,8 +3,35 @@ import Nanobar from 'nanobar';
 import {
   ADD_EVENT, ADD_EVENT_FULFILLED, ADD_EVENT_REJECTED,
   GET_EVENT, GET_EVENT_FULFILLED, GET_EVENT_REJECTED,
-  MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED
+  MODIFY_EVENT, MODIFY_EVENT_FULFILLED, MODIFY_EVENT_REJECTED,
+  GET_USER_EVENTS, GET_USER_EVENTS_FULFILLED, GET_USER_EVENTS_REJECTED
 } from '../types/event';
+
+/**
+ * GET request to get user events
+ * @param {integer} page page from pagination
+ * @return {object}   Promise
+ */
+export const getUserEvents = (page) => (dispatch) => {
+  let nanobar = new Nanobar();
+  nanobar.go(40);
+  dispatch({ type: GET_USER_EVENTS });
+  console.log("PAGE SENT TO ACTIONS", page);
+  return axios({
+    method: 'GET',
+    url: `/api/v1/events/user?page=${page}`,
+    headers: { 'x-access-token': localStorage.getItem('x-access-token') },
+    withCredentials: true,
+  })
+    .then((response) => {
+      nanobar.go(100);
+      dispatch({ type: GET_USER_EVENTS_FULFILLED, payload: response.data });
+    })
+    .catch((err) => {
+      nanobar.go(0);
+      dispatch({ type: GET_USER_EVENTS_REJECTED, payload: err });
+    });
+};
 
 /**
  * POST request for authenticated user to create an event
