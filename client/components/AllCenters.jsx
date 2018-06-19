@@ -56,7 +56,8 @@ export class AllCenters extends Component {
           previousPage={this.props.allCenters.data.page.previousPage}
           nextPage={this.props.allCenters.data.page.nextPage}
           lastPage={this.props.allCenters.data.page.lastPage}
-          getPage={this.props.dispatch}
+          dispatch={this.props.dispatch}
+          getItems={getAllCenters}
         />
         <Footer />
       </div>

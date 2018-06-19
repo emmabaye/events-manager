@@ -61,7 +61,7 @@ export class AddEvent extends Component {
     })
       .then((response) => {
         nanobar.go(100);
-        this.setState({ centers: response.data.data });
+        this.setState({ centers: response.data.data.rows });
       })
       .catch((err) => {
         nanobar.go(0);

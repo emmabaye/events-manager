@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getAllCenters } from '../actions/centerAction';
 
 /**
  * React component to display all pagination buttons.
@@ -21,8 +20,7 @@ export default class Pagination extends Component {
   }
 
   getCenters = (page) => {
-    console.log("GETTING CENTERS");
-    this.props.getPage(getAllCenters(page));
+    this.props.dispatch(this.props.getItems(page));
   }
 
   /**

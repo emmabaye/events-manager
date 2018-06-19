@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Center from './Center.jsx';
+import Pagination from './Pagination.jsx';
 import { getAllCenters } from '../actions/centerAction';
 
 /**
@@ -16,7 +17,7 @@ export class AdminCenters extends Component {
    * @return {undefined}
    */
   componentDidMount() {
-    this.props.dispatch(getAllCenters());
+    this.props.dispatch(getAllCenters(1));
   }
 
   /**
@@ -24,16 +25,29 @@ export class AdminCenters extends Component {
    * @return {object}
    */
   render() {
+    if (this.props.allCenters.data.rows === undefined) {
+      return null;
+    }
+    console.log("ALL CENTERS ", this.props.allCenters.data);
     return (
       <div id="centers" className="panel centers">
         <div id="events" className="container events">
           <div className="row event-row">
             {
-              (this.props.allCenters.data.reverse().map((center) =>
+              (this.props.allCenters.data.rows.reverse().map((center) =>
                 <Center key={center.id} centerDetails={center} show={this.props.show} />)
               )
             }
           </div>
+          <Pagination
+          firstPage={this.props.allCenters.data.page.firstPage}
+          currentPage={this.props.allCenters.data.page.currentPage}
+          previousPage={this.props.allCenters.data.page.previousPage}
+          nextPage={this.props.allCenters.data.page.nextPage}
+          lastPage={this.props.allCenters.data.page.lastPage}
+          dispatch={this.props.dispatch}
+          getItems={getAllCenters}
+        />
         </div>
       </div>
     );

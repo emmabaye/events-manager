@@ -4,6 +4,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import Nanobar from 'nanobar';
 import NavBar from './NavBar.jsx';
+import Pagination from './Pagination.jsx';
 import Event from './Event.jsx';
 import { history } from '../routes';
 
@@ -71,12 +72,15 @@ export class MyEvents extends Component {
 
     axios({
       method: 'GET',
-      url: `/api/v1/users/${userId}`,
+      url: '/api/v1/events/user',
       withCredentials: true,
+      headers: { "x-access-token": localStorage.getItem('x-access-token') }
     })
       .then((response) => {
         nanobar.go(100);
-        this.setState({ myEvents: response.data.data.Events });
+        this.setState({ myEvents: response.data.data });
+        console.log("MY EVENTS ", response.data.data);
+        console.log("COMPONENT DID UPDATE ", this.componentDidUpdate());
       })
       .catch((err) => {
         nanobar.go(0);
@@ -96,8 +100,9 @@ export class MyEvents extends Component {
 
     axios({
       method: 'GET',
-      url: `/api/v1/users/${userId}`,
+      url: `/api/v1/events/user`,
       withCredentials: true,
+      headers: { "x-access-token": localStorage.getItem('x-access-token') }
     })
       .then((response) => {
         if (this.state.myEvents.length > response.data.data.Events.length) {
@@ -107,6 +112,7 @@ export class MyEvents extends Component {
       .catch((err) => {
         console.log(err.response);
       });
+
   }
 
   /**
@@ -116,13 +122,16 @@ export class MyEvents extends Component {
    * @return {object}
    */
   render() {
+    if (this.state.myEvents.rows === undefined) {
+      return null;
+    }
     return (
       <div>
         <NavBar page="MyEvents" auth/>
         <div className="container events">
           <div className="row event-row">
             {
-              (this.state.myEvents.map((event) => <Event key={event.id} eventDetails={event} />))
+              (this.state.myEvents.rows.map((event) => <Event key={event.id} eventDetails={event} />))
             }
           </div>
         </div>
