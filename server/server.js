@@ -15,7 +15,7 @@ import routes from './routes/v1/index';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+export const port = process.env.PORT || 3000;
 const swaggerDocument = YAML.load(`${process.cwd()}/server/swagger.yml`);
 
 app.use(cors({ credentials: true, origin: true }));

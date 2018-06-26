@@ -1,101 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Center Component it should render Center component 1`] = `
-<div
-  className="col-md-4 event"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-block"
-    >
-      <h5
-        className="card-title"
-      >
-        <b />
-      </h5>
-      <p
-        className="card-text h6"
-      >
-        undefined...
-      </p>
-      <p
-        className="card-text h6"
-      >
-        <b>
-          Location
-        </b>
-        :
-        undefined...
-      </p>
-      <p
-        className="card-text h6"
-      >
-        <b>
-          Capacity
-        </b>
-        : 
-         seats
-      </p>
-      <p
-        className="card-text h6"
-      >
-        <b>
-          Price
-        </b>
-        : ₦
-      </p>
-      <p
-        className="card-text"
-      >
-        <b>
-          Availability
-        </b>
-        : 
-        Center is Available
-      </p>
-      <p
-        className="text-center"
-      >
-        <a
-          className="btn btn-sm btn-primary"
-          href="#"
-          onClick={[Function]}
-        >
-          <i
-            className="fa fa-info-circle fa-lg"
-          />
-           View Center
-        </a>
-        <a
-          className="btn btn-sm btn-success"
-          href="#"
-          onClick={[Function]}
-        >
-          <i
-            className="fa fa-edit fa-lg"
-          />
-           Modify
-        </a>
-        <a
-          className="btn btn-sm btn-danger"
-          data-target="#1"
-          data-toggle="modal"
-          href="#"
-        >
-          <i
-            className="fa fa-trash-o fa-lg"
-          />
-           Delete
-        </a>
-      </p>
-    </div>
-  </div>
-  <DeleteModal
-    item="center"
-    objectId="1"
-    show={[Function]}
-  />
-</div>
+<Center
+  centerDetails={
+    Object {
+      "available": "true",
+      "capacity": "",
+      "description": Object {
+        "substr": [Function],
+      },
+      "id": "1",
+      "location": Object {
+        "substr": [Function],
+      },
+      "name": "",
+      "price": "",
+    }
+  }
+  show={[Function]}
+/>
 `;

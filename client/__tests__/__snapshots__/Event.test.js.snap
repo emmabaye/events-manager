@@ -37,7 +37,7 @@ exports[`Event Component Event  should render self it should render for dumb com
           Date
         </b>
         : 
-        01 January 2020
+        05 July 2018
       </p>
       <p
         className="card-text h6"
@@ -83,7 +83,7 @@ exports[`Event Component Event  should render self it should render for dumb com
       </p>
     </div>
   </div>
-  <DeleteModal
+  <Connect(DeleteModal)
     item="event"
     objectId="1"
   />

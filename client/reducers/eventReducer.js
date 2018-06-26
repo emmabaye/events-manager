@@ -92,7 +92,6 @@ export default (state = initState, action) => {
     };
   }
   case GET_USER_EVENTS_FULFILLED: {
-    console.log("SUCCESS ", action.payload);
     return {
       ...state,
       userEvents: action.payload

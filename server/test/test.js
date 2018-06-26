@@ -18,8 +18,9 @@ let event = {
   title: 'Powerful Seminar',
   description: 'Come and See',
   venue: 'City Hall',
-  date: '2018-10-27',
-  time: '5pm',
+  startDate: '2018-10-27',
+  endDate: '2018-10-27',
+  time: '5:00PM',
   centerId: '1',
   image: '#noImage'
 };
@@ -269,6 +270,43 @@ describe('API endpoints /api/v1/centers', () => {
       }),
   );
 
+  // POST - should create  a center, should return 400
+  it(
+    'Should create a center - should return 400',
+    () => request(app)
+      .post('/api/v1/centers')
+      .set('x-access-token', adminToken)
+      .field('name', center.name)
+      .field('description', 'undefined')
+      .field('location', center.location)
+      .field('capacity', center.capacity)
+      .field('facilities', center.facilities)
+      .field('price', center.price)
+      .field('available', center.available)
+      .field('image', center.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - should create  a center, should return 400
+  it(
+    'Should create a center - should return 400',
+    () => request(app)
+      .post('/api/v1/centers')
+      .set('x-access-token', adminToken)
+      .field('name', "")
+      .field('description', "")
+      .field('location', "")
+      .field('capacity', "")
+      .field('facilities', "")
+      .field('price', center.price)
+      .field('available', "")
+      .field('image', center.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
 
   // GET - should get  a center
   it(
@@ -329,7 +367,8 @@ describe('API endpoints /api/v1/events', () => {
       .field('title', event.title)
       .field('venue', event.venue)
       .field('description', event.description)
-      .field('date', event.date)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
       .field('time', event.time)
       .field('centerId', event.centerId)
       .field('image', event.image)
@@ -377,9 +416,48 @@ describe('API endpoints /api/v1/events', () => {
       .post('/api/v1/events')
       .set('x-access-token', adminToken)
       .field('title', event.title)
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
       .field('venue', event.venue)
-      .field('description', 'undefined')
-      .field('date', event.date)
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
       .field('time', event.time)
       .field('centerId', event.centerId)
       .field('image', event.image)
@@ -399,7 +477,8 @@ describe('API endpoints /api/v1/events', () => {
       .field('title', "")
       .field('venue', event.venue)
       .field('description', "")
-      .field('date', "")
+      .field('startDate', "")
+      .field('endDate', "")
       .field('time', "")
       .field('centerId', "")
       .field('image', event.image)
@@ -409,6 +488,68 @@ describe('API endpoints /api/v1/events', () => {
       })
 
   );
+
+  // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('venue', event.venue)
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
+      .field('time', event.time)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event - return 400',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('venue', "")
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+        expect(res).to.be.json;
+      })
+
+  );
+  
 
 
   // PUT - update event
@@ -420,7 +561,8 @@ describe('API endpoints /api/v1/events', () => {
       .field('title', event.title)
       .field('venue', event.venue)
       .field('description', event.description)
-      .field('date', event.date)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
       .field('time', event.time)
       .field('centerId', event.centerId)
       .field('image', event.image)

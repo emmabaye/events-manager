@@ -18,7 +18,11 @@ module.exports = {
       type: Sequelize.TEXT,
       allowNull: false,
     },
-    date: {
+    startDate: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    endDate: {
       type: Sequelize.DATE,
       allowNull: false,
     },

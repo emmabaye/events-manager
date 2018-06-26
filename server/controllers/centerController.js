@@ -124,7 +124,8 @@ class CenterController {
       0 : (req.query.page - 1) * limit;
     Center.findAndCountAll({
       limit: limit,
-      offset: offset
+      offset: offset,
+      order: [['updatedAt', 'DESC']]
     })
       .then((centers) => {
         if (!centers) {

@@ -21,7 +21,9 @@ export default class Event extends Component {
             <h5 className="card-title"><b>{this.props.eventDetails.title}</b></h5>
             <p className="card-text h6"> {this.props.eventDetails.description}</p>
             <p className="card-text h6"><b>Venue</b> {this.props.eventDetails.venue}</p>
-            <p className="card-text h6"><b>Date</b>: {moment(this.props.eventDetails.date).format('DD MMMM YYYY')}</p>
+            <p className="card-text h6">
+              <b>Date</b>: {moment(this.props.eventDetails.startDate).format('DD MMMM YYYY')}
+            </p>
             <p className="card-text h6"><b>Time</b>: {this.props.eventDetails.time}</p>
             <p className="text-center">
               <a href={`/events/${this.props.eventDetails.id}`} className="btn btn-sm btn-primary">

@@ -23,7 +23,6 @@ export class AllCenters extends Component {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
     let page = 1;
-    console.log("COMPONENT DID MOUNT");
     this.props.dispatch(getAllCenters(page));
   }
 
@@ -33,7 +32,6 @@ export class AllCenters extends Component {
    * @return {object}
    */
   render() {
-    console.log("PROPS ALLCENTERS ", this.props.allCenters.data);
     if (this.props.allCenters.data.rows === undefined) {
       return null;
     }

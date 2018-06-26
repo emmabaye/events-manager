@@ -6,8 +6,6 @@
  * @returns {object} next
  */
 const centerValidation = (req, res, next) => {
-  console.log("BODY ", req.body);
-  console.log("PRICE ", req.body.price);
   let errors = [];
   let fields = ['Name', 'Description', 'Location', 'Capacity', 'Facilities', 'Price'];
 
@@ -17,7 +15,9 @@ const centerValidation = (req, res, next) => {
     }
   }
 
-  if (Number.isNaN(req.body[fields[5].toLowerCase()])) {
+  console.log("PRICEEEEe ", req.body.price);
+
+  if (Number.isNaN(req.body.price)) {
     return res.status(400).send({ message: 'Price must be a number' });
   }
 

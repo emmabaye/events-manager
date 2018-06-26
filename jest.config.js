@@ -6,5 +6,7 @@ module.exports = {
     "\\.(css|scss)$": "<rootDir>/client/__mocks__/styleMock.js"
   },
   setupFiles: ["./jestSetup.js"],
-  snapshotSerializers: ["enzyme-to-json/serializer"]
+  snapshotSerializers: ["enzyme-to-json/serializer"],
+  coverageDirectory: "./coverage/",
+  collectCoverage: true
 };

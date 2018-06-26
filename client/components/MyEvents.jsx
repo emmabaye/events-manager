@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import Nanobar from 'nanobar';
 import NavBar from './NavBar.jsx';
@@ -66,29 +65,25 @@ export class MyEvents extends Component {
     } catch (e) {
       return history.push("/login");
     }
-
-    let userId = jwtDecode(token).id;
     let nanobar = new Nanobar();
     nanobar.go(40);
-
     this.props.dispatch(getUserEvents(1));
   }
 
   /**
    * Updates component state
-   *
+   * @param {object} prevProps Previous props
    * @return {undefined}
    */
   componentDidUpdate(prevProps) {
-    if(prevProps.myEvents === undefined){
+    if (prevProps.myEvents === undefined) {
       return null;
     }
-    console.log("PREVIOUS PROPS ", prevProps);
-    let { currentPage } = this.props.myEvents.data.page;
+    let { currentPage } = this.props.myEvents.data.page; //eslint-disable-line
     let previousEventsCount = prevProps.myEvents.data.count;
     let currentEventsCount = this.props.myEvents.data.count;
     if (previousEventsCount !== currentEventsCount) {
-     // this.props.dispatch(getUserEvents(currentPage));
+      // this.props.dispatch(getUserEvents(currentPage));
     }
   }
 
@@ -102,7 +97,6 @@ export class MyEvents extends Component {
     if (this.props.myEvents === undefined) {
       return null;
     }
-    console.log("MY EVENTS ", this.props.myEvents.data);
     return (
       <div>
         <NavBar page="MyEvents" auth/>

@@ -114,14 +114,34 @@ exports[`AddEvent Component AddEvent form  should render self it should render f
               className="col-sm-3 col-form-label"
               htmlFor="title"
             >
-              Date
+              Start Date
             </label>
             <div
               className="col-sm-9"
             >
               <input
                 className="form-control"
-                name="date"
+                name="startDate"
+                onChange={[Function]}
+                type="date"
+              />
+            </div>
+          </div>
+          <div
+            className="form-group row"
+          >
+            <label
+              className="col-sm-3 col-form-label"
+              htmlFor="title"
+            >
+              End Date
+            </label>
+            <div
+              className="col-sm-9"
+            >
+              <input
+                className="form-control"
+                name="endDate"
                 onChange={[Function]}
                 type="date"
               />

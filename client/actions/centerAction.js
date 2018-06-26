@@ -14,7 +14,6 @@ export const getAllCenters = (page) => (dispatch) => {
   let nanobar = new Nanobar();
   nanobar.go(40);
   dispatch({ type: GET_ALL_CENTERS });
-  console.log("PAGE ",page);
   return axios({
     method: 'GET',
     url: `/api/v1/centers?page=${page}`,

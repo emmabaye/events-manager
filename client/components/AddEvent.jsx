@@ -101,7 +101,8 @@ export class AddEvent extends Component {
     eventForm.append('description', eventDetails.description);
     eventForm.append('centerId', eventDetails.centerId);
     eventForm.append('time', eventDetails.time);
-    eventForm.append('date', eventDetails.date);
+    eventForm.append('startDate', eventDetails.startDate);
+    eventForm.append('endDate', eventDetails.endDate);
     eventForm.append('image', this.refs.image.files[0]);
     return dispatch(addEvent(eventForm));
   }
@@ -184,10 +185,18 @@ export class AddEvent extends Component {
                 </div>
                 <div className="form-group row">
                   <label htmlFor="title" className="col-sm-3 col-form-label">
-                    Date
+                    Start Date
                   </label>
                   <div className="col-sm-9">
-                    <input type="date" className="form-control" name="date" onChange={this.handleChange}/>
+                    <input type="date" className="form-control" name="startDate" onChange={this.handleChange}/>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label htmlFor="title" className="col-sm-3 col-form-label">
+                    End Date
+                  </label>
+                  <div className="col-sm-9">
+                    <input type="date" className="form-control" name="endDate" onChange={this.handleChange}/>
                   </div>
                 </div>
                 <div className="form-group row">

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { history } from '../routes';
 import { getUserEvents } from '../actions/eventAction';
 import { getAllCenters } from '../actions/centerAction';
 
@@ -25,7 +24,6 @@ export class DeleteModal extends Component {
         withCredentials: true,
       })
         .then((response) => {
-          console.log("DELETE SUCCESS");
           let { currentPage } = this.props.myEvents.data.page;
           this.props.dispatch(getUserEvents(currentPage));
         })
@@ -41,7 +39,6 @@ export class DeleteModal extends Component {
         withCredentials: true,
       })
         .then((response) => {
-          console.log("DELETE SUCCESS");
           let { currentPage } = this.props.allCenters.data.page;
           this.props.dispatch(getAllCenters(currentPage));
           //this.props.show('addCenter'); // to trigger rerendering of AdminCenters

@@ -34,7 +34,6 @@ describe('AddCenter Component', () => {
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<AddCenter {...props} status="Success" />);
-      console.log("WRAPPER ", wrapper.prop);
       expect(wrapper.length).toEqual(1);
     });
   });

@@ -20,13 +20,15 @@ export default {
       .setValue('input[name=title]', client.globals.event.title)
       .setValue('textarea[name=description]', client.globals.event.description)
       .setValue('select[name=centerId]', client.globals.event.center)
-      .setValue('input[name=date]', client.globals.event.date)
+      .setValue('input[name=startDate]', client.globals.event.startDate)
+      .setValue('input[name=endDate]', client.globals.event.endDate)
       .setValue('input[name=time]', client.globals.event.time)
       .setValue('input[name=image]', client.globals.event.image)
+      .pause(3000)
       .click('form button[type=submit]')
       .waitForElementVisible('body', 2000)
       .pause(5000)
-      .verify.urlEquals(`${client.launch_url}/myevents`)
+      .verify.urlEquals(`${client.launch_url}/myevents`);
   },
 
   'view event': (client) => {
@@ -38,7 +40,7 @@ export default {
       .assert.visible(".card .mapouter")
       .click("a[href='/myevents']")
       .pause(5000)
-      .verify.urlEquals(`${client.launch_url}/myevents`)
+      .verify.urlEquals(`${client.launch_url}/myevents`);
   },
 
   'modify event': (client) => {
@@ -52,7 +54,7 @@ export default {
       .click('form button[type=submit]')
       .waitForElementVisible('body', 2000)
       .pause(5000)
-      .verify.urlEquals(`${client.launch_url}/myevents`)
+      .verify.urlEquals(`${client.launch_url}/myevents`);
   },
 
   'delete event': (client) => {
@@ -61,6 +63,6 @@ export default {
       .click(".event:last-child a.btn-danger")
       .pause(5000)
       .waitForElementVisible(".event:last-child .modal button.btn-danger", 5000)
-      .click(".event:last-child .modal button.btn-danger")
+      .click(".event:last-child .modal button.btn-danger");
   }
 };

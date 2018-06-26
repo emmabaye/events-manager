@@ -16,7 +16,6 @@ export const getUserEvents = (page) => (dispatch) => {
   let nanobar = new Nanobar();
   nanobar.go(40);
   dispatch({ type: GET_USER_EVENTS });
-  console.log("PAGE SENT TO ACTIONS", page);
   return axios({
     method: 'GET',
     url: `/api/v1/events/user?page=${page}`,

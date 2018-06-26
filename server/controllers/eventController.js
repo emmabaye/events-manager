@@ -1,14 +1,17 @@
 import nodemailer from 'nodemailer';
 import moment from 'moment';
+import Sequelize from 'sequelize';
 import cloudinary from '../config/cloudinary';
 import Model from '../models';
 import page from '../utils/page';
 
 const { Event } = Model;
+const { Op } = Sequelize;
+
 
 /**
    * Event controller
-   *
+   * date: new Date(req.body.date).toISOString()
    */
 class EventController {
   /**
@@ -21,7 +24,18 @@ class EventController {
     Event.findOne({
       where: {
         centerId: req.body.centerId,
-        date: new Date(req.body.date).toISOString()
+        [Op.or]: [
+          {
+            startDate: {
+              [Op.between]: [req.body.startDate, req.body.endDate]
+            }
+          },
+          {
+            endDate: {
+              [Op.between]: [req.body.startDate, req.body.endDate]
+            }
+          }
+        ]
       }
     })
       .then((existingEvent) => {
@@ -32,7 +46,9 @@ class EventController {
             data: {
               id: existingEvent.id,
               title: existingEvent.title,
-              centerId: existingEvent.centerId
+              centerId: existingEvent.centerId,
+              startDate: existingEvent.startDate,
+              endDate: existingEvent.endDate
             }
           });
         }
@@ -49,7 +65,8 @@ class EventController {
             title: req.body.title,
             description: req.body.description,
             venue: req.body.venue,
-            date: new Date(req.body.date).toISOString(),
+            startDate: new Date(req.body.startDate).toISOString(),
+            endDate: new Date(req.body.endDate).toISOString(),
             time: req.body.time,
             userId: req.userId,
             centerId: req.body.centerId,
@@ -100,7 +117,8 @@ class EventController {
             title: req.body.title || event.title,
             description: req.body.description || event.description,
             venue: req.body.venue || event.venue,
-            date: new Date(req.body.date).toISOString() || event.date,
+            startDate: new Date(req.body.startDate).toISOString() || event.startDate,
+            endDate: new Date(req.body.endDate).toISOString() || event.endDate,
             time: req.body.time || event.time,
             userId: req.userId || event.userId,
             centerId: req.body.centerId || event.centerId,
@@ -170,10 +188,10 @@ class EventController {
     Event.findAndCountAll({
       where: { userId: req.userId },
       limit: limit,
-      offset: offset
+      offset: offset,
+      order: [['updatedAt', 'DESC']]
     }).then((events) => {
       if (!events) {
-        console.log("ALL USER EVENTS ", events);
         return res.status(404).send({ status: 'Error', message: 'Events not found' });
       }
 

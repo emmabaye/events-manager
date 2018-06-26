@@ -15,10 +15,6 @@ export default class Pagination extends Component {
 
   }
 
-  componentDidUpdate() {
-    console.log("CURRENT PAGE AFTER UPDATE ", this.props.currentPage);
-  }
-
   getCenters = (page) => {
     this.props.dispatch(this.props.getItems(page));
   }
@@ -29,8 +25,6 @@ export default class Pagination extends Component {
    * @return {object}
    */
   render() {
-    console.log("CURRENT PAGE ", this.props.currentPage);
-    console.log("FIRST PAGE ", this.props.firstPage);
     return (
       <nav aria-label="..."
         style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>

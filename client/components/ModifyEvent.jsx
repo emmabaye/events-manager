@@ -75,14 +75,15 @@ export class ModifyEvent extends Component {
           this.setState({
             event: {
               ...this.props.event,
-              date: this.props.event.date.substring(0, 10)
+              startDate: this.props.event.startDate.substring(0, 10),
+              endDate: this.props.event.endDate.substring(0, 10)
             },
-            centers: response.data.data
+            centers: response.data.data.rows
           });
         })
         .catch((err) => {
           nanobar.go(0);
-          console.log(err.response);
+          console.log(err);
         });
     }
   }
@@ -121,7 +122,8 @@ export class ModifyEvent extends Component {
     eventForm.append('description', eventDetails.description);
     eventForm.append('centerId', eventDetails.centerId);
     eventForm.append('time', eventDetails.time);
-    eventForm.append('date', eventDetails.date);
+    eventForm.append('startDate', eventDetails.startDate);
+    eventForm.append('endDate', eventDetails.endDate);
     eventForm.append('image', this.refs.image.files[0]);
     return dispatch(modifyEvent(eventForm));
   }
@@ -211,12 +213,24 @@ export class ModifyEvent extends Component {
                 </div>
                 <div className="form-group row">
                   <label htmlFor="title" className="col-sm-3 col-form-label">
-                    Date
+                    Start Date
                   </label>
                   <div className="col-sm-9">
                     <input type="date" className="form-control"
-                      name="date"
-                      value={this.state.event.date}
+                      name="startDate"
+                      value={this.state.event.startDate}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label htmlFor="title" className="col-sm-3 col-form-label">
+                    End Date
+                  </label>
+                  <div className="col-sm-9">
+                    <input type="date" className="form-control"
+                      name="endDate"
+                      value={this.state.event.endDate}
                       onChange={this.handleChange}
                     />
                   </div>

@@ -2,8 +2,21 @@ import ConnectedMyEvents, { MyEvents } from '../components/MyEvents.jsx';
 
 describe('MyEvents Component', () => {
   const initialState = {
-    myEvents: [{}]
+    myEvents: {
+      data: {
+        rows: []
+      }
+    },
+    eventReducer: {
+      userEvents: {
+        data: {
+          rows: [],
+          page: {}
+        }
+      }
+    },
   };
+
 
   const store = mockStore(initialState);
 
