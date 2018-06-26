@@ -216,7 +216,7 @@ describe('API endpoints /api/v1/centers', () => {
       .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
-        expect(res.body.data).to.be.an('array');
+        expect(res.body.data.rows).to.be.an('array');
       }),
   );
 
@@ -349,7 +349,7 @@ describe('API endpoints /api/v1/events', () => {
       .set('x-access-token', adminToken)
       .then((res) => {
         expect(res).to.have.status(200);
-        expect(res.body.data).to.be.an('array');
+        expect(res.body.data.rows).to.be.an('array');
         expect(res).to.be.json;
       })
 
@@ -364,7 +364,7 @@ describe('API endpoints /api/v1/events', () => {
       .set('x-access-token', adminToken)
       .then((res) => {
         expect(res).to.have.status(200);
-        expect(res.body.data).to.be.an('array');
+        expect(res.body.data.rows).to.be.an('array');
         expect(res).to.be.json;
       })
 
