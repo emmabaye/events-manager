@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import jwtDecode from 'jwt-decode';
+import { Link } from 'react-router-dom';
 
 
 /**
@@ -63,43 +64,43 @@ export default class NavBar extends Component {
             <span className="navbar-toggler-icon"
             />
           </button>
-          <a className="navbar-brand" href="/">EVENTS MANAGER</a>
+          <Link className="navbar-brand" to="/">EVENTS MANAGER</Link>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/centers">Centers</a>
+                <Link className="nav-link" to="/centers">Centers</Link>
               </li>
               { this.isAdmin &&
                 <li className="nav-item">
-                  <a className="nav-link" href="/admin">Admin</a>
+                  <Link className="nav-link" to="/admin">Admin</Link>
                 </li>
               }
               { !this.isLoggedIn &&
                 <li className="nav-item">
-                  <a className="nav-link" href="/login">Sign In</a>
+                  <Link className="nav-link" to="/login">Sign In</Link>
                 </li>
               }
               { !this.isLoggedIn &&
                 <li className="nav-item">
-                  <a className="nav-link" href="/signup">Sign Up</a>
+                  <Link className="nav-link" to="/signup">Sign Up</Link>
                 </li>
               }
               {(this.isLoggedIn && (this.props.page === 'MyEvents' || 'AllCenters')) &&
                 <li className="nav-item">
-                  <a className="nav-link" href="/addevent">Add Event</a>
+                  <Link className="nav-link" to="/addevent">Add Event</Link>
                 </li>
               }
               { (this.isLoggedIn && (this.props.page === 'AddEvent' || 'ModifyEvent' || 'AllCenters')) &&
                 <li className="nav-item">
-                  <a className="nav-link" href="/myevents">My Events</a>
+                  <Link className="nav-link" to="/myevents">My Events</Link>
                 </li>
               }
               { this.isLoggedIn &&
                 <li className="nav-item">
-                  <a className="nav-link" href="/logout">Sign Out</a>
+                  <Link className="nav-link" to="/logout">Sign Out</Link>
                 </li>
               }
 

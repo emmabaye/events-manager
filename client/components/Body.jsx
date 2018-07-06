@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * React component fo body of landing page.
@@ -20,37 +21,52 @@ export default class Body extends Component {
           </ol>
           <div className="carousel-inner" role="listbox">
             <div className="carousel-item">
-              <img className="d-block img-fluid" src="./img/matthew-essman-385642.jpg" alt="First slide" />
+              <img
+                className="d-block img-fluid"
+                src={"https://res.cloudinary.com/emmabaye/image/upload/" +
+                "q_auto:low/v1531758760/events-manager/" +
+                "matthew-essman-385642.jpg"}
+                alt="First slide" />
               <div className="carousel-caption d-none d-md-block">
                 <h3>Find the Best Centres</h3>
                 <p>Make your event memorable</p>
               </div>
             </div>
             <div className="carousel-item active">
-              <img className="d-block img-fluid" src="./img/victor-hugo-180133.jpg" alt="Second slide" />
+              <img
+                className="d-block img-fluid"
+                src={"https://res.cloudinary.com/emmabaye/image/upload/" +
+                "q_auto:low/v1531758844/events-manager/" +
+                "victor-hugo-180133.jpg"}
+                alt="Second slide" />
               <div className="carousel-caption d-none d-md-block">
                 <h3>Create Your Events</h3>
                 <p>Any kind of event</p>
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block img-fluid" src="./img/christian-fregnan-339342.jpg" alt="Third slide" />
+              <img
+                className="d-block img-fluid"
+                src={"https://res.cloudinary.com/emmabaye/image/upload/" +
+                "q_auto:low/v1531758688/events-manager/" +
+                "christian-fregnan-339342.jpg"}
+                alt="Third slide" />
               <div className="carousel-caption d-none d-md-block">
                 <h3>The Choice is yours</h3>
                 <p>We've got you covered</p>
               </div>
             </div>
           </div>
-          <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <Link className="carousel-control-prev" to="#carouselExampleIndicators" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true" />
             <span className="sr-only">Previous</span>
-          </a>
-          <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          </Link>
+          <Link className="carousel-control-next" to="#carouselExampleIndicators" role="button" data-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true" />
             <span className="sr-only">Next</span>
-          </a>
+          </Link>
         </div>
-        <div className="container-fluid features">
+        <div className="container-fluid features" style={{ backgroundColor: "#0b0b0b", opacity: "1" }}>
           <p className="h5 text-center"> FEATURES</p>
           <div className="row">
             <div className="col-md-4 text-center feature"><br />

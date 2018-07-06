@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event Component Event  should render self it should render for dumb component 1`] = `
+<div
+  className="col-md-4 event"
+  style={
+    Object {
+      "height": "300px",
+    }
+  }
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-block"
+      style={
+        Object {
+          "height": "300px",
+        }
+      }
+    >
+      <h5
+        className="card-title"
+      >
+        <b>
+          Seminar
+        </b>
+      </h5>
+      <p
+        className="card-text h6"
+      >
+        undefined...
+      </p>
+      <p
+        className="card-text h6"
+      >
+        <b>
+          Venue
+        </b>
+         
+        undefined...
+      </p>
+      <p
+        className="card-text h6"
+      >
+        <b>
+          Date
+        </b>
+        : 
+        16 July 2018
+      </p>
+      <p
+        className="card-text h6"
+      >
+        <b>
+          Time
+        </b>
+        : 
+        5:00
+      </p>
+      <p
+        className="text-center"
+      >
+        <Link
+          className="btn btn-sm btn-primary"
+          replace={false}
+          to="/events/1"
+        >
+          <i
+            className="fa fa-info-circle fa-lg"
+          />
+           View Event
+        </Link>
+        <Link
+          className="btn btn-sm btn-success"
+          replace={false}
+          to="./modifyevent/1"
+        >
+          <i
+            className="fa fa-edit fa-lg"
+          />
+           Modify
+        </Link>
+        <Link
+          className="btn btn-sm btn-danger"
+          data-target="#1"
+          data-toggle="modal"
+          replace={false}
+          to="#"
+        >
+          <i
+            className="fa fa-trash-o fa-lg"
+          />
+           Delete
+        </Link>
+      </p>
+    </div>
+  </div>
+  <Connect(DeleteModal)
+    item="event"
+    itemId="1"
+  />
+</div>
+`;

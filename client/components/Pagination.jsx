@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * React component to display all pagination buttons.
@@ -15,7 +16,7 @@ export default class Pagination extends Component {
 
   }
 
-  getCenters = (page) => {
+  handleGetItems = (page) => {
     this.props.dispatch(this.props.getItems(page));
   }
 
@@ -29,36 +30,36 @@ export default class Pagination extends Component {
       <nav aria-label="..."
         style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
         <ul className="pagination">
-          <li className={`page-item  ${(this.props.currentPage === this.props.firstPage) ? "disabled" : ""}`}
-            onClick={() => this.getCenters(this.props.previousPage)}>
-            <a className="page-link" tabIndex="-1" href="#">Previous</a>
+          <li className={`page-item gg ${(this.props.currentPage === this.props.firstPage) ? "disabled" : ""}`}
+            onClick={() => this.handleGetItems(this.props.previousPage)}>
+            <Link className="page-link" tabIndex="-1" to="#">Previous</Link>
           </li>
           { this.props.previousPage - 1 > this.props.firstPage &&
-           <li className="page-item" onClick={() => this.getCenters(this.props.previousPage - 1)}>
-             <a className="page-link" href="#">{this.props.previousPage - 1}</a>
+           <li className="page-item aa" onClick={() => this.handleGetItems(this.props.previousPage - 1)}>
+             <Link className="page-link" to="#">{this.props.previousPage - 1}</Link>
            </li>
           }
           { this.props.previousPage !== "" &&
-          <li className="page-item" onClick={() => this.getCenters(this.props.previousPage)}>
-            <a className="page-link" href="#">{this.props.previousPage}</a>
+          <li className="page-item bb" onClick={() => this.handleGetItems(this.props.previousPage)}>
+            <Link className="page-link" to="#">{this.props.previousPage}</Link>
           </li>
           }
-          <li className="page-item active" onClick={() => this.getCenters(this.props.currentPage)}>
-            <a className="page-link" href="#">{this.props.currentPage} <span className="sr-only">(current)</span></a>
+          <li className="page-item cc active" onClick={() => this.handleGetItems(this.props.currentPage)}>
+            <Link className="page-link" to="#">{this.props.currentPage} <span className="sr-only">(current)</span></Link>
           </li>
           { this.props.currentPage !== this.props.lastPage &&
-            <li className="page-item" onClick={() => this.getCenters(this.props.nextPage)}>
-              <a className="page-link" href="#">{this.props.nextPage}</a>
+            <li className="page-item dd" onClick={() => this.handleGetItems(this.props.nextPage)}>
+              <Link className="page-link" to="#">{this.props.nextPage}</Link>
             </li>
           }
           { this.props.currentPage + 1 < this.props.lastPage &&
-            <li className="page-item" onClick={() => this.getCenters(this.props.nextPage + 1)}>
-              <a className="page-link" href="#">{this.props.nextPage + 1}</a>
+            <li className="page-item ee" onClick={() => this.handleGetItems(this.props.nextPage + 1)}>
+              <Link className="page-link" to="#">{this.props.nextPage + 1}</Link>
             </li>
           }
-          <li className={`page-item  ${(this.props.currentPage === this.props.lastPage) ? "disabled" : ""}`}
-            onClick={() => this.getCenters(this.props.nextPage)}>
-            <a className="page-link" href="#">Next</a>
+          <li className={`page-item ff  ${(this.props.currentPage === this.props.lastPage) ? "disabled" : ""}`}
+            onClick={() => this.handleGetItems(this.props.nextPage)}>
+            <Link className="page-link" to="#">Next</Link>
           </li>
         </ul>
       </nav>

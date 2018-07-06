@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminCenters Component AdminCenters form  should render self it should render for dumb component 1`] = `
+<div
+  className="panel centers"
+  id="centers"
+>
+  <div
+    className="container events"
+    id="events"
+  >
+    <div
+      className="row event-row"
+    >
+      <Center
+        centerDetails={
+          Object {
+            "available": true,
+            "capacity": 500,
+            "createdAt": "2018-05-29 22:28:52.389+01",
+            "description": "Best events centee for indoor and outdoor events",
+            "facilities": "Toilet, car park",
+            "id": 1,
+            "image": "http://res.cloudinary.com/emmabaye/raw/upload/v1527629332/mfgudrbriui17hnqnh4y",
+            "location": "Port Harcourt",
+            "name": "Moments Event Center",
+            "price": 200000,
+            "updatedAt": "2018-05-29 22:28:52.389+01",
+            "userId": 1,
+          }
+        }
+        key="1"
+        show={[Function]}
+      />
+    </div>
+    <Pagination
+      currentPage={2}
+      dispatch={[Function]}
+      firstPage={1}
+      getItems={[Function]}
+      lastPage={6}
+      nextPage={3}
+    />
+  </div>
+</div>
+`;

@@ -15,7 +15,9 @@
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   },
   "rules": {
     "indent": ["error", 2],

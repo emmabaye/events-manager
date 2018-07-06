@@ -33,6 +33,7 @@ export class EventDetails extends Component {
    * @return {object}
    */
   render() {
+    console.log("THIS.PROPS>EVENT ", this.props.event);
     return (
       <div>
         <NavBar page="MyEvents" />
@@ -47,9 +48,13 @@ export class EventDetails extends Component {
                   <p className="card-text">{this.props.event.description}</p>
                 </div>
               </div>
-              { this.props.event.Center !== undefined && <Location
+              {(this.props.event.Center !== undefined && this.props.event.Center !== null) ? <Location
                 location={`${this.props.event.Center.name}, ${this.props.event.Center.location}`}
-              />
+              /> : ""
+              }
+              {(this.props.event.Center === null) ? <Location
+                location=""
+              /> : ""
               }
             </div>
             <div className="col-md-4 venue-date" >
@@ -58,10 +63,19 @@ export class EventDetails extends Component {
                   <div className="card">
                     <h6 className="card-header"><b>VENUE</b></h6>
                     <div className="card-block">
-                      {
-                        this.props.event.Center !== undefined && <p className="card-text">
-                          {`${this.props.event.Center.name}, ${this.props.event.Center.location}`}
-                        </p>
+                      {(this.props.event.Center !== undefined && this.props.event.Center !== null) &&
+                      <p className="card-text">
+                        {`${this.props.event.Center.name}, ${this.props.event.Center.location}`}
+                      </p>
+                      }
+                      {(this.props.event.Center === null) &&
+                      <p className="card-text" style={{ color: "red" }}>
+                        <b>
+                          THIS EVENT HAS BEEN CANCELLED BECAUSE
+                          THE CENTER IS NOT AVAILABLE.
+                          PLEASE CHOOSE ANOTHER CENTER.
+                        </b>
+                      </p>
                       }
                     </div>
                   </div>
