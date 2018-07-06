@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nanobar from 'nanobar';
 import NavBar from "./NavBar.jsx";
@@ -56,7 +56,7 @@ export class AddEvent extends Component {
 
     axios({
       method: 'GET',
-      url: '/api/v1/centers',
+      url: '/api/v1/centers?page=all',
       withCredentials: true,
     })
       .then((response) => {
@@ -170,16 +170,17 @@ export class AddEvent extends Component {
                       <option />
                       {
                         (this.state.centers.map((center) => (
-                          <option key={center.id} value={center.id}>
+                          <option key={center.id} value={center.id} hidden={center.available !== "true"}>
                             {center.name}
-                          </option>))
+                          </option>
+                        ))
                         )
                       }
                     </select>
                     <small id="fileHelp" className="form-text text-muted">
-                      <a href="./centers" target="_blank">
+                      <Link to="./centers" target="_blank">
                         View Centers
-                      </a>
+                      </Link>
                     </small>
                   </div>
                 </div>

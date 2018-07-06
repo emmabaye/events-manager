@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterEventsCard Component CenterEventsCardu  should render self it should render for smart component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CenterEventsCard)>
+    <CenterEventsCard
+      centerEvents={
+        Object {
+          "centerEvents": Object {
+            "rows": Array [
+              Object {
+                "Center": Array [],
+                "date": "2020-01-01",
+                "description": "",
+                "id": "1",
+                "image": "",
+                "location": "",
+                "time": "5:00",
+                "title": "Seminar",
+              },
+            ],
+          },
+        }
+      }
+      dispatch={[Function]}
+    />
+  </Connect(CenterEventsCard)>
+</Provider>
+`;
+
+exports[`CenterEventsCard Component CenterEventsCardu  should render self it should return center events rows 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CenterEventsCard)>
+    <CenterEventsCard
+      centerEvents={
+        Object {
+          "centerEvents": Object {
+            "rows": Array [
+              Object {
+                "Center": Array [],
+                "date": "2020-01-01",
+                "description": "",
+                "id": "1",
+                "image": "",
+                "location": "",
+                "time": "5:00",
+                "title": "Seminar",
+              },
+            ],
+          },
+        }
+      }
+      dispatch={[Function]}
+    />
+  </Connect(CenterEventsCard)>
+</Provider>
+`;
+
+exports[`CenterEventsCard Component CenterEventsCardu  should render self it should return null for undefined events rows 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CenterEventsCard)>
+    <CenterEventsCard
+      centerEvents={
+        Object {
+          "centerEvents": Object {
+            "rows": Array [
+              Object {
+                "Center": Array [],
+                "date": "2020-01-01",
+                "description": "",
+                "id": "1",
+                "image": "",
+                "location": "",
+                "time": "5:00",
+                "title": "Seminar",
+              },
+            ],
+          },
+        }
+      }
+      dispatch={[Function]}
+    />
+  </Connect(CenterEventsCard)>
+</Provider>
+`;

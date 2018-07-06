@@ -15,7 +15,7 @@ export default class LandingPage extends Component {
    */
   render() { //eslint-disable-line class-methods-use-this
     return (
-      <div>
+      <div style={{ maxWidth: "100%", overflowX: "hidden" }}>
         <NavBar page="landingpage"/>
         <Body />
         <Footer />

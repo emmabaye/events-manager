@@ -11,6 +11,73 @@ let user = {
   password: 'password',
 };
 
+let invalidUser1 = {
+  firstName: 'userName',
+  lastName: 'userSurname',
+  email: `user${Math.random()}@user.com`,
+  password: 'six',
+};
+
+let invalidUser2 = {
+  firstName: 'userName',
+  lastName: 'userSurname',
+  email: `user${Math.random()}@user.com`,
+};
+
+let invalidUser3 = {
+  firstName: 'userName',
+  lastName: 'u',
+  email: `user${Math.random()}@user.com`,
+  password: 'password',
+};
+
+let invalidUser4 = {
+  firstName: 'userName',
+  lastName: '',
+  email: `user${Math.random()}@user.com`,
+  password: 'password',
+};
+
+let invalidUser5 = {
+  firstName: 'userName',
+  email: `user${Math.random()}@user.com`,
+  password: 'password',
+};
+
+let invalidUser6 = {
+  firstName: 'f',
+  lastName: 'userSurname',
+  email: `user${Math.random()}@user.com`,
+  password: 'password',
+};
+
+let invalidUser7 = {
+  firstName: '',
+  lastName: 'userSurname',
+  email: `user${Math.random()}@user.com`,
+  password: 'password',
+};
+
+let invalidUser8 = {
+  lastName: 'userSurname',
+  email: `user${Math.random()}@user.com`,
+  password: 'password',
+};
+
+let invalidUser9 = {
+  firstName: 'userName',
+  lastName: 'userSurname',
+  email: 'invalid email',
+  password: 'password',
+};
+
+let invalidUser10 = {
+  firstName: 'userName',
+  lastName: 'userSurname',
+  password: 'password',
+};
+
+
 let adminToken = '';
 let userToken = '';
 
@@ -76,9 +143,121 @@ describe('API endpoints /api/v1/users', () => {
         expect(res).to.be.json;
         expect(res.body.status).to.equal('Success');
         user.id = res.body.data.user.id;
+      })
+  );
+
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for short password',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser1)
+      .then((res) => {
+        expect(res).to.have.status(400);
       }),
   );
 
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for missing password',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser2)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for short lastname',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser3)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for empty lastname',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser4)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for undefine lastname',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser5)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for short firstName',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser6)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for empty firstName',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser7)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for undefined firstName',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser8)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for invalid email',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser9)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
+
+  // POST - Should create user
+  it(
+    'Should create new user, Should return 400 for undefined email',
+    () => request(app)
+      .post('/api/v1/users')
+      .send(invalidUser10)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      }),
+  );
 
   it(
     'Should get user details',
@@ -102,6 +281,19 @@ describe('API endpoints /api/v1/login', () => {
       .then((res) => {
         expect(res).to.have.status(400);
         expect(res).to.be.json;
+      })
+  );
+});
+
+describe('API endpoints /api/v1/login', () => {
+  // POST - should  return status 400
+  it(
+    'Should return status 400 for undefined password',
+    () => request(app)
+      .post('/api/v1/users/login')
+      .send({ email: "admin@admin.com" })
+      .then((res) => {
+        expect(res).to.have.status(400);
       })
   );
 });
@@ -272,12 +464,11 @@ describe('API endpoints /api/v1/centers', () => {
 
   // POST - should create  a center, should return 400
   it(
-    'Should create a center - should return 400',
+    'Should create a center - should return 400, description missing',
     () => request(app)
       .post('/api/v1/centers')
       .set('x-access-token', adminToken)
       .field('name', center.name)
-      .field('description', 'undefined')
       .field('location', center.location)
       .field('capacity', center.capacity)
       .field('facilities', center.facilities)
@@ -405,6 +596,63 @@ describe('API endpoints /api/v1/events', () => {
         expect(res).to.have.status(200);
         expect(res.body.data.rows).to.be.an('array');
         expect(res).to.be.json;
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event, should return 400 for undefined title',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('venue', event.venue)
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('endDate', event.endDate)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event, should return 400 for undefined startDate',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('venue', event.venue)
+      .field('description', event.description)
+      .field('endDate', event.endDate)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
+      })
+
+  );
+
+  // POST - create event
+  it(
+    'Should create event, should return 400 for undefined endDate',
+    () => request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', adminToken)
+      .field('title', event.title)
+      .field('venue', event.venue)
+      .field('description', event.description)
+      .field('startDate', event.startDate)
+      .field('time', event.time)
+      .field('centerId', event.centerId)
+      .field('image', event.image)
+      .then((res) => {
+        expect(res).to.have.status(400);
       })
 
   );
@@ -549,7 +797,7 @@ describe('API endpoints /api/v1/events', () => {
       })
 
   );
-  
+
 
 
   // PUT - update event
@@ -620,6 +868,19 @@ describe('API endpoints /api/v1/events', () => {
       .then((res) => {
         expect(res).to.have.status(404);
         expect(res).to.be.json;
+      })
+  );
+});
+
+describe('API endpoint api/v1/centers', () => {
+  // DELETE - delete center
+  it(
+    'Should delete center, should return 403 for no admin privilege',
+    () => request(app)
+      .delete(`/api/v1/centers/${center.id}`)
+      .set('x-access-token', userToken)
+      .then((res) => {
+        expect(res).to.have.status(403);
       })
   );
 });

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteModal Component it should render DeleteModal component 1`] = `
+<Connect(DeleteModal)
+  item="center"
+  itemId="1"
+/>
+`;

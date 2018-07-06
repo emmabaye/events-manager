@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminPanelBody Component AdminPanelBody should render self it should render for dumb component 1`] = `
+<div
+  className="container-fluid admin"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-2 side"
+    >
+      <div
+        className="list-group sidebar"
+      >
+        centerId
+        <a
+          className="list-group-item list-group-item-action centers-button"
+          href="#centers"
+          onClick={[Function]}
+        >
+          Centers
+        </a>
+        <a
+          className="list-group-item list-group-item-action add-center-button"
+          href="#add-center"
+          onClick={[Function]}
+        >
+          Add Center
+        </a>
+        <a
+          className="list-group-item list-group-item-action"
+          href="/events"
+        >
+          Events
+        </a>
+        <a
+          className="list-group-item list-group-item-action"
+          href="#users"
+        >
+          Users
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-sm-10 panel-column"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <Connect(AdminCenters)
+        show={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;

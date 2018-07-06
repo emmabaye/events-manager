@@ -18,7 +18,9 @@ export class AllCenters extends Component {
    * @return {undefined}
    */
   componentDidMount() {
-    document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
+    document.body.style.backgroundImage = "url('https://res.cloudinary.com" +
+    "/emmabaye/image/upload/q_auto:low/v1531758756/events-manager" +
+    "/ambitious-creative-co-rick-barrett-110145.jpg')";
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
@@ -47,7 +49,7 @@ export class AllCenters extends Component {
             </div>
           </div>
         </div>
-
+        { this.props.allCenters.data.rows.length > 0 &&
         <Pagination
           firstPage={this.props.allCenters.data.page.firstPage}
           currentPage={this.props.allCenters.data.page.currentPage}
@@ -57,6 +59,7 @@ export class AllCenters extends Component {
           dispatch={this.props.dispatch}
           getItems={getAllCenters}
         />
+        }
         <Footer />
       </div>
     );

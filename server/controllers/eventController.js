@@ -113,6 +113,10 @@ class EventController {
             console.log('IMAGE ERROR ', error);
           }
 
+          console.log("EVENT STATUS ", event.status);
+          console.log(" EVENT CENTER ID ", event.centerId);
+          console.log("REQ BODY CENTER ID ", req.body.centerId);
+
           Event.update({
             title: req.body.title || event.title,
             description: req.body.description || event.description,
@@ -122,7 +126,10 @@ class EventController {
             time: req.body.time || event.time,
             userId: req.userId || event.userId,
             centerId: req.body.centerId || event.centerId,
-            image: (result) ? result.url : event.image
+            image: (result) ? result.url : event.image,
+            status: ((event.centerId === null && req.body.centerId !== null) ||
+            (event.centerId !== req.body.centerId)) ?
+              "holding" : event.status
           }, {
             where: {
               id: req.params.eventId
@@ -166,7 +173,7 @@ class EventController {
         if (!event) {
           return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
-
+        console.log("EVENT ", event);
         res.status(200).send({
           status: 'Success',
           message: 'Event found',
@@ -262,7 +269,8 @@ class EventController {
    */
   static cancelEvent(req, res) {
     Event.update({
-      status: 'cancelled'
+      status: 'cancelled',
+      centerId: null
     }, {
       where: {
         id: req.params.eventId
@@ -305,8 +313,7 @@ class EventController {
             };
             transporter.sendMail(mailOptions, (err, info) => {
               console.log('ERROR: ', err);
-              console.log('ENVELOPE: ', info.envelope);
-              console.log('MESSAGE ID: ', info.messageId);
+              console.log('ENVELOPE , MESSAGE ID ===>', info.envelope, info.messageId);
             });
           }
         }).catch((err) => {

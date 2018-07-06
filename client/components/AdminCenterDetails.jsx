@@ -53,7 +53,7 @@ export class CenterDetails extends Component {
               <div className="row venue-date" >
                 <div className="container">
                   <Location location={`${this.props.center.name}, ${this.props.center.location}`} />
-                  {this.props.center.Events !== undefined && <CenterEventsCard events={this.props.center.Events} />}
+                  {this.props.center.id !== undefined && <CenterEventsCard centerId={this.props.centerId} />}
                 </div>
               </div>
             </div>

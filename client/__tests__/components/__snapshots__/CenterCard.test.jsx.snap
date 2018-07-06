@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterCard Component it should render CenterCard component 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "blank",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <CenterCard
+    centerDetails={
+      Object {
+        "available": "true",
+        "capacity": "",
+        "description": Object {
+          "substr": [Function],
+        },
+        "id": "1",
+        "location": Object {
+          "substr": [Function],
+        },
+        "name": "",
+        "price": "",
+      }
+    }
+    show={[Function]}
+  />
+</Router>
+`;

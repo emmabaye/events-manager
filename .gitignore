@@ -63,6 +63,9 @@ typings/
 #build folder
 build/
 
+#dist folder
+dist/bundle.js
+
 # End-to-end test binaries and reports
 e2e/bin
 e2e/reports
