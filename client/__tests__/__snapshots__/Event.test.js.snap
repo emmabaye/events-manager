@@ -3,12 +3,22 @@
 exports[`Event Component Event  should render self it should render for dumb component 1`] = `
 <div
   className="col-md-4 event"
+  style={
+    Object {
+      "height": "300px",
+    }
+  }
 >
   <div
     className="card"
   >
     <div
       className="card-block"
+      style={
+        Object {
+          "height": "300px",
+        }
+      }
     >
       <h5
         className="card-title"
@@ -20,7 +30,7 @@ exports[`Event Component Event  should render self it should render for dumb com
       <p
         className="card-text h6"
       >
-         
+        undefined...
       </p>
       <p
         className="card-text h6"
@@ -29,6 +39,7 @@ exports[`Event Component Event  should render self it should render for dumb com
           Venue
         </b>
          
+        undefined...
       </p>
       <p
         className="card-text h6"
@@ -37,7 +48,7 @@ exports[`Event Component Event  should render self it should render for dumb com
           Date
         </b>
         : 
-        05 July 2018
+        16 July 2018
       </p>
       <p
         className="card-text h6"
@@ -51,41 +62,44 @@ exports[`Event Component Event  should render self it should render for dumb com
       <p
         className="text-center"
       >
-        <a
+        <Link
           className="btn btn-sm btn-primary"
-          href="/events/1"
+          replace={false}
+          to="/events/1"
         >
           <i
             className="fa fa-info-circle fa-lg"
           />
            View Event
-        </a>
-        <a
+        </Link>
+        <Link
           className="btn btn-sm btn-success"
-          href="./modifyevent/1"
+          replace={false}
+          to="./modifyevent/1"
         >
           <i
             className="fa fa-edit fa-lg"
           />
            Modify
-        </a>
-        <a
+        </Link>
+        <Link
           className="btn btn-sm btn-danger"
           data-target="#1"
           data-toggle="modal"
-          href="#"
+          replace={false}
+          to="#"
         >
           <i
             className="fa fa-trash-o fa-lg"
           />
            Delete
-        </a>
+        </Link>
       </p>
     </div>
   </div>
   <Connect(DeleteModal)
     item="event"
-    objectId="1"
+    itemId="1"
   />
 </div>
 `;

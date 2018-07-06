@@ -2,6 +2,7 @@
 
 exports[`DeleteModal Component it should render DeleteModal component 1`] = `
 <Connect(DeleteModal)
-  objectId="1"
+  item="center"
+  itemId="1"
 />
 `;

@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import ConnectedModifyEvent, { ModifyEvent } from '../components/ModifyEvent.jsx';
 
 describe('ModifyEvent Component', () => {
@@ -5,7 +6,11 @@ describe('ModifyEvent Component', () => {
     eventReducer: {
       status: "Error",
       message: "",
-    }
+    },
+    centers: [{
+      id: 1,
+      name: "City Hall"
+    }]
   };
 
   const store = mockStore(initialState);
@@ -26,24 +31,24 @@ describe('ModifyEvent Component', () => {
 
   describe('ModifyEvent form  should render self', () => {
     it('it should render for dumb component', () => {
-      const wrapper = shallow(<ModifyEvent {...props}/>);
+      const wrapper = shallow(<BrowserRouter><ModifyEvent {...props}/></BrowserRouter>);
       expect(wrapper).toMatchSnapshot();
     });
 
     it('it should render for connected component', () => {
-      const wrapper = shallow(<Provider store={store}><ConnectedModifyEvent /></Provider>);
+      const wrapper = shallow(<BrowserRouter><Provider store={store}><ConnectedModifyEvent /></Provider></BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
-      const wrapper = shallow(<ModifyEvent {...props} status="Success" />);
+      const wrapper = shallow(<BrowserRouter><ModifyEvent {...props} status="Success" /></BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
   });
 
   describe('ModifyEvent events', () => {
     it('it should submit form', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedModifyEvent {...props} /></Provider>);
+      const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedModifyEvent {...props} /></Provider></BrowserRouter>);
       const button = wrapper.find('.btn');
       button.simulate('click', { preventDefault: () => {} });
     });

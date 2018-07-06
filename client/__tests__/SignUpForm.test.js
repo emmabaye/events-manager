@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import ConnectedSignUpForm, { SignUpForm } from '../components/SignUpForm.jsx';
 
 describe('SignUpForm Component', () => {
@@ -20,22 +21,23 @@ describe('SignUpForm Component', () => {
 
   describe('SignUp page  should render self', () => {
     it('it should render for dumb component', () => {
-      const wrapper = mount(<SignUpForm />);
+      const wrapper = mount(<BrowserRouter><SignUpForm /></BrowserRouter>);
       expect(wrapper).toMatchSnapshot();
     });
 
     it('it should render for connected component', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedSignUpForm /></Provider>);
+      const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedSignUpForm /></Provider></BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
 
     it('it should render redirect on  success', () => {
-      const wrapper = shallow(<SignUpForm {...props} status="Success" />);
+      const wrapper = shallow(<BrowserRouter><SignUpForm {...props} status="Success" /></BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
   });
 
   describe('SignUp page events', () => {
+  
     it('it should handle onChange event', () => {
       const wrapper = shallow(<SignUpForm {...props} />);
       const emailInput = wrapper.find('[name="email"]');
@@ -43,7 +45,7 @@ describe('SignUpForm Component', () => {
     });
 
     it('it should submit form', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedSignUpForm /></Provider>);
+      const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedSignUpForm /></Provider></BrowserRouter>);
       const button = wrapper.find('.btn');
       button.simulate('click', { preventDefault: () => {} });
     });

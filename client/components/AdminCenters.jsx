@@ -10,6 +10,15 @@ import { getAllCenters } from '../actions/centerAction';
  */
 export class AdminCenters extends Component {
   /**
+   * [constructor description]
+   * @param  {objects} props React component props
+   * @return {undefined}
+   */
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  /**
    * React's componentDidMount life cycle method
    * runs after component has been mounted.
    * Dispatches action creator to get all centers.
@@ -32,12 +41,16 @@ export class AdminCenters extends Component {
       <div id="centers" className="panel centers">
         <div id="events" className="container events">
           <div className="row event-row">
+            { this.props.allCenters.data.rows.length < 1 &&
+              <span style={{ textAlign: "center" }}>YOU HAVE NO CENTER, ADD A CENTER.</span>
+            }
             {
               (this.props.allCenters.data.rows.map((center) =>
                 <Center key={center.id} centerDetails={center} show={this.props.show} />)
               )
             }
           </div>
+          { this.props.allCenters.data.rows.length > 0 &&
           <Pagination
             firstPage={this.props.allCenters.data.page.firstPage}
             currentPage={this.props.allCenters.data.page.currentPage}
@@ -47,6 +60,7 @@ export class AdminCenters extends Component {
             dispatch={this.props.dispatch}
             getItems={getAllCenters}
           />
+          }
         </div>
       </div>
     );

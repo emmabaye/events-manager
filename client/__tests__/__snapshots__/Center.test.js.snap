@@ -1,22 +1,274 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Center Component it should render Center component 1`] = `
-<Center
-  centerDetails={
-    Object {
-      "available": "true",
-      "capacity": "",
-      "description": Object {
-        "substr": [Function],
-      },
-      "id": "1",
-      "location": Object {
-        "substr": [Function],
-      },
-      "name": "",
-      "price": "",
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "blank",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
     }
-  }
-  show={[Function]}
-/>
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Center
+        centerDetails={
+          Object {
+            "available": "true",
+            "capacity": "",
+            "description": Object {
+              "substr": [Function],
+            },
+            "id": "1",
+            "location": Object {
+              "substr": [Function],
+            },
+            "name": "",
+            "price": "",
+          }
+        }
+        show={[Function]}
+      >
+        <div
+          className="col-md-4 event"
+          style={
+            Object {
+              "height": "300px",
+            }
+          }
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-block"
+              style={
+                Object {
+                  "height": "300px",
+                }
+              }
+            >
+              <h5
+                className="card-title"
+              >
+                <b />
+              </h5>
+              <p
+                className="card-text h6"
+              >
+                undefined...
+              </p>
+              <p
+                className="card-text h6"
+              >
+                <b>
+                  Location
+                </b>
+                :
+                undefined...
+              </p>
+              <p
+                className="card-text h6"
+              >
+                <b>
+                  Capacity
+                </b>
+                : 
+                 seats
+              </p>
+              <p
+                className="card-text h6"
+              >
+                <b>
+                  Price
+                </b>
+                : ₦
+              </p>
+              <p
+                className="card-text"
+              >
+                <b>
+                  Availability
+                </b>
+                : 
+                Center is Available
+              </p>
+              <p
+                className="text-center"
+              >
+                <Link
+                  className="btn btn-sm btn-primary"
+                  onClick={[Function]}
+                  replace={false}
+                  to="#"
+                >
+                  <a
+                    className="btn btn-sm btn-primary"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fa fa-info-circle fa-lg"
+                    />
+                     View Center
+                  </a>
+                </Link>
+                <Link
+                  className="btn btn-sm btn-success"
+                  onClick={[Function]}
+                  replace={false}
+                  to="#"
+                >
+                  <a
+                    className="btn btn-sm btn-success"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fa fa-edit fa-lg"
+                    />
+                     Modify
+                  </a>
+                </Link>
+                <Link
+                  className="btn btn-sm btn-danger"
+                  data-target="#1"
+                  data-toggle="modal"
+                  replace={false}
+                  to="#"
+                >
+                  <a
+                    className="btn btn-sm btn-danger"
+                    data-target="#1"
+                    data-toggle="modal"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fa fa-trash-o fa-lg"
+                    />
+                     Delete
+                  </a>
+                </Link>
+              </p>
+            </div>
+          </div>
+          <Connect(DeleteModal)
+            item="center"
+            itemId="1"
+            show={[Function]}
+          >
+            <DeleteModal
+              allCenters={Array []}
+              dispatch={[Function]}
+              item="center"
+              itemId="1"
+              myEvents={Array []}
+              show={[Function]}
+            >
+              <div
+                aria-hidden="true"
+                aria-labelledby="11Label"
+                className="modal fade"
+                id="1"
+                role="dialog"
+                tabIndex="-1"
+              >
+                <div
+                  className="modal-dialog"
+                  role="document"
+                >
+                  <div
+                    className="modal-content"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h6
+                        className="modal-title"
+                        id="eventModalLabel"
+                      >
+                        Delete 
+                        center
+                      </h6>
+                      <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      className="modal-body"
+                    >
+                      <p
+                        className="text-center"
+                      >
+                        Are you sure you want to delete this 
+                        center
+                        ?
+                      </p>
+                      <form />
+                    </div>
+                    <div
+                      className="modal-footer"
+                    >
+                      <button
+                        className="btn btn-sm btn-secondary"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="btn btn-sm btn-danger"
+                        data-dismiss="modal"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Delete 
+                        center
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </DeleteModal>
+          </Connect(DeleteModal)>
+        </div>
+      </Center>
+    </Provider>
+  </Router>
+</BrowserRouter>
 `;

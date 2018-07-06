@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nanobar from 'nanobar';
 import NavBar from "./NavBar.jsx";
@@ -205,9 +205,9 @@ export class ModifyEvent extends Component {
                       }
                     </select>
                     <small id="fileHelp" className="form-text text-muted">
-                      <a href="/centers" target="_blank">
+                      <Link to="/centers" target="_blank">
                         View Centers
-                      </a>
+                      </Link>
                     </small>
                   </div>
                 </div>

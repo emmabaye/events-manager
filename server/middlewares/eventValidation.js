@@ -40,10 +40,6 @@ const eventValidation = (req, res, next) => {
     return res.status(400).send({ message: "Time is required " });
   }
 
-  if (req.body.venue === undefined) {
-    errors.push("Venue is required");
-  }
-
   if (req.body.centerId === undefined) {
     return res.status(400).send({ message: "CenterId is required" });
   }
@@ -54,10 +50,6 @@ const eventValidation = (req, res, next) => {
 
   if (req.body.description.toString().trim() === "") {
     errors.push("Description is required");
-  }
-
-  if (req.body.venue.toString().trim() === "") {
-    errors.push("Venue is required");
   }
 
   if (req.body.startDate.toString().trim() === "") {

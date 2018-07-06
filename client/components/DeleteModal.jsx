@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import { getUserEvents } from '../actions/eventAction';
-import { getAllCenters } from '../actions/centerAction';
+import { getUserEvents, deleteEvent } from '../actions/eventAction';
+import { getAllCenters, deleteCenter } from '../actions/centerAction';
 
 /**
  * React component for delete modal
@@ -14,39 +13,21 @@ export class DeleteModal extends Component {
    *
    * @return {object}
    */
-  deleteObject = () => {
+  deleteItem = () => {
     if (this.props.item === 'event') {
-      let eventId = this.props.objectId;
-      axios({
-        method: 'DELETE',
-        url: `/api/v1/events/${eventId}`,
-        headers: { 'x-access-token': localStorage.getItem('x-access-token') },
-        withCredentials: true,
-      })
-        .then((response) => {
-          let { currentPage } = this.props.myEvents.data.page;
-          this.props.dispatch(getUserEvents(currentPage));
-        })
-        .catch((err) => {
-
-        });
+      const eventId = this.props.itemId;
+      this.props.dispatch(deleteEvent(eventId));
+      setTimeout(() => {
+        let { currentPage } = this.props.myEvents.data.page;
+        this.props.dispatch(getUserEvents(currentPage));
+      }, 1000);
     } else if (this.props.item === 'center') {
-      let centerId = this.props.objectId;
-      axios({
-        method: 'DELETE',
-        url: `/api/v1/centers/${centerId}`,
-        headers: { 'x-access-token': localStorage.getItem('x-access-token') },
-        withCredentials: true,
-      })
-        .then((response) => {
-          let { currentPage } = this.props.allCenters.data.page;
-          this.props.dispatch(getAllCenters(currentPage));
-          //this.props.show('addCenter'); // to trigger rerendering of AdminCenters
-          //return this.props.show('centers');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      let centerId = this.props.itemId;
+      this.props.dispatch(deleteCenter(centerId));
+      setTimeout(() => {
+        let { currentPage } = this.props.allCenters.data.page;
+        this.props.dispatch(getAllCenters(currentPage));
+      }, 1000);
     }
   }
 
@@ -59,7 +40,7 @@ export class DeleteModal extends Component {
   render() {
     return (
       <div className="modal fade"
-        id={`${this.props.objectId}`} tabIndex="-1" role="dialog" aria-labelledby="11Label" aria-hidden="true">
+        id={`${this.props.itemId}`} tabIndex="-1" role="dialog" aria-labelledby="11Label" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -74,7 +55,7 @@ export class DeleteModal extends Component {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" className="btn btn-sm btn-danger" data-dismiss="modal" onClick={this.deleteObject}>
+              <button type="button" className="btn btn-sm btn-danger" data-dismiss="modal" onClick={this.deleteItem}>
                 Delete {this.props.item}
               </button>
             </div>

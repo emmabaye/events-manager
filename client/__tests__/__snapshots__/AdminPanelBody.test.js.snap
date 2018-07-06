@@ -30,7 +30,7 @@ exports[`AdminPanelBody Component AdminPanelBody should render self it should re
         </a>
         <a
           className="list-group-item list-group-item-action"
-          href="#events"
+          href="/events"
         >
           Events
         </a>

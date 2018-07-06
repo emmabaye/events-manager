@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import ConnectedMyEvents, { MyEvents } from '../components/MyEvents.jsx';
 
 describe('MyEvents Component', () => {
@@ -26,12 +27,12 @@ describe('MyEvents Component', () => {
 
   describe('MyEvents form  should render self', () => {
     it('it should render for dumb component', () => {
-      const wrapper = mount(<MyEvents />);
+      const wrapper = mount(<BrowserRouter><MyEvents /></BrowserRouter>);
       expect(wrapper).toMatchSnapshot();
     });
 
     it('it should render component', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedMyEvents /></Provider>);
+      const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedMyEvents /></Provider></BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
   });

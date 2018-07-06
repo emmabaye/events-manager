@@ -1,91 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminEvent Component it should render component shallow 1`] = `
-<div
-  className="card-block"
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "blank",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
 >
-  <div
-    className="container events"
-  >
-    <div
-      className="row event-row"
-    >
-      <div
-        className="col-md-4 event"
-      >
-        <div
-          className="card"
-        >
-          <div
-            className="card-block"
-          >
-            <h5
-              className="card-title"
-            >
-              <b />
-            </h5>
-            <p
-              className="card-text h6"
-            />
-            <p
-              className="card-text h6"
-            >
-              <b>
-                Venue
-              </b>
-              : 
-            </p>
-            <p
-              className="card-text h6"
-            >
-              <b>
-                Date
-              </b>
-              : 
-              Invalid date
-            </p>
-            <p
-              className="card-text h6"
-            >
-              <b>
-                Time
-              </b>
-              : 
-            </p>
-            <p
-              className="card-text h6"
-            >
-              <b>
-                Status
-              </b>
-              : Holding
-            </p>
-            <p
-              className="text-center"
-            >
-              <a
-                className="btn btn-sm btn-primary"
-                href="/events/1"
-              >
-                <i
-                  className="fa fa-info-circle fa-lg"
-                />
-                 View Event
-              </a>
-              <a
-                className="btn btn-sm btn-danger"
-                href="#"
-              >
-                <i
-                  className="fa fa-times fa-lg"
-                />
-                 Cancel
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <AdminEvent
+    event={
+      Object {
+        "date": "",
+        "description": "",
+        "id": "1",
+        "location": "",
+        "status": "true",
+        "time": "",
+        "title": "",
+      }
+    }
+    show={[Function]}
+  />
+</Router>
 `;

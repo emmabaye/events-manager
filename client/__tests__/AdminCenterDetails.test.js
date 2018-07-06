@@ -36,9 +36,16 @@ describe('AdminCenterDetails Component', () => {
     centerId: "1",
     center: initialState.centerReducer.center
   };
+  props.center.Events = [];
 
   describe('AdminCenterDetails form  should render self', () => {
-    it('it should render for dumb component', () => {
+    it('it should render for dumb component for center not available', () => {
+      const wrapper = shallow(<CenterDetails {...props} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('it should render for dumb component for center available', () => {
+      props.center.available = 'true';
       const wrapper = shallow(<CenterDetails {...props} />);
       expect(wrapper).toMatchSnapshot();
     });

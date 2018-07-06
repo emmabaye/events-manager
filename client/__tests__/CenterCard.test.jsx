@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import CenterCard from '../components/CenterCard.jsx';
 
 describe('CenterCard Component', () => {
@@ -19,19 +20,14 @@ describe('CenterCard Component', () => {
   };
 
   it('it should render CenterCard component', () => {
-    const wrapper = shallow(<CenterCard {...props} />);
+    const wrapper = shallow(<BrowserRouter><CenterCard {...props} /></BrowserRouter>);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('it should render CenterCard component', () => {
     props.centerDetails.available = 'false';
-    const wrapper = mount(<CenterCard {...props} />);
+    const wrapper = mount(<BrowserRouter><CenterCard {...props} /></BrowserRouter>);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('it should handle onClick event', () => {
-    const wrapper = mount(<CenterCard {...props} />);
-    let viewCenterCardButton = wrapper.find('.btn-primary');
-    viewCenterCardButton.simulate('click');
-  });
 });

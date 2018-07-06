@@ -44,6 +44,7 @@ export class MyEvents extends Component {
     }
   }
 
+
   /**
    * Make style changes after component has mounted.
    * Gets user's event
@@ -71,23 +72,6 @@ export class MyEvents extends Component {
   }
 
   /**
-   * Updates component state
-   * @param {object} prevProps Previous props
-   * @return {undefined}
-   */
-  componentDidUpdate(prevProps) {
-    if (prevProps.myEvents === undefined) {
-      return null;
-    }
-    let { currentPage } = this.props.myEvents.data.page; //eslint-disable-line
-    let previousEventsCount = prevProps.myEvents.data.count;
-    let currentEventsCount = this.props.myEvents.data.count;
-    if (previousEventsCount !== currentEventsCount) {
-      // this.props.dispatch(getUserEvents(currentPage));
-    }
-  }
-
-  /**
    * React's method to render react component.
    * Renders all of user's event
    *
@@ -102,10 +86,52 @@ export class MyEvents extends Component {
         <NavBar page="MyEvents" auth/>
         <div className="container events">
           <div className="row event-row">
+            { this.props.myEvents.data.rows.length < 1 &&
+              <a href="#" 
+                style={
+                  { 
+                    textDecoration: "none", 
+                    color: "white", 
+                    textShadow: "1px 1px 1px black, -1px -1px 1px black" 
+                  }
+                } >
+                ADD EVENT
+                <div
+                  style={
+                    {
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "290px",
+                      width: "300px",
+                      color: "white",
+                      borderStyle: "solid",
+                      borderColor: "white",
+                      borderWidth: "2px",
+                      borderRadius: "3px"
+                    }
+                  }>
+                  <div
+                    style={
+                      {
+                        position: "absolute",
+                        backgroundColor: "white",
+                        height: "inherit",
+                        width: "inherit",
+                        zIndex: "-1",
+                        opacity: "0.8"
+                      }
+                    } />
+
+                  <i style={{ textShadow: "1px 1px 1px black, -1px -1px 1px black" }} className="fa fa-plus fa-5x" />
+                </div></a>
+            }
             {
               (this.props.myEvents.data.rows.map((event) => <Event key={event.id} eventDetails={event} />))
             }
           </div>
+          { this.props.myEvents.data.rows.length > 0 &&
           <Pagination
             firstPage={this.props.myEvents.data.page.firstPage}
             currentPage={this.props.myEvents.data.page.currentPage}
@@ -115,6 +141,7 @@ export class MyEvents extends Component {
             dispatch={this.props.dispatch}
             getItems={getUserEvents}
           />
+          }
         </div>
       </div>
     );

@@ -119,14 +119,25 @@ class CenterController {
    * @returns {object} res.
    */
   static getAllCenters(req, res) {
-    const limit = 9;
-    const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
-      0 : (req.query.page - 1) * limit;
-    Center.findAndCountAll({
-      limit: limit,
-      offset: offset,
-      order: [['updatedAt', 'DESC']]
-    })
+    let options;
+    let limit;
+    let offset;
+    if (req.query.page === "all") {
+      options = {
+        order: [['updatedAt', 'DESC']]
+      };
+    } else {
+      limit = 9;
+      offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+        0 : (req.query.page - 1) * limit;
+      options = {
+        limit: 9,
+        offset: offset,
+        order: [['updatedAt', 'DESC']]
+      };
+    }
+    console.log("OPTIONS ", options);
+    Center.findAndCountAll(options)
       .then((centers) => {
         if (!centers) {
           res.status(404).send({
@@ -134,7 +145,6 @@ class CenterController {
             message: 'Centers not found',
           });
         }
-
         centers.page = page(offset, limit, centers.count);
 
         res.status(200).send({
