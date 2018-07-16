@@ -1,187 +1,247 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignInForm Component SignIn page  should render self it should render for dumb component 1`] = `
-<SignInForm>
-  <div>
-    <NavBar
-      page="SignInForm"
-    >
-      <nav
-        className="navbar navbar-toggleable-md navbar-light bg-faded"
-      >
-        <button
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          className="navbar-toggler navbar-toggler-right"
-          data-target="#navbarText"
-          data-toggle="collapse"
-          type="button"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "blank",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SignInForm>
+      <div>
+        <NavBar
+          page="SignInForm"
         >
-          <span
-            className="navbar-toggler-icon"
-          />
-        </button>
-        <a
-          className="navbar-brand"
-          href="/"
-        >
-          EVENTS MANAGER
-        </a>
-        <div
-          className="collapse navbar-collapse"
-          id="navbarText"
-        >
-          <ul
-            className="navbar-nav ml-auto"
+          <nav
+            className="navbar navbar-toggleable-md navbar-light bg-faded"
           >
-            <li
-              className="nav-item active"
+            <button
+              aria-controls="navbarText"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              className="navbar-toggler navbar-toggler-right"
+              data-target="#navbarText"
+              data-toggle="collapse"
+              type="button"
+            >
+              <span
+                className="navbar-toggler-icon"
+              />
+            </button>
+            <Link
+              className="navbar-brand"
+              replace={false}
+              to="/"
             >
               <a
-                className="nav-link"
+                className="navbar-brand"
                 href="/"
+                onClick={[Function]}
               >
-                Home 
-                <span
-                  className="sr-only"
+                EVENTS MANAGER
+              </a>
+            </Link>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarText"
+            >
+              <ul
+                className="navbar-nav ml-auto"
+              >
+                <li
+                  className="nav-item active"
                 >
-                  (current)
-                </span>
-              </a>
-            </li>
-            <li
-              className="nav-item"
-            >
-              <a
-                className="nav-link"
-                href="/centers"
-              >
-                Centers
-              </a>
-            </li>
-            <li
-              className="nav-item"
-            >
-              <a
-                className="nav-link"
-                href="/login"
-              >
-                Sign In
-              </a>
-            </li>
-            <li
-              className="nav-item"
-            >
-              <a
-                className="nav-link"
-                href="/signup"
-              >
-                Sign Up
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </NavBar>
-    <div
-      className="container signup "
-    >
-      <div
-        className="row"
-      >
+                  <Link
+                    className="nav-link"
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      className="nav-link"
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Home 
+                      <span
+                        className="sr-only"
+                      >
+                        (current)
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className="nav-item"
+                >
+                  <Link
+                    className="nav-link"
+                    replace={false}
+                    to="/centers"
+                  >
+                    <a
+                      className="nav-link"
+                      href="/centers"
+                      onClick={[Function]}
+                    >
+                      Centers
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className="nav-item"
+                >
+                  <Link
+                    className="nav-link"
+                    replace={false}
+                    to="/login"
+                  >
+                    <a
+                      className="nav-link"
+                      href="/login"
+                      onClick={[Function]}
+                    >
+                      Sign In
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className="nav-item"
+                >
+                  <Link
+                    className="nav-link"
+                    replace={false}
+                    to="/signup"
+                  >
+                    <a
+                      className="nav-link"
+                      href="/signup"
+                      onClick={[Function]}
+                    >
+                      Sign Up
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </NavBar>
         <div
-          className="container"
+          className="container signup "
         >
-          <form
-            action="./authindex.htm"
+          <div
+            className="row"
           >
             <div
-              className="form-group row"
+              className="container"
             >
-              <label
-                className="col-sm-3 col-form-label"
-                htmlFor=""
-              />
-              <div
-                className="col-sm-9"
-              />
-            </div>
-            <div
-              className="form-group row"
-            >
-              <label
-                className="col-sm-3 col-form-label"
-                htmlFor="inputEmail3"
+              <form
+                action="./authindex.htm"
               >
-                Email
-              </label>
-              <div
-                className="col-sm-9"
-              >
-                <input
-                  className="form-control"
-                  name="email"
-                  onChange={[Function]}
-                  placeholder="Email"
-                  type="email"
-                />
-              </div>
-            </div>
-            <div
-              className="form-group row"
-            >
-              <label
-                className="col-sm-3 col-form-label"
-                htmlFor="inputPassword3"
-              >
-                Password
-              </label>
-              <div
-                className="col-sm-9"
-              >
-                <input
-                  className="form-control"
-                  name="password"
-                  onChange={[Function]}
-                  placeholder="Password"
-                  type="password"
-                />
-              </div>
-            </div>
-            <div
-              className="form-group row"
-            >
-              <div
-                className="offset-sm-3 col-sm-9"
-              >
-                <button
-                  className="btn btn-primary"
-                  onClick={[Function]}
-                  type="submit"
+                <div
+                  className="form-group row"
                 >
-                  Sign In
-                </button>
-              </div>
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor=""
+                  />
+                  <div
+                    className="col-sm-9"
+                  />
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="inputEmail3"
+                  >
+                    Email
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="email"
+                      onChange={[Function]}
+                      placeholder="Email"
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <label
+                    className="col-sm-3 col-form-label"
+                    htmlFor="inputPassword3"
+                  >
+                    Password
+                  </label>
+                  <div
+                    className="col-sm-9"
+                  >
+                    <input
+                      className="form-control"
+                      name="password"
+                      onChange={[Function]}
+                      placeholder="Password"
+                      type="password"
+                    />
+                  </div>
+                </div>
+                <div
+                  className="form-group row"
+                >
+                  <div
+                    className="offset-sm-3 col-sm-9"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Sign In
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
+        <Footer>
+          <footer
+            className="container-fluid"
+          >
+            <p
+              className="h6 text-center"
+            >
+              <i
+                className="fa fa-copyright"
+              />
+               2017 EVENTS MANAGER
+            </p>
+          </footer>
+        </Footer>
       </div>
-    </div>
-    <Footer>
-      <footer
-        className="container-fluid"
-      >
-        <p
-          className="h6 text-center"
-        >
-          <i
-            className="fa fa-copyright"
-          />
-           2017 EVENTS MANAGER
-        </p>
-      </footer>
-    </Footer>
-  </div>
-</SignInForm>
+    </SignInForm>
+  </Router>
+</BrowserRouter>
 `;

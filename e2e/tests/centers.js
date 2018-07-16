@@ -10,7 +10,7 @@ export default {
       .pause(5000)
       .verify.urlEquals(`${client.launch_url}/myevents`)
       .assert.elementPresent(".navbar a[href='/addevent']")
-      .url(`${client.launch_url}/admin`)
+      .url(`${client.launch_url}/admin`);
   },
 
   "view center": (client) => {
@@ -23,7 +23,7 @@ export default {
       .waitForElementVisible('.mapouter', 5000)
       .pause(3000)
       .click(".sidebar a[href='#centers']")
-      .waitForElementVisible('.centers', 5000)
+      .waitForElementVisible('.centers', 5000);
   },
 
   "add center": (client) => {
@@ -39,7 +39,7 @@ export default {
       .setValue('input[name=image]', client.globals.center.image)
       .click('form button[type=submit]')
       .waitForElementVisible('.centers', 5000)
-      .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title',client.globals.center.name)
+      .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title', client.globals.center.name);
   },
 
   "modify center": (client) => {
@@ -51,7 +51,7 @@ export default {
       .setValue('input[name=name]', 'Town Hall')
       .click('form button[type=submit]')
       .waitForElementVisible('.centers', 5000)
-      .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title', 'Town Hall')
+      .assert.containsText('.centers .row .col-md-4:nth-child(1) .card-title', 'Town Hall');
   },
 
   "delete center": (client) => {
@@ -61,13 +61,13 @@ export default {
       .pause(5000)
       .waitForElementVisible(".centers .row .col-md-4:nth-child(1) .modal button.btn-danger", 5000)
       .click(".centers .row .col-md-4:nth-child(1) .modal button.btn-danger")
-      .pause(3000)
+      .pause(3000);
   },
 
   "after": (client) => {
     client
       .click(".navbar a[href='/logout']")
       .pause(3000)
-      .end()
+      .end();
   }
 };

@@ -1,4 +1,4 @@
-import DeleteModal from '../components/DeleteModal.jsx';
+import ConnectedDeleteModal from '../components/DeleteModal.jsx';
 
 describe('DeleteModal Component', () => {
   global.localStorage = {
@@ -7,17 +7,29 @@ describe('DeleteModal Component', () => {
     '.IwykmkkET5VmBvTEyPPXfMOq611ITQaoh-9wV11mJgE'
   };
 
+  const initialState = {
+    eventReducer: {
+      userEvents: []
+    },
+    centerReducer: {
+      allCenters: []
+    }
+  };
+
+  const store = mockStore(initialState);
+
   const props = {
-    objectId: "1"
+    itemId: "1",
+    item: "center"
   };
 
   it('it should render DeleteModal component', () => {
-    const wrapper = shallow(<DeleteModal {...props} />);
+    const wrapper = shallow(<Provider store={store}><ConnectedDeleteModal {...props} /></Provider>);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('it should handle onClick event', () => {
-    const wrapper = mount(<DeleteModal {...props} />);
+    const wrapper = mount(<Provider store={store}><ConnectedDeleteModal {...props} /></Provider>);
     let DeleteButton = wrapper.find('.btn-danger');
     DeleteButton.simulate('click');
   });

@@ -1,7 +1,9 @@
 import cloudinary from '../config/cloudinary';
 import Model from '../models';
+import page from '../utils/page';
 
 const { Center } = Model;
+const { Event } = Model;
 
 /** Class Center Controller functions. */
 class CenterController {
@@ -71,6 +73,45 @@ class CenterController {
   }
 
   /**
+   * Get events for a center
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getCenterEvents(req, res) {
+    const limit = 9;
+    const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+      0 : (req.query.page - 1) * limit;
+    Event.findAndCountAll({
+      where: { centerId: req.params.centerId },
+      limit: limit,
+      offset: offset
+    })
+      .then((events) => {
+        if (!events) {
+          res.status(404).send({
+            status: 'Error',
+            message: ' Events not found',
+          });
+        }
+
+        events.page = page(offset, limit, events.count);
+
+        res.status(200).send({
+          status: 'Success',
+          message: 'Events found',
+          data: events,
+        });
+      }).catch((e) => {
+        res.status(500).send({
+          status: 'Error',
+          message: 'Server Error',
+        });
+      });
+  }
+
+  /**
    * Get all centers
    *
    * @param {object} req The request body of the request.
@@ -78,7 +119,25 @@ class CenterController {
    * @returns {object} res.
    */
   static getAllCenters(req, res) {
-    Center.findAll({})
+    let options;
+    let limit;
+    let offset;
+    if (req.query.page === "all") {
+      options = {
+        order: [['updatedAt', 'DESC']]
+      };
+    } else {
+      limit = 9;
+      offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+        0 : (req.query.page - 1) * limit;
+      options = {
+        limit: 9,
+        offset: offset,
+        order: [['updatedAt', 'DESC']]
+      };
+    }
+    console.log("OPTIONS ", options);
+    Center.findAndCountAll(options)
       .then((centers) => {
         if (!centers) {
           res.status(404).send({
@@ -86,6 +145,8 @@ class CenterController {
             message: 'Centers not found',
           });
         }
+        centers.page = page(offset, limit, centers.count);
+
         res.status(200).send({
           status: 'Success',
           message: 'Centers found',
@@ -98,6 +159,7 @@ class CenterController {
         });
       });
   }
+
 
   /**
    * Update center details

@@ -1,3 +1,4 @@
+import sinon from 'sinon';
 import ConnectedAddCenter, { AddCenter } from '../components/AddCenter.jsx';
 
 
@@ -34,22 +35,27 @@ describe('AddCenter Component', () => {
 
     it('it should render redirect on  success', () => {
       const wrapper = shallow(<AddCenter {...props} status="Success" />);
-      console.log("WRAPPER ", wrapper.prop);
       expect(wrapper.length).toEqual(1);
     });
   });
 
   describe('AddCenter events', () => {
+    let event;
     it('it should handle onChange event', () => {
+      event = { target: { name: "description", value: "best center" } };
       const wrapper = shallow(<AddCenter {...props} />);
-      const descriptionInput = wrapper.find('[name="description"]');
-      descriptionInput.simulate('change', { target: {} });
+      const spy = sinon.spy(wrapper.instance(), 'handleChange');
+      wrapper.instance().handleChange(event);
+      expect(wrapper.state().center.description).toBe('best center');
+      expect(spy.calledOnce).toBeTruthy();
     });
 
     it('it should submit form', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAddCenter /></Provider>);
+      //const spy = sinon.spy(wrapper.instance(), 'handleSubmit');
       const button = wrapper.find('.btn');
       button.simulate('click', { preventDefault: () => {} });
+      // expect(spy.calledOnce).toBeTruthy();
     });
   });
 });

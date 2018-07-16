@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import ConnectedEventDetails, { EventDetails } from '../components/EventDetails.jsx';
 
 describe('EventDetails Component', () => {
@@ -37,12 +38,12 @@ describe('EventDetails Component', () => {
 
   describe('EventDetails form  should render self', () => {
     it('it should render for dumb component', () => {
-      const wrapper = shallow(<EventDetails {...props} />);
+      const wrapper = shallow(<BrowserRouter><EventDetails {...props} /></BrowserRouter>);
       expect(wrapper).toMatchSnapshot();
     });
 
     it('it should render connected component', () => {
-      const wrapper = mount(<Provider store={store}><ConnectedEventDetails match={props.match}/></Provider>);
+      const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedEventDetails match={props.match}/></Provider></BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
   });

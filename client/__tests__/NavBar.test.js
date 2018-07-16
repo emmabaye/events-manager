@@ -56,6 +56,12 @@ describe('NavBar component', () => {
       const { wrapper } = setup("AddEvent");
       expect(wrapper.length).toEqual(1);
     });
+
+    it('it should render for add event page for logged in user', () => {
+      const { wrapper } = setup("AddEvent");
+      wrapper.instance().isLoggedIn = true;
+      expect(wrapper.length).toEqual(1);
+    });
   });
 
   describe('NavBar should render self', () => {

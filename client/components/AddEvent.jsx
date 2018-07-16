@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nanobar from 'nanobar';
 import NavBar from "./NavBar.jsx";
@@ -56,12 +56,12 @@ export class AddEvent extends Component {
 
     axios({
       method: 'GET',
-      url: '/api/v1/centers',
+      url: '/api/v1/centers?page=all',
       withCredentials: true,
     })
       .then((response) => {
         nanobar.go(100);
-        this.setState({ centers: response.data.data });
+        this.setState({ centers: response.data.data.rows });
       })
       .catch((err) => {
         nanobar.go(0);
@@ -101,7 +101,8 @@ export class AddEvent extends Component {
     eventForm.append('description', eventDetails.description);
     eventForm.append('centerId', eventDetails.centerId);
     eventForm.append('time', eventDetails.time);
-    eventForm.append('date', eventDetails.date);
+    eventForm.append('startDate', eventDetails.startDate);
+    eventForm.append('endDate', eventDetails.endDate);
     eventForm.append('image', this.refs.image.files[0]);
     return dispatch(addEvent(eventForm));
   }
@@ -169,25 +170,34 @@ export class AddEvent extends Component {
                       <option />
                       {
                         (this.state.centers.map((center) => (
-                          <option key={center.id} value={center.id}>
+                          <option key={center.id} value={center.id} hidden={center.available !== "true"}>
                             {center.name}
-                          </option>))
+                          </option>
+                        ))
                         )
                       }
                     </select>
                     <small id="fileHelp" className="form-text text-muted">
-                      <a href="./centers" target="_blank">
+                      <Link to="./centers" target="_blank">
                         View Centers
-                      </a>
+                      </Link>
                     </small>
                   </div>
                 </div>
                 <div className="form-group row">
                   <label htmlFor="title" className="col-sm-3 col-form-label">
-                    Date
+                    Start Date
                   </label>
                   <div className="col-sm-9">
-                    <input type="date" className="form-control" name="date" onChange={this.handleChange}/>
+                    <input type="date" className="form-control" name="startDate" onChange={this.handleChange}/>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label htmlFor="title" className="col-sm-3 col-form-label">
+                    End Date
+                  </label>
+                  <div className="col-sm-9">
+                    <input type="date" className="form-control" name="endDate" onChange={this.handleChange}/>
                   </div>
                 </div>
                 <div className="form-group row">

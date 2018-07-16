@@ -1,4 +1,3 @@
-
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('Events', {
     id: {
@@ -19,7 +18,11 @@ module.exports = {
       type: Sequelize.TEXT,
       allowNull: false,
     },
-    date: {
+    startDate: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    endDate: {
       type: Sequelize.DATE,
       allowNull: false,
     },
@@ -30,6 +33,11 @@ module.exports = {
     image: {
       type: Sequelize.TEXT,
       allowNull: true,
+    },
+    status: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      defaultValue: 'holding',
     },
     userId: {
       type: Sequelize.INTEGER,

@@ -5,8 +5,12 @@ describe('Event Component', () => {
     eventDetails: {
       id: '1',
       title: 'Seminar',
-      description: "",
-      location: "",
+      description: {
+        substr: () => {}
+      },
+      venue: {
+        substr: () => {}
+      },
       time: "5:00",
       date: '2020-01-01',
       image: "",

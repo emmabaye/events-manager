@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Pagination from './Pagination.jsx';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import CenterCard from './CenterCard.jsx';
@@ -21,8 +22,8 @@ export class AllCenters extends Component {
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
-
-    this.props.dispatch(getAllCenters());
+    let page = 1;
+    this.props.dispatch(getAllCenters(page));
   }
 
   /**
@@ -31,6 +32,9 @@ export class AllCenters extends Component {
    * @return {object}
    */
   render() {
+    if (this.props.allCenters.data.rows === undefined) {
+      return null;
+    }
     return (
       <div>
         <NavBar page="AllCenters" />
@@ -38,11 +42,22 @@ export class AllCenters extends Component {
           <div id="events" className="container events">
             <div className="row event-row">
               {
-                (this.props.allCenters.data.map((center) => <CenterCard key={center.id} centerDetails={center} />))
+                (this.props.allCenters.data.rows.map((center) => <CenterCard key={center.id} centerDetails={center} />))
               }
             </div>
           </div>
         </div>
+        { this.props.allCenters.data.rows.length > 0 &&
+        <Pagination
+          firstPage={this.props.allCenters.data.page.firstPage}
+          currentPage={this.props.allCenters.data.page.currentPage}
+          previousPage={this.props.allCenters.data.page.previousPage}
+          nextPage={this.props.allCenters.data.page.nextPage}
+          lastPage={this.props.allCenters.data.page.lastPage}
+          dispatch={this.props.dispatch}
+          getItems={getAllCenters}
+        />
+        }
         <Footer />
       </div>
     );

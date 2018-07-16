@@ -1,13 +1,17 @@
 import nodemailer from 'nodemailer';
 import moment from 'moment';
+import Sequelize from 'sequelize';
 import cloudinary from '../config/cloudinary';
 import Model from '../models';
+import page from '../utils/page';
 
 const { Event } = Model;
+const { Op } = Sequelize;
+
 
 /**
    * Event controller
-   *
+   * date: new Date(req.body.date).toISOString()
    */
 class EventController {
   /**
@@ -20,7 +24,18 @@ class EventController {
     Event.findOne({
       where: {
         centerId: req.body.centerId,
-        date: new Date(req.body.date).toISOString()
+        [Op.or]: [
+          {
+            startDate: {
+              [Op.between]: [req.body.startDate, req.body.endDate]
+            }
+          },
+          {
+            endDate: {
+              [Op.between]: [req.body.startDate, req.body.endDate]
+            }
+          }
+        ]
       }
     })
       .then((existingEvent) => {
@@ -31,7 +46,9 @@ class EventController {
             data: {
               id: existingEvent.id,
               title: existingEvent.title,
-              centerId: existingEvent.centerId
+              centerId: existingEvent.centerId,
+              startDate: existingEvent.startDate,
+              endDate: existingEvent.endDate
             }
           });
         }
@@ -48,7 +65,8 @@ class EventController {
             title: req.body.title,
             description: req.body.description,
             venue: req.body.venue,
-            date: new Date(req.body.date).toISOString(),
+            startDate: new Date(req.body.startDate).toISOString(),
+            endDate: new Date(req.body.endDate).toISOString(),
             time: req.body.time,
             userId: req.userId,
             centerId: req.body.centerId,
@@ -95,15 +113,23 @@ class EventController {
             console.log('IMAGE ERROR ', error);
           }
 
+          console.log("EVENT STATUS ", event.status);
+          console.log(" EVENT CENTER ID ", event.centerId);
+          console.log("REQ BODY CENTER ID ", req.body.centerId);
+
           Event.update({
             title: req.body.title || event.title,
             description: req.body.description || event.description,
             venue: req.body.venue || event.venue,
-            date: new Date(req.body.date).toISOString() || event.date,
+            startDate: new Date(req.body.startDate).toISOString() || event.startDate,
+            endDate: new Date(req.body.endDate).toISOString() || event.endDate,
             time: req.body.time || event.time,
             userId: req.userId || event.userId,
             centerId: req.body.centerId || event.centerId,
-            image: (result) ? result.url : event.image
+            image: (result) ? result.url : event.image,
+            status: ((event.centerId === null && req.body.centerId !== null) ||
+            (event.centerId !== req.body.centerId)) ?
+              "holding" : event.status
           }, {
             where: {
               id: req.params.eventId
@@ -147,13 +173,48 @@ class EventController {
         if (!event) {
           return res.status(404).send({ status: 'Error', message: 'Event not found' });
         }
-
+        console.log("EVENT ", event);
         res.status(200).send({
           status: 'Success',
           message: 'Event found',
           data: event
         });
       });
+  }
+
+  /**
+   * Get all events for a specific user
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getUserEvents(req, res) {
+    const limit = 9;
+    const offset = (req.query.page === undefined || Number.isNaN(req.query.page) || req.query.page < 1) ?
+      0 : (req.query.page - 1) * limit;
+    Event.findAndCountAll({
+      where: { userId: req.userId },
+      limit: limit,
+      offset: offset,
+      order: [['updatedAt', 'DESC']]
+    }).then((events) => {
+      if (!events) {
+        return res.status(404).send({ status: 'Error', message: 'Events not found' });
+      }
+
+      events.page = page(offset, limit, events.count);
+
+      res.status(200).send({
+        status: 'Success',
+        message: 'Events found',
+        data: events
+      });
+    }).catch((e) => {
+      res.status(500).send({
+        status: 'Error',
+        message: 'Server Error',
+      });
+    });
   }
 
   /**
@@ -208,7 +269,8 @@ class EventController {
    */
   static cancelEvent(req, res) {
     Event.update({
-      venue: 'NOT AVAILABLE'
+      status: 'cancelled',
+      centerId: null
     }, {
       where: {
         id: req.params.eventId
@@ -251,8 +313,7 @@ class EventController {
             };
             transporter.sendMail(mailOptions, (err, info) => {
               console.log('ERROR: ', err);
-              console.log('ENVELOPE: ', info.envelope);
-              console.log('MESSAGE ID: ', info.messageId);
+              console.log('ENVELOPE , MESSAGE ID ===>', info.envelope, info.messageId);
             });
           }
         }).catch((err) => {

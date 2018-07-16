@@ -157,13 +157,24 @@ class UserController {
         }
 
         if ((req.userId !== user.id) && (req.userRole !== 'admin')) {
-          return res.status(403).send({ error: 'You do not have privilege to modify this user', id: req.user });
+          return res.status(403).send({
+            error: 'You do not have privilege to modify this user', id: req.user
+          });
+        }
+
+        if (req.body.role !== user.role && req.body.role !== undefined && req.userRole !== 'admin') {
+          return res.status(403).send({
+            error: 'You do not have privilege to modify user role',
+            id: req.user
+          });
         }
 
         User.update({
           firstName: req.body.firstName || user.firstName,
           lastName: req.body.lastName || user.lastName,
-          role: (req.userRole === 'admin') ? req.body.role || user.role : user.role,
+          role: (req.body.role === 'admin' || req.body.role === 'member') ?
+            req.body.role :
+            user.role,
         }, {
           where: {
             id: req.params.userId,

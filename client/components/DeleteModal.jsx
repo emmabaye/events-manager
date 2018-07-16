@@ -1,47 +1,33 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { history } from '../routes';
+import { connect } from 'react-redux';
+import { getUserEvents, deleteEvent } from '../actions/eventAction';
+import { getAllCenters, deleteCenter } from '../actions/centerAction';
 
 /**
  * React component for delete modal
  */
-export default class DeleteModal extends Component {
+export class DeleteModal extends Component {
   /**
    * React's method to render react component.
    * Renders modal
    *
    * @return {object}
    */
-  deleteObject = () => {
+  deleteItem = () => {
     if (this.props.item === 'event') {
-      let eventId = this.props.objectId;
-      axios({
-        method: 'DELETE',
-        url: `/api/v1/events/${eventId}`,
-        headers: { 'x-access-token': localStorage.getItem('x-access-token') },
-        withCredentials: true,
-      })
-        .then((response) => {
-          history.push("/myevents");
-        })
-        .catch((err) => {
-
-        });
+      const eventId = this.props.itemId;
+      this.props.dispatch(deleteEvent(eventId));
+      setTimeout(() => {
+        let { currentPage } = this.props.myEvents.data.page;
+        this.props.dispatch(getUserEvents(currentPage));
+      }, 1000);
     } else if (this.props.item === 'center') {
-      let centerId = this.props.objectId;
-      axios({
-        method: 'DELETE',
-        url: `/api/v1/centers/${centerId}`,
-        headers: { 'x-access-token': localStorage.getItem('x-access-token') },
-        withCredentials: true,
-      })
-        .then((response) => {
-          this.props.show('addCenter'); // to trigger rerendering of AdminCenters
-          return this.props.show('centers');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      let centerId = this.props.itemId;
+      this.props.dispatch(deleteCenter(centerId));
+      setTimeout(() => {
+        let { currentPage } = this.props.allCenters.data.page;
+        this.props.dispatch(getAllCenters(currentPage));
+      }, 1000);
     }
   }
 
@@ -54,7 +40,7 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <div className="modal fade"
-        id={`${this.props.objectId}`} tabIndex="-1" role="dialog" aria-labelledby="11Label" aria-hidden="true">
+        id={`${this.props.itemId}`} tabIndex="-1" role="dialog" aria-labelledby="11Label" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -69,7 +55,7 @@ export default class DeleteModal extends Component {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" className="btn btn-sm btn-danger" data-dismiss="modal" onClick={this.deleteObject}>
+              <button type="button" className="btn btn-sm btn-danger" data-dismiss="modal" onClick={this.deleteItem}>
                 Delete {this.props.item}
               </button>
             </div>
@@ -80,3 +66,31 @@ export default class DeleteModal extends Component {
     );
   }
 }
+
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: (actionObject) => dispatch(actionObject)
+});
+
+/**
+ * Makes the necessary  redux state available in this
+ * component's props
+ *
+ * @param  {object} state global state
+ * @return {object} props object
+ */
+const mapStateToProps = (state) => ({
+  myEvents: state.eventReducer.userEvents,
+  allCenters: state.centerReducer.allCenters
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DeleteModal);

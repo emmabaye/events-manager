@@ -17,7 +17,8 @@ describe('ModifyCenter Component', () => {
 
   const props = {
     dispatch: () => {},
-    show: () => {}
+    show: () => {},
+    status: ""
   };
 
   describe('ModifyCenter form  should render self', () => {

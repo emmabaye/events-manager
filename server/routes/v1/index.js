@@ -67,6 +67,15 @@ const routes = (app) => {
     .post(isAuthenticated, eventValidation, EventController.createEvent);
 
   /**
+   * GET method, get events for a specific user
+   *
+   * @param {string} string
+   * @returns {object} res.
+   */
+  app.route('/api/v1/events/user')
+    .get(isAuthenticated, EventController.getUserEvents);
+
+  /**
    * GET method, get event details
    * PUT method, update event details
    * DELETE method, delete event details
@@ -110,6 +119,25 @@ const routes = (app) => {
     .delete(isAuthenticated, isAdmin, CenterController.deleteCenter);
 
   /**
+   * GET method, get a events for a specific center
+   *
+   * @param {string} string
+   * @returns {object} res.
+   */
+  app.route('/api/v1/events/centers/:centerId')
+    .get(isAuthenticated, CenterController.getCenterEvents);
+
+  /**
+   * Resource not found
+   * @param {string} string
+   * @returns {object} res.
+   */
+  app.all('/api/v1/*', (req, res) => res.status(404).send({
+    status: 'Error',
+    message: 'Resource not found',
+  }));
+
+  /**
    * GET method, get routes for
    * the client SPA
    *
@@ -119,16 +147,6 @@ const routes = (app) => {
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'));
   });
-
-  /**
-   * Resource not found
-   * @param {string} string
-   * @returns {object} res.
-   */
-  app.all('*', (req, res) => res.status(404).send({
-    status: 'Error',
-    message: 'Resource not found',
-  }));
 };
 
 export default routes;

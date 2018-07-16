@@ -2,27 +2,20 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-let generateFutureDate = (presentYear) => {
-	let year = Math.ceil(Math.random() * (5138 - presentYear) + presentYear);
-	let month = Math.ceil(Math.random() * (12 - 1) + 1);
-	let day = Math.ceil(Math.random() * (28 - 1) + 1);
-
-	return `${day}-${month}-${year}`;
-}
-
 export default {
   env: process.env,
   event: {
-  	title: `Seminar ${Math.random().toString().substr(-5)}`,
+  	title: `Tech Meetup ${Math.random().toString().substr(-5)}`, //eslint-disable-line
     description: 'Lorem Ipsum Seminar Description',
-    center: 'City Hall',
-    date: generateFutureDate(2018),
-    time: '17:00',
+    center: 'City Event Center',
+    startDate: "16-12-2019",
+    endDate: "17-12-2019",
+    time: '5:00PM',
     image: '#noImage',
     centerId: '1'
   },
   center: {
-  	name: 'City Hall',
+  	name: 'Moments Event Center', //eslint-disable-line
     description: 'Best Hall for your events',
     location: 'Port Harcourt',
     capacity: '500',
