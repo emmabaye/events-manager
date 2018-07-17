@@ -1,5 +1,383 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EventDetails Component EventDetails form  should render self it should render connected component 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "blank",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(EventDetails)
+        match={
+          Object {
+            "params": Object {
+              "id": "1",
+            },
+          }
+        }
+      >
+        <EventDetails
+          dispatch={[Function]}
+          event={
+            Object {
+              "Center": Array [],
+              "date": "2020-01-01",
+              "description": "",
+              "id": "1",
+              "image": "",
+              "location": "",
+              "time": "5:00",
+              "title": "Seminar",
+            }
+          }
+          match={
+            Object {
+              "params": Object {
+                "id": "1",
+              },
+            }
+          }
+          message=""
+          status="Error"
+        >
+          <div>
+            <NavBar
+              page="MyEvents"
+            >
+              <nav
+                className="navbar navbar-toggleable-md navbar-light bg-faded"
+              >
+                <button
+                  aria-controls="navbarText"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  className="navbar-toggler navbar-toggler-right"
+                  data-target="#navbarText"
+                  data-toggle="collapse"
+                  type="button"
+                >
+                  <span
+                    className="navbar-toggler-icon"
+                  />
+                </button>
+                <Link
+                  className="navbar-brand"
+                  replace={false}
+                  to="/"
+                >
+                  <a
+                    className="navbar-brand"
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    EVENTS MANAGER
+                  </a>
+                </Link>
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarText"
+                >
+                  <ul
+                    className="navbar-nav ml-auto"
+                  >
+                    <li
+                      className="nav-item active"
+                    >
+                      <Link
+                        className="nav-link"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="nav-link"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Home 
+                          <span
+                            className="sr-only"
+                          >
+                            (current)
+                          </span>
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <Link
+                        className="nav-link"
+                        replace={false}
+                        to="/centers"
+                      >
+                        <a
+                          className="nav-link"
+                          href="/centers"
+                          onClick={[Function]}
+                        >
+                          Centers
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <Link
+                        className="nav-link"
+                        replace={false}
+                        to="/login"
+                      >
+                        <a
+                          className="nav-link"
+                          href="/login"
+                          onClick={[Function]}
+                        >
+                          Sign In
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <Link
+                        className="nav-link"
+                        replace={false}
+                        to="/signup"
+                      >
+                        <a
+                          className="nav-link"
+                          href="/signup"
+                          onClick={[Function]}
+                        >
+                          Sign Up
+                        </a>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </NavBar>
+            <div
+              className="container event-details"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-8 event"
+                >
+                  <div
+                    className="card mb-3"
+                  >
+                    <img
+                      alt="Card image cap"
+                      className="card-img-top img-fluid"
+                      height="300"
+                      src=""
+                    />
+                    <div
+                      className="card-block"
+                    >
+                      <h5
+                        className="card-title"
+                      >
+                        <b>
+                          Seminar
+                        </b>
+                      </h5>
+                      <p
+                        className="card-text"
+                      />
+                    </div>
+                  </div>
+                  <Location
+                    location="undefined, undefined"
+                  >
+                    <div
+                      className="card"
+                      style={
+                        Object {
+                          "minHeight": "350px",
+                        }
+                      }
+                    >
+                      <h6
+                        className="card-header"
+                      >
+                        <b>
+                          LOCATION
+                        </b>
+                      </h6>
+                      <div
+                        className="card-block"
+                      >
+                        <div
+                          className="mapouter"
+                          style={
+                            Object {
+                              "height": "100%",
+                              "overflow": "hidden",
+                              "width": "100%",
+                            }
+                          }
+                        >
+                          <div
+                            className="gmap_canvas"
+                            style={
+                              Object {
+                                "background": "none",
+                                "height": "100%",
+                                "width": "100%",
+                              }
+                            }
+                          >
+                            <iframe
+                              frameBorder="0"
+                              id="gmap_canvas"
+                              marginHeight="0"
+                              marginWidth="0"
+                              scrolling="no"
+                              src="https://maps.google.com/maps?q=undefined, undefined&t=&z=9&ie=UTF8&iwloc=&output=embed"
+                              style={
+                                Object {
+                                  "minHeight": "400px",
+                                  "width": "100%",
+                                }
+                              }
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Location>
+                </div>
+                <div
+                  className="col-md-4 venue-date"
+                >
+                  <div
+                    className="container"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="card"
+                      >
+                        <h6
+                          className="card-header"
+                        >
+                          <b>
+                            VENUE
+                          </b>
+                        </h6>
+                        <div
+                          className="card-block"
+                        >
+                          <p
+                            className="card-text"
+                          >
+                            undefined, undefined
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="card"
+                      >
+                        <h6
+                          className="card-header"
+                        >
+                          <b>
+                            DATE & TIME
+                          </b>
+                        </h6>
+                        <div
+                          className="card-block"
+                        >
+                          <p
+                            className="card-text"
+                          >
+                            01 January 2020
+                          </p>
+                          <p
+                            className="card-text"
+                          >
+                            5:00
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Footer>
+              <footer
+                className="container-fluid"
+                style={
+                  Object {
+                    "backgroundColor": "#262626",
+                    "height": "100px",
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <label
+                  className="h6 text-center"
+                  style={
+                    Object {
+                      "backgroundColor": "#262626",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <i
+                    className="fa fa-copyright"
+                  />
+                   2017 EVENTS MANAGER
+                </label>
+              </footer>
+            </Footer>
+          </div>
+        </EventDetails>
+      </Connect(EventDetails)>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
 exports[`EventDetails Component EventDetails form  should render self it should render for dumb component 1`] = `
 <Router
   history={

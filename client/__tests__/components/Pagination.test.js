@@ -20,7 +20,7 @@ describe('Pagination component should render self', () => {
 
 describe('Pagination events', () => {
   it('it should handle click events for list item with class bb', () => {
-    const wrapper = shallow(<Pagination { ...props}/>);
+    const wrapper = shallow(<Pagination {...props}/>);
     const spy = sinon.spy(wrapper.instance(), 'handleGetItems');
     const listItem = wrapper.find('.page-item .bb');
     listItem.simulate('click', {});
@@ -30,7 +30,7 @@ describe('Pagination events', () => {
 
 describe('Pagination events', () => {
   it('it should handle click events for list item with class cc', () => {
-    const wrapper = shallow(<Pagination { ...props}/>);
+    const wrapper = shallow(<Pagination {...props}/>);
     const spy = sinon.spy(wrapper.instance(), 'handleGetItems');
     const listItem = wrapper.find('.page-item .cc');
     listItem.simulate('click', {});
@@ -38,7 +38,7 @@ describe('Pagination events', () => {
   });
 
   it('it should handle click events for list item with class dd', () => {
-    const wrapper = shallow(<Pagination { ...props}/>);
+    const wrapper = shallow(<Pagination {...props}/>);
     const spy = sinon.spy(wrapper.instance(), 'handleGetItems');
     const listItem = wrapper.find('.page-item .dd');
     listItem.simulate('click', {});
@@ -46,7 +46,7 @@ describe('Pagination events', () => {
   });
 
   it('it should handle click events for list item with class ee', () => {
-    const wrapper = shallow(<Pagination { ...props}/>);
+    const wrapper = shallow(<Pagination {...props}/>);
     const spy = sinon.spy(wrapper.instance(), 'handleGetItems');
     const listItem = wrapper.find('.page-item .ee');
     listItem.simulate('click', {});
@@ -54,7 +54,7 @@ describe('Pagination events', () => {
   });
 
   it('it should handle click events for list with class ff', () => {
-    const wrapper = shallow(<Pagination { ...props}/>);
+    const wrapper = shallow(<Pagination {...props}/>);
     const spy = sinon.spy(wrapper.instance(), 'handleGetItems');
     const listItem = wrapper.find('.page-item .ff');
     listItem.simulate('click', {});
@@ -62,7 +62,7 @@ describe('Pagination events', () => {
   });
 
   it('it should handle click events for list with class gg', () => {
-    const wrapper = shallow(<Pagination { ...props}/>);
+    const wrapper = shallow(<Pagination {...props}/>);
     const spy = sinon.spy(wrapper.instance(), 'handleGetItems');
     const listItem = wrapper.find('.page-item .gg');
     listItem.simulate('click', {});

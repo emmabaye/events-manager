@@ -106,7 +106,6 @@ export const modifyEvent = (eventForm) => (dispatch) => {
     })
     .catch((err) => {
       nanobar.go(0);
-      console.log("ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRR", err);
       dispatch({ type: MODIFY_EVENT_REJECTED, payload: err.response.data });
     });
 };

@@ -37,16 +37,17 @@ describe('SignUpForm Component', () => {
   });
 
   describe('SignUp page events', () => {
-  
     it('it should handle onChange event', () => {
       const wrapper = shallow(<SignUpForm {...props} />);
       const emailInput = wrapper.find('[name="email"]');
+      expect(emailInput.length).toEqual(1);
       emailInput.simulate('change', { target: {} });
     });
 
     it('it should submit form', () => {
       const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedSignUpForm /></Provider></BrowserRouter>);
       const button = wrapper.find('.btn');
+      expect(button.length).toEqual(1);
       button.simulate('click', { preventDefault: () => {} });
     });
   });

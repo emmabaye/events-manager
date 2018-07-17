@@ -23,7 +23,9 @@ describe('SignInForm Component', () => {
     });
 
     it('it should render for connected component', () => {
-      const wrapper = shallow(<BrowserRouter><Provider store={store}><ConnectedSignInForm /></Provider></BrowserRouter>);
+      const wrapper = shallow(<BrowserRouter>
+        <Provider store={store}><ConnectedSignInForm /></Provider>
+      </BrowserRouter>);
       expect(wrapper.length).toEqual(1);
     });
 
@@ -46,8 +48,8 @@ describe('SignInForm Component', () => {
     it('it should submit form', () => {
       const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedSignInForm /></Provider></BrowserRouter>);
       const button = wrapper.find('.btn');
+      expect(button.length).toEqual(1);
       button.simulate('click', { preventDefault: () => {} });
     });
-
   });
 });

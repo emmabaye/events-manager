@@ -57,6 +57,7 @@ describe('ModifyEvent Component', () => {
         </Provider>
       </BrowserRouter>);
       const button = wrapper.find('.btn');
+      expect(button.length).toEqual(1);
       button.simulate('click', { preventDefault: () => {} });
     });
   });

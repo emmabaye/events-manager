@@ -42,6 +42,7 @@ describe('AddEvent Component', () => {
     it('it should submit form', () => {
       const wrapper = mount(<BrowserRouter><Provider store={store}><ConnectedAddEvent /></Provider></BrowserRouter>);
       const button = wrapper.find('.btn');
+      expect(button.length).toEqual(1);
       button.simulate('click', { preventDefault: () => {} });
     });
   });
