@@ -39,13 +39,13 @@ describe('Center Component', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  /*
- it('it should handle onClick event', () => {
+ /*it('it should handle onClick event', () => {
     const wrapper = shallow(<BrowserRouter><Provider store={store} ><Center {...props} /></Provider></BrowserRouter>);
-    let viewCenterButton = wrapper.find('.btn-primary');
+    //let viewCenterButton = wrapper.find('.btn-primary');
+    //expect(viewCenterButton.length).toEqual(1);
     let submitButton = wrapper.find('.btn-success');
+    expect(submitButton.length).toEqual(1);
     viewCenterButton.simulate('click');
     submitButton.simulate('click');
-  });
-  */
+  });  */
 });

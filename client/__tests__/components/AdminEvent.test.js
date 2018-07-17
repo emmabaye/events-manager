@@ -24,13 +24,4 @@ describe('AdminEvent Component', () => {
     const wrapper = mount(<BrowserRouter><AdminEvent {...props} /></BrowserRouter>);
     expect(wrapper.length).toEqual(1);
   });
-
- /*
-  it('it should handle onClick event', () => {
-    const wrapper = shallow(<BrowserRouter><AdminEvent {...props} /></BrowserRouter>);
-    let viewEventButton = wrapper.find('Link');
-    viewEventButton.simulate('click');
-  });
-  */
-  
 });

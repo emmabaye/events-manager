@@ -52,10 +52,9 @@ describe('AddCenter Component', () => {
 
     it('it should submit form', () => {
       const wrapper = mount(<Provider store={store}><ConnectedAddCenter /></Provider>);
-      //const spy = sinon.spy(wrapper.instance(), 'handleSubmit');
       const button = wrapper.find('.btn');
+      expect(button.length).toEqual(1);
       button.simulate('click', { preventDefault: () => {} });
-      // expect(spy.calledOnce).toBeTruthy();
     });
   });
 });

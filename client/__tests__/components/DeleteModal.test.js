@@ -28,9 +28,10 @@ describe('DeleteModal Component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('it should handle onClick event', () => {
+ it('it should handle onClick event', () => {
     const wrapper = mount(<Provider store={store}><ConnectedDeleteModal {...props} /></Provider>);
     let DeleteButton = wrapper.find('.btn-danger');
+    expect(DeleteButton.length).toEqual(1);
     DeleteButton.simulate('click');
   });
 });

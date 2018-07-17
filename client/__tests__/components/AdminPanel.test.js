@@ -8,12 +8,8 @@ describe('AdminPanel Component', () => {
   describe('AdminPanel form  should render self', () => {
     it('it should render for dumb component', () => {
       const wrapper = shallow(<AdminPanel />);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('it should render component', () => {
-      const wrapper = shallow(<AdminPanel />);
       expect(wrapper.length).toEqual(1);
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });

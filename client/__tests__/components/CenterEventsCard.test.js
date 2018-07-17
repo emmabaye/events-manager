@@ -49,11 +49,5 @@ describe('CenterEventsCard Component', () => {
       expect(wrapper).toMatchSnapshot();
       expect(wrapper.length).toEqual(1);
     });
-
-    it('it should return center events rows', () => {
-      const wrapper = mount(<Provider store={store} ><CenterEventsCard /></Provider>);
-      expect(wrapper).toMatchSnapshot();
-      expect(wrapper.length).toEqual(1);
-    });
   });
 });
