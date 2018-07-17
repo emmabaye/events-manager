@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import Nanobar from 'nanobar';
 import NavBar from './NavBar.jsx';
+import Pagination from './Pagination.jsx';
 import Event from './Event.jsx';
+import { getUserEvents } from '../actions/eventAction';
 import { history } from '../routes';
 
 /**
@@ -43,6 +44,7 @@ export class MyEvents extends Component {
     }
   }
 
+
   /**
    * Make style changes after component has mounted.
    * Gets user's event
@@ -51,7 +53,9 @@ export class MyEvents extends Component {
    */
   componentDidMount() {
     document.body.title = 'My Events | Events Manager';
-    document.body.style.backgroundImage = "url('../img/ambitious-creative-co-rick-barrett-110145.jpg')";
+    document.body.style.backgroundImage = "url('https://res.cloudinary.com" +
+    "/emmabaye/image/upload/q_auto:low/v1531758756/events-manager" +
+    "/ambitious-creative-co-rick-barrett-110145.jpg')";
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
@@ -64,49 +68,9 @@ export class MyEvents extends Component {
     } catch (e) {
       return history.push("/login");
     }
-
-    let userId = jwtDecode(token).id;
     let nanobar = new Nanobar();
     nanobar.go(40);
-
-    axios({
-      method: 'GET',
-      url: `/api/v1/users/${userId}`,
-      withCredentials: true,
-    })
-      .then((response) => {
-        nanobar.go(100);
-        this.setState({ myEvents: response.data.data.Events });
-      })
-      .catch((err) => {
-        nanobar.go(0);
-        console.log(err.response);
-      });
-  }
-
-  /**
-   * Updates component state
-   *
-   * @return {undefined}
-   */
-  componentDidUpdate() {
-    let token = localStorage.getItem('x-access-token');
-    let decoded = jwtDecode(token);
-    let userId = decoded.id;
-
-    axios({
-      method: 'GET',
-      url: `/api/v1/users/${userId}`,
-      withCredentials: true,
-    })
-      .then((response) => {
-        if (this.state.myEvents.length > response.data.data.Events.length) {
-          this.setState({ myEvents: response.data.data.Events });
-        }
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+    this.props.dispatch(getUserEvents(1));
   }
 
   /**
@@ -116,20 +80,86 @@ export class MyEvents extends Component {
    * @return {object}
    */
   render() {
+    if (this.props.myEvents === undefined) {
+      return null;
+    }
     return (
       <div>
         <NavBar page="MyEvents" auth/>
         <div className="container events">
           <div className="row event-row">
+            { this.props.myEvents.data.rows.length < 1 &&
+              <a href="#" 
+                style={
+                  { 
+                    textDecoration: "none", 
+                    color: "white", 
+                    textShadow: "1px 1px 1px black, -1px -1px 1px black" 
+                  }
+                } >
+                ADD EVENT
+                <div
+                  style={
+                    {
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "290px",
+                      width: "300px",
+                      color: "white",
+                      borderStyle: "solid",
+                      borderColor: "white",
+                      borderWidth: "2px",
+                      borderRadius: "3px"
+                    }
+                  }>
+                  <div
+                    style={
+                      {
+                        position: "absolute",
+                        backgroundColor: "white",
+                        height: "inherit",
+                        width: "inherit",
+                        zIndex: "-1",
+                        opacity: "0.8"
+                      }
+                    } />
+
+                  <i style={{ textShadow: "1px 1px 1px black, -1px -1px 1px black" }} className="fa fa-plus fa-5x" />
+                </div></a>
+            }
             {
-              (this.state.myEvents.map((event) => <Event key={event.id} eventDetails={event} />))
+              (this.props.myEvents.data.rows.map((event) => <Event key={event.id} eventDetails={event} />))
             }
           </div>
+          { this.props.myEvents.data.rows.length > 0 &&
+          <Pagination
+            firstPage={this.props.myEvents.data.page.firstPage}
+            currentPage={this.props.myEvents.data.page.currentPage}
+            previousPage={this.props.myEvents.data.page.previousPage}
+            nextPage={this.props.myEvents.data.page.nextPage}
+            lastPage={this.props.myEvents.data.page.lastPage}
+            dispatch={this.props.dispatch}
+            getItems={getUserEvents}
+          />
+          }
         </div>
       </div>
     );
   }
 }
+
+/**
+ * Makes redux dispatch method available in this
+ * components props
+ *
+ * @param  {object} dispatch dispatch method
+ * @return {object} props object
+ */
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: (actionObject) => dispatch(actionObject)
+});
 
 /**
  * Makes the necessary  redux state available in this
@@ -139,11 +169,11 @@ export class MyEvents extends Component {
  * @return {object} props object
  */
 const mapStateToProps = (state) => ({
-  allState: state.userReducer
+  myEvents: state.eventReducer.userEvents
 });
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(MyEvents);
 

@@ -69,11 +69,11 @@ class AdminPanelBody extends Component {
                 onClick={() => this.show('centers')}>Centers</a>
               <a href="#add-center" className="list-group-item list-group-item-action add-center-button"
                 onClick={() => this.show('addCenter')}>Add Center</a>
-              <a href="#events" className="list-group-item list-group-item-action" >Events</a>
+              <a href="/events" className="list-group-item list-group-item-action" >Events</a>
               <a href="#users" className="list-group-item list-group-item-action">Users</a>
             </div>
           </div>
-          <div className="col-sm-10 panel-column">
+          <div className="col-sm-10 panel-column" style={{ backgroundColor: "#ffffff" }}>
             { (this.state.centers.visible) && <AdminCenters show={this.show} /> }
             { (this.state.addCenter.visible) && <AddCenter show={this.show} /> }
             { (this.state.modifyCenter.visible) &&

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterDetails Component CenterDetails form  should render self it should render for dumb component 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "blank",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <CenterDetails
+    center={
+      Object {
+        "data": Array [
+          Object {
+            "Events": Array [],
+            "available": "false",
+            "capacity": "500",
+            "description": Object {
+              "substr": [Function],
+            },
+            "id": "1",
+            "image": "",
+            "location": Object {
+              "substr": [Function],
+            },
+            "name": "City Hall",
+            "price": "50000",
+          },
+        ],
+      }
+    }
+    centerId="1"
+    dispatch={[Function]}
+    match={
+      Object {
+        "params": Object {
+          "id": "1",
+        },
+      }
+    }
+  />
+</Router>
+`;

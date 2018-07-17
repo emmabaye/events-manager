@@ -10,12 +10,12 @@ const centerValidation = (req, res, next) => {
   let fields = ['Name', 'Description', 'Location', 'Capacity', 'Facilities', 'Price'];
 
   for (let i = 0; i < fields.length; i++) {
-    if (req.body[fields[i].toLowerCase()] === 'undefined') {
+    if (req.body[fields[i].toLowerCase()] === undefined) {
       return res.status(400).send({ message: `${fields[i]} is required` });
     }
   }
 
-  if (Number.isNaN(req.body[fields[5].toLowerCase()])) {
+  if (Number.isNaN(req.body.price)) {
     return res.status(400).send({ message: 'Price must be a number' });
   }
 
@@ -24,7 +24,6 @@ const centerValidation = (req, res, next) => {
       errors.push(`${fields[i]} is required`);
     }
   }
-
 
   if (Number.isNaN(parseInt(req.body[fields[3].toLowerCase()], 10))) {
     return res.status(400).send({ message: 'Capacity must be a number' });

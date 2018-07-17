@@ -5,7 +5,9 @@
   "main": "./server/server.js",
   "scripts": {
     "start": "node ./build/server.js",
+    "build-client": "node ./node_modules/webpack/bin/webpack.js -p",
     "build-server": " node ./node_modules/babel-cli/bin/babel.js -d ./build ./server",
+    "postinstall": "npm run build-client",
     "heroku-postbuild": "npm run populate-db && npm run build-server",
     "populate-db": "npm run unmigrate && npm run migrate",
     "migrate": "node ./node_modules/sequelize-cli/lib/sequelize db:migrate && npm run seed",
@@ -13,7 +15,8 @@
     "seed": "node ./node_modules/sequelize-cli/lib/sequelize db:seed:all",
     "start-dev": "nodemon --exec node ./node_modules/babel-cli/bin/babel-node.js ./server/server.js",
     "test": "nyc mocha --compilers js:babel-core/register ./server/test --timeout 60000 --exit",
-    "test-client": "jest --watch --coverage",
+    "test-client": "jest --coverage",
+    "test-client-watch": "jest --watch --coverage",
     "e2e-setup": "node node_modules/selenium-standalone/bin/selenium-standalone install",
     "test-e2e": "nightwatch",
     "coverage": "nyc report --reporter=lcov --reporter=text-lcov | coveralls",
@@ -58,7 +61,8 @@
     "react-test-renderer": "^16.2.0",
     "redux-mock-store": "^1.4.0",
     "sass-loader": "^6.0.6",
-    "selenium-standalone": "^6.12.0",
+    "selenium-standalone": "^6.14.1",
+    "sinon": "^6.1.3",
     "style-loader": "^0.19.0"
   },
   "dependencies": {
@@ -100,7 +104,7 @@
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.22.8",
     "sequelize-cli": "^3.1.0",
-    "supertest": "^3.0.0",
+    "supertest": "^3.1.0",
     "swagger-ui-express": "^2.0.11",
     "validator": "^9.1.1",
     "webpack": "^3.8.1",

@@ -1,5 +1,12 @@
 body {
 	background-color: #262626;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+	max-width: 100%;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -57,7 +64,7 @@ p {
 /* Capacity */
 .capacity {
 	height: 500px;
-	background-image: url('../img/deklerk-basson-44610.jpg');
+	background-image: url('https://res.cloudinary.com/emmabaye/image/upload/q_auto:low/v1531758702/events-manager/deklerk-basson-44610.jpg');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -72,13 +79,11 @@ p {
 
 /* Footer */
 footer {
-	max-height: 25px !important;
-	color: black;
+	max-height: 50px !important;
+	color: white;
 	border-top-style: solid;
 	border-top-color: black;
 	border-top-width: 1px;
-	margin-left: 40px !important;
-	margin-right: 40px !important;
 }
 
 footer p {
@@ -90,7 +95,7 @@ footer p {
 	padding-top: 5%;
 	width: 100%;
 	min-height: 600px;
-	background-image: url('../img/samuel-zeller-103111.jpg');
+	background-image: url('https://res.cloudinary.com/emmabaye/image/upload/q_auto:low/v1531758732/events-manager/samuel-zeller-103111.jpg');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fix;
@@ -138,7 +143,7 @@ footer p {
 	padding-top: 5%;
 	width: 100%;
 	min-height: 600px;
-	background-image: url('../img/chaz-mcgregor-51043.jpg');
+	background-image: url('https://res.cloudinary.com/emmabaye/image/upload/q_auto:low/v1531758685/events-manager/chaz-mcgregor-51043.jpg');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
