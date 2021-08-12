@@ -98,7 +98,7 @@ npm run lint
 
 ## Deployment
 
-The scripts in package.json are setup for ease of deployment on Heroku or any nodejs hosting provider. Follow this tutorial if you need help, https://devcenter.heroku.com/articles/deploying-nodejs
+The scripts in package.json are setup for ease of deployment on Heroku or any Nodejs hosting provider. Follow this tutorial if you need help, https://devcenter.heroku.com/articles/deploying-nodejs
 
 ## Built With
 
@@ -117,7 +117,7 @@ The scripts in package.json are setup for ease of deployment on Heroku or any no
 
 ## Contributing
 
-Feel free to contribute to this repository. Your pull requests are welcomed
+Feel free to contribute to this repository. Your pull requests are welcomed.
 
 ## Authors
 
