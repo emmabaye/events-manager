@@ -9,6 +9,7 @@ Application for managing event centers. This app will help you accept applicatio
 to use your center/facilities, and will either decline events when the proposed day
 is already taken, or suggest an available day
 
+Frontend static pages live at  https://emmabaye.github.io/events-manager/template/index.htm <br/>
 Live at https://events-manager-abaye.herokuapp.com <br/>
 API docs at https://events-manager-abaye.herokuapp.com/api-docs/
 
